@@ -2,23 +2,23 @@
 
 
 !**** Runtime
-plugin@org.eclipse.core.contenttype=v20081029-1100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.contenttype
+plugin@org.eclipse.core.contenttype=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.contenttype
 
 !**** Resources
-plugin@org.eclipse.core.resources=v20081103,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources
-fragment@org.eclipse.core.resources.win32=v20080508,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32
-fragment@org.eclipse.core.resources.win32.x86=v20081020,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32.x86
-fragment@org.eclipse.core.resources.win32.ia64=v20081020,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32.ia64
-fragment@org.eclipse.core.resources.compatibility=v20080604-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.compatibility
+plugin@org.eclipse.core.resources=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources
+fragment@org.eclipse.core.resources.win32=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32
+fragment@org.eclipse.core.resources.win32.x86=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32.x86
+fragment@org.eclipse.core.resources.win32.ia64=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32.ia64
+fragment@org.eclipse.core.resources.compatibility=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.compatibility
 
 !**** File System
-plugin@org.eclipse.core.filesystem=v20081010,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem
-fragment@org.eclipse.core.filesystem.win32.x86=v20080604-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.win32.x86
-fragment@org.eclipse.core.filesystem.win32.ia64=v20071121,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.win32.ia64
-fragment@org.eclipse.core.filesystem.linux.x86=v20080604-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.linux.x86
-fragment@org.eclipse.core.filesystem.linux.x86_64=v20080604-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.linux.x86_64
-fragment@org.eclipse.core.filesystem.linux.ppc=v20080604-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.linux.ppc
-fragment@org.eclipse.core.filesystem.solaris.sparc=v20080604-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.solaris.sparc
+plugin@org.eclipse.core.filesystem=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem
+fragment@org.eclipse.core.filesystem.win32.x86=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.win32.x86
+fragment@org.eclipse.core.filesystem.win32.ia64=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.win32.ia64
+fragment@org.eclipse.core.filesystem.linux.x86=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.linux.x86
+fragment@org.eclipse.core.filesystem.linux.x86_64=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.linux.x86_64
+fragment@org.eclipse.core.filesystem.linux.ppc=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.linux.ppc
+fragment@org.eclipse.core.filesystem.solaris.sparc=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.solaris.sparc
 
 !**** Test Suites
 #plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/
