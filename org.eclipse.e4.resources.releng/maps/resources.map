@@ -20,6 +20,10 @@ fragment@org.eclipse.core.filesystem.linux.x86_64=e4-root,:pserver:anonymous@dev
 fragment@org.eclipse.core.filesystem.linux.ppc=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.linux.ppc
 fragment@org.eclipse.core.filesystem.solaris.sparc=e4-root,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.solaris.sparc
 
+
+!**** and build it
+feature@org.eclipse.e4.resources.feature=HEAD,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.feature
+
 !**** Test Suites
 #plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/
 #plugin@org.eclipse.core.tests.resources=v20081103,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/
