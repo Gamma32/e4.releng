@@ -20,6 +20,14 @@ fragment@org.eclipse.core.filesystem.linux.x86_64=v20081110,:pserver:anonymous@d
 fragment@org.eclipse.core.filesystem.linux.ppc=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.linux.ppc
 fragment@org.eclipse.core.filesystem.solaris.sparc=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.solaris.sparc
 
+fragment@org.eclipse.core.filesystem.hpux.ia64_32=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.hpux.ia64_32
+fragment@org.eclipse.core.filesystem.hpux.PA_RISC=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.hpux.PA_RISC
+fragment@org.eclipse.core.filesystem.macosx=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.macosx
+fragment@org.eclipse.core.filesystem.qnx.x86=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem.qnx.x86
+
+!**** Temporary UI placeholder
+
+plugin@org.eclipse.ui.ide=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.ui.ide
 
 !**** and build it
 feature@org.eclipse.e4.resources.feature=HEAD,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.feature
