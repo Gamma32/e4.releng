@@ -32,7 +32,7 @@ plugin@org.eclipse.ui.ide=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/
 !**** and build it
 feature@org.eclipse.e4.resources.feature=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.feature
 feature@org.eclipse.e4.resources.tests.feature=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.tests.feature
-feature@org.eclipse.e4.resources.patch=HEAD,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.feature
+feature@org.eclipse.e4.resources.patch=HEAD,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.patch
 
 
 !**** Test Suites
