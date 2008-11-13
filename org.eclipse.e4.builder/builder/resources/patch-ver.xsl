@@ -6,6 +6,10 @@
     <xsl:attribute name="range">[3.5.0,4.0.0)</xsl:attribute>
   </xsl:template>
   
+  <xsl:template match="@range[../@name='org.eclipse.rcp.feature.group']">
+    <xsl:attribute name="range">[3.5.0,4.0.0)</xsl:attribute>
+  </xsl:template>
+  
   <!-- Whenever you match any node or any attribute -->
   <xsl:template match="node()|@*">
     <!-- Copy the current node -->
