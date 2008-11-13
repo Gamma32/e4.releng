@@ -139,7 +139,10 @@
 	<!-- ===================================================================== -->
 	<target name="postBuild">
 		<antcall target="gatherLogs" />
-		<xslt style="${basedir}/patch-ver.xsl" in="${p2.metadata.repo}/content.xml" out="${p2.metadata.repo}/tmp_content.xml" />
+		<xslt style="${builder}/patch-ver.xsl" in="${p2.repo}/content.xml" out="${p2.repo}/out_content.xml">
+			<outputproperty name="method" value="xml"/>
+		</xslt>
+		<move file="${p2.repo}/out_content.xml" tofile="${p2.repo}/content.xml" />
 	</target>
 
 	<!-- ===================================================================== -->

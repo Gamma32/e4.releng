@@ -2,7 +2,9 @@
 <xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:template match="@range[../@name='org.eclipse.platform.feature.group']">[3.5.0,4.0.0)</xsl:template>
+  <xsl:template match="@range[../@name='org.eclipse.platform.feature.group']">
+    <xsl:attribute name="range">[3.5.0,4.0.0)</xsl:attribute>
+  </xsl:template>
   
   <!-- Whenever you match any node or any attribute -->
   <xsl:template match="node()|@*">
