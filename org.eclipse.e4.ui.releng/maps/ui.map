@@ -10,7 +10,7 @@ plugin@org.eclipse.e4.demo.e4photo=v20081114,:pserver:anonymous@dev.eclipse.org:
 !**** and build it
 feature@org.eclipse.e4.ui.feature=v20081114,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.feature
 feature@org.eclipse.e4.ui.examples.feature=v20081114,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.examples.feature
-feature@org.eclipse.e4.ui.master=v20081114,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.examples.feature
+feature@org.eclipse.e4.ui.master=v20081114,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.master
 
 
 !**** Test Suites
