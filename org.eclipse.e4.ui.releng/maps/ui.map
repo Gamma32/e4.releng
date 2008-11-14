@@ -1,0 +1,17 @@
+!**** e4 UI
+plugin@org.eclipse.e4.core.services=v20081114,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services
+plugin@org.eclipse.e4.ui.services=v20081114,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.services
+plugin@org.eclipse.e4.ui.model.workbench=v20081114,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.model.workbench
+plugin@org.eclipse.e4.ui.workbench=v20081114,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench
+
+
+!**** and build it
+feature@org.eclipse.e4.ui.feature=v20081114,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.feature
+
+
+!**** Test Suites
+#plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+#plugin@org.eclipse.test.performance=v20081108,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+
+#plugin@org.eclipse.core.tests.resources=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.tests.resources
+#plugin@org.eclipse.osgi.tests=v20081103-1800,:pserver:anonymous@dev.eclipse.org:/cvsroot/rt,,org.eclipse.equinox/framework/bundles/org.eclipse.osgi.tests
