@@ -1,0 +1,16 @@
+!**** e4 SWT AS tools
+plugin@org.eclipse.jdt.compiler.as=v20081117,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.jdt.compiler.as
+plugin@org.eclipse.swt.tools.actionscript.core=v20081117,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.core
+plugin@org.eclipse.swt.tools.actionscript.ui=v20081117,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.ui
+
+
+!**** and build it
+feature@/org.eclipse.e4.swt.as.feature=v20081117,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/features//org.eclipse.e4.swt.as.feature
+
+
+!**** Test Suites
+#plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+#plugin@org.eclipse.test.performance=v20081108,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+
+#plugin@org.eclipse.core.tests.resources=v20081110,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.tests.resources
+#plugin@org.eclipse.osgi.tests=v20081103-1800,:pserver:anonymous@dev.eclipse.org:/cvsroot/rt,,org.eclipse.equinox/framework/bundles/org.eclipse.osgi.tests
