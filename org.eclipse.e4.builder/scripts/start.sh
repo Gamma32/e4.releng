@@ -15,7 +15,7 @@ dependURL=""; # loaded from -URL
 branch=HEAD
 projRelengBranch="HEAD"; # default set below
 commonRelengBranch="HEAD"; # default set below
-basebuilderBranch="R35_M2";
+basebuilderBranch="R35_M3plus";
 antTarget=run
 buildAlias=""
 buildType=N
@@ -143,6 +143,19 @@ $cmd
 runSubProjectBuild ui
 runSubProjectBuild resources
 runSubProjectBuild swt
+
+mergeRepo () {
+echo "[start] [`date +%H\:%M\:%S`] Run the repo builder
+cmd="$javaHome/bin/java -enableassertions \
+  -cp $cpAndMain \
+  -application org.eclipse.equinox.p2.metadata.repository.mirrorApplication \
+  -source file:$buildDir/$1/repository \
+  -destination file:$buildDir/repository "
+}
+
+mergeRepo ui
+mergeRepo resources
+mergeRepo swt
 
 #/opt/local/ibm-java2-i386-50/bin/javaw \
 #-Declipse.p2.data.area=@config.dir/p2 \
