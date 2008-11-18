@@ -126,7 +126,7 @@ cpAndMain=`find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar
 echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
 echo $javaHome/bin/java -enableassertions \
   -cp $cpAndMain \
-  -application org.eclipse.ant.core.antRunner
+  -application org.eclipse.ant.core.antRunner \
   -buildfile "$buildfile" \
   -Dbuilder=$buildDir \
   -Dbuilddate=$builddate \
