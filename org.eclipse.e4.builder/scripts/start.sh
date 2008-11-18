@@ -31,6 +31,7 @@ depsFile=""; # dependencies file
 projectName2="";
 projRelengRoot=":pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse"; # default if not specified when building
 topprojectName="";
+e4builder=org.eclipse.e4.builder
 
 function usage()
 {
@@ -514,6 +515,28 @@ else
   echo "[start] Export skipped (dir already exists)."
 fi
 echo ""
+
+echo "[start] [`date +%H\:%M\:%S`] Export $e4builder using "$projRelengBranch;
+if [[ -d $writableBuildRoot/build/$e4builder ]] || [[ -L $writableBuildRoot/build/$e4builder ]]; then
+  echo "[start] Copy from $writableBuildRoot/build/$e4builder."
+  cp -r $writableBuildRoot/build/$e4builder $buildDir/$e4builder 
+elif [[ -d $writableBuildRoot/build/$e4builder_${projRelengBranch} ]]; then
+  echo "[start] Copy from $writableBuildRoot/build/$e4builder_${projRelengBranch}."
+  cp -r $writableBuildRoot/build/$e4builder_${projRelengBranch} $buildDir/$e4builder 
+elif [[ ! -d $buildDir/$e4builder ]]; then 
+  if [[ ! ${projRelengRoot##*svn*} ]]; then # checkout from svn
+  	# svn -q export -r HEAD http://dev.eclipse.org/svnroot/technology/org.eclipse.linuxtools/releng/trunk/org.eclipse.linuxtools.releng org.eclipse.linuxtools.releng
+	cmd="svn $quietSVN export -r $projRelengBranch ${projRelengRoot//\'/}/$projRelengPath $e4builder";
+  else
+  	cmd="cvs -d ${projRelengRoot//\'/} $quietCVS ex -r $projRelengBranch -d $e4builder $projRelengPath";
+  fi
+  echo "  "$cmd; $cmd; 
+  echo "[start] [`date +%H\:%M\:%S`] Export done."
+else
+  echo "[start] Export skipped (dir already exists)."
+fi
+echo ""
+
 
 cd $buildDir;
 
