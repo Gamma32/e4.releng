@@ -465,9 +465,7 @@ mkdir -p $buildDir/eclipse; cd $buildDir;
 # add some properties to build.cfg
 buildcfg="$buildDir/build.cfg";
 echo "Storing build properties in $buildcfg";
-#echo -n "" > $buildcfg; # truncate file if exists; create if not
-cp $relengBuilderDir/$e4builder/$subprojectName/* $buildDir
-cp $buildDir/build.properties $buildcfg
+echo -n "" > $buildcfg; # truncate file if exists; create if not
 
 cat $tmpfile >> $buildcfg;
 echo "" >> $buildcfg;
@@ -554,6 +552,8 @@ echo "relengBaseBuilderDir=$relengBaseBuilderDir" >> $buildcfg;
 
 echo "java.home=$JAVA_HOME" >> $buildcfg;
 
+cp $relengBuilderDir/$e4builder/$subprojectName/* $buildDir
+cat $buildDir/build.properties >>$buildcfg
 #cat $relengBuilderDir/$e4builder/$subprojectName/build.properties >> $buildcfg;
 cat $relengCommonBuilderDir/build.properties >> $buildcfg;
 cat $configfile >> $buildcfg;
