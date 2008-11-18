@@ -15,7 +15,7 @@ dependURL=""; # loaded from -URL
 branch=HEAD
 projRelengBranch="HEAD"; # default set below
 commonRelengBranch="HEAD"; # default set below
-basebuilderBranch="R35_M3plus";
+basebuilderBranch="vI20081118-0800";
 antTarget=run
 buildAlias=""
 buildType=N
@@ -151,6 +151,16 @@ echo "[start] [`date +%H\:%M\:%S`] Run the repo builder"
 cmd="$javaHome/bin/java -enableassertions \
   -cp $cpAndMain \
   -application org.eclipse.equinox.p2.metadata.repository.mirrorApplication \
+  -append \
+  -source file:$buildDir/$1/repository \
+  -destination file:$buildDir/repository "
+echo $cmd
+$cmd
+
+cmd="$javaHome/bin/java -enableassertions \
+  -cp $cpAndMain \
+  -application org.eclipse.equinox.p2.artifact.repository.mirrorApplication \
+  -append \
   -source file:$buildDir/$1/repository \
   -destination file:$buildDir/repository "
 echo $cmd
