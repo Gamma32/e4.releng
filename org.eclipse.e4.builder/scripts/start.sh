@@ -32,7 +32,7 @@ quietSVN=-q; # quiet
 depsFile=""; # dependencies file 
 projectName2="";
 projectName=e4
-subprojectName=resources
+#subprojectName=resources
 projRelengRoot=":pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse"; # default if not specified when building
 topprojectName="eclipse";
 e4builder=org.eclipse.e4.builder
@@ -123,18 +123,24 @@ echo "[start] [`date +%H\:%M\:%S`] Export done."
 buildDirEclipse="$buildDir/eclipse"
 buildfile=$relengBaseBuilderDir/plugins/org.eclipse.pde.build_3.5.0.N20081008-2000/scripts/build.xml
 cpAndMain=`find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar" | sort | head -1`" org.eclipse.equinox.launcher.Main";
+
+runSubProjectBuild () {
 echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
 cmd="$javaHome/bin/java -enableassertions \
   -cp $cpAndMain \
   -application org.eclipse.ant.core.antRunner \
   -buildfile $buildfile \
-  -Dbuilder=$buildDir/$e4builder/builder/$subprojectName \
+  -Dbuilder=$buildDir/$e4builder/builder/$1 \
   -Dbuilddate=$builddate \
   -Dbuildtime=$buildtime \
   -DbuildArea=$buildDir \
-  -DbuildDirectory=$buildDirEclipse "
+  -DbuildDirectory=$buildDir/$1 "
 echo $cmd
 $cmd
+}
+
+runSubProjectBuild resources
+runSubProjectBuild ui
 
 #/opt/local/ibm-java2-i386-50/bin/javaw \
 #-Declipse.p2.data.area=@config.dir/p2 \
