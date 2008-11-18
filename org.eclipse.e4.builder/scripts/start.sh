@@ -31,8 +31,8 @@ quietCVS=-Q; # QUIET!
 quietSVN=-q; # quiet
 depsFile=""; # dependencies file 
 projectName2="";
-projectName=e4
-#subprojectName=resources
+projectName=eclipse
+subprojectName=e4
 projRelengRoot=":pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse"; # default if not specified when building
 topprojectName="eclipse";
 e4builder=org.eclipse.e4.builder
@@ -139,8 +139,8 @@ echo $cmd
 $cmd
 }
 
-runSubProjectBuild resources
 runSubProjectBuild ui
+runSubProjectBuild resources
 
 #/opt/local/ibm-java2-i386-50/bin/javaw \
 #-Declipse.p2.data.area=@config.dir/p2 \
