@@ -31,10 +31,10 @@ quietCVS=-Q; # QUIET!
 quietSVN=-q; # quiet
 depsFile=""; # dependencies file 
 projectName2="";
-projectName=eclipse
-subprojectName=e4
+projectName=e4
+subprojectName=resources
 projRelengRoot=":pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse"; # default if not specified when building
-topprojectName="";
+topprojectName="eclipse";
 e4builder=org.eclipse.e4.builder
 
 echo "[start] [`date +%H\:%M\:%S`] Started on `date +%Y%m%d` with the following options:"
@@ -120,7 +120,7 @@ cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS ex -r 
 echo "  "$cmd; $cmd; 
 echo "[start] [`date +%H\:%M\:%S`] Export done."
 
-
+buildDirEclipse="$buildDir/eclipse"
 buildfile=$relengBaseBuilderDir/plugins/org.eclipse.pde.build_3.5.0.N20081008-2000/scripts/build.xml
 cpAndMain=`find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar" | sort | head -1`" org.eclipse.equinox.launcher.Main";
 echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
