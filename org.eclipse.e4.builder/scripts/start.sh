@@ -19,7 +19,7 @@ basebuilderBranch="R35_M2";
 antTarget=run
 buildAlias=""
 buildType=N
-javaHome=""
+javaHome=/opt/public/common/ibm-java2-ppc-50
 downloadsDir=""; # default set below
 builddate=$( date +%Y%m%d )
 buildtime=$( date +%H%M )
@@ -53,7 +53,7 @@ else
 fi
 
 export HOME=$writableBuildRoot
-export JAVA_HOME=/opt/public/common/ibm-java2-ppc-50
+export JAVA_HOME=$javaHome
 export ANT_HOME=/opt/public/common/apache-ant-1.7.0
 export ANT=$ANT_HOME"/bin/ant"
 
@@ -116,7 +116,7 @@ else
 fi
 echo ""
 
-cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS ex -d $e4builder e4/releng/$e4builder"
+cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS ex -r $projRelengBranch -d $e4builder e4/releng/$e4builder"
 echo "  "$cmd; $cmd; 
 echo "[start] [`date +%H\:%M\:%S`] Export done."
 
