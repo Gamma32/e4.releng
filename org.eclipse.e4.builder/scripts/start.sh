@@ -283,6 +283,13 @@ while [ "$#" -gt 0 ]; do
 	shift 1
 done	
 
+# TODO: similar hack for m2t.common and m2t.shared?
+if [[ $projectName = "e4" ]]; then
+  subprojectName2="e4."$subprojectName; # exception case for org.eclipse.emf.foo
+else
+  subprojectName2=$subprojectName; # everyone else, org.eclipse.foo
+fi
+
 
 lockfile=$writableBuildRoot"/tmp/${projectName}-${subprojectName}_${version}.lock.txt";
 if [[ -f $lockfile ]]; then # eg., mdt-eodm_2.0.0.lock.txt
