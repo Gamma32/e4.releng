@@ -534,6 +534,7 @@ cd $buildDir/org.eclipse.dash.common.releng/tools/scripts
 #echo [start] Now in $PWD
 
 ###################################### BEGIN RUN ######################################
+exit
 
 echo "relengBuilderDir=$relengBuilderDir" >> $buildcfg;
 echo "relengCommonBuilderDir=$relengCommonBuilderDir" >> $buildcfg;
