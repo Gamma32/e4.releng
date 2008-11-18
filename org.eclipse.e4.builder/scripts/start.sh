@@ -121,7 +121,9 @@ echo "  "$cmd; $cmd;
 echo "[start] [`date +%H\:%M\:%S`] Export done."
 
 buildDirEclipse="$buildDir/eclipse"
-buildfile=$relengBaseBuilderDir/plugins/org.eclipse.pde.build_3.5.0.N20081008-2000/scripts/build.xml
+pdeDir=`find $relengBaseBuilderDir/ -name "org.eclipse.pde.build_*" | sort | head -1`
+
+buildfile=$pdeDir/scripts/build.xml
 cpAndMain=`find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar" | sort | head -1`" org.eclipse.equinox.launcher.Main";
 
 runSubProjectBuild () {
