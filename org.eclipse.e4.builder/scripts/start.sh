@@ -128,7 +128,7 @@ cmd="$javaHome/bin/java -enableassertions \
   -cp $cpAndMain \
   -application org.eclipse.ant.core.antRunner \
   -buildfile $buildfile \
-  -Dbuilder=$buildDir/$e4Builder/$subprojectName \
+  -Dbuilder=$buildDir/$e4builder/$subprojectName \
   -Dbuilddate=$builddate \
   -Dbuildtime=$buildtime \
   -DbuildArea=$buildDir \
