@@ -542,7 +542,7 @@ cd $buildDir/org.eclipse.dash.common.releng/tools/scripts
 #echo [start] Now in $PWD
 
 ###################################### BEGIN RUN ######################################
-exit
+
 
 echo "relengBuilderDir=$relengBuilderDir" >> $buildcfg;
 echo "relengCommonBuilderDir=$relengCommonBuilderDir" >> $buildcfg;
@@ -550,7 +550,7 @@ echo "relengBaseBuilderDir=$relengBaseBuilderDir" >> $buildcfg;
 
 echo "java.home=$JAVA_HOME" >> $buildcfg;
 
-cat $relengBuilderDir/build.properties >> $buildcfg;
+cat $relengBuilderDir/$e4builder/resources/build.properties >> $buildcfg;
 cat $relengCommonBuilderDir/build.properties >> $buildcfg;
 cat $configfile >> $buildcfg;
 
@@ -594,6 +594,7 @@ done
 $relengCommonBuilderDir/tools/scripts/executeCommand.sh "$command"
 
 ###################################### BEGIN BUILD ######################################
+exit
 
 # different ways to get the launcher and Main class
 if [[ -f $relengBaseBuilderDir/startup.jar ]]; then 
