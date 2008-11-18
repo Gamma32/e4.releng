@@ -124,15 +124,17 @@ buildDirEclipse="$buildDir/eclipse"
 buildfile=$relengBaseBuilderDir/plugins/org.eclipse.pde.build_3.5.0.N20081008-2000/scripts/build.xml
 cpAndMain=`find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar" | sort | head -1`" org.eclipse.equinox.launcher.Main";
 echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
-echo $javaHome/bin/java -enableassertions \
+cmd="$javaHome/bin/java -enableassertions \
   -cp $cpAndMain \
   -application org.eclipse.ant.core.antRunner \
-  -buildfile "$buildfile" \
-  -Dbuilder=$buildDir \
+  -buildfile $buildfile \
+  -Dbuilder=$buildDir/$e4Builder/$subprojectName \
   -Dbuilddate=$builddate \
   -Dbuildtime=$buildtime \
   -DbuildArea=$buildDir \
-  -DbuildDirectory=$buildDirEclipse 
+  -DbuildDirectory=$buildDirEclipse "
+echo $cmd
+$cmd
 
 #/opt/local/ibm-java2-i386-50/bin/javaw \
 #-Declipse.p2.data.area=@config.dir/p2 \
