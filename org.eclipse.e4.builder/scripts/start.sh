@@ -134,13 +134,15 @@ cmd="$javaHome/bin/java -enableassertions \
   -Dbuilddate=$builddate \
   -Dbuildtime=$buildtime \
   -DbuildArea=$buildDir \
-  -DbuildDirectory=$buildDir/$1 "
+  -DbuildDirectory=$buildDir/$1 \
+  -Dflex.sdk=$writableBuildRoot/flex_sdk_3.2.0.3794_mpl"
 echo $cmd
 $cmd
 }
 
 runSubProjectBuild ui
 runSubProjectBuild resources
+runSubProjectBuild swt
 
 #/opt/local/ibm-java2-i386-50/bin/javaw \
 #-Declipse.p2.data.area=@config.dir/p2 \
