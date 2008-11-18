@@ -18,7 +18,7 @@ commonRelengBranch="HEAD"; # default set below
 basebuilderBranch="vI20081118-0800";
 antTarget=run
 buildAlias=""
-buildType=N
+buildType=I
 javaHome=/opt/public/common/ibm-java2-ppc-50
 downloadsDir=""; # default set below
 builddate=$( date +%Y%m%d )
@@ -137,6 +137,8 @@ cmd="$javaHome/bin/java -enableassertions \
   -Dbuildtime=$buildtime \
   -DbuildArea=$buildDir \
   -DbuildDirectory=$buildDir/$1 \
+  -DmapsRepo=pwebster@dev.eclipse.org:/cvsroot/eclipse \
+  -DtagMaps=true \
   -Dflex.sdk=$writableBuildRoot/flex_sdk_3.2.0.3794_mpl"
 echo $cmd
 $cmd
