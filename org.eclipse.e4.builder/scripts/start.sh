@@ -55,8 +55,11 @@ fi
 export HOME=$writableBuildRoot
 export JAVA_HOME=/opt/public/common/ibm-java2-ppc-50
 export ANT_HOME=/opt/public/common/apache-ant-1.7.0
+export ANT=$ANT_HOME"/bin/ant"
 
 buildDir=$writableBuildRoot/build/$projectName/$subprojectName/downloads/drops/$version/$buildType$buildTimestamp
+echo "[start] Creating build directory $buildDir"
+mkdir -p $buildDir/eclipse; cd $buildDir;
 
 echo "";
 echo "Environment variables: ";
