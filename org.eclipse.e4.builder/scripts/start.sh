@@ -21,7 +21,9 @@ buildAlias=""
 buildType=N
 javaHome=""
 downloadsDir=""; # default set below
-buildTimestamp=`date +%Y%m%d%H%M`
+builddate=$( date +%Y%m%d )
+buildtime=$( date +%H%M )
+buildTimestamp=$builddate$buildtime
 buildDir=""; # default set below
 email=""
 noclean=0; # clean up temp files when done
@@ -463,7 +465,9 @@ mkdir -p $buildDir/eclipse; cd $buildDir;
 # add some properties to build.cfg
 buildcfg="$buildDir/build.cfg";
 echo "Storing build properties in $buildcfg";
-echo -n "" > $buildcfg; # truncate file if exists; create if not
+#echo -n "" > $buildcfg; # truncate file if exists; create if not
+cp $relengBuilderDir/$e4builder/$subprojectName/* $buildDir
+cp $buildDir/build.properties $buildcfg
 
 cat $tmpfile >> $buildcfg;
 echo "" >> $buildcfg;
@@ -550,78 +554,36 @@ echo "relengBaseBuilderDir=$relengBaseBuilderDir" >> $buildcfg;
 
 echo "java.home=$JAVA_HOME" >> $buildcfg;
 
-cat $relengBuilderDir/$e4builder/resources/build.properties >> $buildcfg;
+#cat $relengBuilderDir/$e4builder/$subprojectName/build.properties >> $buildcfg;
 cat $relengCommonBuilderDir/build.properties >> $buildcfg;
 cat $configfile >> $buildcfg;
+cp $buildcfg $buildDir/build.properties
 
-# Default value for the build timestamp
-buildID=$buildTimestamp
 
-# Getting the build tag
-if [[ $mapfileRule = "gen-true" ]]; then
-	if [[ $mapfileTag ]]; then
-		buildTag=$mapfileTag;
-	else
-		buildTag=$buildType$buildTimestamp;
-	fi		
-else
-	buildTag=$branch;
-fi
-
-buildDirEclipse="$buildDir/eclipse"
-
-echo "buildID: $buildID"
-echo "buildTag: $buildTag, mapfileRule: $mapfileRule"
-echo "buildDirEclipse: $buildDirEclipse"
-echo "baseLocation=$buildDirEclipse" >> $buildcfg;
-
-$relengCommonBuilderDir/tools/scripts/executeCommand.sh "mkdir -p $buildDirEclipse $downloadsDir"
-
-# Creates the .map file (aka directory.txt), build.cfg (build settings), testManifest.xml, and testing.properties
-command="$relengCommonBuilderDir/tools/scripts/genBuildDetails.sh"
-command=$command" -proj $projectName"
-command=$command" -sub $subprojectName"
-command=$command" -projRelengRoot $projRelengRoot"
-command=$command" -baseDir $relengBuilderDir"
-command=$command" -branch $branch"
-command=$command" -writableBuildRoot $writableBuildRoot"
-if [[ $projRelengBranch ]]; then command=$command" -projRelengBranch $projRelengBranch"; fi # override default $branch
-command=$command" -mapfileRule $mapfileRule"
-command=$command" -buildTag $buildTag"
-for dep in $dependURL; do
-	command=$command" -URL $dep"
-done
-$relengCommonBuilderDir/tools/scripts/executeCommand.sh "$command"
-
-###################################### BEGIN BUILD ######################################
-exit
-
-# different ways to get the launcher and Main class
-if [[ -f $relengBaseBuilderDir/startup.jar ]]; then 
-  cpAndMain="$relengBaseBuilderDir/startup.jar org.eclipse.core.launcher.Main"; # up to M4_33
-elif [[ -f $relengBaseBuilderDir/plugins/org.eclipse.equinox.launcher.jar ]]; then
-  cpAndMain="$relengBaseBuilderDir/plugins/org.eclipse.equinox.launcher.jar org.eclipse.equinox.launcher.Main"; # M5_33
-else
-  cpAndMain=`find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar" | sort | head -1`" org.eclipse.equinox.launcher.Main"; 
-fi
-
+buildfile=$relengBaseBuilderDir/plugins/org.eclipse.pde.build_3.5.0.N20081008-2000/scripts/build.xml
+cpAndMain=`find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar" | sort | head -1`" org.eclipse.equinox.launcher.Main";
 echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
+$javaHome/bin/java -enableassertions \
+  -cp $cpAndMain \
+  -application org.eclipse.ant.core.antRunner
+  -buildfile "$buildfile" \
+  -Dbuilder=$buildDir \
+  -Dbuilddate=$builddate \
+  -Dbuildtime=$buildtime \
+  -DbuildArea=$buildDir \
+  -DbuildDirectory=$buildDirEclipse 
 
-# TODO: to support a SVN repo for the project's sources, need to include svn-pde-plugin
-# http://sourceforge.net/project/showfiles.php?group_id=181297
-# see also CQ 2779
-command="$javaHome/bin/java -enableassertions -cp $cpAndMain"
-command=$command" -application org.eclipse.ant.core.antRunner"
-command=$command" -f $relengCommonBuilderDir/buildAll.xml $antTarget"
-command=$command" -DmapVersionTag=$buildTag"
-command=$command" -DbuildType=$buildType"
-command=$command" -DbuildID=$buildID"
-command=$command" -Dtimestamp=$buildTimestamp"
-command=$command" -DbuildDirectory=$buildDirEclipse"
-if [[ $buildAlias ]]; then command=$command" -DbuildAlias=$buildAlias"; fi
-command=$command" -DdownloadsDir=$downloadsDir"
-command=$command" -DJAVA_HOME=$JAVA_HOME"
-$relengCommonBuilderDir/tools/scripts/executeCommand.sh "$command"
+#/opt/local/ibm-java2-i386-50/bin/javaw \
+#-Declipse.p2.data.area=@config.dir/p2 \
+#-Declipse.pde.launch=true -Dfile.encoding=UTF-8 \
+#-os linux -ws gtk -arch x86 -nl en_US \
+#-buildfile /opt/pwebster/workspaces/e4-swt/org.eclipse.pde.build/scripts/build.xml \
+#-Dbuilder=/opt/pwebster/workspaces/e4-swt/org.eclipse.e4.builder/builder/swt \
+#-Dbuilddate=20081117 \
+#-Dbuildtime=1500 \
+#-Dflex.sdk=/opt/public/common/flex_sdk_3.2.0.3794_mpl
+#-buildfile ${resource_loc:/org.eclipse.pde.build/scripts/build.xml} -Dbuilder=${resource_loc:/org.eclipse.e4.builder/builder/resources} -Dbuilddate=20081114 -Dbuildtime=${string_prompt:time}
+
 
 ###################################### END BUILD ######################################
 
