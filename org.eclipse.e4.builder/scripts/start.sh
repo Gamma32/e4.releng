@@ -38,6 +38,64 @@ topprojectName="eclipse";
 e4builder=org.eclipse.e4.builder
 
 echo "[start] [`date +%H\:%M\:%S`] Started on `date +%Y%m%d` with the following options:"
+while [ "$#" -gt 0 ]; do
+	case $1 in
+		'-branch')
+			branch=$2;
+			echo "   $1 $2";
+#			echo "${1:1}=$2" >> $tmpfile
+			shift 1
+			;;
+		'-javaHome')
+			javaHome=$2;
+			echo "   $1 $2";
+#			echo "${1:1}=$2" >> $tmpfile
+			shift 1
+			;;
+		'-buildType')
+			buildType=$2;
+			echo "   $1 $2";
+#			echo "${1:1}=$2" >> $tmpfile
+			shift 1
+			;;
+		'-mapfileTag')
+			mapfileTag=$2;
+			echo "   $1 $2";
+#			echo "${1:1}=$2" >> $tmpfile
+			shift 1
+			;;
+		'-email')
+			email=$2;
+			echo "   $1 $2";
+#			echo "${1:1}=$2" >> $tmpfile
+			shift 1
+			;;
+		'-projRelengRoot')
+			projRelengRoot=$2;
+			echo "   $1 $2";
+#			echo "${1:1}=$2" >> $tmpfile
+			shift 1
+			;;
+		'-projRelengPath')
+			projRelengPath=$2;
+			echo "   $1 $2";
+#			echo "${1:1}=$2" >> $tmpfile
+			shift 1
+			;;
+		'-projRelengBranch')
+			projRelengBranch=$2;
+			echo "   $1 $2";
+#			echo "${1:1}=$2" >> $tmpfile
+			shift 1
+			;;
+		'-tagMaps')
+			tagMaps=true;
+			echo "   $1 true";
+#			echo "${1:1}=$2" >> $tmpfile
+			;;
+	esac
+	shift 1
+done	
 
 
 # set environment variables
@@ -57,9 +115,10 @@ export JAVA_HOME=$javaHome
 export ANT_HOME=/opt/public/common/apache-ant-1.7.0
 export ANT=$ANT_HOME"/bin/ant"
 
-buildDir=$writableBuildRoot/build/$projectName/$subprojectName/downloads/drops/$version/$buildType$buildTimestamp
+buildDir=$writableBuildRoot/build/$subprojectName/downloads/drops/$version
+buildDirectory=$buildDir/$buildType$buildTimestamp
 echo "[start] Creating build directory $buildDir"
-mkdir -p $buildDir/eclipse; cd $buildDir;
+mkdir -p $buildDirectory/eclipse; cd $buildDirectory;
 
 echo "";
 echo "Environment variables: ";
@@ -126,27 +185,25 @@ pdeDir=`find $relengBaseBuilderDir/ -name "org.eclipse.pde.build_*" | sort | hea
 buildfile=$pdeDir/scripts/build.xml
 cpAndMain=`find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar" | sort | head -1`" org.eclipse.equinox.launcher.Main";
 
-runSubProjectBuild () {
+runFeatureBuild () {
 echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
 cmd="$javaHome/bin/java -enableassertions \
   -cp $cpAndMain \
   -application org.eclipse.ant.core.antRunner \
   -buildfile $buildfile \
-  -Dbuilder=$buildDir/$e4builder/builder/$1 \
+  -Dbuilder=$buildDir/$e4builder/builder/general \
   -Dbuilddate=$builddate \
   -Dbuildtime=$buildtime \
   -DbuildArea=$buildDir \
-  -DbuildDirectory=$buildDir/$1 \
-  -DmapsRepo=pwebster@dev.eclipse.org:/cvsroot/eclipse \
-  -DtagMaps=true \
-  -Dflex.sdk=$writableBuildRoot/flex_sdk_3.2.0.3794_mpl"
+  -DbuildDirectory=$buildDire \
+  -DmapsRepo=$projRelengRoot \
+  -Dflex.sdk=$writableBuildRoot/flex_sdk_3.2.0.3794_mpl "
+if [ ! -z "$tagMaps" ]; then cmd="$cmd -DtagMaps=true "; fi
 echo $cmd
 $cmd
 }
 
-runSubProjectBuild ui
-runSubProjectBuild resources
-runSubProjectBuild swt
+runFeatureBuild org.eclipse.e4.master
 
 mergeRepo () {
 echo "[start] [`date +%H\:%M\:%S`] Run the repo builder"
@@ -169,9 +226,7 @@ echo $cmd
 $cmd
 }
 
-mergeRepo ui
-mergeRepo resources
-mergeRepo swt
+
 
 #/opt/local/ibm-java2-i386-50/bin/javaw \
 #-Declipse.p2.data.area=@config.dir/p2 \
