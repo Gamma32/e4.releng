@@ -3,5 +3,6 @@
 <provider id="org.eclipse.team.cvs.core.cvsnature">
 <project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.demo.e4photo,org.eclipse.e4.demo.e4photo"/>
 <project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.examples.feature,org.eclipse.e4.ui.examples.feature"/>
+<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/technology,org.eclipse.swt.nebula/org.eclipse.nebula.widgets.gallery,org.eclipse.nebula.widgets.gallery,v20081117"/>
 </provider>
 </psf>
