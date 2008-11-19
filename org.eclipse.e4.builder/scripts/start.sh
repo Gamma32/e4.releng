@@ -36,6 +36,7 @@ subprojectName=e4
 projRelengRoot=":pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse"; # default if not specified when building
 topprojectName="eclipse";
 e4builder=org.eclipse.e4.builder
+featureId=org.eclipse.e4.master
 
 echo "[start] [`date +%H\:%M\:%S`] Started on `date +%Y%m%d` with the following options:"
 while [ "$#" -gt 0 ]; do
@@ -92,6 +93,12 @@ while [ "$#" -gt 0 ]; do
 			tagMaps=true;
 			echo "   $1 true";
 #			echo "${1:1}=$2" >> $tmpfile
+			;;
+		'-featureId')
+			featureId=$2;
+			echo "   $1 $2";
+#			echo "${1:1}=$2" >> $tmpfile
+			shift 1
 			;;
 	esac
 	shift 1
@@ -197,8 +204,11 @@ cmd="$javaHome/bin/java -enableassertions \
   -DbuildArea=$buildDir \
   -DbuildDirectory=$buildDire \
   -DmapsRepo=$projRelengRoot \
+  -DtopLevelElementId=$featureId \
   -Dflex.sdk=$writableBuildRoot/flex_sdk_3.2.0.3794_mpl "
+  
 if [ ! -z "$tagMaps" ]; then cmd="$cmd -DtagMaps=true "; fi
+
 echo $cmd
 $cmd
 }
