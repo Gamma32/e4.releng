@@ -12,6 +12,8 @@ feature@org.eclipse.e4.ui.feature=v20081119,:pserver:anonymous@dev.eclipse.org:/
 feature@org.eclipse.e4.ui.examples.feature=v20081119,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.examples.feature
 
 
+feature@org.eclipse.e4.master=v20081119,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.master
+
 !**** Test Suites
 #plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 #plugin@org.eclipse.test.performance=v20081108,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
