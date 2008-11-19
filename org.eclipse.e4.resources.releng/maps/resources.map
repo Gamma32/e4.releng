@@ -37,8 +37,8 @@ feature@org.eclipse.e4.resources.rcp.patch=v20081119,:pserver:anonymous@dev.ecli
 
 
 !**** Test Suites
-plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
-plugin@org.eclipse.test.performance=v20081108,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+#plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+#plugin@org.eclipse.test.performance=v20081108,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 plugin@org.eclipse.core.tests.resources=v20081119,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.tests.resources
 plugin@org.eclipse.core.tests.resources.saveparticipant=v20081119,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.tests.resources.saveparticipant
