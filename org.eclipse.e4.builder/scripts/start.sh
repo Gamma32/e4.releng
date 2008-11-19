@@ -204,7 +204,7 @@ cmd="$javaHome/bin/java -enableassertions \
   -DbuildArea=$buildDir \
   -DbuildDirectory=$buildDirectory \
   -DmapsRepo=$projRelengRoot \
-  -DtopLevelElementId=$featureId \
+  -DtopLevelElementId=$1 \
   -Dflex.sdk=$writableBuildRoot/flex_sdk_3.2.0.3794_mpl "
   
 if [ ! -z "$tagMaps" ]; then cmd="$cmd -DtagMaps=true "; fi
@@ -213,7 +213,7 @@ echo $cmd
 $cmd
 }
 
-runFeatureBuild org.eclipse.e4.master
+runFeatureBuild $featureId
 
 mergeRepo () {
 echo "[start] [`date +%H\:%M\:%S`] Run the repo builder"
