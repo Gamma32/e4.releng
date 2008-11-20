@@ -100,6 +100,12 @@ while [ "$#" -gt 0 ]; do
 #			echo "${1:1}=$2" >> $tmpfile
 			shift 1
 			;;
+		'-publishDir')
+			publishDir=$2;
+			echo "   $1 $2";
+#			echo "${1:1}=$2" >> $tmpfile
+			shift 1
+			;;
 	esac
 	shift 1
 done	
@@ -251,6 +257,8 @@ $cmd
 
 
 ###################################### END BUILD ######################################
+
+if [ ! -z "$publishDir" ]; then scp -r $buildDir/$buildType$buildTimestamp "$publishDir"; fi
 
 echo "[start] [`date +%H\:%M\:%S`] start.sh finished."
 echo ""
