@@ -150,6 +150,21 @@
 			<outputproperty name="method" value="xml"/>
 		</xslt>
 		<move file="${p2.repo}/out_content.xml" tofile="${p2.repo}/content.xml" />
+		<tstamp>
+		<format property="repmaindate" pattern="yyyy MMMM dd HH:mm" locale="en"/>
+		</tstamp>
+		<filter token="repbuildid" value="${buildLabel}"/>
+		<filter token="repmaindate" value="${repmaindate}"/>
+		<filter token="repbuilddate" value="${buildLabel}"/>
+		<filter token="repbuildsize" value="32 MB"/>
+		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${buildDirectory}/${buildLabel}/index.html" />
+		
+		<copy file="${builder}/../../templates/FAIL.gif" tofile="${buildDirectory}/${buildLabel}/FAIL.gif" />
+		<copy file="${builder}/../../templates/new.gif" tofile="${buildDirectory}/${buildLabel}/new.gif" />
+		<copy file="${builder}/../../templates/OK.gif" tofile="${buildDirectory}/${buildLabel}/OK.gif" />
+		<copy file="${builder}/../../templates/build.download.php" tofile="${buildDirectory}/${buildLabel}/download.php" />
+		<move file="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildId}-group.group.group.zip" tofile="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildLabel}.zip" />
+		<copy file="${buildDirectory}/directory.txt" todir="${buildDirectory}/${buildLabel}" />
 	</target>
 
 	<!-- ===================================================================== -->
