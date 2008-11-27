@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <psf version="2.0">
 <provider id="org.eclipse.team.cvs.core.cvsnature">
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,org.eclipse.core.tests.harness,org.eclipse.core.tests.harness"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.swt/features/org.eclipse.e4.swt.as.tests.feature,org.eclipse.e4.swt.as.tests.feature"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.swt/tests/org.eclipse.jdt.compiler.as.tests,org.eclipse.jdt.compiler.as.tests"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,org.eclipse.jdt.core.tests.compiler,org.eclipse.jdt.core.tests.compiler"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,org.eclipse.test.performance,org.eclipse.test.performance"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,org.eclipse.core.tests.harness,org.eclipse.core.tests.harness"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.swt/features/org.eclipse.e4.swt.as.tests.feature,org.eclipse.e4.swt.as.tests.feature"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.swt/tests/org.eclipse.jdt.compiler.as.tests,org.eclipse.jdt.compiler.as.tests"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,org.eclipse.jdt.core.tests.compiler,org.eclipse.jdt.core.tests.compiler"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,org.eclipse.test.performance,org.eclipse.test.performance"/>
 </provider>
 </psf>
