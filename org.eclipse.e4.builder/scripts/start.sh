@@ -71,6 +71,12 @@ while [ "$#" -gt 0 ]; do
 #			echo "${1:1}=$2" >> $tmpfile
 			shift 1
 			;;
+		'-eclipseIBuild')
+			eclipseIBuild=$2;
+			echo "   $1 $2";
+#			echo "${1:1}=$2" >> $tmpfile
+			shift 1
+			;;
 		'-projRelengRoot')
 			projRelengRoot=$2;
 			echo "   $1 $2";
@@ -128,6 +134,7 @@ export JAVA_HOME=$javaHome
 export ANT_HOME=/opt/public/common/apache-ant-1.7.0
 export ANT=$ANT_HOME"/bin/ant"
 
+supportDir=$writableBuildRoot/build/$subprojectName
 buildDir=$writableBuildRoot/build/$subprojectName/downloads/drops/$version
 buildDirectory=$buildDir/$buildType$buildTimestamp
 echo "[start] Creating build directory $buildDir"
@@ -142,56 +149,8 @@ echo "  ANT       = $ANT";
 echo "  PHP       = $PHP";
 echo "";
 
-relengCommonBuilderDir=$buildDir/org.eclipse.dash.common.releng
-relengBaseBuilderDir=$buildDir/org.eclipse.releng.basebuilder
 
-echo "";
-echo "  **** Export releng projects from CVS. NOTE: if the following 2 branch values are wrong, override using a debug build. ****"
-echo "";
-
-echo "[start] [`date +%H\:%M\:%S`] Export org.eclipse.dash.common.releng using "$commonRelengBranch;
-if [[ -d $writableBuildRoot/build/org.eclipse.dash.common.releng ]] || [[ -L $writableBuildRoot/build/org.eclipse.dash.common.releng ]]; then
-  echo "[start] Copy from $writableBuildRoot/build/org.eclipse.dash.common.releng."
-  cp -r $writableBuildRoot/build/org.eclipse.dash.common.releng $buildDir/org.eclipse.dash.common.releng 
-elif [[ -d $writableBuildRoot/build/org.eclipse.dash.common.releng_${commonRelengBranch} ]]; then
-  echo "[start] Copy from $writableBuildRoot/build/org.eclipse.dash.common.releng_${commonRelengBranch}."
-  cp -r $writableBuildRoot/build/org.eclipse.dash.common.releng_${commonRelengBranch} $buildDir/org.eclipse.dash.common.releng 
-elif [[ ! -d $buildDir/org.eclipse.dash.common.releng ]]; then 
-  cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/technology $quietCVS ex -r $commonRelengBranch -d org.eclipse.dash.common.releng org.eclipse.dash/athena/org.eclipse.dash.commonbuilder/org.eclipse.dash.commonbuilder.releng";
-  echo "  "$cmd; $cmd; 
-  chmod 754 org.eclipse.dash.common.releng/tools/scripts/*.sh
-  echo "[start] [`date +%H\:%M\:%S`] Export done."
-else
-  echo "[start] Export skipped (dir already exists)."
-fi
-echo ""
-
-cd $buildDir;
-
-if [[ $basebuilderBranch ]]; then
-  echo "[start] [`date +%H\:%M\:%S`] Export org.eclipse.releng.basebuilder using "$basebuilderBranch;
-else
-  echo "[start] [`date +%H\:%M\:%S`] Export org.eclipse.releng.basebuilder using HEAD";
-fi
-if [[ -d $writableBuildRoot/build/org.eclipse.releng.basebuilder ]] || [[ -L $writableBuildRoot/build/org.eclipse.releng.basebuilder ]]; then
-  echo "[start] Copy from $writableBuildRoot/build/org.eclipse.releng.basebuilder."
-  cp -r $writableBuildRoot/build/org.eclipse.releng.basebuilder $buildDir/org.eclipse.releng.basebuilder 
-elif [[ -d $writableBuildRoot/build/org.eclipse.releng.basebuilder_${basebuilderBranch} ]]; then
-  echo "[start] Copy from $writableBuildRoot/build/org.eclipse.releng.basebuilder_${basebuilderBranch}."
-  cp -r $writableBuildRoot/build/org.eclipse.releng.basebuilder_${basebuilderBranch} $buildDir/org.eclipse.releng.basebuilder 
-elif [[ ! -d $buildDir/org.eclipse.releng.basebuilder ]]; then 
-  cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS ex -r $basebuilderBranch org.eclipse.releng.basebuilder"
-  echo "  "$cmd; $cmd; 
-  echo "[start] [`date +%H\:%M\:%S`] Export done."
-else
-  echo "[start] Export skipped (dir already exists)."
-fi
-echo ""
-
-cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS ex -r $projRelengBranch -d $e4builder e4/releng/$e4builder"
-echo "  "$cmd; $cmd; 
-echo "[start] [`date +%H\:%M\:%S`] Export done."
-
+relengBaseBuilderDir=$supportDir/org.eclipse.releng.basebuilder
 buildDirEclipse="$buildDir/eclipse"
 pdeDir=`find $relengBaseBuilderDir/ -name "org.eclipse.pde.build_*" | sort | head -1`
 
@@ -204,9 +163,10 @@ cmd="$javaHome/bin/java -enableassertions \
   -cp $cpAndMain \
   -application org.eclipse.ant.core.antRunner \
   -buildfile $buildfile \
-  -Dbuilder=$buildDir/$e4builder/builder/general \
+  -Dbuilder=$supportDir/org.eclipse.e4.builder/builder/general \
   -Dbuilddate=$builddate \
   -Dbuildtime=$buildtime \
+  -DeclipseBuildId=$eclipseIBuild \
   -DbuildArea=$buildDir \
   -DbuildDirectory=$buildDirectory \
   -DmapsRepo=$projRelengRoot \
