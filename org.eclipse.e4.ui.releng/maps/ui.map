@@ -5,7 +5,8 @@ plugin@org.eclipse.e4.ui.model.workbench=v20081120-1100,:pserver:anonymous@dev.e
 plugin@org.eclipse.e4.ui.workbench=v20081120-1100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench
 plugin@org.eclipse.nebula.widgets.gallery=v20081117,:pserver:anonymous@dev.eclipse.org:/cvsroot/technology,,org.eclipse.swt.nebula/org.eclipse.nebula.widgets.gallery
 plugin@org.eclipse.e4.demo.e4photo=v20081120-1100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.demo.e4photo
-
+plugin@org.eclipse.e4.core.javascript=HEAD,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.javascript
+plugin@org.mozilla.javascript,1.6.6=GET,http://download.eclipse.org/tools/orbit/downloads/drops/R20080807152315/bundles/org.mozilla.javascript_1.6.6.v200806030331.jar
 
 !**** and build it
 feature@org.eclipse.e4.ui.feature=v20081120-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.feature
