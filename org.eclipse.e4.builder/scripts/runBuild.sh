@@ -57,6 +57,13 @@ echo "[start] [`date +%H\:%M\:%S`] setting eclipse $eclipseIBuild"
 
 
 buildFeature() {
+if [ "$1" = "repo" ]; then
+  repo="-genRepo"
+  shift
+else
+  repo=""
+fi
+
 ./start.sh \
   -writableBuildRoot /shared/eclipse/e4 \
   -version 4.0.0 \
@@ -69,6 +76,7 @@ buildFeature() {
   -eclipseIBuild $eclipseIBuild \
   -javaHome /opt/public/common/ibm-java2-ppc-50 \
   -featureId "$1" \
+  $repo \
   $tagMaps \
   $publ \
   2>&1 | tee /shared/eclipse/e4/logs/buildlog_`date +%Y%m%d%H%M%S`.txt
@@ -76,7 +84,11 @@ buildFeature() {
 
 }
 
-buildFeature org.eclipse.e4.resources.feature
-buildFeature org.eclipse.e4.swt.as.feature
-buildFeature org.eclipse.e4.ui.feature
+buildFeature repo org.eclipse.e4.resources.feature
+buildFeature repo org.eclipse.e4.swt.as.feature
+buildFeature repo org.eclipse.e4.ui.feature
+
+buildFeature org.eclipse.e4.resources.tests.feature
+buildFeature org.eclipse.e4.swt.as.tests.feature
+buildFeature org.eclipse.e4.ui.examples.feature
 
