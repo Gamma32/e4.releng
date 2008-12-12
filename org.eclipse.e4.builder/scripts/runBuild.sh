@@ -13,7 +13,7 @@ projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
 #projRoot='pwebster@dev.eclipse.org:/cvsroot/eclipse'
 #tagMaps=-tagMaps
 #publish
-#publ="-publishDir pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads/drops "
+#publishDir="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads/drops "
 
 
 # first, let's check out all of those pesky projects
@@ -91,4 +91,27 @@ buildFeature repo org.eclipse.e4.ui.feature
 buildFeature org.eclipse.e4.resources.tests.feature
 buildFeature org.eclipse.e4.swt.as.tests.feature
 buildFeature org.eclipse.e4.ui.examples.feature
+
+buildTimestamp=${builddate}-${buildtime}
+buildDir=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0
+buildDirectory=$buildDir/I$buildTimestamp
+
+if [ ! -z "$publishDir" ]; then
+  echo Publishing  $buildDirectory/I$buildTimestamp to "$publishDir"
+  scp -r $buildDirectory/I$buildTimestamp "$publishDir"
+fi
+
+
+# try some tests
+#testDir=$buildDirectory/tests
+
+#cd $testDir
+#unzip $buildDirectory/../eclipse-Automated-Tests-${eclipseBuildId}.zip
+#cp $buildDirectory/../eclipse-SDK-${eclipseBuildId}-linux-gtk.tar.gz  eclipse-testing
+#cp $buildDirectory/../emf-runtime-2.4.1.zip eclipse-testing/eclipse-SDK-Iemf-runtime-2.4.1.zip
+#for f in $buildDirectory/I$buildTimestamp/*tests.feature.*.zip; do
+# cp $f eclipse-testing/eclipse-junit-tests-$f
+#done
+
+#cd eclipse-testing
 

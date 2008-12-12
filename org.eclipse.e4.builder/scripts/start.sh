@@ -247,10 +247,6 @@ $cmd
 
 ###################################### END BUILD ######################################
 
-if [ ! -z "$publishDir" ]; then
-  echo Publishing  $buildDirectory/$buildType$buildTimestamp to "$publishDir"
-  scp -r $buildDirectory/$buildType$buildTimestamp "$publishDir"
-fi
 
 echo "[start] [`date +%H\:%M\:%S`] start.sh finished."
 echo ""

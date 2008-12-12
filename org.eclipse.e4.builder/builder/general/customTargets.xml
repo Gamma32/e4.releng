@@ -15,14 +15,14 @@
 	<!-- ===================================================================== -->
 	<!-- ===================================================================== -->
 	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
-		<get src="${eclipseBaseURL}" dest="${buildDirectory}/../temp-base.zip" />
-		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../temp-base.zip" />
-		<get src="${eclipseTestURL}" dest="${buildDirectory}/../temp-base.zip" />
-		<unzip dest="${base}/tmp" overwrite="true" src="${buildDirectory}/../temp-base.zip" />
+		<get src="${eclipseBaseURL}/${eclipseBaseName}" dest="${buildDirectory}/../${eclipseBaseName}" />
+		<untar compression="gzip" dest="${base}" overwrite="true" src="${buildDirectory}/../${eclipseBaseName}" />
+		<get src="${eclipseBaseURL}/${eclipseTestName}" dest="${buildDirectory}/../${eclipseTestName}" />
+		<unzip dest="${base}/tmp" overwrite="true" src="${buildDirectory}/../${eclipseTestName}" />
 		<unzip dest="${base}" overwrite="true" src="${base}/tmp/eclipse-testing/eclipse-junit-tests-${eclipseBuildId}.zip" />
 		<delete dir="${base}/tmp" quiet="true"></delete>
-		<get src="${emfBaseURL}" dest="${buildDirectory}/../temp-base.zip" />
-		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../temp-base.zip" />
+		<get src="${emfBaseURL}/${emfBaseName}" dest="${buildDirectory}/../${emfBaseName}" />
+		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../${emfBaseName}" />
 	</target>
 
 	<target name="checkLocalBase">
