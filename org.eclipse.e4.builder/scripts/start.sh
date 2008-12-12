@@ -23,7 +23,7 @@ javaHome=/opt/public/common/ibm-java2-ppc-50
 downloadsDir=""; # default set below
 builddate=$( date +%Y%m%d )
 buildtime=$( date +%H%M )
-buildTimestamp=${builddate}-${buildtime}
+
 buildDir=""; # default set below
 email=""
 noclean=0; # clean up temp files when done
@@ -128,6 +128,7 @@ while [ "$#" -gt 0 ]; do
 	shift 1
 done	
 
+buildTimestamp=${builddate}-${buildtime}
 
 # set environment variables
 # get path to PHP interpreter
