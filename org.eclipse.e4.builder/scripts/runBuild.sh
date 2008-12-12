@@ -51,7 +51,7 @@ ln -s ${supportDir}/org.eclipse.e4.builder_${projRelengBranch} org.eclipse.e4.bu
 cd $supportDir/org.eclipse.e4.builder/scripts
 
 #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-win32.zip | tail -1 | cut -d/ -f9 )
-eclipseIBuild=I20081211-1105
+eclipseIBuild=I20081211-1908
 
 echo "[start] [`date +%H\:%M\:%S`] setting eclipse $eclipseIBuild"
 
