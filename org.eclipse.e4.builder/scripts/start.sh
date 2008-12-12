@@ -89,8 +89,8 @@ while [ "$#" -gt 0 ]; do
 #			echo "${1:1}=$2" >> $tmpfile
 			shift 1
 			;;
-		'-eclipseIBuild')
-			eclipseIBuild=$2;
+		'-projRelengRoot')
+			projRelengRoot=$2;
 			echo "   $1 $2";
 #			echo "${1:1}=$2" >> $tmpfile
 			shift 1
