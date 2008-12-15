@@ -165,6 +165,11 @@
 		<copy file="${builder}/../../templates/build.download.php" tofile="${buildDirectory}/${buildLabel}/download.php" />
 		<move file="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildId}-group.group.group.zip" tofile="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildLabel}.zip" />
 		<copy file="${buildDirectory}/directory.txt" todir="${buildDirectory}/${buildLabel}" />
+		<generateTestProperties
+					buildDirectory="${buildDirectory}"
+					featureId="org.eclipse.e4.swt.as.tests.feature"
+					outputFile="${buildDirectory}/${buildLabel}/e4.test.properties"
+				/>
 	</target>
 
 	<!-- ===================================================================== -->
