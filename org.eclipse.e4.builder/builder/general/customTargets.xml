@@ -167,7 +167,7 @@
 		<copy file="${buildDirectory}/directory.txt" todir="${buildDirectory}/${buildLabel}" />
 		<generateTestProperties
 					buildDirectory="${buildDirectory}"
-					featureId="org.eclipse.e4.swt.as.tests.feature"
+					featureId="${topLevelElementId}"
 					outputFile="${buildDirectory}/${buildLabel}/e4.test.properties"
 				/>
 	</target>
