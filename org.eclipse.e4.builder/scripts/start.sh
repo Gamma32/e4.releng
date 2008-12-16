@@ -201,7 +201,7 @@ if [ ! -z "$tagMaps" ]; then
   cmd="$cmd -DtagMaps=true "
 fi
 if [ ! -z "$genRepo" ]; then
-  cmd="$cmd -Dgenerate.p2.metadata=true -Dp2.publish.artifacts=true "
+  cmd="$cmd -DrunPackager=true -Dgenerate.p2.metadata=true -Dp2.publish.artifacts=true "
 fi
 
 echo $cmd
