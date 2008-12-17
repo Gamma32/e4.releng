@@ -17,7 +17,7 @@
 	<!-- The root of the eclipse installation -->
 	<property name="eclipse-home" value="${install}/eclipse" />
 	
-	<property name="repoLocation" value="${basedir}/../../${e4.buildId}/repository"/>
+	<property name="repoLocation" value="${basedir}/../../${buildId}/repository"/>
 
 	<!-- The directory that will contain all files containing information on the tests that ran.-->
 	<property name="results" value="${basedir}/results" />
@@ -86,7 +86,7 @@
 				-x eclipse/plugins/*.source*/**
 				-d ${install}/eclipse/dropins/" />
 		</exec>
-		<echo>-version 4.0.0.v${buildId}</echo>
+		<echo>-version 4.0.0.v${e4.buildId}</echo>
 		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
 			<arg line="-vm /opt/public/common/ibm-java2-ppc-50/bin/java" />
 			<arg line="-application org.eclipse.equinox.p2.director.app.application" />
