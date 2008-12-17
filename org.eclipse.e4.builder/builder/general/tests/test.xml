@@ -95,7 +95,7 @@
 			<arg line="-consoleLog" />
 			<arg line="-flavor tooling" />
 			<arg line="-installIU org.eclipse.e4.resources.feature" />
-			<arg line="-version 4.0.0.v${buildId}" />
+			<arg line="-version 4.0.0.v${e4.buildId}" />
 			<arg line="-p2.os ${os}" />
 			<arg line="-p2.ws ${ws}" />
 			<arg line="-p2.arch ${arch}" />
