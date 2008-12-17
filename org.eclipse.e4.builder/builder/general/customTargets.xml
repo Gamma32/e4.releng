@@ -157,7 +157,12 @@
 		<filter token="repmaindate" value="${repmaindate}"/>
 		<filter token="repbuilddate" value="${buildLabel}"/>
 		<filter token="repbuildsize" value="32 MB"/>
+		<filter token="timestamp" value="${timestamp}"/>
+		<filter token="buildType" value="${buildType}"/>
+		<filter token="buildId" value="${buildId}"/>
+		<filter token="buildLabel" value="${buildLabel}"/>
 		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${buildDirectory}/${buildLabel}/index.html" />
+		<copy filtering="true" file="${builder}/tests/build.label.properties" tofile="${buildDirectory}/label.properties" />
 		
 		<copy file="${builder}/../../templates/FAIL.gif" tofile="${buildDirectory}/${buildLabel}/FAIL.gif" />
 		<copy file="${builder}/../../templates/new.gif" tofile="${buildDirectory}/${buildLabel}/new.gif" />
@@ -168,7 +173,7 @@
 		<generateTestProperties
 					buildDirectory="${buildDirectory}"
 					featureId="${topLevelElementId}"
-					outputFile="${buildDirectory}/${buildLabel}/e4.test.properties"
+					outputFile="${buildDirectory}/test.properties"
 				/>
 	</target>
 
