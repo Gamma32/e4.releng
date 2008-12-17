@@ -5,6 +5,8 @@ supportDir=/shared/eclipse/e4/build/e4
 projRelengBranch="HEAD"; # default set below
 builddate=$( date +%Y%m%d )
 buildtime=$( date +%H%M )
+#builddate=20081215
+#buildtime=1845
 
 
 projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
@@ -39,7 +41,7 @@ if [[ ! -d org.eclipse.e4.builder_${projRelengBranch} ]]; then
   echo $cmd
   $cmd
 else
-  cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update org.eclipse.e4.builder_${projRelengBranch} "
+  cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -d org.eclipse.e4.builder_${projRelengBranch} "
   echo $cmd
   $cmd
 fi
@@ -96,22 +98,34 @@ buildTimestamp=${builddate}-${buildtime}
 buildDir=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0
 buildDirectory=$buildDir/I$buildTimestamp
 
+
+# try some tests
+testDir=$buildDirectory/tests
+mkdir -p $testDir
+
+cd $testDir
+unzip $buildDirectory/../eclipse-Automated-Tests-${eclipseIBuild}.zip
+cd eclipse-testing
+
+cp $buildDirectory/../eclipse-SDK-${eclipseIBuild}-linux-gtk.tar.gz  .
+cp $buildDirectory/../emf-runtime-2.4.1.zip .
+cat $buildDirectory/test.properties | grep -v org.eclipse.core.tests.resources.prerequisite.testplugins >> test.properties
+cat $buildDirectory/label.properties >> label.properties
+
+for f in $buildDirectory/I$buildTimestamp/*.zip; do
+  FN=$( basename $f )
+  echo Copying $FN
+  cp $f .
+done
+
+cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
+
+./runtests -os linux -ws gtk -arch x86 coreresources
+
+mkdir -p $buildDirectory/I$buildTimestamp/results
+cp -r results/* $buildDirectory/I$buildTimestamp/results
+
 if [ ! -z "$publishDir" ]; then
   echo Publishing  $buildDirectory/I$buildTimestamp to "$publishDir"
   scp -r $buildDirectory/I$buildTimestamp "$publishDir"
 fi
-
-
-# try some tests
-#testDir=$buildDirectory/tests
-
-#cd $testDir
-#unzip $buildDirectory/../eclipse-Automated-Tests-${eclipseBuildId}.zip
-#cp $buildDirectory/../eclipse-SDK-${eclipseBuildId}-linux-gtk.tar.gz  eclipse-testing
-#cp $buildDirectory/../emf-runtime-2.4.1.zip eclipse-testing/eclipse-SDK-Iemf-runtime-2.4.1.zip
-#for f in $buildDirectory/I$buildTimestamp/*tests.feature.*.zip; do
-# cp $f eclipse-testing/eclipse-junit-tests-$f
-#done
-
-#cd eclipse-testing
-
