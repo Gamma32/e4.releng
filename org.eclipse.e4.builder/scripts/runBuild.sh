@@ -7,6 +7,13 @@ builddate=$( date +%Y%m%d )
 buildtime=$( date +%H%M )
 #builddate=20081215
 #buildtime=1845
+arch="x86"
+archProp=""
+processor=$( uname -p )
+if [ $processor = ppc -o $processor = ppc64 ]; then
+  archProp="-ppc"
+  arch="ppc"
+fi
 
 
 projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
@@ -52,7 +59,7 @@ ln -s ${supportDir}/org.eclipse.e4.builder_${projRelengBranch} org.eclipse.e4.bu
 
 cd $supportDir/org.eclipse.e4.builder/scripts
 
-#eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk.tar.gz | tail -1 | cut -d/ -f9 )
+#eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
 eclipseIBuild=I20081211-1908
 
 echo "[start] [`date +%H\:%M\:%S`] setting eclipse $eclipseIBuild"
@@ -107,7 +114,7 @@ cd $testDir
 unzip $buildDirectory/../eclipse-Automated-Tests-${eclipseIBuild}.zip
 cd eclipse-testing
 
-cp $buildDirectory/../eclipse-SDK-${eclipseIBuild}-linux-gtk.tar.gz  .
+cp $buildDirectory/../eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz  .
 cp $buildDirectory/../emf-runtime-2.4.1.zip .
 cat $buildDirectory/test.properties | grep -v org.eclipse.core.tests.resources.prerequisite.testplugins >> test.properties
 cat $buildDirectory/label.properties >> label.properties
@@ -120,7 +127,7 @@ done
 
 cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
-./runtests -os linux -ws gtk -arch x86 coreresources
+./runtests -os linux -ws gtk -arch ${arch} coreresources
 
 mkdir -p $buildDirectory/I$buildTimestamp/results
 cp -r results/* $buildDirectory/I$buildTimestamp/results
