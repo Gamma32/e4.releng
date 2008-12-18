@@ -24,6 +24,14 @@ downloadsDir=""; # default set below
 builddate=$( date +%Y%m%d )
 buildtime=$( date +%H%M )
 
+arch=""
+archProp=""
+processor=$( uname -p )
+if [ $processor = ppc -o $processor = ppc64 ]; then
+  archProp="-DarchProp=-ppc
+  arch="-ppc"
+fi
+
 buildDir=""; # default set below
 email=""
 noclean=0; # clean up temp files when done
@@ -191,6 +199,7 @@ cmd="$javaHome/bin/java -enableassertions \
   -Dbuilddate=$builddate \
   -Dbuildtime=$buildtime \
   -DeclipseBuildId=$eclipseIBuild \
+  ${archProp} \
   -DbuildArea=$buildDir \
   -DbuildDirectory=$buildDirectory \
   -DmapsRepo=$projRelengRoot \
