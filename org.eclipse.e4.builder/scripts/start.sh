@@ -28,7 +28,7 @@ arch=""
 archProp=""
 processor=$( uname -p )
 if [ $processor = ppc -o $processor = ppc64 ]; then
-  archProp="-DarchProp=-ppc
+  archProp="-DarchProp=-ppc"
   arch="-ppc"
 fi
 
