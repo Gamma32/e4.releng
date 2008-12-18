@@ -696,4 +696,7 @@
 		<antcall target="equinoxp2ui" />
 		<antcall target="search" />
 	</target>
+	<target name="e4">
+		<antcall target="coreresources" />
+	</target>
 </project>

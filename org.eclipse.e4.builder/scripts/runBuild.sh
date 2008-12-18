@@ -127,7 +127,7 @@ done
 
 cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
-./runtests -os linux -ws gtk -arch ${arch} coreresources
+./runtests -os linux -ws gtk -arch ${arch} e4
 
 mkdir -p $buildDirectory/I$buildTimestamp/results
 cp -r results/* $buildDirectory/I$buildTimestamp/results
