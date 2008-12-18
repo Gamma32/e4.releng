@@ -60,7 +60,7 @@ ln -s ${supportDir}/org.eclipse.e4.builder_${projRelengBranch} org.eclipse.e4.bu
 cd $supportDir/org.eclipse.e4.builder/scripts
 
 #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
-eclipseIBuild=I20081211-1908
+eclipseIBuild=I20081216-0800
 
 echo "[start] [`date +%H\:%M\:%S`] setting eclipse $eclipseIBuild"
 
@@ -96,10 +96,12 @@ fi
 buildFeature repo org.eclipse.e4.resources.feature
 buildFeature repo org.eclipse.e4.swt.as.feature
 buildFeature repo org.eclipse.e4.ui.feature
+buildFeature repo org.eclipse.e4.ui.css.feature
 
 buildFeature org.eclipse.e4.resources.tests.feature
 buildFeature org.eclipse.e4.swt.as.tests.feature
 buildFeature org.eclipse.e4.ui.examples.feature
+buildFeature org.eclipse.e4.ui.tests.feature
 
 buildTimestamp=${builddate}-${buildtime}
 buildDir=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0
