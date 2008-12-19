@@ -161,6 +161,7 @@
 		<filter token="buildType" value="${buildType}"/>
 		<filter token="buildId" value="${buildId}"/>
 		<filter token="buildLabel" value="${buildLabel}"/>
+		<filter token="eclipseIbuild" value="${eclipseBuildId}"/>
 		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${buildDirectory}/${buildLabel}/index.html" />
 		<copy filtering="true" file="${builder}/tests/build.label.properties" tofile="${buildDirectory}/label.properties" />
 		
