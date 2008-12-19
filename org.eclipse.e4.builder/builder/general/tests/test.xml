@@ -118,7 +118,7 @@
 			<arg line="--launcher.suppressErrors" />
 			<arg line="-consoleLog" />
 			<arg line="-flavor tooling" />
-			<arg line="-installIU org.eclipse.e4.css.feature" />
+			<arg line="-installIU org.eclipse.e4.ui.css.feature" />
 			<arg line="-version 4.0.0.v${e4.buildId}" />
 			<arg line="-p2.os ${os}" />
 			<arg line="-p2.ws ${ws}" />
