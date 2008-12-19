@@ -88,7 +88,7 @@ fi
   $repo \
   $tagMaps \
   $publ \
-  2>&1 | tee /shared/eclipse/e4/logs/buildlog_`date +%Y%m%d%H%M%S`.txt
+  2>&1 | tee /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
 
 
 }
@@ -106,6 +106,28 @@ buildFeature org.eclipse.e4.ui.tests.feature
 buildTimestamp=${builddate}-${buildtime}
 buildDir=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0
 buildDirectory=$buildDir/I$buildTimestamp
+
+# copy some other logs
+cp /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt \
+  $buildDirectory/I$buildTimestamp/buildlog.txt
+
+cat >$buildDirectory/I$buildTimestamp/compilelogs.html <<EOF
+<html><head><title>compile logs</title></head>
+<body>
+<table border="1">
+EOF
+for f in $buildDirectory/I$buildTimestamp/compilelogs/plugins/*; do
+  FN=$( basename $f )
+  cat >>$buildDirectory/I$buildTimestamp/compilelogs.html <<EOF
+<tr><td><a href="compilelogs/plugins/$FN/@dot.log">$FN</a></td></tr>
+EOF
+done
+cat >>$buildDirectory/I$buildTimestamp/compilelogs.html <<EOF
+</table>
+</body>
+</html>
+
+EOF
 
 
 # try some tests
