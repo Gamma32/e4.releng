@@ -134,6 +134,9 @@ cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 mkdir -p $buildDirectory/I$buildTimestamp/results
 cp -r results/* $buildDirectory/I$buildTimestamp/results
 
+cp $supportDir/org.eclipse.e4.builder/templates/build.testResults.html \
+  $buildDirectory/I$buildTimestamp/testResults.html
+
 if [ ! -z "$publishDir" ]; then
   echo Publishing  $buildDirectory/I$buildTimestamp to "$publishDir"
   scp -r $buildDirectory/I$buildTimestamp "$publishDir"
