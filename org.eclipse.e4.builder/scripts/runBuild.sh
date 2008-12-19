@@ -116,10 +116,13 @@ cat >$buildDirectory/I$buildTimestamp/compilelogs.html <<EOF
 <body>
 <table border="1">
 EOF
-for f in $buildDirectory/I$buildTimestamp/compilelogs/plugins/*; do
+for f in $buildDirectory/I$buildTimestamp/compilelogs/plugins/*/*; do
+  
   FN=$( basename $f )
+  FN_DIR=$( dirname $f )
+  PA_FN=$( basename $FN_DIR )
   cat >>$buildDirectory/I$buildTimestamp/compilelogs.html <<EOF
-<tr><td><a href="compilelogs/plugins/$FN/@dot.log">$FN</a></td></tr>
+<tr><td><a href="compilelogs/plugins/$PA_FN/$FN">$PA_FN - $FN</a></td></tr>
 EOF
 done
 cat >>$buildDirectory/I$buildTimestamp/compilelogs.html <<EOF

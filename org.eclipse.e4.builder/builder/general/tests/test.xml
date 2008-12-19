@@ -732,7 +732,7 @@
 	</target>
 
 	<target name="e4">
-		<!--<antcall target="coreresources" />-->
+		<antcall target="coreresources" />
 		<antcall target="e4css" />
 	</target>
 </project>
