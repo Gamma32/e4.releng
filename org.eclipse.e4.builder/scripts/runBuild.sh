@@ -154,7 +154,9 @@ done
 
 cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
-./runtests -os linux -ws gtk -arch ${arch} e4
+./runtests -os linux -ws gtk \
+  -arch ${arch} e4 \
+  2>&1 | tee /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
 
 mkdir -p $buildDirectory/I$buildTimestamp/results
 cp -r results/* $buildDirectory/I$buildTimestamp/results
