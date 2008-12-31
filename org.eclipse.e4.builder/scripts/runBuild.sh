@@ -3,10 +3,6 @@
 quietCVS=-Q
 supportDir=/shared/eclipse/e4/build/e4
 projRelengBranch="HEAD"; # default set below
-builddate=$( date +%Y%m%d )
-buildtime=$( date +%H%M )
-#builddate=20081215
-#buildtime=1845
 arch="x86"
 archProp=""
 processor=$( uname -p )
@@ -15,21 +11,37 @@ if [ $processor = ppc -o $processor = ppc64 ]; then
   arch="ppc"
 fi
 
-
-projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
 #
+# Real Build on build.eclipse.org
+#
+builddate=$( date +%Y%m%d )
+buildtime=$( date +%H%M )
+
 #tag maps
 #projRoot='pwebster@dev.eclipse.org:/cvsroot/eclipse'
 #tagMaps=-tagMaps
+
 #publish
 #publishDir="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads/drops "
+
+# available builds
+#basebuilderBranch=$( grep v2008 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
+#eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
+
+
+#
+# test Build
+#
+#builddate=20081215
+#buildtime=1845
+projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
+basebuilderBranch=v20081210a
+eclipseIBuild=I20081216-0800
 
 
 # first, let's check out all of those pesky projects
 cd $supportDir
 
-#basebuilderBranch=$( grep v2008 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
-basebuilderBranch=v20081210a
 
 if [[ ! -d org.eclipse.releng.basebuilder_${basebuilderBranch} ]]; then
   echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.releng.basebuilder_${basebuilderBranch}"
@@ -59,8 +71,6 @@ ln -s ${supportDir}/org.eclipse.e4.builder_${projRelengBranch} org.eclipse.e4.bu
 
 cd $supportDir/org.eclipse.e4.builder/scripts
 
-#eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
-eclipseIBuild=I20081216-0800
 
 echo "[start] [`date +%H\:%M\:%S`] setting eclipse $eclipseIBuild"
 
@@ -143,7 +153,9 @@ cd eclipse-testing
 
 cp $buildDirectory/../eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz  .
 cp $buildDirectory/../emf-runtime-2.4.1.zip .
-cat $buildDirectory/test.properties | grep -v org.eclipse.core.tests.resources.prerequisite.testplugins >> test.properties
+cat $buildDirectory/test.properties \
+  | grep -v org.eclipse.core.tests.resources.prerequisite.testplugins \
+  | sed 's/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' >> test.properties
 cat $buildDirectory/label.properties >> label.properties
 
 for f in $buildDirectory/I$buildTimestamp/*.zip; do
