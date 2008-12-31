@@ -11,7 +11,7 @@ fragment@org.eclipse.e4.ui.workbench.fragment=v20081218-1430,:pserver:anonymous@
 plugin@org.eclipse.e4.ui.css.core=v20081218-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.core
 plugin@org.eclipse.e4.ui.css.jface=v20081218-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.jface
 plugin@org.eclipse.e4.ui.css.swt=v20081218-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.swt
-plugin@org.eclipse.e4.ui.tests.css.swt=v20081219-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.swt
+plugin@org.eclipse.e4.ui.tests.css.swt=v20090101-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.swt
 
 
 !**** What we need from Orbit
