@@ -4,7 +4,7 @@
 DISPLAY=localhost:8.0;export DISPLAY
 
 # by default, use the java executable on the path for outer and test jvm
-vmcmd=java
+vmcmd=/opt/public/common/ibm-java2-ppc-50/bin/java
 
 #this value must be set when using rsh to execute this script, otherwise the script will execute from the user's home directory
 dir=.
