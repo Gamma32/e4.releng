@@ -98,7 +98,7 @@ fi
   $repo \
   $tagMaps \
   $publ \
-  2>&1 | tee /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
+  2>&1 | tee -a /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
 
 
 }
@@ -118,8 +118,6 @@ buildDir=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0
 buildDirectory=$buildDir/I$buildTimestamp
 
 # copy some other logs
-cp /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt \
-  $buildDirectory/I$buildTimestamp/buildlog.txt
 
 cat >$buildDirectory/I$buildTimestamp/compilelogs.html <<EOF
 <html><head><title>compile logs</title></head>
@@ -168,7 +166,10 @@ cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
 ./runtests -os linux -ws gtk \
   -arch ${arch} e4 \
-  2>&1 | tee /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
+  2>&1 | tee -a /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
+
+cp /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt \
+  $buildDirectory/I$buildTimestamp/buildlog.txt
 
 mkdir -p $buildDirectory/I$buildTimestamp/results
 cp -r results/* $buildDirectory/I$buildTimestamp/results
@@ -179,4 +180,10 @@ cp $supportDir/org.eclipse.e4.builder/templates/build.testResults.html \
 if [ ! -z "$publishDir" ]; then
   echo Publishing  $buildDirectory/I$buildTimestamp to "$publishDir"
   scp -r $buildDirectory/I$buildTimestamp "$publishDir"
+  mailx -s "Integration Build: I$buildTimestamp" e4-dev@eclipse.org <<EOF
+
+Check here for test results and update site: 
+http://download.eclipse.org/e4/downloads/drops/I$buildTimestamp
+
+EOF
 fi
