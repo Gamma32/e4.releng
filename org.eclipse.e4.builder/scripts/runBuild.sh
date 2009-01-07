@@ -103,16 +103,17 @@ fi
 
 }
 
-buildFeature repo org.eclipse.e4.resources.feature
-buildFeature repo org.eclipse.e4.swt.as.feature
-buildFeature repo org.eclipse.e4.ui.feature
-buildFeature repo org.eclipse.e4.ui.css.feature
+#buildFeature repo org.eclipse.e4.resources.feature
+#buildFeature repo org.eclipse.e4.swt.as.feature
+#buildFeature repo org.eclipse.e4.ui.feature
+#buildFeature repo org.eclipse.e4.ui.css.feature
 buildFeature repo org.eclipse.e4.xwt.feature
+buildFeature repo org.eclipse.e4.xwt.tools.feature
 
-buildFeature org.eclipse.e4.resources.tests.feature
-buildFeature org.eclipse.e4.swt.as.tests.feature
-buildFeature org.eclipse.e4.ui.examples.feature
-buildFeature org.eclipse.e4.ui.tests.feature
+#buildFeature org.eclipse.e4.resources.tests.feature
+#buildFeature org.eclipse.e4.swt.as.tests.feature
+#buildFeature org.eclipse.e4.ui.examples.feature
+#buildFeature org.eclipse.e4.ui.tests.feature
 buildFeature org.eclipse.e4.xwt.tests.feature
 
 buildTimestamp=${builddate}-${buildtime}
@@ -168,7 +169,7 @@ done
 cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
 ./runtests -os linux -ws gtk \
-  -arch ${arch} e4 \
+  -arch ${arch} e4xwt \
   2>&1 | tee -a /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
 
 cp /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt \

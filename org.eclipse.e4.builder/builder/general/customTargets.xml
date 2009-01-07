@@ -23,6 +23,12 @@
 		<delete dir="${base}/tmp" quiet="true"></delete>
 		<get src="${emfBaseURL}/${emfBaseName}" dest="${buildDirectory}/../${emfBaseName}" />
 		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../${emfBaseName}" />
+		<get src="${emfBaseURL}/${xsdBaseName}" dest="${buildDirectory}/../${xsdBaseName}" />
+		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../${xsdBaseName}" />
+		<get src="${gefBaseURL}/${gefBaseName}" dest="${buildDirectory}/../${gefBaseName}" />
+		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../${gefBaseName}" />
+		<get src="${wstBaseURL}/${wstBaseName}" dest="${buildDirectory}/../${wstBaseName}" />
+		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../${wstBaseName}" />
 	</target>
 
 	<target name="checkLocalBase">
