@@ -103,17 +103,17 @@ fi
 
 }
 
-#buildFeature repo org.eclipse.e4.resources.feature
-#buildFeature repo org.eclipse.e4.swt.as.feature
-#buildFeature repo org.eclipse.e4.ui.feature
-#buildFeature repo org.eclipse.e4.ui.css.feature
+buildFeature repo org.eclipse.e4.resources.feature
+buildFeature repo org.eclipse.e4.swt.as.feature
+buildFeature repo org.eclipse.e4.ui.feature
+buildFeature repo org.eclipse.e4.ui.css.feature
 buildFeature repo org.eclipse.e4.xwt.feature
 buildFeature repo org.eclipse.e4.xwt.tools.feature
 
-#buildFeature org.eclipse.e4.resources.tests.feature
-#buildFeature org.eclipse.e4.swt.as.tests.feature
-#buildFeature org.eclipse.e4.ui.examples.feature
-#buildFeature org.eclipse.e4.ui.tests.feature
+buildFeature org.eclipse.e4.resources.tests.feature
+buildFeature org.eclipse.e4.swt.as.tests.feature
+buildFeature org.eclipse.e4.ui.examples.feature
+buildFeature org.eclipse.e4.ui.tests.feature
 buildFeature org.eclipse.e4.xwt.tests.feature
 
 buildTimestamp=${builddate}-${buildtime}
@@ -153,7 +153,11 @@ unzip $buildDirectory/../eclipse-Automated-Tests-${eclipseIBuild}.zip
 cd eclipse-testing
 
 cp $buildDirectory/../eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz  .
-cp $buildDirectory/../emf-runtime-2.4.1.zip .
+cp $buildDirectory/../emf-runtime-2.5.0M4.zip .
+cp $buildDirectory/../xsd-runtime-2.5.0M4.zip .
+cp $buildDirectory/../GEF-SDK-3.5.0M4.zip .
+cp $buildDirectory/../wtp-wst-S-3.1M4-20081219210304.zip .
+
 cat $buildDirectory/test.properties \
   | grep -v org.eclipse.core.tests.resources.prerequisite.testplugins \
   | sed 's/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
@@ -169,7 +173,7 @@ done
 cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
 ./runtests -os linux -ws gtk \
-  -arch ${arch} e4xwt \
+  -arch ${arch} e4 \
   2>&1 | tee -a /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
 
 cp /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt \
