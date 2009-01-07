@@ -731,8 +731,13 @@
 		<runTests testPlugin="org.eclipse.e4.ui.tests.css.swt" />
 	</target>
 
+	<target name="e4xwt">
+		<runTests testPlugin="org.eclipse.e4.xwt.tests" />
+	</target>
+
 	<target name="e4">
 		<antcall target="coreresources" />
 		<antcall target="e4css" />
+		<antcall target="e4xwt" />
 	</target>
 </project>
