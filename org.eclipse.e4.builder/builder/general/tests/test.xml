@@ -92,6 +92,12 @@
 				-x eclipse/plugins/*.source*/**
 				-d ${install}/eclipse/dropins/" />
 		</exec>
+		<exec dir="." executable="unzip">
+			<arg line="-o -qq org.eclipse.e4.xwt.tests*.zip				
+				${testPluginsRequired}
+				-x eclipse/plugins/*.source*/**
+				-d ${install}/eclipse/dropins/" />
+		</exec>
 		<echo>-version 4.0.0.v${e4.buildId}</echo>
 		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
 			<arg line="-vm /opt/public/common/ibm-java2-ppc-50/bin/java" />

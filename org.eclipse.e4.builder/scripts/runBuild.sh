@@ -36,7 +36,7 @@ buildtime=$( date +%H%M )
 #buildtime=1845
 projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
 basebuilderBranch=v20081210a
-eclipseIBuild=I20081216-0800
+eclipseIBuild=I20090106-1323
 
 
 # first, let's check out all of those pesky projects
@@ -107,11 +107,13 @@ buildFeature repo org.eclipse.e4.resources.feature
 buildFeature repo org.eclipse.e4.swt.as.feature
 buildFeature repo org.eclipse.e4.ui.feature
 buildFeature repo org.eclipse.e4.ui.css.feature
+buildFeature repo org.eclipse.e4.xwt.feature
 
 buildFeature org.eclipse.e4.resources.tests.feature
 buildFeature org.eclipse.e4.swt.as.tests.feature
 buildFeature org.eclipse.e4.ui.examples.feature
 buildFeature org.eclipse.e4.ui.tests.feature
+buildFeature org.eclipse.e4.xwt.tests.feature
 
 buildTimestamp=${builddate}-${buildtime}
 buildDir=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0
@@ -153,7 +155,8 @@ cp $buildDirectory/../eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz  
 cp $buildDirectory/../emf-runtime-2.4.1.zip .
 cat $buildDirectory/test.properties \
   | grep -v org.eclipse.core.tests.resources.prerequisite.testplugins \
-  | sed 's/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' >> test.properties
+  | sed 's/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
+  | sed 's/org.eclipse.e4.xwt.tests.prerequisite.testplugins=/org.eclipse.e4.xwt.tests.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' >> test.properties
 cat $buildDirectory/label.properties >> label.properties
 
 for f in $buildDirectory/I$buildTimestamp/*.zip; do
