@@ -7,7 +7,7 @@ plugin@org.eclipse.e4.xwt.vex=v20090101-1930,:pserver:anonymous@dev.eclipse.org:
 
 !**** and build it
 feature@org.eclipse.e4.xwt.feature=v20090101-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.feature
-feature@org.eclipse.e4.xwt.tests.features=v20090101-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tests.features
+feature@org.eclipse.e4.xwt.tests.feature=v20090101-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tests.feature
 
 !**** Test Suites
 plugin@org.eclipse.e4.xwt.tests=v20090101-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.tests
