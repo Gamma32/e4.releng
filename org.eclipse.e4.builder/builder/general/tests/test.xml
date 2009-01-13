@@ -75,25 +75,7 @@
 				-d ${install}/eclipse/dropins/" />
 		</exec>
 		<exec dir="." executable="unzip">
-			<arg line="-o -qq org.eclipse.e4.resources.tests*.zip				
-				${testPluginsRequired}
-				-x eclipse/plugins/*.source*/**
-				-d ${install}/eclipse/dropins/" />
-		</exec>
-		<exec dir="." executable="unzip">
-			<arg line="-o -qq org.eclipse.e4.swt.as.tests*.zip				
-				${testPluginsRequired}
-				-x eclipse/plugins/*.source*/**
-				-d ${install}/eclipse/dropins/" />
-		</exec>
-		<exec dir="." executable="unzip">
-			<arg line="-o -qq org.eclipse.e4.ui.tests*.zip				
-				${testPluginsRequired}
-				-x eclipse/plugins/*.source*/**
-				-d ${install}/eclipse/dropins/" />
-		</exec>
-		<exec dir="." executable="unzip">
-			<arg line="-o -qq org.eclipse.e4.xwt.tests*.zip				
+			<arg line="-o -qq org.eclipse.e4.master*.zip				
 				${testPluginsRequired}
 				-x eclipse/plugins/*.source*/**
 				-d ${install}/eclipse/dropins/" />
