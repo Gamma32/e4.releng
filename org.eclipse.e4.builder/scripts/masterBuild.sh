@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/bin/bash +x
 
 quietCVS=-Q
-supportDir=/shared/eclipse/e4/build/e4
+writableBuildRoot=/shared/eclipse/e4
+supportDir=$writableBuildRoot/build/e4
 projRelengBranch="HEAD"; # default set below
 arch="x86"
 archProp=""
@@ -57,10 +58,6 @@ commonProperties () {
     buildResults=$buildDirectory/I$buildTimestamp
     relengBaseBuilderDir=$supportDir/org.eclipse.releng.basebuilder
     buildDirEclipse="$buildDir/eclipse"
-    pdeDir=$( find $relengBaseBuilderDir/ -name "org.eclipse.pde.build_*" | sort | head -1 )
-    buildfile=$pdeDir/scripts/build.xml
-    cpAndMain=$( find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar" | sort | head -1 )" org.eclipse.equinox.launcher.Main";
-
 }
 
 # first, let's check out all of those pesky projects
@@ -78,6 +75,11 @@ updateBaseBuilder () {
     echo "[start] [`date +%H\:%M\:%S`] setting org.eclipse.releng.basebuilder_${basebuilderBranch}"
     rm org.eclipse.releng.basebuilder
     ln -s ${supportDir}/org.eclipse.releng.basebuilder_${basebuilderBranch} org.eclipse.releng.basebuilder
+
+# now update the variables that depend on this
+    pdeDir=$( find $relengBaseBuilderDir/ -name "org.eclipse.pde.build_*" | sort | head -1 )
+    buildfile=$pdeDir/scripts/build.xml
+    cpAndMain=$( find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar" | sort | head -1 )" org.eclipse.equinox.launcher.Main";
 }
 
 updateE4Builder () {
@@ -153,8 +155,7 @@ runTheTests () {
     cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
-        -arch ${arch} e4 \
-        2>&1 | tee -a /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
+        -arch ${arch} e4 
 
     mkdir -p $buildResults/results
     cp -r results/* $buildResults/results
@@ -226,7 +227,7 @@ cp /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt \
 
 
 if [ ! -z "$publishDir" ]; then
-    echo Publishing  $buildResults to "$publishDir"
-    scp -r $buildResults "$publishDir"
-    sendMail
+    echo Publishing  $buildResults to "$publishDir"  2>&1 | tee -a /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
+    scp -r $buildResults "$publishDir"  2>&1 | tee -a /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
+    sendMail  2>&1 | tee -a /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
 fi
