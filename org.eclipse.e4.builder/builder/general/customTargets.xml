@@ -184,7 +184,7 @@
 				/>
 		<generateTestProperties
 					buildDirectory="${buildDirectory}"
-					featureId="org.eclipse.e4.swt.tests.feature"
+					featureId="org.eclipse.e4.swt.as.tests.feature"
 					outputFile="${buildDirectory}/test.properties"
 				/>
 		<generateTestProperties
