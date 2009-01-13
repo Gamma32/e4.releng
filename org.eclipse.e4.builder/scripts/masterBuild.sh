@@ -45,7 +45,7 @@ testBuildProperties () {
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
     basebuilderBranch=v20081210a
-    eclipseIBuild=I20090106-1323
+    eclipseIBuild=I20090113-0918
 
 }
 
@@ -155,7 +155,7 @@ runTheTests () {
     cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
-        -arch ${arch} e4 
+        -arch ${arch} e4css 
 
     mkdir -p $buildResults/results
     cp -r results/* $buildResults/results
@@ -220,7 +220,7 @@ buildMasterFeature
 copyCompileLogs
 
 # try some tests
-#runTheTests
+runTheTests
 
 cp /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt \
     $buildResults/buildlog.txt
