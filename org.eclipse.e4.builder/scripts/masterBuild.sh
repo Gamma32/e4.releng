@@ -156,7 +156,7 @@ runTheTests () {
     cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
-        -arch ${arch} e4css 
+        -arch ${arch} e4
 
     mkdir -p $buildResults/results
     cp -r results/* $buildResults/results
@@ -177,32 +177,34 @@ EOF
 }
 
 buildMasterFeature () {
-echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
-cmd="$javaHome/bin/java -enableassertions \
-  -cp $cpAndMain \
-  -application org.eclipse.ant.core.antRunner \
-  -buildfile $buildfile \
-  -Dbuilder=$supportDir/org.eclipse.e4.builder/builder/general \
-  -Dbuilddate=$builddate \
-  -Dbuildtime=$buildtime \
-  -DeclipseBuildId=$eclipseIBuild \
-  ${archJavaProp} \
-  -DbuildArea=$buildDir \
-  -DbuildDirectory=$buildDirectory \
-  -DmapsRepo=$projRoot \
-  -DrunPackager=true -Dgenerate.p2.metadata=true -Dp2.publish.artifacts=true \
-  -DtopLevelElementId=org.eclipse.e4.master \
-  -Dflex.sdk=$writableBuildRoot/flex_sdk_3.2.0.3794_mpl "
-  
-if [ ! -z "$tagMaps" ]; then
-    cmd="$cmd -DtagMaps=true "
-fi
-#if [ ! -z "$genRepo" ]; then
-#  cmd="$cmd -DrunPackager=true -Dgenerate.p2.metadata=true -Dp2.publish.artifacts=true "
-#fi
+    mkdir -p $buildDirectory/eclipse; cd $buildDirectory
 
-echo $cmd
-$cmd
+    echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
+    cmd="$javaHome/bin/java -enableassertions \
+      -cp $cpAndMain \
+      -application org.eclipse.ant.core.antRunner \
+      -buildfile $buildfile \
+      -Dbuilder=$supportDir/org.eclipse.e4.builder/builder/general \
+      -Dbuilddate=$builddate \
+      -Dbuildtime=$buildtime \
+      -DeclipseBuildId=$eclipseIBuild \
+      ${archJavaProp} \
+      -DbuildArea=$buildDir \
+      -DbuildDirectory=$buildDirectory \
+      -DmapsRepo=$projRoot \
+      -DrunPackager=true -Dgenerate.p2.metadata=true -Dp2.publish.artifacts=true \
+      -DtopLevelElementId=org.eclipse.e4.master \
+      -Dflex.sdk=$writableBuildRoot/flex_sdk_3.2.0.3794_mpl "
+  
+    if [ ! -z "$tagMaps" ]; then
+        cmd="$cmd -DtagMaps=true "
+    fi
+    #if [ ! -z "$genRepo" ]; then
+    #    cmd="$cmd -DrunPackager=true -Dgenerate.p2.metadata=true -Dp2.publish.artifacts=true "
+    #fi
+
+    echo $cmd
+    $cmd
 
 }
 
