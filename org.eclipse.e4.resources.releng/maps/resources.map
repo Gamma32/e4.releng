@@ -32,8 +32,8 @@ plugin@org.eclipse.ui.ide=v20090108-1930,:pserver:anonymous@dev.eclipse.org:/cvs
 !**** and build it
 feature@org.eclipse.e4.resources.feature=v20090113-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.feature
 feature@org.eclipse.e4.resources.tests.feature=v20081208-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.tests.feature
-feature@org.eclipse.e4.resources.platform.patch=v20081208-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.platform.patch
-feature@org.eclipse.e4.resources.rcp.patch=v20081208-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.rcp.patch
+feature@org.eclipse.e4.resources.platform.patch=v20090114-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.platform.patch
+feature@org.eclipse.e4.resources.rcp.patch=v20090114-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.rcp.patch
 
 
 !**** Test Suites

@@ -39,7 +39,7 @@ feature@org.eclipse.e4.ui.tests.feature=v20081218-1430,:pserver:anonymous@dev.ec
 feature@org.eclipse.e4.ui.examples.feature=v20081120-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.examples.feature
 
 
-feature@org.eclipse.e4.master=v20090113-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.master
+feature@org.eclipse.e4.master=v20090114-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.master
 
 !**** Test Suites
 #plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
