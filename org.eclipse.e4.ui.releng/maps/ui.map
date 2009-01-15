@@ -6,7 +6,7 @@ plugin@org.eclipse.e4.ui.workbench=v20090115-1400,:pserver:anonymous@dev.eclipse
 plugin@org.eclipse.nebula.widgets.gallery=v20081117,:pserver:anonymous@dev.eclipse.org:/cvsroot/technology,,org.eclipse.swt.nebula/org.eclipse.nebula.widgets.gallery
 plugin@org.eclipse.e4.demo.e4photo=v20090115-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.demo.e4photo
 plugin@org.eclipse.e4.core.javascript=v20090115-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.javascript
-fragment@org.eclipse.e4.ui.workbench.fragment=v20090113-1030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.fragment
+fragment@org.eclipse.e4.ui.workbench.fragment=v20090115-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.fragment
 
 plugin@org.eclipse.e4.ui.css.core=v20090101-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.core
 plugin@org.eclipse.e4.ui.css.jface=v20090101-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.jface
