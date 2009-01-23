@@ -19,7 +19,7 @@
 		<untar compression="gzip" dest="${base}" overwrite="true" src="${buildDirectory}/../${eclipseBaseName}" />
 		<get src="${eclipseBaseURL}/${eclipseTestName}" dest="${buildDirectory}/../${eclipseTestName}" />
 		<unzip dest="${base}/tmp" overwrite="true" src="${buildDirectory}/../${eclipseTestName}" />
-		<unzip dest="${base}" overwrite="true" src="${base}/tmp/eclipse-testing/eclipse-junit-tests-${eclipseBuildId}.zip">
+		<unzip dest="${base}" overwrite="true">
 			<fileset dir="${base}/tmp/eclipse-testing">
     			<include name="eclipse-junit-tests-*.zip"/>
 			</fileset>
