@@ -137,6 +137,9 @@ runTheTests () {
     cd eclipse-testing
 
     cp $buildDirectory/../eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz  .
+    # can't re-run automated tests against an milestone build that has been renamed
+    mv eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz \
+      eclipse-SDK-I20081211-1908-linux-gtk${archProp}.tar.gz
     cp $buildDirectory/../emf-runtime-2.5.0M4.zip .
     cp $buildDirectory/../xsd-runtime-2.5.0M4.zip .
     cp $buildDirectory/../GEF-SDK-3.5.0M4.zip .
