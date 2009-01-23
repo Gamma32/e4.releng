@@ -172,6 +172,10 @@
 		<filter token="buildId" value="${buildId}"/>
 		<filter token="buildLabel" value="${buildLabel}"/>
 		<filter token="eclipseIbuild" value="${eclipseBuildId}"/>
+		<filter token="eclipseBaseURL" value="${eclipseBaseURL}"/>
+		<filter token="emfBaseURL" value="${emfBaseURL}"/>
+		<filter token="gefBaseURL" value="${gefBaseURL}"/>
+		<filter token="wstBaseURL" value="${wstBaseURL}"/>
 		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${buildDirectory}/${buildLabel}/index.html" />
 		<copy filtering="true" file="${builder}/tests/build.label.properties" tofile="${buildDirectory}/label.properties" />
 		
