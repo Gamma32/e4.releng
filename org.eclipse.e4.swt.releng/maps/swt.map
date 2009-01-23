@@ -1,12 +1,12 @@
 !**** e4 SWT AS tools
 plugin@org.eclipse.jdt.compiler.as=v20090101-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.jdt.compiler.as
-plugin@org.eclipse.swt.tools.actionscript.core=v20081211-1515,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.core
-plugin@org.eclipse.swt.tools.actionscript.ui=v20081119,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.ui
+plugin@org.eclipse.swt.tools.actionscript.core=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.core
+plugin@org.eclipse.swt.tools.actionscript.ui=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.ui
 
 
 !**** and build it
-feature@org.eclipse.e4.swt.as.feature=v20090113-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/features/org.eclipse.e4.swt.as.feature
-feature@org.eclipse.e4.swt.as.tests.feature=v20081120-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/features/org.eclipse.e4.swt.as.tests.feature
+feature@org.eclipse.e4.swt.as.feature=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/features/org.eclipse.e4.swt.as.feature
+feature@org.eclipse.e4.swt.as.tests.feature=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/features/org.eclipse.e4.swt.as.tests.feature
 
 
 !**** Test Suites
