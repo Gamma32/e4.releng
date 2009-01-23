@@ -28,9 +28,10 @@ realBuildProperties () {
     publishDir="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads/drops "
 
 # available builds
-    #basebuilderBranch=$( grep v2008 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
-    basebuilderBranch=v20081210a
-    eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
+    #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
+    #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
+    basebuilderBranch=v20090122a
+    eclipseIBuild=3.5M4
 
 }
 
@@ -45,8 +46,8 @@ testBuildProperties () {
     buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
-    basebuilderBranch=v20081210a
-    eclipseIBuild=I20090113-0918
+    basebuilderBranch=v20090122a
+    eclipseIBuild=3.5M4
 
 }
 
