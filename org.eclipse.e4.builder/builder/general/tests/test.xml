@@ -751,10 +751,13 @@
 		<antcall target="search" />
 	</target>
 	
-	<target name="e4css">
+	<target name="cssSwt">
 		<runTests testPlugin="org.eclipse.e4.ui.tests.css.swt" />
-		<runTests testPlugin="org.eclipse.e4.ui.tests.css.core" />
 	</target>
+
+		<target name="cssCore">
+			<runTests testPlugin="org.eclipse.e4.ui.tests.css.core" />
+		</target>
 
 	<target name="e4xwt">
 		<runTests testPlugin="org.eclipse.e4.xwt.tests" />
@@ -762,7 +765,8 @@
 
 	<target name="e4">
 		<antcall target="coreresources" />
-		<antcall target="e4css" />
+		<antcall target="cssSwt" />
+		<antcall target="cssCore" />
 		<antcall target="e4xwt" />
 	</target>
 </project>
