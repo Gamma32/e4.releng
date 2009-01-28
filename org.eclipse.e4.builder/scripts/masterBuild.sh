@@ -148,6 +148,7 @@ runTheTests () {
     cat $buildDirectory/test.properties \
         | grep -v org.eclipse.core.tests.resources.prerequisite.testplugins \
         | sed 's/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
+        | sed 's/org.eclipse.e4.ui.tests.css.core.prerequisite.testplugins=/org.eclipse.e4.ui.tests.css.core.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
         | sed 's/org.eclipse.e4.xwt.tests.prerequisite.testplugins=/org.eclipse.e4.xwt.tests.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' >> test.properties
     cat $buildDirectory/label.properties >> label.properties
 
