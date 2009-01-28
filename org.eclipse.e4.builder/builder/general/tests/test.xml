@@ -753,6 +753,7 @@
 	
 	<target name="e4css">
 		<runTests testPlugin="org.eclipse.e4.ui.tests.css.swt" />
+		<runTests testPlugin="org.eclipse.e4.ui.tests.css.core" />
 	</target>
 
 	<target name="e4xwt">
