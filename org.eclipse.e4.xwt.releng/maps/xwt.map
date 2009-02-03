@@ -3,6 +3,8 @@ plugin@org.eclipse.e4.xwt=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvs
 plugin@org.eclipse.e4.xwt.tools.ui=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui
 plugin@org.eclipse.e4.xwt.tools.ui.editor=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui.editor
 plugin@org.eclipse.e4.xwt.vex=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.vex
+plugin@org.eclipse.e4.xwt.pde=v20090203-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.pde
+plugin@org.eclipse.e4.xwt.doc.user=v20090203-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/doc/org.eclipse.e4.xwt.doc.user
 
 
 !**** and build it
