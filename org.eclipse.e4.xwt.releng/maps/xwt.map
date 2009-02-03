@@ -1,16 +1,16 @@
 !**** e4 XWT tools
-plugin@org.eclipse.e4.xwt=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
-plugin@org.eclipse.e4.xwt.tools.ui=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui
-plugin@org.eclipse.e4.xwt.tools.ui.editor=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui.editor
-plugin@org.eclipse.e4.xwt.vex=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.vex
+plugin@org.eclipse.e4.xwt=v20090203-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
+plugin@org.eclipse.e4.xwt.tools.ui=v20090203-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui
+plugin@org.eclipse.e4.xwt.tools.ui.editor=v20090203-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui.editor
+plugin@org.eclipse.e4.xwt.vex=v20090203-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.vex
 plugin@org.eclipse.e4.xwt.pde=v20090203-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.pde
 plugin@org.eclipse.e4.xwt.doc.user=v20090203-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/doc/org.eclipse.e4.xwt.doc.user
 
 
 !**** and build it
-feature@org.eclipse.e4.xwt.feature=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.feature
+feature@org.eclipse.e4.xwt.feature=v20090203-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.feature
 feature@org.eclipse.e4.xwt.tests.feature=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tests.feature
-feature@org.eclipse.e4.xwt.tools.feature=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tools.feature
+feature@org.eclipse.e4.xwt.tools.feature=v20090203-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tools.feature
 
 !**** Test Suites
-plugin@org.eclipse.e4.xwt.tests=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.tests
+plugin@org.eclipse.e4.xwt.tests=v20090203-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.tests
