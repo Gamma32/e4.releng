@@ -231,12 +231,12 @@ copyCompileLogs
 # try some tests
 runTheTests
 
-cp /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt \
+cp /shared/eclipse/e4/logs/current.log \
     $buildResults/buildlog.txt
 
 
 if [ ! -z "$publishDir" ]; then
-    echo Publishing  $buildResults to "$publishDir"  2>&1 | tee -a /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
-    scp -r $buildResults "$publishDir"  2>&1 | tee -a /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
-    sendMail  2>&1 | tee -a /shared/eclipse/e4/logs/buildlog_${builddate}${buildtime}.txt
+    echo Publishing  $buildResults to "$publishDir"
+    scp -r $buildResults "$publishDir" 
+    sendMail 
 fi
