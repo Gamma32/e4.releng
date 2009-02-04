@@ -762,11 +762,16 @@
 	<target name="e4xwt">
 		<runTests testPlugin="org.eclipse.e4.xwt.tests" />
 	</target>
+	
+	<target name="coreServices">
+		<runTests testPlugin="org.eclipse.e4.core.tests.services" />
+	</target>
 
 	<target name="e4">
 		<antcall target="coreresources" />
 		<antcall target="cssSwt" />
 		<antcall target="cssCore" />
 		<antcall target="e4xwt" />
+		<antcall target="coreServices" />
 	</target>
 </project>
