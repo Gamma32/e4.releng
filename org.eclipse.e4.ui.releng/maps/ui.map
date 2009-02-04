@@ -15,6 +15,8 @@ plugin@org.eclipse.e4.ui.css.swt=v20090123-1000,:pserver:anonymous@dev.eclipse.o
 plugin@org.eclipse.e4.ui.tests.css.swt=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.swt
 plugin@org.eclipse.e4.ui.tests.css.core=v20090203-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.core
 
+plugin@org.eclipse.e4.ui.css.nebula=v20090204-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.nebula
+
 
 !**** What we need from Orbit
 plugin@org.mozilla.javascript,1.6.6=GET,http://download.eclipse.org/tools/orbit/downloads/drops/R20080807152315/bundles/org.mozilla.javascript_1.6.6.v200806030331.jar
