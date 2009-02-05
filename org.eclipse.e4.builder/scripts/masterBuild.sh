@@ -214,6 +214,34 @@ buildMasterFeature () {
 
 }
 
+swtExport () {
+    swtMap=$buildDirectory/maps/e4/releng/org.eclipse.e4.swt.releng/maps/swt.map
+    swtName=$1
+    swtVer=$( grep ${swtName}= $swtMap | cut -f1 -d, | cut -f2 -d= )
+    swtPlugin=$( grep ${swtName}= $swtMap | cut -f4 -d, )
+    if [ -z "$swtPlugin" ]; then
+        swtPlugin=$swtName
+    fi
+
+    cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS ex -r $swtVer -d $swtName $swtPlugin"
+    echo $cmd
+    $cmd
+}
+
+generateSwtZip () {
+    mkdir -p $buildDirectory/swt
+    cd $buildDirectory/swt
+    swtExport org.eclipse.swt
+    ls -d org.eclipse.swt/Ecli*/* | grep -v common | grep -v emulate | while read line; do rm -rf "$line" ; done
+    cp org.eclipse.swt/.classpath_flex org.eclipse.swt/.classpath
+    swtExport org.eclipse.swt.e4
+    cp -r org.eclipse.swt.e4/* org.eclipse.swt
+    swtExport org.eclipse.swt.e4.jcl
+    cp org.eclipse.swt.e4.jcl/.classpath_flex org.eclipse.swt.e4.jcl/.classpath
+    zip -r ../I$buildTimestamp/org.eclipse.swt.e4.flex-I$buildTimestamp.zip org.eclipse.swt org.eclipse.swt.e4.jcl
+}
+
+
 
 #realBuildProperties
 testBuildProperties
@@ -227,6 +255,9 @@ buildMasterFeature
 
 # copy some other logs
 copyCompileLogs
+
+# generate the SWT zip file
+generateSwtZip
 
 # try some tests
 runTheTests

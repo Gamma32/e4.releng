@@ -3,6 +3,11 @@ plugin@org.eclipse.jdt.compiler.as=v20090101-1930,:pserver:anonymous@dev.eclipse
 plugin@org.eclipse.swt.tools.actionscript.core=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.core
 plugin@org.eclipse.swt.tools.actionscript.ui=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.ui
 
+!**** e4 SWT Flex bundles
+plugin@org.eclipse.swt.e4=v20090205-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.e4
+plugin@org.eclipse.swt.e4.jcl=v20090205-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.e4.jcl
+plugin@org.eclipse.swt=v3530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+
 
 !**** and build it
 feature@org.eclipse.e4.swt.as.feature=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/features/org.eclipse.e4.swt.as.feature
