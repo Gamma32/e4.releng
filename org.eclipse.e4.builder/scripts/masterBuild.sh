@@ -234,6 +234,7 @@ generateSwtZip () {
     swtExport org.eclipse.swt
     ls -d org.eclipse.swt/Ecli*/* | grep -v common | grep -v emulate | while read line; do rm -rf "$line" ; done
     cp org.eclipse.swt/.classpath_flex org.eclipse.swt/.classpath
+    rm -rf org.eclipse.swt/build
     swtExport org.eclipse.swt.e4
     cp -r org.eclipse.swt.e4/* org.eclipse.swt
     awk ' /<linkedResources/,/<\/linkedResource/ {next } { print $0 } ' org.eclipse.swt/.project >tmp.txt
