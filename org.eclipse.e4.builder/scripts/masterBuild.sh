@@ -236,6 +236,8 @@ generateSwtZip () {
     cp org.eclipse.swt/.classpath_flex org.eclipse.swt/.classpath
     swtExport org.eclipse.swt.e4
     cp -r org.eclipse.swt.e4/* org.eclipse.swt
+    awk ' /<linkedResources/,/<\/linkedResource/ {next } { print $0 } ' org.eclipse.swt/.project >tmp.txt
+    cp tmp.txt org.eclipse.swt/.project
     swtExport org.eclipse.swt.e4.jcl
     cp org.eclipse.swt.e4.jcl/.classpath_flex org.eclipse.swt.e4.jcl/.classpath
     zip -r ../I$buildTimestamp/org.eclipse.swt.e4.flex-I$buildTimestamp.zip org.eclipse.swt org.eclipse.swt.e4.jcl
