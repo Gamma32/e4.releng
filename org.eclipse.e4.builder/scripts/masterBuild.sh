@@ -240,7 +240,7 @@ generateSwtZip () {
     awk ' /<linkedResources/,/<\/linkedResource/ {next } { print $0 } ' org.eclipse.swt/.project >tmp.txt
     cp tmp.txt org.eclipse.swt/.project
     grep -v org.eclipse.swt.awt org.eclipse.swt/META-INF/MANIFEST.MF >tmp.txt
-    cp tmp.txt org.eclipse.swt.awt org.eclipse.swt/META-INF/MANIFEST.MF
+    cp tmp.txt org.eclipse.swt/META-INF/MANIFEST.MF
     swtExport org.eclipse.swt.e4.jcl
     cp org.eclipse.swt.e4.jcl/.classpath_flex org.eclipse.swt.e4.jcl/.classpath
     zip -r ../I$buildTimestamp/org.eclipse.swt.e4.flex-I$buildTimestamp.zip org.eclipse.swt org.eclipse.swt.e4.jcl
