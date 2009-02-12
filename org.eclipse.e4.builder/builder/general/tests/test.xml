@@ -194,7 +194,7 @@
 			<arg line="--launcher.suppressErrors" />
 			<arg line="-consoleLog" />
 			<arg line="-flavor tooling" />
-			<arg line="-installIU org.eclipse.e4.language.feature.feature.group" />
+			<arg line="-installIU org.eclipse.e4.languages.feature.feature.group" />
 			<arg line="-p2.os ${os}" />
 			<arg line="-p2.ws ${ws}" />
 			<arg line="-p2.arch ${arch}" />
