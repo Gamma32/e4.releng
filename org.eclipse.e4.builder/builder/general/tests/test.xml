@@ -187,6 +187,28 @@
 			<arg line="-Declipse.p2.data.area=${eclipse-home}/p2" />
 			<arg line="-Declipse.p2.MD5Check=false" />
 		</exec>
+		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
+			<arg line="-vm /opt/public/common/ibm-java2-ppc-50/bin/java" />
+			<arg line="-application org.eclipse.equinox.p2.director.app.application" />
+			<arg line="-nosplash" />
+			<arg line="--launcher.suppressErrors" />
+			<arg line="-consoleLog" />
+			<arg line="-flavor tooling" />
+			<arg line="-installIU org.eclipse.e4.language.feature.feature.group" />
+			<arg line="-p2.os ${os}" />
+			<arg line="-p2.ws ${ws}" />
+			<arg line="-p2.arch ${arch}" />
+			<arg line="-profile SDKProfile" />
+			<arg line="-metadataRepository file:${repoLocation}" />
+			<arg line="-artifactRepository file:${repoLocation}" />
+			<arg line="-metadataRepositoryName ${repoLocation}" />
+			<arg line="-artifactRepositoryName ${repoLocation}" />
+			<arg line="-destination ${eclipse-home}" />
+			<arg line="-bundlepool ${eclipse-home}" />
+			<arg line="-vmargs" />
+			<arg line="-Declipse.p2.data.area=${eclipse-home}/p2" />
+			<arg line="-Declipse.p2.MD5Check=false" />
+		</exec>
 		<!--
 		<p2.director
 			os="${os}"
