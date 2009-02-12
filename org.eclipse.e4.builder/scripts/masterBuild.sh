@@ -150,6 +150,7 @@ runTheTests () {
         | sed 's/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
         | sed 's/org.eclipse.e4.ui.tests.css.core.prerequisite.testplugins=/org.eclipse.e4.ui.tests.css.core.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
         | sed 's/org.eclipse.e4.core.tests.services.prerequisite.testplugins=/org.eclipse.e4.core.tests.services.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
+        | sed 's/org.eclipse.e4.javascript.test.prerequisite.testplugins=/org.eclipse.e4.javascript.test.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
         | sed 's/org.eclipse.e4.xwt.tests.prerequisite.testplugins=/org.eclipse.e4.xwt.tests.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' >> test.properties
     cat $buildDirectory/label.properties >> label.properties
 
