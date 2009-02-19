@@ -232,16 +232,4 @@
 		<echo message="You must specify a target when invoking this file" />
 	</target>
 
-    <!-- ===================================================================== -->
-    <!-- Steps to do before the repositories are being processed -->
-    <!-- ===================================================================== -->
-    <target name="preProcessRepos">
-    </target>
-
-    <!-- ===================================================================== -->
-    <!-- Steps to do after the repositories have been processed -->
-    <!-- ===================================================================== -->
-    <target name="postProcessRepos">
-    </target>
-
 </project>
