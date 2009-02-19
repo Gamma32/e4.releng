@@ -15,24 +15,22 @@
 	<!-- ===================================================================== -->
 	<!-- ===================================================================== -->
 	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
-		<get src="${eclipseBaseURL}/${eclipseBaseName}" dest="${buildDirectory}/../${eclipseBaseName}" />
+		<get src="${eclipseBaseURL}/${eclipseBaseName}" dest="${targetZips}/${eclipseBaseName}" />
 		<untar compression="gzip" dest="${base}" overwrite="true" src="${buildDirectory}/../${eclipseBaseName}" />
-		<get src="${eclipseBaseURL}/${eclipseTestName}" dest="${buildDirectory}/../${eclipseTestName}" />
-		<unzip dest="${base}/tmp" overwrite="true" src="${buildDirectory}/../${eclipseTestName}" />
+		<get src="${eclipseBaseURL}/${eclipseTestName}" dest="${targetZips}/${eclipseTestName}" />
+		<unzip dest="${base}/tmp" overwrite="true" src="${targetZips}/${eclipseTestName}" />
 		<unzip dest="${base}" overwrite="true">
 			<fileset dir="${base}/tmp/eclipse-testing">
     			<include name="eclipse-junit-tests-*.zip"/>
 			</fileset>
 		</unzip>
 		<delete dir="${base}/tmp" quiet="true"></delete>
-		<get src="${emfBaseURL}/${emfBaseName}" dest="${buildDirectory}/../${emfBaseName}" />
-		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../${emfBaseName}" />
-		<get src="${emfBaseURL}/${xsdBaseName}" dest="${buildDirectory}/../${xsdBaseName}" />
-		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../${xsdBaseName}" />
-		<get src="${gefBaseURL}/${gefBaseName}" dest="${buildDirectory}/../${gefBaseName}" />
-		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../${gefBaseName}" />
-		<get src="${wstBaseURL}/${wstBaseName}" dest="${buildDirectory}/../${wstBaseName}" />
-		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../${wstBaseName}" />
+		<!--
+		<get src="${emfBaseURL}/${emfBaseName}" dest="${targetZips}/${emfBaseName}" />
+		<get src="${emfBaseURL}/${xsdBaseName}" dest="${targetZips}/${xsdBaseName}" />
+		<get src="${gefBaseURL}/${gefBaseName}" dest="${targetZips}/${gefBaseName}" />
+		<get src="${wstBaseURL}/${wstBaseName}" dest="${targetZips}/${wstBaseName}" />
+		-->
 	</target>
 
 	<target name="checkLocalBase">
