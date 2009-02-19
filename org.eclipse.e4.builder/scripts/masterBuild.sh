@@ -30,7 +30,7 @@ realBuildProperties () {
 # available builds
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
     #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
-    basebuilderBranch=v20090218
+    basebuilderBranch=R35_M5
     eclipseIBuild=3.5M5
 
 }
@@ -46,7 +46,8 @@ testBuildProperties () {
     buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
-    basebuilderBranch=v20090218
+    #basebuilderBranch=v20090218
+    basebuilderBranch=R35_M5
     eclipseIBuild=3.5M5
 
 }
@@ -55,6 +56,7 @@ commonProperties () {
     javaHome=/opt/public/common/ibm-java2-ppc-50
     buildTimestamp=${builddate}-${buildtime}
     buildDir=${supportDir}/downloads/drops/4.0.0
+    targetZips=$buildDir/targets/downloads
     buildDirectory=$buildDir/I$buildTimestamp
     testDir=$buildDirectory/tests
     buildResults=$buildDirectory/I$buildTimestamp
@@ -133,17 +135,19 @@ runTheTests () {
     mkdir -p $testDir
 
     cd $testDir
-    unzip $buildDirectory/../eclipse-Automated-Tests-${eclipseIBuild}.zip
+    unzip $targetZips/eclipse-Automated-Tests-${eclipseIBuild}.zip
     cd eclipse-testing
 
-    cp $buildDirectory/../eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz  .
+    cp $targetZips/eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz  .
     # can't re-run automated tests against an milestone build that has been renamed
     mv eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz \
-      eclipse-SDK-I20081211-1908-linux-gtk${archProp}.tar.gz
-    cp $buildDirectory/../emf-runtime-2.5.0M4.zip .
-    cp $buildDirectory/../xsd-runtime-2.5.0M4.zip .
-    cp $buildDirectory/../GEF-SDK-3.5.0M4.zip .
-    cp $buildDirectory/../wtp-wst-S-3.1M4-20081219210304.zip .
+      eclipse-SDK-I20090202-1535-linux-gtk${archProp}.tar.gz
+    
+    # should use director to update from the same places as the repos
+    cp $targetZips/emf-runtime-2.5.0M4.zip .
+    cp $targetZips/xsd-runtime-2.5.0M4.zip .
+    cp $targetZips/GEF-SDK-3.5.0M4.zip .
+    cp $targetZips/wtp-wst-S-3.1M4-20081219210304.zip .
 
     cat $buildDirectory/test.properties \
         | grep -v org.eclipse.core.tests.resources.prerequisite.testplugins \
