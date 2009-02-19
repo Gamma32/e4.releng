@@ -144,30 +144,24 @@ runTheTests () {
       eclipse-SDK-I20090202-1535-linux-gtk${archProp}.tar.gz
     
     # should use director to update from the same places as the repos
-    cp $targetZips/emf-runtime-2.5.0M4.zip .
-    cp $targetZips/xsd-runtime-2.5.0M4.zip .
-    cp $targetZips/GEF-SDK-3.5.0M4.zip .
-    cp $targetZips/wtp-wst-S-3.1M4-20081219210304.zip .
+    #cp $targetZips/emf-runtime-2.5.0M4.zip .
+    #cp $targetZips/xsd-runtime-2.5.0M4.zip .
+    #cp $targetZips/GEF-SDK-3.5.0M4.zip .
+    #cp $targetZips/wtp-wst-S-3.1M4-20081219210304.zip .
 
-    cat $buildDirectory/test.properties \
-        | grep -v org.eclipse.core.tests.resources.prerequisite.testplugins \
-        | sed 's/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=/org.eclipse.e4.ui.tests.css.swt.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
-        | sed 's/org.eclipse.e4.ui.tests.css.core.prerequisite.testplugins=/org.eclipse.e4.ui.tests.css.core.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
-        | sed 's/org.eclipse.e4.core.tests.services.prerequisite.testplugins=/org.eclipse.e4.core.tests.services.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
-        | sed 's/org.eclipse.e4.javascript.test.prerequisite.testplugins=/org.eclipse.e4.javascript.test.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' \
-        | sed 's/org.eclipse.e4.xwt.tests.prerequisite.testplugins=/org.eclipse.e4.xwt.tests.prerequisite.testplugins=**\/${org.eclipse.core.tests.harness}**/g' >> test.properties
+    cat $buildDirectory/test.properties >> test.properties
     cat $buildDirectory/label.properties >> label.properties
 
-    for f in $buildResults/*.zip; do
-        FN=$( basename $f )
-        echo Copying $FN
-        cp $f .
-    done
+    #for f in $buildResults/*.zip; do
+    #    FN=$( basename $f )
+    #    echo Copying $FN
+    #    cp $f .
+    #done
 
     cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
-        -arch ${arch} e4
+        -arch ${arch} cssSwt
 
     mkdir -p $buildResults/results
     cp -r results/* $buildResults/results
@@ -270,7 +264,7 @@ copyCompileLogs
 #generateSwtZip
 
 # try some tests
-#runTheTests
+runTheTests
 
 cp /shared/eclipse/e4/logs/current.log \
     $buildResults/buildlog.txt

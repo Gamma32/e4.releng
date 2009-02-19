@@ -19,6 +19,8 @@
 	
 	<property name="repoLocation" value="${basedir}/../../${e4.buildLabel}/repository"/>
 
+	<property name="galileoRepo" value="${basedir}/../../../targets/galileo-repo-m5-trans"/>
+
 	<!-- The directory that will contain all files containing information on the tests that ran.-->
 	<property name="results" value="${basedir}/results" />
 
@@ -70,33 +72,10 @@
 				eclipse/plugins/org.eclipse.test.performance.win32_*
 				eclipse/plugins/org.eclipse.ant.optional.junit_*
 				eclipse/plugins/org.easymock_*
-				${testPluginsRequired}
-				-x eclipse/plugins/*.source*/**
+				eclipse/plugins/org.eclipse.core.tests.harness_*
 				-d ${install}/eclipse/dropins/" />
 		</exec>
-		<exec dir="." executable="unzip">
-			<arg line="-o -qq org.eclipse.e4.master*.zip				
-				${testPluginsRequired}
-				-x eclipse/plugins/*.source*/**
-				-d ${install}/eclipse/dropins/" />
-		</exec>
-		<exec dir="." executable="unzip">
-			<arg line="-o -qq emf-runtime-*.zip
-				-d ${install}/eclipse/dropins/" />
-		</exec>
-		<exec dir="." executable="unzip">
-			<arg line="-o -qq xsd-runtime-*.zip
-				-d ${install}/eclipse/dropins/" />
-		</exec>
-		<exec dir="." executable="unzip">
-			<arg line="-o -qq GEF-SDK-*.zip
-				-d ${install}/eclipse/dropins/" />
-		</exec>
-				<exec dir="." executable="unzip">
-					<arg line="-o -qq wtp-wst-*.zip
-						-d ${install}/eclipse/dropins/" />
-				</exec>
-		<echo>-version 4.0.0.v${e4.buildId}</echo>
+		<echo>-version 0.9.0.v${e4.buildId}</echo>
 		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
 			<arg line="-vm /opt/public/common/ibm-java2-ppc-50/bin/java" />
 			<arg line="-application org.eclipse.equinox.p2.director.app.application" />
@@ -104,105 +83,15 @@
 			<arg line="--launcher.suppressErrors" />
 			<arg line="-consoleLog" />
 			<arg line="-flavor tooling" />
-			<arg line="-installIU org.eclipse.e4.resources.feature.feature.group" />
+			<arg line="-installIU org.eclipse.e4.ui.tests.feature.feature.group" />
 			<!--<arg line="-version 4.0.0.v${e4.buildId}" />-->
 			<arg line="-p2.os ${os}" />
 			<arg line="-p2.ws ${ws}" />
 			<arg line="-p2.arch ${arch}" />
 			<arg line="-profile SDKProfile" />
 			<!--<arg line="${p2.director.extraArgs}" />-->
-			<arg line="-metadataRepository file:${repoLocation}" />
-			<arg line="-artifactRepository file:${repoLocation}" />
-			<arg line="-metadataRepositoryName ${repoLocation}" />
-			<arg line="-artifactRepositoryName ${repoLocation}" />
-			<arg line="-destination ${eclipse-home}" />
-			<arg line="-bundlepool ${eclipse-home}" />
-			<arg line="-vmargs" />
-			<arg line="-Declipse.p2.data.area=${eclipse-home}/p2" />
-			<arg line="-Declipse.p2.MD5Check=false" />
-		</exec>
-		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
-			<arg line="-vm /opt/public/common/ibm-java2-ppc-50/bin/java" />
-			<arg line="-application org.eclipse.equinox.p2.director.app.application" />
-			<arg line="-nosplash" />
-			<arg line="--launcher.suppressErrors" />
-			<arg line="-consoleLog" />
-			<arg line="-flavor tooling" />
-			<arg line="-installIU org.eclipse.e4.ui.css.feature.feature.group" />
-			<arg line="-p2.os ${os}" />
-			<arg line="-p2.ws ${ws}" />
-			<arg line="-p2.arch ${arch}" />
-			<arg line="-profile SDKProfile" />
-			<arg line="-metadataRepository file:${repoLocation}" />
-			<arg line="-artifactRepository file:${repoLocation}" />
-			<arg line="-metadataRepositoryName ${repoLocation}" />
-			<arg line="-artifactRepositoryName ${repoLocation}" />
-			<arg line="-destination ${eclipse-home}" />
-			<arg line="-bundlepool ${eclipse-home}" />
-			<arg line="-vmargs" />
-			<arg line="-Declipse.p2.data.area=${eclipse-home}/p2" />
-			<arg line="-Declipse.p2.MD5Check=false" />
-		</exec>
-		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
-			<arg line="-vm /opt/public/common/ibm-java2-ppc-50/bin/java" />
-			<arg line="-application org.eclipse.equinox.p2.director.app.application" />
-			<arg line="-nosplash" />
-			<arg line="--launcher.suppressErrors" />
-			<arg line="-consoleLog" />
-			<arg line="-flavor tooling" />
-			<arg line="-installIU org.eclipse.e4.xwt.feature.feature.group" />
-			<arg line="-p2.os ${os}" />
-			<arg line="-p2.ws ${ws}" />
-			<arg line="-p2.arch ${arch}" />
-			<arg line="-profile SDKProfile" />
-			<arg line="-metadataRepository file:${repoLocation}" />
-			<arg line="-artifactRepository file:${repoLocation}" />
-			<arg line="-metadataRepositoryName ${repoLocation}" />
-			<arg line="-artifactRepositoryName ${repoLocation}" />
-			<arg line="-destination ${eclipse-home}" />
-			<arg line="-bundlepool ${eclipse-home}" />
-			<arg line="-vmargs" />
-			<arg line="-Declipse.p2.data.area=${eclipse-home}/p2" />
-			<arg line="-Declipse.p2.MD5Check=false" />
-		</exec>
-		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
-			<arg line="-vm /opt/public/common/ibm-java2-ppc-50/bin/java" />
-			<arg line="-application org.eclipse.equinox.p2.director.app.application" />
-			<arg line="-nosplash" />
-			<arg line="--launcher.suppressErrors" />
-			<arg line="-consoleLog" />
-			<arg line="-flavor tooling" />
-			<arg line="-installIU org.eclipse.e4.ui.feature.feature.group" />
-			<arg line="-p2.os ${os}" />
-			<arg line="-p2.ws ${ws}" />
-			<arg line="-p2.arch ${arch}" />
-			<arg line="-profile SDKProfile" />
-			<arg line="-metadataRepository file:${repoLocation}" />
-			<arg line="-artifactRepository file:${repoLocation}" />
-			<arg line="-metadataRepositoryName ${repoLocation}" />
-			<arg line="-artifactRepositoryName ${repoLocation}" />
-			<arg line="-destination ${eclipse-home}" />
-			<arg line="-bundlepool ${eclipse-home}" />
-			<arg line="-vmargs" />
-			<arg line="-Declipse.p2.data.area=${eclipse-home}/p2" />
-			<arg line="-Declipse.p2.MD5Check=false" />
-		</exec>
-		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
-			<arg line="-vm /opt/public/common/ibm-java2-ppc-50/bin/java" />
-			<arg line="-application org.eclipse.equinox.p2.director.app.application" />
-			<arg line="-nosplash" />
-			<arg line="--launcher.suppressErrors" />
-			<arg line="-consoleLog" />
-			<arg line="-flavor tooling" />
-			<arg line="-installIU org.eclipse.e4.languages.feature.feature.group" />
-			<arg line="-p2.os ${os}" />
-			<arg line="-p2.ws ${ws}" />
-			<arg line="-p2.arch ${arch}" />
-			<arg line="-profile SDKProfile" />
-			<arg line="-metadataRepository file:${repoLocation}" />
-			<arg line="-artifactRepository file:${repoLocation}" />
-			<arg line="-metadataRepositoryName ${repoLocation}" />
-			<arg line="-artifactRepositoryName ${repoLocation}" />
+			<arg line="-metadataRepository file:${repoLocation},file:${galileoRepo}" />
+			<arg line="-artifactRepository file:${repoLocation},file:${galileoRepo}" />
 			<arg line="-destination ${eclipse-home}" />
 			<arg line="-bundlepool ${eclipse-home}" />
 			<arg line="-vmargs" />
