@@ -16,7 +16,7 @@
 	<!-- ===================================================================== -->
 	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
 		<get src="${eclipseBaseURL}/${eclipseBaseName}" dest="${targetZips}/${eclipseBaseName}" />
-		<untar compression="gzip" dest="${base}" overwrite="true" src="${buildDirectory}/../${eclipseBaseName}" />
+		<untar compression="gzip" dest="${base}" overwrite="true" src="${targetZips}/${eclipseBaseName}" />
 		<get src="${eclipseBaseURL}/${eclipseTestName}" dest="${targetZips}/${eclipseTestName}" />
 		<unzip dest="${base}/tmp" overwrite="true" src="${targetZips}/${eclipseTestName}" />
 		<unzip dest="${base}" overwrite="true">
