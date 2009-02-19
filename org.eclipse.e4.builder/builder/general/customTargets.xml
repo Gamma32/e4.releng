@@ -180,12 +180,14 @@
 		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${buildDirectory}/${buildLabel}/index.html" />
 		<copy filtering="true" file="${builder}/tests/build.label.properties" tofile="${buildDirectory}/label.properties" />
 		
+		<copy file="${builder}/../../templates/dl-icon-update-zip.gif" tofile="${buildDirectory}/${buildLabel}/dl-icon-update-zip.gif" />
 		<copy file="${builder}/../../templates/FAIL.gif" tofile="${buildDirectory}/${buildLabel}/FAIL.gif" />
 		<copy file="${builder}/../../templates/new.gif" tofile="${buildDirectory}/${buildLabel}/new.gif" />
 		<copy file="${builder}/../../templates/OK.gif" tofile="${buildDirectory}/${buildLabel}/OK.gif" />
 		<copy file="${builder}/../../templates/build.download.php" tofile="${buildDirectory}/${buildLabel}/download.php" />
-		<move file="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildId}-group.group.group.zip" tofile="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildLabel}.zip" />
 		<copy file="${buildDirectory}/directory.txt" todir="${buildDirectory}/${buildLabel}" />
+		<move file="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildId}-group.group.group.zip" tofile="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildLabel}.zip" />
+		<zip destfile="${buildDirectory}/${buildLabel}/eclipse-e4-repo-${buildLabel}.zip" basedir="${p2.repo}"></zip>
 		<generateTestProperties
 					buildDirectory="${buildDirectory}"
 					featureId="org.eclipse.e4.resources.tests.feature"
