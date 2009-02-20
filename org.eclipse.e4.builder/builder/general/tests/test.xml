@@ -84,28 +84,6 @@
 			<arg line="--launcher.suppressErrors" />
 			<arg line="-consoleLog" />
 			<arg line="-flavor tooling" />
-			<arg line="-installIU org.eclipse.test.feature.group" />
-			<!--<arg line="-version 4.0.0.v${e4.buildId}" />-->
-			<arg line="-p2.os ${os}" />
-			<arg line="-p2.ws ${ws}" />
-			<arg line="-p2.arch ${arch}" />
-			<arg line="-profile SDKProfile" />
-			<!--<arg line="${p2.director.extraArgs}" />-->
-			<arg line="-metadataRepository file:${testRepo}" />
-			<arg line="-artifactRepository file:${testRepo}" />
-			<arg line="-destination ${eclipse-home}" />
-			<arg line="-bundlepool ${eclipse-home}" />
-			<arg line="-vmargs" />
-			<arg line="-Declipse.p2.data.area=${eclipse-home}/p2" />
-			<arg line="-Declipse.p2.MD5Check=false" />
-		</exec>
-		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
-			<arg line="-vm /opt/public/common/ibm-java2-ppc-50/bin/java" />
-			<arg line="-application org.eclipse.equinox.p2.director.app.application" />
-			<arg line="-nosplash" />
-			<arg line="--launcher.suppressErrors" />
-			<arg line="-consoleLog" />
-			<arg line="-flavor tooling" />
 			<arg line="-installIU org.eclipse.e4.ui.tests.feature.feature.group" />
 			<!--<arg line="-version 4.0.0.v${e4.buildId}" />-->
 			<arg line="-p2.os ${os}" />
@@ -113,48 +91,14 @@
 			<arg line="-p2.arch ${arch}" />
 			<arg line="-profile SDKProfile" />
 			<!--<arg line="${p2.director.extraArgs}" />-->
-			<arg line="-metadataRepository file:${repoLocation},file:${galileoRepo}" />
-			<arg line="-artifactRepository file:${repoLocation},file:${galileoRepo}" />
+			<arg line="-metadataRepository file:${galileoRepo},file:${repoLocation}" />
+			<arg line="-artifactRepository file:${galileoRepo},file:${repoLocation}" />
 			<arg line="-destination ${eclipse-home}" />
 			<arg line="-bundlepool ${eclipse-home}" />
 			<arg line="-vmargs" />
 			<arg line="-Declipse.p2.data.area=${eclipse-home}/p2" />
 			<arg line="-Declipse.p2.MD5Check=false" />
 		</exec>
-		<!--
-		<p2.director
-			os="${os}"
-			arch="${arch}"
-			ws="${ws}"
-			flavor="tooling"
-			metadatarepository="${basedir}/../../I20081216-1037/repository"
-			artifactrepository="${basedir}/../../I20081216-1037/repository"
-			profile="SDKProfile"
-			installiu="org.eclipse.e4.resources.feature"
-			destination="${eclipse-home}"
-			bundlepool="${eclipse-home}"
-			
-		/>
-		<exec dir="." executable="unzip">
-			<arg line="-o -q emf-runtime-*.zip
-				-x eclipse/plugins/*.source*/**
-				-d ${install}/eclipse/dropins/" />
-		</exec>
-		<exec dir="." executable="unzip">
-			<arg line="-o -q org.eclipse.e4.resources.feature*.zip
-				-x eclipse/plugins/*.source*/**
-				-d ${install}/eclipse/dropins/" />
-		</exec>
-		<exec dir="." executable="unzip">
-			<arg line="-o -q org.eclipse.e4.swt.as.feature*.zip
-				-x eclipse/plugins/*.source*/**
-				-d ${install}/eclipse/dropins/" />
-		</exec>
-		<exec dir="." executable="unzip">
-			<arg line="-o -q org.eclipse.e4.ui.feature*.zip
-				-x eclipse/plugins/*.source*/**
-				-d ${install}/eclipse/dropins/" />
-		</exec> -->
 		<antcall target="unzipderby" />
 	</target>
 
