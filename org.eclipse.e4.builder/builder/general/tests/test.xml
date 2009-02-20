@@ -331,7 +331,7 @@
 
 	<target name="junit" unless="skip.test">
 		<antcall target="setup" />
-		<ant antfile="${eclipse-home}/dropins/eclipse/plugins/${testPlugin}/test.xml" dir="${eclipse-home}" />
+		<ant antfile="${eclipse-home}/plugins/${testPlugin}/test.xml" dir="${eclipse-home}" />
 		<antcall target="genResults" />
 	</target>
 
