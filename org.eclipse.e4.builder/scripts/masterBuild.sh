@@ -158,10 +158,10 @@ runTheTests () {
     #    cp $f .
     #done
 
-    cp $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
+    cp -r $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
-        -arch ${arch} cssSwt
+        -arch ${arch} e4
 
     mkdir -p $buildResults/results
     cp -r results/* $buildResults/results
@@ -261,7 +261,7 @@ buildMasterFeature
 copyCompileLogs
 
 # generate the SWT zip file
-#generateSwtZip
+generateSwtZip
 
 # try some tests
 runTheTests

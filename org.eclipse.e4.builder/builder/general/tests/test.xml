@@ -20,7 +20,7 @@
 	<property name="repoLocation" value="${basedir}/../../${e4.buildLabel}/repository"/>
 
 	<property name="galileoRepo" value="${basedir}/../../../targets/galileo-repo-m5-trans"/>
-	<property name="testRepo" value="${basedir}/../../../targets/test-m5"/>
+	<property name="testRepo" value="${basedir}/testRepo"/>
 
 	<!-- The directory that will contain all files containing information on the tests that ran.-->
 	<property name="results" value="${basedir}/results" />
@@ -84,14 +84,14 @@
 			<arg line="--launcher.suppressErrors" />
 			<arg line="-consoleLog" />
 			<arg line="-flavor tooling" />
-			<arg line="-installIU org.eclipse.e4.ui.tests.feature.feature.group" />
+			<arg line="-installIU org.eclipse.e4.install.my.tests" />
 			<!--<arg line="-version 4.0.0.v${e4.buildId}" />-->
 			<arg line="-p2.os ${os}" />
 			<arg line="-p2.ws ${ws}" />
 			<arg line="-p2.arch ${arch}" />
 			<arg line="-profile SDKProfile" />
 			<!--<arg line="${p2.director.extraArgs}" />-->
-			<arg line="-metadataRepository file:${galileoRepo},file:${repoLocation}" />
+			<arg line="-metadataRepository file:${galileoRepo},file:${repoLocation},file:${testRepo}" />
 			<arg line="-artifactRepository file:${galileoRepo},file:${repoLocation}" />
 			<arg line="-destination ${eclipse-home}" />
 			<arg line="-bundlepool ${eclipse-home}" />
