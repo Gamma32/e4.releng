@@ -671,6 +671,10 @@
 		<runTests testPlugin="org.eclipse.e4.javascript.test" />
 	</target>
 
+	<target name="e4ui">
+		<runTests testPlugin="org.eclipse.e4.ui.tests" />
+	</target>
+
 	<target name="e4">
 		<antcall target="coreresources" />
 		<antcall target="cssSwt" />
@@ -678,5 +682,6 @@
 		<antcall target="e4xwt" />
 		<antcall target="coreServices" />
 		<antcall target="e4Lang" />
+		<antcall target="e4ui" />
 	</target>
 </project>

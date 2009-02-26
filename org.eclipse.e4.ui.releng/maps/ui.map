@@ -24,6 +24,7 @@ plugin@org.eclipse.e4.ui.examples.legacy.workbench=v20090220-1300,:pserver:anony
 plugin@org.eclipse.e4.core.tests.services=v20090220-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests.services
 plugin@org.eclipse.e4.ui.tests.css.swt=v20090220-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.swt
 plugin@org.eclipse.e4.ui.tests.css.core=v20090220-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.core
+plugin@org.eclipse.e4.ui.tests=v20090226-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests
 
 !**** What we need from Orbit
 plugin@org.mozilla.javascript,1.6.6=GET,http://download.eclipse.org/tools/orbit/downloads/drops/R20080807152315/bundles/org.mozilla.javascript_1.6.6.v200806030331.jar
