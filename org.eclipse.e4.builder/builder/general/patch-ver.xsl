@@ -68,6 +68,20 @@
       </requires>
       <touchpoint id="null" version="0.0.0"/>
     </unit>
+    <unit id="org.eclipse.e4.server.category" version="0.0.0">
+      <properties size="2">
+        <property name="org.eclipse.equinox.p2.name" value="E4 Server Features"/>
+        <property name="org.eclipse.equinox.p2.type.category" value="true"/>
+      </properties>
+      <provides size="1">
+        <provided namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.server.category" version="0.0.0"/>
+      </provides>
+      <requires size="1">
+        <required namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.server.bespin.feature.feature.group" range="0.0.0"/>
+        <required namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.server.bespin.source.feature.feature.group" range="0.0.0"/>
+      </requires>
+      <touchpoint id="null" version="0.0.0"/>
+    </unit>
     <unit id="org.eclipse.e4.resources.category" version="0.0.0">
       <properties size="2">
         <property name="org.eclipse.equinox.p2.name" value="E4 Resources"/>
