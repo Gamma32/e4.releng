@@ -161,10 +161,22 @@
 		<tstamp>
 		<format property="repmaindate" pattern="yyyy MMMM dd HH:mm" locale="en"/>
 		</tstamp>
+		
+		<copy file="${builder}/../../templates/dl-icon-update-zip.gif" tofile="${buildDirectory}/${buildLabel}/dl-icon-update-zip.gif" />
+		<copy file="${builder}/../../templates/FAIL.gif" tofile="${buildDirectory}/${buildLabel}/FAIL.gif" />
+		<copy file="${builder}/../../templates/new.gif" tofile="${buildDirectory}/${buildLabel}/new.gif" />
+		<copy file="${builder}/../../templates/OK.gif" tofile="${buildDirectory}/${buildLabel}/OK.gif" />
+		<copy file="${builder}/../../templates/build.download.php" tofile="${buildDirectory}/${buildLabel}/download.php" />
+		<copy file="${buildDirectory}/directory.txt" todir="${buildDirectory}/${buildLabel}" />
+		<move file="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildId}-group.group.group.zip" tofile="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildLabel}.zip" />
+		<zip destfile="${buildDirectory}/${buildLabel}/eclipse-e4-repo-${buildLabel}.zip" basedir="${p2.repo}"></zip>
+		
+		<length file="${buildDirectory}/${buildLabel}/eclipse-e4-repo-${buildLabel}.zip" property="repobuildsize"/>
+		
 		<filter token="repbuildid" value="${buildLabel}"/>
 		<filter token="repmaindate" value="${repmaindate}"/>
 		<filter token="repbuilddate" value="${buildLabel}"/>
-		<filter token="repbuildsize" value="32 MB"/>
+		<filter token="repobuildsize" value="${repobuildsize}"/>
 		<filter token="timestamp" value="${timestamp}"/>
 		<filter token="buildType" value="${buildType}"/>
 		<filter token="buildId" value="${buildId}"/>
@@ -177,15 +189,7 @@
 		<filter token="wstBaseURL" value="${wstBaseURL}"/>
 		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${buildDirectory}/${buildLabel}/index.html" />
 		<copy filtering="true" file="${builder}/tests/build.label.properties" tofile="${buildDirectory}/label.properties" />
-		
-		<copy file="${builder}/../../templates/dl-icon-update-zip.gif" tofile="${buildDirectory}/${buildLabel}/dl-icon-update-zip.gif" />
-		<copy file="${builder}/../../templates/FAIL.gif" tofile="${buildDirectory}/${buildLabel}/FAIL.gif" />
-		<copy file="${builder}/../../templates/new.gif" tofile="${buildDirectory}/${buildLabel}/new.gif" />
-		<copy file="${builder}/../../templates/OK.gif" tofile="${buildDirectory}/${buildLabel}/OK.gif" />
-		<copy file="${builder}/../../templates/build.download.php" tofile="${buildDirectory}/${buildLabel}/download.php" />
-		<copy file="${buildDirectory}/directory.txt" todir="${buildDirectory}/${buildLabel}" />
-		<move file="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildId}-group.group.group.zip" tofile="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildLabel}.zip" />
-		<zip destfile="${buildDirectory}/${buildLabel}/eclipse-e4-repo-${buildLabel}.zip" basedir="${p2.repo}"></zip>
+
 		<generateTestProperties
 					buildDirectory="${buildDirectory}"
 					featureId="org.eclipse.e4.resources.tests.feature"
