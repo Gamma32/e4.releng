@@ -30,8 +30,8 @@ realBuildProperties () {
 # available builds
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
     #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
-    basebuilderBranch=R35_M5
-    eclipseIBuild=3.5M5
+    basebuilderBranch=v20090310a
+    eclipseIBuild=I20090311-0100
 
 }
 
@@ -46,9 +46,8 @@ testBuildProperties () {
     buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
-    #basebuilderBranch=v20090218
-    basebuilderBranch=R35_M5
-    eclipseIBuild=3.5M5
+    basebuilderBranch=v20090310a
+    eclipseIBuild=I20090311-0100
 
 }
 
@@ -140,8 +139,8 @@ runTheTests () {
 
     cp $targetZips/eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz  .
     # can't re-run automated tests against an milestone build that has been renamed
-    mv eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz \
-      eclipse-SDK-I20090202-1535-linux-gtk${archProp}.tar.gz
+    #mv eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz \
+    #  eclipse-SDK-I20090202-1535-linux-gtk${archProp}.tar.gz
     
     # should use director to update from the same places as the repos
     #cp $targetZips/emf-runtime-2.5.0M4.zip .
