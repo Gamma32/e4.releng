@@ -10,7 +10,7 @@ plugin@org.eclipse.e4.xwt.doc.user=v20090311-1000,:pserver:anonymous@dev.eclipse
 
 !**** and build it
 feature@org.eclipse.e4.xwt.feature=v20090203-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.feature
-feature@org.eclipse.e4.xwt.tests.feature=v20090123-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tests.feature
+feature@org.eclipse.e4.xwt.tests.feature=v20090312-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tests.feature
 feature@org.eclipse.e4.xwt.tools.feature=v20090203-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tools.feature
 feature@org.eclipse.e4.xwt.css.feature=v20090311-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.css.feature
 
