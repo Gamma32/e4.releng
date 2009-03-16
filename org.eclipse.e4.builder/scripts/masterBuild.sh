@@ -30,7 +30,7 @@ realBuildProperties () {
 # available builds
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
     #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
-    basebuilderBranch=v20090316
+    basebuilderBranch=v20090316a
     eclipseIBuild=I20090313-0100
 
 }
@@ -46,7 +46,7 @@ testBuildProperties () {
     buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
-    basebuilderBranch=v20090316
+    basebuilderBranch=v20090316a
     eclipseIBuild=I20090313-0100
 
 }
@@ -55,7 +55,9 @@ commonProperties () {
     javaHome=/opt/public/common/ibm-java2-ppc-50
     buildTimestamp=${builddate}-${buildtime}
     buildDir=${supportDir}/downloads/drops/4.0.0
-    targetZips=$buildDir/targets/downloads
+    targetDir=${buildDir}/targets
+    targetZips=$targetDir/downloads
+    untransformedRepo=${targetDir}/galileo-repo-m6-cand
     buildDirectory=$buildDir/I$buildTimestamp
     testDir=$buildDirectory/tests
     buildResults=$buildDirectory/I$buildTimestamp
@@ -150,6 +152,7 @@ runTheTests () {
 
     cat $buildDirectory/test.properties >> test.properties
     cat $buildDirectory/label.properties >> label.properties
+    echo repo.dir=${untransformedRepo}-trans >repo.properties
 
     #for f in $buildResults/*.zip; do
     #    FN=$( basename $f )
@@ -160,7 +163,7 @@ runTheTests () {
     cp -r $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
-        -arch ${arch} e4
+        -arch ${arch} -properties repo.properties e4
 
     mkdir -p $buildResults/results
     cp -r results/* $buildResults/results
@@ -192,6 +195,7 @@ buildMasterFeature () {
       -Dbuilddate=$builddate \
       -Dbuildtime=$buildtime \
       -DeclipseBuildId=$eclipseIBuild \
+      -Duntransformed.dir=${untransformedRepo}
       ${archJavaProp} \
       -DbuildArea=$buildDir \
       -DbuildDirectory=$buildDirectory \

@@ -19,7 +19,7 @@
 
 	<property name="repoLocation" value="${basedir}/../../${e4.buildLabel}/repository"/>
 
-	<property name="galileoRepo" value="${basedir}/../../../targets/galileo-us-m6-cand-runnable"/>
+	<property name="galileoRepo" value="${repo.dir}"/>
 	<property name="testRepo" value="${basedir}/testRepo"/>
 
 	<!-- The directory that will contain all files containing information on the tests that ran.-->
