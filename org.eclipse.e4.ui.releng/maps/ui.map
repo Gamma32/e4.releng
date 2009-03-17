@@ -22,6 +22,9 @@ plugin@org.eclipse.e4.ui.examples.css.nebula=v20090206-1045,:pserver:anonymous@d
 plugin@org.eclipse.e4.ui.examples.css.rcp=v20090311-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.ui.examples.css.rcp
 plugin@org.eclipse.e4.ui.examples.legacy.workbench=v20090305-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.ui.examples.legacy.workbench
 plugin@org.eclipse.e4.ui.css.legacy=v20090226-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.legacy
+plugin@org.eclipse.e4.demo.modifier=v20090317-1230,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.demo.modifier
+
+
 
 !*** e4 UI tests
 plugin@org.eclipse.e4.core.tests.services=v20090226-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests.services
