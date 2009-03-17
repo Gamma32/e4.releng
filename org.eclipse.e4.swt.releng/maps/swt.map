@@ -1,7 +1,7 @@
 !**** e4 SWT AS tools
 plugin@org.eclipse.jdt.compiler.as=v20090101-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.jdt.compiler.as
-plugin@org.eclipse.swt.tools.actionscript.core=v20090312,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.core
-plugin@org.eclipse.swt.tools.actionscript.ui=v20090312,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.ui
+plugin@org.eclipse.swt.tools.actionscript.core=v20090317,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.core
+plugin@org.eclipse.swt.tools.actionscript.ui=v20090317,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.tools.actionscript.ui
 
 !**** e4 SWT Flex bundles
 plugin@org.eclipse.swt.e4=v20090205-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.swt/bundles/org.eclipse.swt.e4
