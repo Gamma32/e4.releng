@@ -1,5 +1,5 @@
 !**** e4 languages
-plugin@org.eclipse.e4.javascript=v20090305-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.javascript
+plugin@org.eclipse.e4.javascript=v20090317-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.javascript
 
 !*** e4 languages examples
 
