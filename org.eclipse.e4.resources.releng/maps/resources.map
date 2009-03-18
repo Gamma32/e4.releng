@@ -5,7 +5,7 @@
 plugin@org.eclipse.core.contenttype=v20081211-1515,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.contenttype
 
 !**** Resources
-plugin@org.eclipse.core.resources=v20090312-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources
+plugin@org.eclipse.core.resources=v20090319-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources
 fragment@org.eclipse.core.resources.win32=v20081208-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32
 fragment@org.eclipse.core.resources.win32.x86=v20081211-1515,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32.x86
 fragment@org.eclipse.core.resources.win32.ia64=v20081211-1515,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32.ia64
@@ -40,7 +40,7 @@ feature@org.eclipse.e4.resources.rcp.patch=v20090123-1000,:pserver:anonymous@dev
 #plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 #plugin@org.eclipse.test.performance=v20081108,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
-plugin@org.eclipse.core.tests.resources=v20090312-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.tests.resources
+plugin@org.eclipse.core.tests.resources=v20090319-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.tests.resources
 plugin@org.eclipse.core.tests.resources.saveparticipant=v20081211-1515,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.tests.resources.saveparticipant
 plugin@org.eclipse.core.tests.resources.saveparticipant1=v20081211-1515,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.tests.resources.saveparticipant1
 plugin@org.eclipse.core.tests.resources.saveparticipant2=v20081211-1515,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.tests.resources.saveparticipant2
