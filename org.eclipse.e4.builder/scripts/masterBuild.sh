@@ -57,7 +57,7 @@ commonProperties () {
     buildDir=${supportDir}/downloads/drops/4.0.0
     targetDir=${buildDir}/targets
     targetZips=$targetDir/downloads
-    untransformedRepo=${targetDir}/galileo-repo-m6-cand
+    untransformedRepo=${targetDir}/galileo-repo-m6
     buildDirectory=$buildDir/I$buildTimestamp
     testDir=$buildDirectory/tests
     buildResults=$buildDirectory/I$buildTimestamp
