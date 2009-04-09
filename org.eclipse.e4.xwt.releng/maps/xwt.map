@@ -1,5 +1,5 @@
 !**** e4 XWT tools
-plugin@org.eclipse.e4.xwt=v20090402-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
+plugin@org.eclipse.e4.xwt=v20090409-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
 plugin@org.eclipse.e4.xwt.css=v20090311-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.css
 plugin@org.eclipse.e4.xwt.tools.ui=v20090402-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui
 plugin@org.eclipse.e4.xwt.tools.ui.editor=v20090402-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui.editor
