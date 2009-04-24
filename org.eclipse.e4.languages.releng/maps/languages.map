@@ -4,7 +4,7 @@ plugin@org.eclipse.e4.javascript=v20090409-1930,:pserver:anonymous@dev.eclipse.o
 !*** e4 languages examples
 
 !*** e4 languages tests
-plugin@org.eclipse.e4.javascript.test=v20090409-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/tests/org.eclipse.e4.javascript.test
+plugin@org.eclipse.e4.javascript.test=v20090424-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/tests/org.eclipse.e4.javascript.test
 
 
 !**** and build it
