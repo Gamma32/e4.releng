@@ -30,8 +30,8 @@ realBuildProperties () {
 # available builds
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
     #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
-    basebuilderBranch=v20090316a
-    eclipseIBuild=I20090421-0930
+    basebuilderBranch=v20090506a
+    eclipseIBuild=I20090430-2300
 
 }
 
@@ -46,8 +46,8 @@ testBuildProperties () {
     buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
-    basebuilderBranch=v20090316a
-    eclipseIBuild=I20090421-0930
+    basebuilderBranch=v20090506a
+    eclipseIBuild=I20090430-2300
 
 }
 
@@ -57,7 +57,7 @@ commonProperties () {
     buildDir=${supportDir}/downloads/drops/4.0.0
     targetDir=${buildDir}/targets
     targetZips=$targetDir/downloads
-    untransformedRepo=${targetDir}/galileo-repo-m6
+    untransformedRepo=${targetDir}/galileo-repo-m7
     buildDirectory=$buildDir/I$buildTimestamp
     testDir=$buildDirectory/tests
     buildResults=$buildDirectory/I$buildTimestamp
@@ -264,10 +264,10 @@ buildMasterFeature
 copyCompileLogs
 
 # generate the SWT zip file
-generateSwtZip
+#generateSwtZip
 
 # try some tests
-runTheTests
+#runTheTests
 
 cp /shared/eclipse/e4/logs/current.log \
     $buildResults/buildlog.txt
