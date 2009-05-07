@@ -675,6 +675,14 @@
 		<runTests testPlugin="org.eclipse.e4.ui.tests" />
 	</target>
 
+	<target name="e4tm">
+		<runTests testPlugin="org.eclipse.e4.tm.builder.tests" />
+	</target>
+
+	<target name="e4tmJavascript">
+		<runTests testPlugin="org.eclipse.e4.emf.javascript.tests" />
+	</target>
+
 	<target name="e4">
 		<antcall target="coreresources" />
 		<antcall target="cssSwt" />
@@ -683,5 +691,7 @@
 		<antcall target="coreServices" />
 		<antcall target="e4Lang" />
 		<antcall target="e4ui" />
+		<antcall target="e4tm" />
+		<antcall target="e4tmJavascript" />
 	</target>
 </project>

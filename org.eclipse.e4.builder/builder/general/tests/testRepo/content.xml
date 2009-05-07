@@ -19,12 +19,13 @@
         <provided namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.install.my.tests" version="0.0.0"/>
         <provided namespace="org.eclipse.equinox.p2.localization" name="df_LT" version="1.0.0"/>
       </provides>
-      <requires size="22">
+      <requires size="5">
         <required namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.resources.tests.feature.feature.group" range="[0.9.0,1.0.0)"/>
         <!-- required namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.swt.as.tests.feature.feature.group" range="[0.9.0.v20090123-1000-43-7w311A121202A41,0.9.0.v20090123-1000-43-7w311A121202A41]"/-->
         <required namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.ui.tests.feature.feature.group" range="[0.9.0,1.0.0)"/>
         <required namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.xwt.tests.feature.feature.group" range="[0.9.0,1.0.0)"/>
         <required namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.languages.tests.feature.feature.group" range="[0.9.0,1.0.0)"/>
+        <required namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.tm.tests.feature.feature.group" range="[0.9.0,1.0.0)"/>
       </requires>
       <touchpoint id="null" version="0.0.0"/>
       <licenses size="1">
