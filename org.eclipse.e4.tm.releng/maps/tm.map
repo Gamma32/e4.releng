@@ -7,6 +7,8 @@ plugin@org.eclipse.e4.emf.javascript=v20090507-1330,:pserver:anonymous@dev.eclip
 
 !**** and build it
 feature@org.eclipse.e4.tm.feature=v20090507-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/features/org.eclipse.e4.tm.feature
+feature@org.eclipse.e4.tm.tests.feature=v20090507-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/features/org.eclipse.e4.tm.tests.feature
 
 !**** Test Suites
-#plugin@org.eclipse.e4.xwt.tests=v20090507-0845,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.tests
+plugin@org.eclipse.e4.tm.builder.tests=v20090507-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.tm.builder.tests
+plugin@org.eclipse.e4.emf.javascript.tests=v20090507-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.emf.javascript.tests
