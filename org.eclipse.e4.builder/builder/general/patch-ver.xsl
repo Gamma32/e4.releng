@@ -113,6 +113,20 @@
       </requires>
       <touchpoint id="null" version="0.0.0"/>
     </unit>
+    <unit id="org.eclipse.e4.tm.category" version="0.0.0">
+      <properties size="2">
+        <property name="org.eclipse.equinox.p2.name" value="E4 Toolkit Model"/>
+        <property name="org.eclipse.equinox.p2.type.category" value="true"/>
+      </properties>
+      <provides size="1">
+        <provided namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.tm.category" version="0.0.0"/>
+      </provides>
+      <requires size="4">
+        <required namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.tm.feature.feature.group" range="0.0.0"/>
+        <required namespace="org.eclipse.equinox.p2.iu" name="org.eclipse.e4.tm.source.feature.feature.group" range="0.0.0"/>
+      </requires>
+      <touchpoint id="null" version="0.0.0"/>
+    </unit>
   </xsl:template>
   <!-- Whenever you match any node or any attribute -->
   <xsl:template match="node()|@*">
