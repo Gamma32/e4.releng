@@ -10,5 +10,5 @@ feature@org.eclipse.e4.tm.feature=v20090507-1330,:pserver:anonymous@dev.eclipse.
 feature@org.eclipse.e4.tm.tests.feature=v20090507-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/features/org.eclipse.e4.tm.tests.feature
 
 !**** Test Suites
-plugin@org.eclipse.e4.tm.builder.tests=v20090507-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.tm.builder.tests
-plugin@org.eclipse.e4.emf.javascript.tests=v20090507-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.emf.javascript.tests
+plugin@org.eclipse.e4.tm.builder.tests=v20090507-2130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.tm.builder.tests
+plugin@org.eclipse.e4.emf.javascript.tests=v20090507-2130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.emf.javascript.tests
