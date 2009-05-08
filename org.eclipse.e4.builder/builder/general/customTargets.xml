@@ -215,6 +215,11 @@
 					featureId="org.eclipse.e4.languages.tests.feature"
 					outputFile="${buildDirectory}/test.properties"
 				/>
+		<generateTestProperties
+					buildDirectory="${buildDirectory}"
+					featureId="org.eclipse.e4.tm.tests.feature"
+					outputFile="${buildDirectory}/test.properties"
+				/>
 	</target>
 
 	<!-- ===================================================================== -->
