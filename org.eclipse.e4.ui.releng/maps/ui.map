@@ -15,6 +15,7 @@ fragment@org.eclipse.e4.ui.workbench.fragment=v20090417-1930,:pserver:anonymous@
 !*** e4 UI examples
 plugin@org.eclipse.nebula.widgets.gallery=R_0_20090212,:pserver:anonymous@dev.eclipse.org:/cvsroot/technology,,org.eclipse.swt.nebula/org.eclipse.nebula.widgets.gallery
 plugin@org.eclipse.e4.demo.e4photo=v20090417-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.demo.e4photo
+plugin@org.eclipse.e4.demo.contacts=v20090521-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.demo.contacts
 plugin@org.eclipse.e4.ui.examples.css=v20090507-1115,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.ui.examples.css
 plugin@org.eclipse.e4.ui.examples.css.nebula=v20090507-1115,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.ui.examples.css.nebula
 plugin@org.eclipse.e4.ui.examples.css.rcp=v20090417-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.ui.examples.css.rcp
