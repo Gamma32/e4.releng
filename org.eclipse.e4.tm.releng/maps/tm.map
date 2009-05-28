@@ -1,8 +1,8 @@
 !**** e4 XWT tools
-plugin@org.eclipse.e4.tm=v20090521-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm
+plugin@org.eclipse.e4.tm=v20090528-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm
 plugin@org.eclipse.e4.tm.builder=v20090521-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm.builder
-plugin@org.eclipse.e4.tm.ui=v20090521-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm.ui
-plugin@org.eclipse.e4.emf.javascript=v20090521-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.emf.javascript
+plugin@org.eclipse.e4.tm.ui=v20090528-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm.ui
+plugin@org.eclipse.e4.emf.javascript=v20090528-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.emf.javascript
 
 
 !**** and build it
@@ -11,4 +11,4 @@ feature@org.eclipse.e4.tm.tests.feature=v20090507-1430,:pserver:anonymous@dev.ec
 
 !**** Test Suites
 plugin@org.eclipse.e4.tm.builder.tests=v20090521-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.tm.builder.tests
-plugin@org.eclipse.e4.emf.javascript.tests=v20090507-2130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.emf.javascript.tests
+plugin@org.eclipse.e4.emf.javascript.tests=v20090528-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.emf.javascript.tests
