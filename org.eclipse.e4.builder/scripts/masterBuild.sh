@@ -32,7 +32,7 @@ realBuildProperties () {
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
     #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
     basebuilderBranch=v20090602
-    eclipseIBuild=I20090430-2300
+    eclipseIBuild=I20090603-2000
 
 }
 
@@ -43,14 +43,14 @@ realBuildProperties () {
 testBuildProperties () {
 	supportDir=/opt/pwebster/workspaces/e4
 	builderDir=${supportDir}/releng/org.eclipse.e4.builder
-#builddate=20081215
-#buildtime=1845
+#builddate=20090604
+#buildtime=1303
     builddate=$( date +%Y%m%d )
     buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
     basebuilderBranch=v20090602
-    eclipseIBuild=I20090430-2300
+    eclipseIBuild=I20090603-2000
 
 }
 
@@ -60,7 +60,7 @@ commonProperties () {
     buildDir=$writableBuildRoot/build/e4/downloads/drops/4.0.0
     targetDir=${buildDir}/targets
     targetZips=$targetDir/downloads
-    untransformedRepo=${targetDir}/galileo-repo-m7
+    untransformedRepo=${targetDir}/galileo-rc4
     buildDirectory=$buildDir/I$buildTimestamp
     testDir=$buildDirectory/tests
     buildResults=$buildDirectory/I$buildTimestamp

@@ -15,6 +15,7 @@
 	<!-- ===================================================================== -->
 	<!-- ===================================================================== -->
 	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
+		<!--
 		<get src="${eclipseBaseURL}/${eclipseBaseName}" dest="${targetZips}/${eclipseBaseName}" />
 		<untar compression="gzip" dest="${base}" overwrite="true" src="${targetZips}/${eclipseBaseName}" />
 		<get src="${eclipseBaseURL}/${eclipseTestName}" dest="${targetZips}/${eclipseTestName}" />
@@ -25,7 +26,6 @@
 			</fileset>
 		</unzip>
 		<delete dir="${base}/tmp" quiet="true"></delete>
-		<!--
 		<get src="${emfBaseURL}/${emfBaseName}" dest="${targetZips}/${emfBaseName}" />
 		<get src="${emfBaseURL}/${xsdBaseName}" dest="${targetZips}/${xsdBaseName}" />
 		<get src="${gefBaseURL}/${gefBaseName}" dest="${targetZips}/${gefBaseName}" />

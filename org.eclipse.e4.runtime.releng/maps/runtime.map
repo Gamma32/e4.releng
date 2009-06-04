@@ -1,8 +1,11 @@
 
 !**** What we need from Equinox
 plugin@org.eclipse.equinox.concurrent,1.0.0=GET,http://download.eclipse.org/equinox/drops/S-3.5M5-200902021535/org.eclipse.equinox.concurrent_1.0.0.v20090125-0800.jar
-
+plugin@org.eclipse.core.tests.harness=v20090525,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.test=v20081002,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.test.performance=v20090511,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 
 !**** and build it
 feature@org.eclipse.e4.runtime.feature=v20090604-1100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.runtime/features/org.eclipse.e4.runtime.feature
+feature@org.eclipse.e4.tests.base.feature=v20090604-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.runtime/features/org.eclipse.e4.tests.base.feature
