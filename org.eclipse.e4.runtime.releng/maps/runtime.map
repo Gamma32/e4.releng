@@ -4,6 +4,7 @@ plugin@org.eclipse.equinox.concurrent,1.0.0=GET,http://download.eclipse.org/equi
 plugin@org.eclipse.core.tests.harness=v20090525,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 plugin@org.eclipse.test=v20081002,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 plugin@org.eclipse.test.performance=v20090511,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.jdt.core.tests.compiler=v_963,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 
 !**** and build it
