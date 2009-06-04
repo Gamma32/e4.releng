@@ -5,5 +5,4 @@ plugin@org.eclipse.equinox.concurrent,1.0.0=GET,http://download.eclipse.org/equi
 
 
 !**** and build it
-feature@org.eclipse.e4.runtime.feature=v20090226-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.runtime/features/org.eclipse.e4.runtime.feature
-
+feature@org.eclipse.e4.runtime.feature=v20090604-1100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.runtime/features/org.eclipse.e4.runtime.feature

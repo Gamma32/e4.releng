@@ -2,7 +2,6 @@
 
 quietCVS=-Q
 writableBuildRoot=/shared/eclipse/e4
-supportDir=$writableBuildRoot/build/e4
 projRelengBranch="HEAD"; # default set below
 arch="x86"
 archProp=""
@@ -17,6 +16,8 @@ fi
 # Real Build on build.eclipse.org
 #
 realBuildProperties () {
+	supportDir=$writableBuildRoot/build/e4
+	builderDir=${supportDir}/org.eclipse.e4.builder
     builddate=$( date +%Y%m%d )
     buildtime=$( date +%H%M )
 
@@ -30,7 +31,7 @@ realBuildProperties () {
 # available builds
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
     #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
-    basebuilderBranch=v20090506a
+    basebuilderBranch=v20090602
     eclipseIBuild=I20090430-2300
 
 }
@@ -40,13 +41,15 @@ realBuildProperties () {
 # test Build
 #
 testBuildProperties () {
+	supportDir=/opt/pwebster/workspaces/e4
+	builderDir=${supportDir}/releng/org.eclipse.e4.builder
 #builddate=20081215
 #buildtime=1845
     builddate=$( date +%Y%m%d )
     buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
-    basebuilderBranch=v20090506a
+    basebuilderBranch=v20090602
     eclipseIBuild=I20090430-2300
 
 }
@@ -54,7 +57,7 @@ testBuildProperties () {
 commonProperties () {
     javaHome=/opt/public/common/ibm-java2-ppc-50
     buildTimestamp=${builddate}-${buildtime}
-    buildDir=${supportDir}/downloads/drops/4.0.0
+    buildDir=$writableBuildRoot/build/e4/downloads/drops/4.0.0
     targetDir=${buildDir}/targets
     targetZips=$targetDir/downloads
     untransformedRepo=${targetDir}/galileo-repo-m7
@@ -81,6 +84,9 @@ updateBaseBuilder () {
     rm org.eclipse.releng.basebuilder
     ln -s ${supportDir}/org.eclipse.releng.basebuilder_${basebuilderBranch} org.eclipse.releng.basebuilder
 
+}
+
+updateBaseBuilderInfo() {
 # now update the variables that depend on this
     pdeDir=$( find $relengBaseBuilderDir/ -name "org.eclipse.pde.build_*" | sort | head -1 )
     buildfile=$pdeDir/scripts/build.xml
@@ -104,7 +110,6 @@ updateE4Builder () {
     rm org.eclipse.e4.builder
     ln -s ${supportDir}/org.eclipse.e4.builder_${projRelengBranch} org.eclipse.e4.builder
 
-    cd $supportDir/org.eclipse.e4.builder/scripts
 }
 
 copyCompileLogs () {
@@ -160,7 +165,7 @@ runTheTests () {
     #    cp $f .
     #done
 
-    cp -r $supportDir/org.eclipse.e4.builder/builder/general/tests/* .
+    cp -r ${builderDir}/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
         -arch ${arch} -properties repo.properties e4
@@ -168,7 +173,7 @@ runTheTests () {
     mkdir -p $buildResults/results
     cp -r results/* $buildResults/results
 
-    cp $supportDir/org.eclipse.e4.builder/templates/build.testResults.html \
+    cp ${builderDir}/templates/build.testResults.html \
         $buildResults/testResults.html
 
 }
@@ -191,7 +196,7 @@ buildMasterFeature () {
       -cp $cpAndMain \
       -application org.eclipse.ant.core.antRunner \
       -buildfile $buildfile \
-      -Dbuilder=$supportDir/org.eclipse.e4.builder/builder/general \
+      -Dbuilder=${builderDir}/builder/general \
       -Dbuilddate=$builddate \
       -Dbuildtime=$buildtime \
       -DeclipseBuildId=$eclipseIBuild \
@@ -253,8 +258,14 @@ generateSwtZip () {
 #realBuildProperties
 testBuildProperties
 commonProperties
-updateBaseBuilder
-updateE4Builder
+#updateBaseBuilder
+#updateE4Builder
+
+updateBaseBuilderInfo
+
+
+cd ${builderDir}/scripts
+
 
 echo "[start] [`date +%H\:%M\:%S`] setting eclipse $eclipseIBuild"
 
