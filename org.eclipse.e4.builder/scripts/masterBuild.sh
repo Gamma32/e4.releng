@@ -43,8 +43,8 @@ realBuildProperties () {
 testBuildProperties () {
 	supportDir=/opt/pwebster/workspaces/e4
 	builderDir=${supportDir}/releng/org.eclipse.e4.builder
-builddate=20090604
-buildtime=2042
+builddate=20090605
+buildtime=0750
 #    builddate=$( date +%Y%m%d )
 #    buildtime=$( date +%H%M )
 

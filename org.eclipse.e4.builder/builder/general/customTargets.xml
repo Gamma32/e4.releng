@@ -265,16 +265,13 @@
 			<arg line="-repository file:${transformedRepoLocation},file:${p2.repo}" />
 			<arg line="-destination ${p2.director.install.path}" />
 			<arg line="-bundlepool ${p2.director.install.path}" />
-			<arg line="-vmargs" />
-			<arg line="-Declipse.p2.data.area=${p2.director.install.path}/p2" />
-			<arg line="-Declipse.p2.MD5Check=false" />
-			<arg line="-Declipse.p2.profile=@none" />
 		</exec>
 		<echo message="director ${p2.director.install.path}" file="${directorlog}" append="true" />
 		<echo message="${directorcode}" file="${directorlog}" append="true" />
 	</target>
 	
 	<target name="e4.product">
+		<replace token="@qualifier@" file="${buildDirectory}/plugins/org.eclipse.e4.ui.examples.legacy.workbench/legacy-eclipse.product" value="${buildId}" />
 		<p2.publish.product flavor="tooling" repository="file:${p2.repo}" productFile="${buildDirectory}/plugins/org.eclipse.e4.ui.examples.legacy.workbench/legacy-eclipse.product" compress="true">
 			<config os="win32" ws="win32" arch="x86" />
 			<config os="linux" ws="gtk" arch="x86" />
