@@ -43,10 +43,10 @@ realBuildProperties () {
 testBuildProperties () {
 	supportDir=/opt/pwebster/workspaces/e4
 	builderDir=${supportDir}/releng/org.eclipse.e4.builder
-#builddate=20090604
-#buildtime=1411
-    builddate=$( date +%Y%m%d )
-    buildtime=$( date +%H%M )
+builddate=20090604
+buildtime=2042
+#    builddate=$( date +%Y%m%d )
+#    buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
     basebuilderBranch=v20090602
@@ -204,7 +204,9 @@ buildMasterFeature () {
       ${archJavaProp} \
       -DbuildArea=$buildDir \
       -DbuildDirectory=$buildDirectory \
+      -Dbase.builder=$relengBaseBuilderDir \
       -DmapsRepo=$projRoot \
+      -Djava15-home=$javaHome \
       -DrunPackager=true -Dgenerate.p2.metadata=true -Dp2.publish.artifacts=true \
       -DtopLevelElementId=org.eclipse.e4.master \
       -Dflex.sdk=$writableBuildRoot/flex_sdk_3.2.0.3794_mpl "

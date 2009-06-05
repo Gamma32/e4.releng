@@ -7,6 +7,7 @@
 	<available property="allElementsFile" file="${builder}/allElements.xml" value="${builder}/allElements.xml"/>
 	<property name="allElementsFile" location="${eclipse.pdebuild.templates}/headless-build/allElements.xml"/>
 
+	
 	<import file="${allElementsFile}" />
 	<target name="allElements">
 		<antcall target="allElementsDelegator" />
@@ -15,6 +16,7 @@
 	<!-- ===================================================================== -->
 	<!-- ===================================================================== -->
 	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
+		<mkdir dir="${baseLocation}" />
 		<!--
 		<get src="${eclipseBaseURL}/${eclipseBaseName}" dest="${targetZips}/${eclipseBaseName}" />
 		<untar compression="gzip" dest="${base}" overwrite="true" src="${targetZips}/${eclipseBaseName}" />
@@ -220,6 +222,8 @@
 					featureId="org.eclipse.e4.tm.tests.feature"
 					outputFile="${buildDirectory}/test.properties"
 				/>
+		<antcall target="e4.product"/>
+		<antcall target="provision.e4"/>
 	</target>
 
 	<!-- ===================================================================== -->
@@ -241,4 +245,93 @@
 		<echo message="You must specify a target when invoking this file" />
 	</target>
 
+	<target name="run.director">
+		<delete dir="${base.builder}/configuration/.settings" includeemptydirs="true" failonerror="false" />
+		<!--	<copy file="${equinox.build.configs}/equinox.prov/files/config.ini.director" tofile="${base.builder}/configuration/config.ini" overwrite="true" /> -->
+		<exec executable="${base.builder}/eclipse" failonerror="false" dir="${base.builder}" timeout="900000" output="${directorlog}" resultproperty="directorcode">
+			<arg line="-vm ${java15-home}/bin/java" />
+			<arg line="-application org.eclipse.equinox.p2.director" />
+			<arg line="-nosplash" />
+			<arg line="--launcher.suppressErrors" />
+			<arg line="-consoleLog" />
+			<arg line="-flavor ${p2.flavor}" />
+			<arg line="-installIU ${p2.director.installIU}" />
+			<arg line="-p2.os ${p2.os}" />
+			<arg line="-p2.ws ${p2.ws}" />
+			<arg line="-p2.arch ${p2.arch}" />
+			<arg line="-roaming" />
+			<arg line="-profile ${p2.director.profile}" />
+			<arg line="${p2.director.extraArgs}" />
+			<arg line="-repository file:${transformedRepoLocation},file:${p2.repo}" />
+			<arg line="-destination ${p2.director.install.path}" />
+			<arg line="-bundlepool ${p2.director.install.path}" />
+			<arg line="-vmargs" />
+			<arg line="-Declipse.p2.data.area=${p2.director.install.path}/p2" />
+			<arg line="-Declipse.p2.MD5Check=false" />
+			<arg line="-Declipse.p2.profile=@none" />
+		</exec>
+		<echo message="director ${p2.director.install.path}" file="${directorlog}" append="true" />
+		<echo message="${directorcode}" file="${directorlog}" append="true" />
+	</target>
+	
+	<target name="e4.product">
+		<p2.publish.product flavor="tooling" repository="file:${p2.repo}" productFile="${buildDirectory}/plugins/org.eclipse.e4.ui.examples.legacy.workbench/legacy-eclipse.product" compress="true">
+			<config os="win32" ws="win32" arch="x86" />
+			<config os="linux" ws="gtk" arch="x86" />
+			<config os="macosx" ws="cocoa" arch="x86" />
+			<advice kind="featureVersions" file="${buildDirectory}/finalFeaturesVersions.properties" />
+			<advice kind="pluginVersions" file="${buildDirectory}/finalPluginsVersions.properties" />
+		</p2.publish.product>
+
+	</target>
+	
+	<target name="provision.e4">
+		<property name="buildlogs" value="${buildDirectory}/${buildLabel}" />
+		<property name="p2.root" value="${buildDirectory}/${buildId}/p2temp" />
+		<mkdir dir="${p2.root}" />
+		<property name="p2.output.base" value="${p2.root}/equinox.p2.build" />
+		<mkdir dir="${p2.output.base}" />
+		<property name="directorlog" value="${buildlogs}/director.txt" />
+
+		<property name="p2.sdk.install.win32.win32.x86" value="${p2.output.base}/sdk.install.win32.win32.x86" />
+		<mkdir dir="${p2.sdk.install.win32.win32.x86}" />
+		<property name="p2.sdk.install.linux.gtk.x86" value="${p2.output.base}/sdk.install.linux.gtk.x86" />
+		<mkdir dir="${p2.sdk.install.linux.gtk.x86}" />
+		<property name="p2.sdk.install.macosx.cocoa.x86" value="${p2.output.base}/sdk.install.macosx.cocoa.x86" />
+		<mkdir dir="${p2.sdk.install.macosx.cocoa.x86}" />
+
+		<antcall target="run.director">
+			<param name="p2.director.installIU" value="org.eclipse.e4.workbench.sdk" />
+			<param name="p2.director.version" value="3.5.0.${buildId}" />
+			<param name="p2.director.profile" value="SDKProfile" />
+			<param name="p2.director.install.path" value="${p2.sdk.install.win32.win32.x86}/eclipse" />
+			<param name="p2.director.extraArgs" value="-profileProperties org.eclipse.update.install.features=true" />
+			<param name="p2.os" value="win32" />
+			<param name="p2.ws" value="win32" />
+			<param name="p2.arch" value="x86" />
+		</antcall>
+		<!--
+		<antcall target="run.director">
+			<param name="p2.director.installIU" value="org.eclipse.e4.workbench.sdk" />
+			<param name="p2.director.version" value="3.5.0.${buildId}" />
+			<param name="p2.director.profile" value="SDKProfile" />
+			<param name="p2.director.install.path" value="${p2.sdk.install.linux.gtk.x86}/eclipse" />
+			<param name="p2.director.extraArgs" value="-profileProperties org.eclipse.update.install.features=true" />
+			<param name="p2.os" value="linux" />
+			<param name="p2.ws" value="gtk" />
+			<param name="p2.arch" value="x86" />
+		</antcall>
+
+		<antcall target="run.director">
+			<param name="p2.director.installIU" value="org.eclipse.e4.workbench.sdk" />
+			<param name="p2.director.version" value="3.5.0.${buildId}" />
+			<param name="p2.director.profile" value="SDKProfile" />
+			<param name="p2.director.install.path" value="${p2.sdk.install.macosx.cocoa.x86}/eclipse" />
+			<param name="p2.director.extraArgs" value="-profileProperties org.eclipse.update.install.features=true" />
+			<param name="p2.os" value="macosx" />
+			<param name="p2.ws" value="cocoa" />
+			<param name="p2.arch" value="x86" />
+		</antcall>-->
+	</target>
+	
 </project>
