@@ -222,6 +222,24 @@
 					featureId="org.eclipse.e4.tm.tests.feature"
 					outputFile="${buildDirectory}/test.properties"
 				/>
+		
+		<property name="buildlogs" value="${buildDirectory}/${buildLabel}" />
+		<property name="p2.root" value="${buildDirectory}/${buildId}/p2temp" />
+		<mkdir dir="${p2.root}" />
+		<property name="p2.output.base" value="${p2.root}/equinox.p2.build" />
+		<mkdir dir="${p2.output.base}" />
+		<property name="directorlog" value="${buildlogs}/director.txt" />
+
+		<property name="p2.sdk.install.win32.win32.x86" value="${p2.output.base}/sdk.install.win32.win32.x86" />
+		<mkdir dir="${p2.sdk.install.win32.win32.x86}" />
+		<property name="p2.sdk.install.linux.gtk.x86" value="${p2.output.base}/sdk.install.linux.gtk.x86" />
+		<mkdir dir="${p2.sdk.install.linux.gtk.x86}" />
+		<property name="p2.sdk.install.linux.gtk.ppc" value="${p2.output.base}/sdk.install.linux.gtk.ppc" />
+		<mkdir dir="${p2.sdk.install.linux.gtk.ppc}" />
+		<property name="p2.sdk.install.macosx.cocoa.x86" value="${p2.output.base}/sdk.install.macosx.cocoa.x86" />
+		<mkdir dir="${p2.sdk.install.macosx.cocoa.x86}" />
+
+
 		<antcall target="e4.product"/>
 		<antcall target="provision.e4"/>
 		<antcall target="zip.install"/>
@@ -249,11 +267,10 @@
 	<target name="run.director">
 		<delete dir="${base.builder}/configuration/.settings" includeemptydirs="true" failonerror="false" />
 		<!--	<copy file="${equinox.build.configs}/equinox.prov/files/config.ini.director" tofile="${base.builder}/configuration/config.ini" overwrite="true" /> -->
-		<exec executable="${base.builder}/eclipse" failonerror="false" dir="${base.builder}" timeout="900000" output="${directorlog}" resultproperty="directorcode">
-			<arg line="-vm ${java15-home}/bin/java" />
+		<exec executable="${java15-home}/bin/java" failonerror="false" dir="${base.builder}" timeout="900000" output="${directorlog}" resultproperty="directorcode">
+			<arg line="-jar ${base.builder.launcher}" />
 			<arg line="-application org.eclipse.equinox.p2.director" />
 			<arg line="-nosplash" />
-			<arg line="--launcher.suppressErrors" />
 			<arg line="-consoleLog" />
 			<arg line="-flavor ${p2.flavor}" />
 			<arg line="-installIU ${p2.director.installIU}" />
@@ -286,22 +303,6 @@
 	</target>
 	
 	<target name="provision.e4">
-		<property name="buildlogs" value="${buildDirectory}/${buildLabel}" />
-		<property name="p2.root" value="${buildDirectory}/${buildId}/p2temp" />
-		<mkdir dir="${p2.root}" />
-		<property name="p2.output.base" value="${p2.root}/equinox.p2.build" />
-		<mkdir dir="${p2.output.base}" />
-		<property name="directorlog" value="${buildlogs}/director.txt" />
-
-		<property name="p2.sdk.install.win32.win32.x86" value="${p2.output.base}/sdk.install.win32.win32.x86" />
-		<mkdir dir="${p2.sdk.install.win32.win32.x86}" />
-		<property name="p2.sdk.install.linux.gtk.x86" value="${p2.output.base}/sdk.install.linux.gtk.x86" />
-		<mkdir dir="${p2.sdk.install.linux.gtk.x86}" />
-		<property name="p2.sdk.install.linux.gtk.ppc" value="${p2.output.base}/sdk.install.linux.gtk.ppc" />
-		<mkdir dir="${p2.sdk.install.linux.gtk.ppc}" />
-		<property name="p2.sdk.install.macosx.cocoa.x86" value="${p2.output.base}/sdk.install.macosx.cocoa.x86" />
-		<mkdir dir="${p2.sdk.install.macosx.cocoa.x86}" />
-
 		<antcall target="run.director">
 			<param name="p2.director.installIU" value="org.eclipse.e4.workbench.sdk" />
 			<param name="p2.director.version" value="3.5.0.${buildId}" />
@@ -356,32 +357,32 @@
 		<parallel failonany="true" threadCount='4'>
 			<sequential>
 				<!-- win32 win32 x86 -->
-				<delete file="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildId}-win32.zip" failonerror="false" />
+				<delete file="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-win32.zip" failonerror="false" />
 				<exec dir="${p2.sdk.install.win32.win32.x86}" executable="zip">
-					<arg line="-q ${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildId}-win32.zip -r ." />
+					<arg line="-q ${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-win32.zip -r ." />
 				</exec>
 				<antcall target="generateChecksums">
-					<param name="archiveName" value="eclipse-e4-SDK-${buildId}-win32.zip" />
+					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-win32.zip" />
 				</antcall>
 			</sequential>
 			<sequential>
 				<!-- linux gtk x86 -->
 				<antcall target="p2.tar">
 					<param name="tar.base.dir" value="${p2.sdk.install.linux.gtk.x86}" />
-					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildId}-linux-gtk.tar" />
+					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-linux-gtk.tar" />
 				</antcall>
 				<antcall target="generateChecksums">
-					<param name="archiveName" value="eclipse-e4-SDK-${buildId}-linux-gtk.tar.gz" />
+					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-linux-gtk.tar.gz" />
 				</antcall>
 			</sequential>
 			<sequential>
 				<!-- linux gtk ppc-->
 				<antcall target="p2.tar">
 					<param name="tar.base.dir" value="${p2.sdk.install.linux.gtk.ppc}" />
-					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildId}-linux-gtk-ppc.tar" />
+					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-linux-gtk-ppc.tar" />
 				</antcall>
 				<antcall target="generateChecksums">
-					<param name="archiveName" value="eclipse-e4-SDK-${buildId}-linux-gtk-ppc.tar.gz" />
+					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-linux-gtk-ppc.tar.gz" />
 				</antcall>
 
 			</sequential>
@@ -393,23 +394,12 @@
 				<exec dir="${p2.sdk.install.macosx.cocoa.x86}/eclipse" executable="ln">
 					<arg line="-s Eclipse.app/Contents/MacOS/eclipse eclipse" />
 				</exec>
-				<delete file="${p2.sdk.install.macosx.cocoa.x86_64}/eclipse/eclipse" failonerror="false" />
-				<exec dir="${p2.sdk.install.macosx.cocoa.x86_64}/eclipse" executable="ln">
-					<arg line="-s Eclipse.app/Contents/MacOS/eclipse eclipse" />
-				</exec>
 				<antcall target="p2.tar">
 					<param name="tar.base.dir" value="${p2.sdk.install.macosx.cocoa.x86}" />
-					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildId}-macosx-cocoa.tar" />
+					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-macosx-cocoa.tar" />
 				</antcall>
 				<antcall target="generateChecksums">
-					<param name="archiveName" value="eclipse-e4-SDK-${buildId}-macosx-cocoa.tar.gz" />
-				</antcall>
-				<antcall target="p2.tar">
-					<param name="tar.base.dir" value="${p2.sdk.install.macosx.cocoa.x86_64}" />
-					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildId}-macosx-cocoa-x86_64.tar" />
-				</antcall>
-				<antcall target="generateChecksums">
-					<param name="archiveName" value="eclipse-e4-SDK-${buildId}-macosx-cocoa-x86_64.tar.gz" />
+					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-macosx-cocoa.tar.gz" />
 				</antcall>
 			</sequential>
 		</parallel>
@@ -424,5 +414,12 @@
 		<delete file="${tar.base.filename}" />
 	</target>
 
-	
+	<target name="find.a.file">
+	    <fileset id="base.launcher.file" dir="${base.builder}">
+	      <filename name="plugins/org.eclipse.equinox.launcher_*.jar"/>
+	    </fileset>
+	    <property name="base.launcher" refid="base.launcher.file"/>
+	    <echo>${base.launcher}</echo>
+	</target>
 </project>
+

@@ -90,7 +90,8 @@ updateBaseBuilderInfo() {
 # now update the variables that depend on this
     pdeDir=$( find $relengBaseBuilderDir/ -name "org.eclipse.pde.build_*" | sort | head -1 )
     buildfile=$pdeDir/scripts/build.xml
-    cpAndMain=$( find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar" | sort | head -1 )" org.eclipse.equinox.launcher.Main";
+    cpLaunch=$( find $relengBaseBuilderDir/ -name "org.eclipse.equinox.launcher_*.jar" | sort | head -1 )
+    cpAndMain="$cpLaunch org.eclipse.equinox.launcher.Main"
 }
 
 updateE4Builder () {
@@ -205,6 +206,7 @@ buildMasterFeature () {
       -DbuildArea=$buildDir \
       -DbuildDirectory=$buildDirectory \
       -Dbase.builder=$relengBaseBuilderDir \
+      -Dbase.builder.launcher=$cpLaunch \
       -DmapsRepo=$projRoot \
       -Djava15-home=$javaHome \
       -DrunPackager=true -Dgenerate.p2.metadata=true -Dp2.publish.artifacts=true \
