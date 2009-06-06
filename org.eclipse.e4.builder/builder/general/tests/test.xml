@@ -135,91 +135,91 @@
 				<equals arg1="${arch}" arg2="x86" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-linux-motif.tar.gz">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-linux-motif.tar.gz">
 			<and>
 				<equals arg1="${os}" arg2="linux" />
 				<equals arg1="${ws}" arg2="motif" />
 				<equals arg1="${arch}" arg2="x86" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-linux-gtk-ppc.tar.gz">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-linux-gtk-ppc.tar.gz">
 			<and>
 				<equals arg1="${os}" arg2="linux" />
 				<equals arg1="${ws}" arg2="gtk" />
 				<equals arg1="${arch}" arg2="ppc" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-linux-gtk-x86_64.tar.gz">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-linux-gtk-x86_64.tar.gz">
 			<and>
 				<equals arg1="${os}" arg2="linux" />
 				<equals arg1="${ws}" arg2="gtk" />
 				<equals arg1="${arch}" arg2="ppc" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-macosx-carbon.tar.gz">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-macosx-carbon.tar.gz">
 			<and>
 				<equals arg1="${os}" arg2="macosx" />
 				<equals arg1="${ws}" arg2="carbon" />
 				<equals arg1="${arch}" arg2="ppc" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-macosx-carbon.tar.gz">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-macosx-carbon.tar.gz">
 			<and>
 				<equals arg1="${os}" arg2="macosx" />
 				<equals arg1="${ws}" arg2="carbon" />
 				<equals arg1="${arch}" arg2="x86" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-macosx-cocoa-ppc.tar.gz">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-macosx-cocoa-ppc.tar.gz">
 			<and>
 				<equals arg1="${os}" arg2="macosx" />
 				<equals arg1="${ws}" arg2="cocoa" />
 				<equals arg1="${arch}" arg2="ppc" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-macosx-cocoa.tar.gz">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-macosx-cocoa.tar.gz">
 			<and>
 				<equals arg1="${os}" arg2="macosx" />
 				<equals arg1="${ws}" arg2="cocoa" />
 				<equals arg1="${arch}" arg2="x86" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-macosx-cocoa-x86_64.tar.gz">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-macosx-cocoa-x86_64.tar.gz">
 			<and>
 				<equals arg1="${os}" arg2="macosx" />
 				<equals arg1="${ws}" arg2="cocoa" />
 				<equals arg1="${arch}" arg2="x86_64" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-hpux-motif.zip">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-hpux-motif.zip">
 			<and>
 				<equals arg1="${os}" arg2="hpux" />
 				<equals arg1="${ws}" arg2="motif" />
 				<equals arg1="${arch}" arg2="PA_RISC" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-hpux-motif.zip">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-hpux-motif.zip">
 			<and>
 				<equals arg1="${os}" arg2="hpux" />
 				<equals arg1="${ws}" arg2="motif" />
 				<equals arg1="${arch}" arg2="ia64_32" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-solaris-motif.zip">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-solaris-motif.zip">
 			<and>
 				<equals arg1="${os}" arg2="solaris" />
 				<equals arg1="${ws}" arg2="motif" />
 				<equals arg1="${arch}" arg2="sparc" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-solaris-gtk.zip">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-solaris-gtk.zip">
 			<and>
 				<equals arg1="${os}" arg2="solaris" />
 				<equals arg1="${ws}" arg2="gtk" />
 				<equals arg1="${arch}" arg2="sparc" />
 			</and>
 		</condition>
-		<condition property="runtimeArchive" value="eclipse-SDK-${buildId}-aix-motif.zip">
+		<condition property="runtimeArchive" value="eclipse-SDK-${e4.buildLabel}-aix-motif.zip">
 			<and>
 				<equals arg1="${os}" arg2="aix" />
 				<equals arg1="${ws}" arg2="motif" />
@@ -267,7 +267,7 @@
 	</target>
 
 	<target name="configureDeltaPack" if="pdebuild">
-		<property name="deltapackArchive" value="eclipse-${buildId}-delta-pack.zip" />
+		<property name="deltapackArchive" value="eclipse-${e4.buildLabel}-delta-pack.zip" />
 		<property name="installDeltapack" value="${install}/deltapack" />
 		<mkdir dir="${installDeltapack}" />
 		<exec dir="." executable="unzip">
