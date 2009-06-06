@@ -70,8 +70,7 @@ if [ "$os-$ws-$arch" = "linux-motif-x86" ] || [ "$os-$ws-$arch" = "linux-gtk-x86
 then
 	if [ ! -r eclipse ]
 	then
-		tar -xzf eclipse-SDK-*.tar.gz
-		unzip -qq -o -C eclipse-junit-tests-*.zip */plugins/org.eclipse.test* -d eclipse/dropins/
+		tar -xzf eclipse-e4-SDK-*.tar.gz
 fi
 
 # run tests

@@ -41,10 +41,13 @@ realBuildProperties () {
 # test Build
 #
 testBuildProperties () {
-	supportDir=/opt/pwebster/workspaces/e4
-	builderDir=${supportDir}/releng/org.eclipse.e4.builder
+	supportDir=$writableBuildRoot/build/e4
+	builderDir=${supportDir}/org.eclipse.e4.builder
+
+#	supportDir=/opt/pwebster/workspaces/e4
+#	builderDir=${supportDir}/releng/org.eclipse.e4.builder
 #builddate=20090605
-#buildtime=0750
+#buildtime=1540
     builddate=$( date +%Y%m%d )
     buildtime=$( date +%H%M )
 
@@ -139,37 +142,20 @@ EOF
 
 
 runTheTests () {
-    mkdir -p $testDir
+    mkdir -p $testDir/eclipse-testing
 
-    cd $testDir
-    unzip $targetZips/eclipse-Automated-Tests-${eclipseIBuild}.zip
-    cd eclipse-testing
+    cd $testDir/eclipse-testing
 
-    cp $targetZips/eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz  .
-    # can't re-run automated tests against an milestone build that has been renamed
-    #mv eclipse-SDK-${eclipseIBuild}-linux-gtk${archProp}.tar.gz \
-    #  eclipse-SDK-I20090202-1535-linux-gtk${archProp}.tar.gz
-    
-    # should use director to update from the same places as the repos
-    #cp $targetZips/emf-runtime-2.5.0M4.zip .
-    #cp $targetZips/xsd-runtime-2.5.0M4.zip .
-    #cp $targetZips/GEF-SDK-3.5.0M4.zip .
-    #cp $targetZips/wtp-wst-S-3.1M4-20081219210304.zip .
+    cp $buildResults/eclipse-e4-SDK-I${buildTimestamp}-linux-gtk${archProp}.tar.gz  .
 
     cat $buildDirectory/test.properties >> test.properties
     cat $buildDirectory/label.properties >> label.properties
-    echo repo.dir=${untransformedRepo}-trans >repo.properties
 
-    #for f in $buildResults/*.zip; do
-    #    FN=$( basename $f )
-    #    echo Copying $FN
-    #    cp $f .
-    #done
 
     cp -r ${builderDir}/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
-        -arch ${arch} -properties repo.properties e4
+        -arch ${arch}  e4
 
     mkdir -p $buildResults/results
     cp -r results/* $buildResults/results
@@ -262,8 +248,8 @@ generateSwtZip () {
 #realBuildProperties
 testBuildProperties
 commonProperties
-#updateBaseBuilder
-#updateE4Builder
+updateBaseBuilder
+updateE4Builder
 
 updateBaseBuilderInfo
 
@@ -279,10 +265,10 @@ buildMasterFeature
 copyCompileLogs
 
 # generate the SWT zip file
-#generateSwtZip
+generateSwtZip
 
 # try some tests
-#runTheTests
+runTheTests
 
 cp /shared/eclipse/e4/logs/current.log \
     $buildResults/buildlog.txt

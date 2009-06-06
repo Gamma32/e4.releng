@@ -361,9 +361,9 @@
 				<exec dir="${p2.sdk.install.win32.win32.x86}" executable="zip">
 					<arg line="-q ${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-win32.zip -r ." />
 				</exec>
-				<antcall target="generateChecksums">
+				<!--antcall target="generateChecksums">
 					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-win32.zip" />
-				</antcall>
+				</antcall-->
 			</sequential>
 			<sequential>
 				<!-- linux gtk x86 -->
@@ -371,9 +371,9 @@
 					<param name="tar.base.dir" value="${p2.sdk.install.linux.gtk.x86}" />
 					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-linux-gtk.tar" />
 				</antcall>
-				<antcall target="generateChecksums">
+				<!--antcall target="generateChecksums">
 					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-linux-gtk.tar.gz" />
-				</antcall>
+				</antcall-->
 			</sequential>
 			<sequential>
 				<!-- linux gtk ppc-->
@@ -381,9 +381,9 @@
 					<param name="tar.base.dir" value="${p2.sdk.install.linux.gtk.ppc}" />
 					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-linux-gtk-ppc.tar" />
 				</antcall>
-				<antcall target="generateChecksums">
+				<!--antcall target="generateChecksums">
 					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-linux-gtk-ppc.tar.gz" />
-				</antcall>
+				</antcall-->
 
 			</sequential>
 
@@ -398,9 +398,9 @@
 					<param name="tar.base.dir" value="${p2.sdk.install.macosx.cocoa.x86}" />
 					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-macosx-cocoa.tar" />
 				</antcall>
-				<antcall target="generateChecksums">
+				<!--antcall target="generateChecksums">
 					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-macosx-cocoa.tar.gz" />
-				</antcall>
+				</antcall-->
 			</sequential>
 		</parallel>
 	</target>

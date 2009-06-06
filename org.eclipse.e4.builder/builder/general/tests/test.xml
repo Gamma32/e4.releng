@@ -65,7 +65,7 @@
 	</target>
 
 	<target name="installTestPlugins">
-		<echo>-version 0.9.0.v${e4.buildId}</echo>
+		<echo>-installIU ${testPlugin} +</echo>
 		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
 			<arg line="-vm /opt/public/common/ibm-java2-ppc-50/bin/java" />
 			<arg line="-application org.eclipse.equinox.p2.director" />
@@ -73,14 +73,13 @@
 			<arg line="--launcher.suppressErrors" />
 			<arg line="-consoleLog" />
 			<arg line="-flavor tooling" />
-			<arg line="-installIU org.eclipse.e4.install.my.tests" />
+			<arg line="-installIUs ${testPlugin},org.eclipse.test,org.eclipse.ant.optional.junit" />
 			<arg line="-p2.os ${os}" />
 			<arg line="-p2.ws ${ws}" />
 			<arg line="-p2.arch ${arch}" />
 			<arg line="-roaming" />
 			<arg line="-profile SDKProfile" />
-			<arg line="-repository file:${repoLocation},file:${testRepo}" />
-			<arg line="-metadataRepository file:${testRepo}" />
+			<arg line="-repository file:${repoLocation}" />
 			<arg line="-destination ${eclipse-home}" />
 			<arg line="-bundlepool ${eclipse-home}" />
 		</exec>
@@ -304,20 +303,24 @@
 			</condition>
 			<!--	<property name="derby" value="" />  -->
 			<antcall target="${test.target}">
+				<param name="testPlugin" value="@{testPlugin}" />
 				<param name="output-file" value="@{testPlugin}.xml" />
 			</antcall>
 		</sequential>
 	</macrodef>
 
 	<target name="junit" unless="skip.test">
-		<antcall target="setup" />
+		<antcall target="setup">
+		</antcall>
 		<!--library.xml is now in dropins folder -->
 		<property name="library-file" value="${eclipse-home}/plugins/${org.eclipse.test}/library.xml" />
+		<echo>trying to find ${testPlugin}_v*</echo>
 		<fileset id="test.plugin.file" dir="${eclipse-home}/plugins">
-			<filename name="${testPlugin}_*"/>
+			<filename name="${testPlugin}_*/test.xml"/>
 		</fileset>
 		<property name="testPluginX" refid="test.plugin.file"/>
-		<ant antfile="${eclipse-home}/plugins/${testPluginX}/test.xml" dir="${eclipse-home}" />
+		<echo>trying to find ${testPluginX}</echo>
+		<ant antfile="${eclipse-home}/plugins/${testPluginX}" dir="${eclipse-home}" />
 		<antcall target="genResults" />
 	</target>
 
@@ -329,7 +332,7 @@
 
 	<target name="genResults">
 		<copy file="${eclipse-home}/${report}.xml" tofile="${results}/xml/${report}_${platform}.xml" failonerror="false" />
-		<style style="${eclipse-home}/dropins/eclipse/plugins/org.eclipse.test/JUNIT.XSL" basedir="${results}/xml" destdir="${results}/html" />
+		<style style="${eclipse-home}/plugins/${org.eclipse.test}/JUNIT.XSL" basedir="${results}/xml" destdir="${results}/html" />
 	</target>
 
 	<target name="ant">
@@ -671,6 +674,16 @@
 
 	<target name="e4">
 		<antcall target="coreresources" />
+		<antcall target="cssSwt" />
+		<antcall target="cssCore" />
+		<antcall target="e4xwt" />
+		<antcall target="coreServices" />
+		<antcall target="e4Lang" />
+		<antcall target="e4ui" />
+		<antcall target="e4tm" />
+		<antcall target="e4tmJavascript" />
+	</target>
+	<target name="e4less">
 		<antcall target="cssSwt" />
 		<antcall target="cssCore" />
 		<antcall target="e4xwt" />
