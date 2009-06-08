@@ -10,8 +10,8 @@ plugin@org.eclipse.e4.languages.javascript.registry.test=v20090608-1330,:pserver
 
 
 !**** and build it
-feature@org.eclipse.e4.languages.feature=v20090212-1100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.feature
-feature@org.eclipse.e4.languages.tests.feature=v20090212-1100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.tests.feature
+feature@org.eclipse.e4.languages.feature=v20090608-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.feature
+feature@org.eclipse.e4.languages.tests.feature=v20090608-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.tests.feature
 
 !**** Test Suites
 #plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
