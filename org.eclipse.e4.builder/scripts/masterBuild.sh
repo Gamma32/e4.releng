@@ -41,11 +41,11 @@ realBuildProperties () {
 # test Build
 #
 testBuildProperties () {
-	supportDir=$writableBuildRoot/build/e4
-	builderDir=${supportDir}/org.eclipse.e4.builder
+#	supportDir=$writableBuildRoot/build/e4
+#	builderDir=${supportDir}/org.eclipse.e4.builder
 
-#	supportDir=/opt/pwebster/workspaces/e4
-#	builderDir=${supportDir}/releng/org.eclipse.e4.builder
+	supportDir=/opt/pwebster/workspaces/e4
+	builderDir=${supportDir}/releng/org.eclipse.e4.builder
 #builddate=20090605
 #buildtime=1540
     builddate=$( date +%Y%m%d )
@@ -248,8 +248,8 @@ generateSwtZip () {
 #realBuildProperties
 testBuildProperties
 commonProperties
-updateBaseBuilder
-updateE4Builder
+#updateBaseBuilder
+#updateE4Builder
 
 updateBaseBuilderInfo
 
@@ -265,7 +265,7 @@ buildMasterFeature
 copyCompileLogs
 
 # generate the SWT zip file
-generateSwtZip
+#generateSwtZip
 
 # try some tests
 runTheTests
