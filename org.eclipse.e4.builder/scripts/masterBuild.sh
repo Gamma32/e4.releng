@@ -146,7 +146,7 @@ runTheTests () {
 
     cd $testDir/eclipse-testing
 
-    cp $buildResults/eclipse-e4-SDK-I${buildTimestamp}-linux-gtk${archProp}.tar.gz  .
+    cp $buildResults/eclipse-e4-SDK-incubation-I${buildTimestamp}-linux-gtk${archProp}.tar.gz  .
 
     cat $buildDirectory/test.properties >> test.properties
     cat $buildDirectory/label.properties >> label.properties

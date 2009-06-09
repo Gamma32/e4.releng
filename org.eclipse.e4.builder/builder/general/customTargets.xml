@@ -171,9 +171,9 @@
 		<copy file="${builder}/../../templates/build.download.php" tofile="${buildDirectory}/${buildLabel}/download.php" />
 		<copy file="${buildDirectory}/directory.txt" todir="${buildDirectory}/${buildLabel}" />
 		<move file="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildId}-group.group.group.zip" tofile="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildLabel}.zip" />
-		<zip destfile="${buildDirectory}/${buildLabel}/eclipse-e4-repo-${buildLabel}.zip" basedir="${p2.repo}"></zip>
+		<zip destfile="${buildDirectory}/${buildLabel}/eclipse-e4-repo-incubation-${buildLabel}.zip" basedir="${p2.repo}"></zip>
 		
-		<length file="${buildDirectory}/${buildLabel}/eclipse-e4-repo-${buildLabel}.zip" property="repobuildsize"/>
+		<length file="${buildDirectory}/${buildLabel}/eclipse-e4-repo-incubation-${buildLabel}.zip" property="repobuildsize"/>
 		
 		<filter token="repbuildid" value="${buildLabel}"/>
 		<filter token="repmaindate" value="${repmaindate}"/>
@@ -357,32 +357,32 @@
 		<parallel failonany="true" threadCount='4'>
 			<sequential>
 				<!-- win32 win32 x86 -->
-				<delete file="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-win32.zip" failonerror="false" />
+				<delete file="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-incubation-${buildLabel}-win32.zip" failonerror="false" />
 				<exec dir="${p2.sdk.install.win32.win32.x86}" executable="zip">
-					<arg line="-q ${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-win32.zip -r ." />
+					<arg line="-q ${buildDirectory}/${buildLabel}/eclipse-e4-SDK-incubation-${buildLabel}-win32.zip -r ." />
 				</exec>
 				<!--antcall target="generateChecksums">
-					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-win32.zip" />
+					<param name="archiveName" value="eclipse-e4-SDK-incubation-${buildLabel}-win32.zip" />
 				</antcall-->
 			</sequential>
 			<sequential>
 				<!-- linux gtk x86 -->
 				<antcall target="p2.tar">
 					<param name="tar.base.dir" value="${p2.sdk.install.linux.gtk.x86}" />
-					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-linux-gtk.tar" />
+					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-incubation-${buildLabel}-linux-gtk.tar" />
 				</antcall>
 				<!--antcall target="generateChecksums">
-					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-linux-gtk.tar.gz" />
+					<param name="archiveName" value="eclipse-e4-SDK-incubation-${buildLabel}-linux-gtk.tar.gz" />
 				</antcall-->
 			</sequential>
 			<sequential>
 				<!-- linux gtk ppc-->
 				<antcall target="p2.tar">
 					<param name="tar.base.dir" value="${p2.sdk.install.linux.gtk.ppc}" />
-					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-linux-gtk-ppc.tar" />
+					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-incubation-${buildLabel}-linux-gtk-ppc.tar" />
 				</antcall>
 				<!--antcall target="generateChecksums">
-					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-linux-gtk-ppc.tar.gz" />
+					<param name="archiveName" value="eclipse-e4-SDK-incubation-${buildLabel}-linux-gtk-ppc.tar.gz" />
 				</antcall-->
 
 			</sequential>
@@ -396,10 +396,10 @@
 				</exec>
 				<antcall target="p2.tar">
 					<param name="tar.base.dir" value="${p2.sdk.install.macosx.cocoa.x86}" />
-					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-${buildLabel}-macosx-cocoa.tar" />
+					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-incubation-${buildLabel}-macosx-cocoa.tar" />
 				</antcall>
 				<!--antcall target="generateChecksums">
-					<param name="archiveName" value="eclipse-e4-SDK-${buildLabel}-macosx-cocoa.tar.gz" />
+					<param name="archiveName" value="eclipse-e4-SDK-incubation-${buildLabel}-macosx-cocoa.tar.gz" />
 				</antcall-->
 			</sequential>
 		</parallel>
