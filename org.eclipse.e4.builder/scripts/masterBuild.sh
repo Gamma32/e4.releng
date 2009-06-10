@@ -240,7 +240,7 @@ generateSwtZip () {
     cp tmp.txt org.eclipse.swt/META-INF/MANIFEST.MF
     swtExport org.eclipse.swt.e4.jcl
     cp org.eclipse.swt.e4.jcl/.classpath_flex org.eclipse.swt.e4.jcl/.classpath
-    zip -r ../I$buildTimestamp/org.eclipse.swt.e4.flex-I$buildTimestamp.zip org.eclipse.swt org.eclipse.swt.e4.jcl
+    zip -r ../I$buildTimestamp/org.eclipse.swt.e4.flex-incubation-I$buildTimestamp.zip org.eclipse.swt org.eclipse.swt.e4.jcl
 }
 
 
