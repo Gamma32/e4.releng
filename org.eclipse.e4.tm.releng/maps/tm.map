@@ -2,7 +2,7 @@
 plugin@org.eclipse.e4.tm=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm
 plugin@org.eclipse.e4.tm.builder=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm.builder
 plugin@org.eclipse.e4.tm.ui=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm.ui
-plugin@org.eclipse.e4.emf.javascript=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.emf.javascript
+plugin@org.eclipse.e4.emf.javascript=v20090612-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.emf.javascript
 
 
 !**** and build it
