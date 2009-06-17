@@ -75,6 +75,18 @@
 				<include name="**/*.log.zip" />
 			</fileset>
 		</unzip>
+		<copy todir="${buildDirectory}/${buildLabel}/compilelogs" overwrite="true" failonerror="false">
+			<fileset dir="${buildDirectory}/features/org.eclipse.e4.resources.feature/feature.temp.folder" />
+		</copy>
+		<copy todir="${buildDirectory}/${buildLabel}/compilelogs" overwrite="true" failonerror="false">
+			<fileset dir="${buildDirectory}/features/org.eclipse.e4.master/feature.temp.folder" />
+		</copy>
+		<copy todir="${buildDirectory}/${buildLabel}/compilelogs" overwrite="true" failonerror="false">
+			<fileset dir="${buildDirectory}/features/org.eclipse.e4.sdk.runtime.feature/feature.temp.folder" />
+		</copy>
+		<copy todir="${buildDirectory}/${buildLabel}/compilelogs" overwrite="true" failonerror="false">
+			<fileset dir="${buildDirectory}/features/org.eclipse.e4.sdk.source.feature/feature.temp.folder" />
+		</copy>
 	</target>
 
 	<!-- ===================================================================== -->
@@ -156,6 +168,7 @@
 	<!-- ===================================================================== -->
 	<target name="postBuild">
 		<antcall target="gatherLogs" />
+		<eclipse.convert input="${buildDirectory}/${buildLabel}/compilelogs" />
 		<xslt style="${builder}/patch-ver.xsl" in="${p2.repo}/content.xml" out="${p2.repo}/out_content.xml">
 			<outputproperty name="method" value="xml"/>
 		</xslt>

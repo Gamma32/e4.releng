@@ -187,13 +187,14 @@ buildMasterFeature () {
       -Dbuilddate=$builddate \
       -Dbuildtime=$buildtime \
       -DeclipseBuildId=$eclipseIBuild \
-      -Duntransformed.dir=${untransformedRepo}
+      -Duntransformed.dir=${untransformedRepo} \
       ${archJavaProp} \
       -DbuildArea=$buildDir \
       -DbuildDirectory=$buildDirectory \
       -Dbase.builder=$relengBaseBuilderDir \
       -Dbase.builder.launcher=$cpLaunch \
       -DmapsRepo=$projRoot \
+      -DlogExtension=.xml \
       -Djava15-home=$javaHome \
       -DrunPackager=true -Dgenerate.p2.metadata=true -Dp2.publish.artifacts=true \
       -DtopLevelElementId=org.eclipse.e4.master \
