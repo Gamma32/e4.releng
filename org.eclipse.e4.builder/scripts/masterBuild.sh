@@ -268,7 +268,7 @@ copyCompileLogs
 #generateSwtZip
 
 # try some tests
-runTheTests
+#runTheTests
 
 cp /shared/eclipse/e4/logs/current.log \
     $buildResults/buildlog.txt
