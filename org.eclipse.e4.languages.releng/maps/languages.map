@@ -1,11 +1,11 @@
 !**** e4 languages
-plugin@org.eclipse.e4.languages.javascript=v20090610-0930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript
+plugin@org.eclipse.e4.languages.javascript=v20090619-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript
 plugin@org.eclipse.e4.languages.javascript.registry=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.registry
 
 !*** e4 languages examples
 
 !*** e4 languages tests
-plugin@org.eclipse.e4.languages.javascript.test=v20090615-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/tests/org.eclipse.e4.languages.javascript.test
+plugin@org.eclipse.e4.languages.javascript.test=v20090619-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/tests/org.eclipse.e4.languages.javascript.test
 plugin@org.eclipse.e4.languages.javascript.registry.test=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/tests/org.eclipse.e4.languages.javascript.registry.test
 
 
