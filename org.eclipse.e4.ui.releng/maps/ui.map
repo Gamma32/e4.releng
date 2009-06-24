@@ -38,8 +38,8 @@ feature@org.eclipse.e4.ui.css.feature=v20090609-1530,:pserver:anonymous@dev.ecli
 feature@org.eclipse.e4.ui.tests.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.tests.feature
 feature@org.eclipse.e4.ui.examples.feature=v20090617-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.examples.feature
 
-feature@org.eclipse.e4.sdk.runtime.feature=v20090617-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.sdk.runtime.feature
-feature@org.eclipse.e4.sdk.source.feature=v20090617-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.sdk.source.feature
+feature@org.eclipse.e4.sdk.runtime.feature=v20090624-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.sdk.runtime.feature
+feature@org.eclipse.e4.sdk.source.feature=v20090624-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.sdk.source.feature
 feature@org.eclipse.e4.master=v20090617-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.master
 
 !**** Test Suites
