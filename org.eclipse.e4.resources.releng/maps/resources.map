@@ -28,6 +28,8 @@ fragment@org.eclipse.core.filesystem.qnx.x86=v20081211-1515,:pserver:anonymous@d
 !**** Temporary UI placeholder
 
 plugin@org.eclipse.ui.ide=I20090528-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.ui.ide
+plugin@org.eclipse.ui.navigator=R3_5,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.ui.navigator
+plugin@org.eclipse.ui.navigator.resources=R3_5,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.ui.navigator.resources
 
 !**** and build it
 feature@org.eclipse.e4.resources.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.feature
