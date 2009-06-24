@@ -121,6 +121,7 @@ copyCompileLogs () {
     cat >$buildResults/compilelogs.html <<EOF
 <html><head><title>compile logs</title></head>
 <body>
+<h1>compile logs</h1>
 <table border="1">
 EOF
 
@@ -141,6 +142,37 @@ EOF
 EOF
 popd
 }
+
+generateRepoHtml () {
+    pushd $buildResults/repository
+
+    cat >$buildResults/repository/index.html <<EOF
+<html><head><title>E4 p2 repo</title></head>
+<body>
+<h1>E4 p2 repo</h1>
+<table border="1">
+<tr><th>Feature</th><th>Version</th></tr>
+
+EOF
+
+    for f in features/*.jar; do
+        FN=$( basename $f .jar )
+        FID=$( echo $FN | cut -f1 -d_ )
+        FVER=$( echo $FN | cut -f2 -d_ )
+        echo "<tr><td>$FID</td><td>$FVER</td></tr>" >> $buildResults/repository/index.html
+    done
+
+    cat >>$buildResults/repository/index.html <<EOF
+</table>
+</body>
+</html>
+
+EOF
+
+    popd
+
+}
+
 
 
 runTheTests () {
@@ -266,6 +298,7 @@ buildMasterFeature
 
 # copy some other logs
 copyCompileLogs
+generateRepoHtml
 
 # generate the SWT zip file
 #generateSwtZip
