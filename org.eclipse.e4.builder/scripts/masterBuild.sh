@@ -46,10 +46,10 @@ testBuildProperties () {
 
 	supportDir=/opt/pwebster/workspaces/e4
 	builderDir=${supportDir}/releng/org.eclipse.e4.builder
-builddate=20090624
-buildtime=1012
-    #builddate=$( date +%Y%m%d )
-    #buildtime=$( date +%H%M )
+#builddate=20090624
+#buildtime=1012
+    builddate=$( date +%Y%m%d )
+    buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
     basebuilderBranch=v20090610
@@ -117,18 +117,19 @@ updateE4Builder () {
 }
 
 copyCompileLogs () {
+    pushd $buildResults
     cat >$buildResults/compilelogs.html <<EOF
 <html><head><title>compile logs</title></head>
 <body>
 <table border="1">
 EOF
 
-    for f in $buildResults/compilelogs/plugins/*/*; do
+    for f in $( find compilelogs -name "*.html" ); do
         FN=$( basename $f )
         FN_DIR=$( dirname $f )
         PA_FN=$( basename $FN_DIR )
         cat >>$buildResults/compilelogs.html <<EOF
-<tr><td><a href="compilelogs/plugins/$PA_FN/$FN">$PA_FN - $FN</a></td></tr>
+<tr><td><a href="$f">$PA_FN - $FN</a></td></tr>
 EOF
 
     done
@@ -138,6 +139,7 @@ EOF
 </html>
 
 EOF
+popd
 }
 
 
