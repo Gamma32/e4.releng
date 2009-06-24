@@ -253,6 +253,7 @@
 		<mkdir dir="${p2.sdk.install.macosx.cocoa.x86}" />
 
 
+		<antcall target="run.category.generation"/>
 		<antcall target="e4.product"/>
 		<antcall target="provision.e4"/>
 		<antcall target="zip.install"/>
@@ -296,6 +297,22 @@
 			<arg line="-repository file:${transformedRepoLocation},file:${p2.repo}" />
 			<arg line="-destination ${p2.director.install.path}" />
 			<arg line="-bundlepool ${p2.director.install.path}" />
+		</exec>
+		<echo message="director ${p2.director.install.path}" file="${directorlog}" append="true" />
+		<echo message="${directorcode}" file="${directorlog}" append="true" />
+	</target>
+	
+	<target name="run.category.generation">
+		<delete dir="${base.builder}/configuration/.settings" includeemptydirs="true" failonerror="false" />
+		<!--	<copy file="${equinox.build.configs}/equinox.prov/files/config.ini.director" tofile="${base.builder}/configuration/config.ini" overwrite="true" /> -->
+		<exec executable="${java15-home}/bin/java" failonerror="false" dir="${base.builder}" timeout="900000" output="${directorlog}" resultproperty="directorcode">
+			<arg line="-jar ${base.builder.launcher}" />
+			<arg line="-application org.eclipse.equinox.p2.publisher.CategoryPublisher" />
+			<arg line="-nosplash" />
+			<arg line="-consoleLog" />
+			<arg line="-metadataRepository file:${p2.repo}" />
+			<arg line="-categoryDefinition file:${builder}/e4-category.xml" />
+			<arg line="-categoryQualifier" />
 		</exec>
 		<echo message="director ${p2.director.install.path}" file="${directorlog}" append="true" />
 		<echo message="${directorcode}" file="${directorlog}" append="true" />
