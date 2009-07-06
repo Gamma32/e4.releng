@@ -1,9 +1,9 @@
 !**** e4 XWT tools
-plugin@org.eclipse.e4.xwt=v20090630-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
+plugin@org.eclipse.e4.xwt=v20090706-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
 plugin@org.eclipse.e4.xwt.css=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.css
-plugin@org.eclipse.e4.xwt.tools.ui=v20090630-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui
-plugin@org.eclipse.e4.xwt.tools.ui.editor=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui.editor
-plugin@org.eclipse.e4.xwt.vex=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.vex
+plugin@org.eclipse.e4.xwt.tools.ui=v20090706-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui
+plugin@org.eclipse.e4.xwt.tools.ui.editor=v20090706-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui.editor
+plugin@org.eclipse.e4.xwt.vex=v20090706-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.vex
 plugin@org.eclipse.e4.xwt.pde=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.pde
 plugin@org.eclipse.e4.xwt.doc.user=v20090521-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/doc/org.eclipse.e4.xwt.doc.user
 plugin@org.eclipse.e4.xwt.xml=v20090616-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.xml
