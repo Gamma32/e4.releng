@@ -672,6 +672,10 @@
 		<runTests testPlugin="org.eclipse.e4.emf.javascript.tests" />
 	</target>
 
+	<target name="e4xwtEmf">
+		<runTests testPlugin="org.eclipse.e4.xwt.emf.test" />
+	</target>
+
 	<target name="e4">
 		<antcall target="coreresources" />
 		<antcall target="cssSwt" />
@@ -687,6 +691,7 @@
 		<antcall target="cssSwt" />
 		<antcall target="cssCore" />
 		<antcall target="e4xwt" />
+		<antcall target="e4xwtEmf" />
 		<antcall target="coreServices" />
 		<antcall target="e4Lang" />
 		<antcall target="e4ui" />
