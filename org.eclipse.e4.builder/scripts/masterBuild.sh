@@ -189,7 +189,7 @@ runTheTests () {
     cp -r ${builderDir}/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
-        -arch ${arch}  e4
+        -arch ${arch}  e4less
 
     mkdir -p $buildResults/results
     cp -r results/* $buildResults/results
