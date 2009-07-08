@@ -9,6 +9,7 @@
 <project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.services,org.eclipse.e4.ui.services"/>
 <project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench,org.eclipse.e4.ui.workbench"/>
 <project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.javascript,org.eclipse.e4.core.javascript"/>
+<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.widgets.fragment,org.eclipse.e4.ui.widgets.fragment"/>
 <project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt,org.eclipse.e4.ui.workbench.renderers.swt"/>
 <project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.swt,org.eclipse.e4.ui.workbench.swt"/>
 <project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.mozilla.javascript,org.mozilla.javascript,v1_6_6"/>
