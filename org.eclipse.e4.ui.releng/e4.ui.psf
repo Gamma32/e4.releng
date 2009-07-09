@@ -14,5 +14,9 @@
 <project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.swt,org.eclipse.e4.ui.workbench.swt"/>
 <project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.mozilla.javascript,org.mozilla.javascript,v1_6_6"/>
 <project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/javax.xml,javax.xml,v1_3_4"/>
+<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.dojotoolkit,org.dojotoolkit_1.1.0,v200907071809"/>
+<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.web,org.eclipse.e4.ui.web"/>
+<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.ui,org.eclipse.e4.pde.ui"/>
+<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.webui,org.eclipse.e4.pde.webui"/>
 </provider>
 </psf>
