@@ -13,6 +13,10 @@ plugin@org.eclipse.e4.ui.css.nebula=v20090609-1530,:pserver:anonymous@dev.eclips
 fragment@org.eclipse.e4.ui.workbench.fragment=v20090708-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.fragment
 fragment@org.eclipse.e4.ui.widgets.fragment=v20090708-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.widgets.fragment
 
+plugin@org.eclipse.e4.ui.web=v20090709-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.web
+plugin@org.eclipse.e4.pde.ui=v20090709-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.ui
+plugin@org.eclipse.e4.pde.webui=v20090709-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.webui
+
 !*** e4 UI examples
 plugin@org.eclipse.nebula.widgets.gallery=R_0_20090212,:pserver:anonymous@dev.eclipse.org:/cvsroot/technology,,org.eclipse.swt.nebula/org.eclipse.nebula.widgets.gallery
 plugin@org.eclipse.e4.demo.e4photo=v20090708-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.demo.e4photo
