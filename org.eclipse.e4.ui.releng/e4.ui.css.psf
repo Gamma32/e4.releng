@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <psf version="2.0">
 <provider id="org.eclipse.team.cvs.core.cvsnature">
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.apache.batik.css,org.apache.batik.css,v1_6"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.apache.batik.util,org.apache.batik.util,v1_6"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.apache.batik.util.gui,org.apache.batik.util.gui,v1_6"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.apache.batik.xml,org.apache.batik.xml,v1_6"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.apache.commons.beanutils,org.apache.commons.beanutils,v1_7_0"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.core,org.eclipse.e4.ui.css.core"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.swt,org.eclipse.e4.ui.css.swt"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.nebula,org.eclipse.e4.ui.css.nebula"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/technology,org.eclipse.swt.nebula/org.eclipse.nebula.widgets.gallery,org.eclipse.nebula.widgets.gallery,R_0_20090212"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.css.feature,org.eclipse.e4.ui.css.feature"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.w3c.css.sac,org.w3c.css.sac,v1_3"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.w3c.dom.smil,org.w3c.dom.smil,v1_0"/>
-<project reference="1.0,:extssh:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.w3c.dom.svg,org.w3c.dom.svg,v1_1"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.apache.batik.css,org.apache.batik.css,v1_6"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.apache.batik.util,org.apache.batik.util,v1_6"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.apache.batik.util.gui,org.apache.batik.util.gui,v1_6"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.apache.batik.xml,org.apache.batik.xml,v1_6"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.apache.commons.beanutils,org.apache.commons.beanutils,v1_7_0"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.core,org.eclipse.e4.ui.css.core"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.swt,org.eclipse.e4.ui.css.swt"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.nebula,org.eclipse.e4.ui.css.nebula"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/technology,org.eclipse.swt.nebula/org.eclipse.nebula.widgets.gallery,org.eclipse.nebula.widgets.gallery,R_0_20090212"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.css.feature,org.eclipse.e4.ui.css.feature"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.w3c.css.sac,org.w3c.css.sac,v1_3"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.w3c.dom.smil,org.w3c.dom.smil,v1_0"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.w3c.dom.svg,org.w3c.dom.svg,v1_1"/>
 </provider>
 </psf>
