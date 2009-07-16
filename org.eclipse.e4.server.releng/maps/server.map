@@ -1,6 +1,6 @@
 
 !**** What we need from Equinox
-plugin@org.eclipse.e4.server.bespin=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.server/bundles/org.eclipse.e4.server.bespin
+plugin@org.eclipse.e4.server.bespin=v20090716-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.server/bundles/org.eclipse.e4.server.bespin
 
 
 
