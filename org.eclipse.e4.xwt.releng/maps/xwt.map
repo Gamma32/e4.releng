@@ -18,5 +18,5 @@ feature@org.eclipse.e4.xwt.css.feature=v20090609-1530,:pserver:anonymous@dev.ecl
 feature@org.eclipse.e4.xwt.emf.feature=v20090624-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.emf.feature
 
 !**** Test Suites
-plugin@org.eclipse.e4.xwt.tests=v20090726-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.tests
+plugin@org.eclipse.e4.xwt.tests=v20090728-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.tests
 plugin@org.eclipse.e4.xwt.emf.test=v20090707-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.emf.test
