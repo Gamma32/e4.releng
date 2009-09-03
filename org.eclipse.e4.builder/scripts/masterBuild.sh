@@ -41,11 +41,10 @@ realBuildProperties () {
 # test Build
 #
 testBuildProperties () {
-#	supportDir=$writableBuildRoot/build/e4
+	supportDir=$writableBuildRoot/build/e4
 #	builderDir=${supportDir}/org.eclipse.e4.builder
 
-	supportDir=/opt/pwebster/workspaces/e4
-	builderDir=${supportDir}/releng/org.eclipse.e4.builder
+	builderDir=/opt/pwebster/workspaces/e4/releng/org.eclipse.e4.builder
 #builddate=20090624
 #buildtime=1012
     builddate=$( date +%Y%m%d )
@@ -63,7 +62,7 @@ commonProperties () {
     buildDir=$writableBuildRoot/build/e4/downloads/drops/4.0.0
     targetDir=${buildDir}/targets
     targetZips=$targetDir/downloads
-    untransformedRepo=${targetDir}/galileo
+    untransformedRepo=${targetDir}/galileo-p2
     buildDirectory=$buildDir/I$buildTimestamp
     testDir=$buildDirectory/tests
     buildResults=$buildDirectory/I$buildTimestamp

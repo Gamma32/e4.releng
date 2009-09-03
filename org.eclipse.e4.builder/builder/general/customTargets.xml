@@ -100,6 +100,12 @@
 	<!-- ===================================================================== -->
 	<target name="postSetup">
 		<antcall target="getBaseComponents" />
+		<p2.repo2runnable destination="${transformedRepoLocation}">
+			<source>
+				<repository location="http://download.eclipse.org/releases/galileo" />
+				<repository location="http://download.eclipse.org/eclipse/updates/3.5" />
+			</source>
+		</p2.repo2runnable>
 	</target>
 
 	<!-- ===================================================================== -->
