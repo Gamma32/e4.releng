@@ -8,6 +8,7 @@ plugin@org.eclipse.e4.xwt.pde=v20090903-1500,:pserver:anonymous@dev.eclipse.org:
 plugin@org.eclipse.e4.xwt.doc.user=v20090714-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/doc/org.eclipse.e4.xwt.doc.user
 plugin@org.eclipse.e4.xwt.xml=v20090616-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.xml
 plugin@org.eclipse.e4.xwt.emf=v20090624-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.emf
+plugin@org.eclipse.e4.xwt.ui.workbench=v20090909-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.ui.workbench
 
 
 !**** and build it
@@ -16,6 +17,7 @@ feature@org.eclipse.e4.xwt.tests.feature=v20090707-0830,:pserver:anonymous@dev.e
 feature@org.eclipse.e4.xwt.tools.feature=v20090610-0930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tools.feature
 feature@org.eclipse.e4.xwt.css.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.css.feature
 feature@org.eclipse.e4.xwt.emf.feature=v20090624-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.emf.feature
+feature@org.eclipse.e4.xwt.workbench.feature=v20090909-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.workbench.feature
 
 !**** Test Suites
 plugin@org.eclipse.e4.xwt.tests=v20090903-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.tests
