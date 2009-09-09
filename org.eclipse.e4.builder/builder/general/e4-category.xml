@@ -42,7 +42,6 @@
    <feature url="features/org.eclipse.e4.tm.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.tm.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.tm.category"/>
    </feature>
-
    <feature url="features/org.eclipse.e4.swt.as.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.swt.as.source.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.swt.category"/>
    </feature>
@@ -81,6 +80,12 @@
    </feature>
    <feature url="features/org.eclipse.e4.tm.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.tm.source.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.tm.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.xwt.workbench.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.xwt.workbench.feature" version="0.9.0.qualifier">
+      <category name="org.eclipse.e4.xwt.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.xwt.workbench.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.xwt.workbench.source.feature" version="0.9.0.qualifier">
+      <category name="org.eclipse.e4.xwt.category"/>
    </feature>
    <category-def name="org.eclipse.e4.swt.category" label="E4 SWT"/>
    <category-def name="org.eclipse.e4.ui.category" label="E4 UI"/>
