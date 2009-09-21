@@ -31,9 +31,7 @@ realBuildProperties () {
 # available builds
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
     #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
-    basebuilderBranch=v20090610
-    eclipseIBuild=I20090611-1540
-
+    basebuilderBranch=v20090916c
 }
 
 
@@ -51,9 +49,8 @@ testBuildProperties () {
     buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
-    basebuilderBranch=v20090610
-    eclipseIBuild=I20090611-1540
-
+    basebuilderBranch=v20090916c
+    wstBuildDir=I-3.2I-20090910052601
 }
 
 commonProperties () {
@@ -62,7 +59,7 @@ commonProperties () {
     buildDir=$writableBuildRoot/build/e4/downloads/drops/4.0.0
     targetDir=${buildDir}/targets
     targetZips=$targetDir/downloads
-    untransformedRepo=${targetDir}/galileo-p2
+    transformedRepo=${targetDir}/helios-p2
     buildDirectory=$buildDir/I$buildTimestamp
     testDir=$buildDirectory/tests
     buildResults=$buildDirectory/I$buildTimestamp
@@ -214,13 +211,13 @@ buildMasterFeature () {
     echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
     cmd="$javaHome/bin/java -enableassertions \
       -cp $cpAndMain \
-      -application org.eclipse.ant.core.antRunner \
+      -application org.eclipse.ant.core.antRunner -v \
       -buildfile $buildfile \
       -Dbuilder=${builderDir}/builder/general \
       -Dbuilddate=$builddate \
       -Dbuildtime=$buildtime \
-      -DeclipseBuildId=$eclipseIBuild \
-      -Duntransformed.dir=${untransformedRepo} \
+      -Dtransformed.dir=${transformedRepo} \
+      -DwstBuildDir=${wstBuildDir} \
       ${archJavaProp} \
       -DbuildArea=$buildDir \
       -DbuildDirectory=$buildDirectory \
@@ -282,7 +279,7 @@ generateSwtZip () {
 #realBuildProperties
 testBuildProperties
 commonProperties
-#updateBaseBuilder
+updateBaseBuilder
 #updateE4Builder
 
 updateBaseBuilderInfo

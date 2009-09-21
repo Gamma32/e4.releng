@@ -16,23 +16,6 @@
 	<!-- ===================================================================== -->
 	<!-- ===================================================================== -->
 	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
-		<mkdir dir="${baseLocation}" />
-		<!--
-		<get src="${eclipseBaseURL}/${eclipseBaseName}" dest="${targetZips}/${eclipseBaseName}" />
-		<untar compression="gzip" dest="${base}" overwrite="true" src="${targetZips}/${eclipseBaseName}" />
-		<get src="${eclipseBaseURL}/${eclipseTestName}" dest="${targetZips}/${eclipseTestName}" />
-		<unzip dest="${base}/tmp" overwrite="true" src="${targetZips}/${eclipseTestName}" />
-		<unzip dest="${base}" overwrite="true">
-			<fileset dir="${base}/tmp/eclipse-testing">
-    			<include name="eclipse-junit-tests-*.zip"/>
-			</fileset>
-		</unzip>
-		<delete dir="${base}/tmp" quiet="true"></delete>
-		<get src="${emfBaseURL}/${emfBaseName}" dest="${targetZips}/${emfBaseName}" />
-		<get src="${emfBaseURL}/${xsdBaseName}" dest="${targetZips}/${xsdBaseName}" />
-		<get src="${gefBaseURL}/${gefBaseName}" dest="${targetZips}/${gefBaseName}" />
-		<get src="${wstBaseURL}/${wstBaseName}" dest="${targetZips}/${wstBaseName}" />
-		-->
 	</target>
 
 	<target name="checkLocalBase">
@@ -100,10 +83,36 @@
 	<!-- ===================================================================== -->
 	<target name="postSetup">
 		<antcall target="getBaseComponents" />
+		<p2.mirror destination="${transformedRepoLocation}-mirrored">
+			<source>
+				<repository location="${eclipsep2Repo}" />
+			</source>
+			<slicingOptions includeNonGreedy="false" includeOptional="false"/>
+			<iu id="org.eclipse.sdk.feature.group"/>
+			<iu id="org.eclipse.equinox.p2.user.ui.feature.group"/>
+			<!--iu id="org.eclipse.emf.sdk.feature.group"/-->
+			<!--iu id="org.eclipse.wst.xml_ui.feature.feature.group"/-->
+			<!--iu id="org.eclipse.gef.feature.group"/-->
+			<iu id="org.eclipse.rcp.configuration.feature.group"/>
+		</p2.mirror>
+		<!--unjar src="${transformedRepoLocation}-mirrored/content.jar" dest="${transformedRepoLocation}-mirrored"/>
+		<xslt style="${builder}/fix-ibuild.xsl" in="${transformedRepoLocation}-mirrored/content.xml" out="${transformedRepoLocation}-mirrored/out_content.xml">
+			<outputproperty name="method" value="xml"/>
+		</xslt>
+		<move file="${transformedRepoLocation}-mirrored/out_content.xml" tofile="${transformedRepoLocation}-mirrored/content.xml" />
+		<jar destfile="${transformedRepoLocation}-mirrored/content.jar" 
+			includes="content.xml"
+			basedir="${transformedRepoLocation}-mirrored"
+			update="true"/>
+		<delete file="${transformedRepoLocation}-mirrored/content.xml"/-->
+
+		<echo>Running against helios I builds: ${transformedRepoLocation} </echo>
 		<p2.repo2runnable destination="${transformedRepoLocation}">
 			<source>
-				<repository location="http://download.eclipse.org/releases/galileo" />
-				<repository location="http://download.eclipse.org/eclipse/updates/3.5" />
+				<repository location="file:${transformedRepoLocation}-mirrored" />
+				<repository location="${emfp2Repo}" />
+				<repository location="${gefp2Repo}" />
+				<repository location="${wstp2Repo}" />
 			</source>
 		</p2.repo2runnable>
 	</target>

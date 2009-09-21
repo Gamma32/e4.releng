@@ -1,0 +1,16 @@
+<project name="Build specific targets and properties" default="postSetup">
+	<property name="transformedRepoLocation" value="/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/targets/helios-p2"/>
+	<property name="builder" value="/opt/pwebster/workspaces/e4/releng/org.eclipse.e4.builder/builder/general"/>
+
+	<target name="postSetup">
+		<unjar src="${transformedRepoLocation}-mirrored/content.jar" dest="${transformedRepoLocation}-mirrored"/>
+		<xslt style="${builder}/fix-ibuild.xsl" in="${transformedRepoLocation}-mirrored/content.xml" out="${transformedRepoLocation}-mirrored/out_content.xml">
+			<outputproperty name="method" value="xml"/>
+		</xslt>
+		<move file="${transformedRepoLocation}-mirrored/out_content.xml" tofile="${transformedRepoLocation}-mirrored/content.xml" />
+		<jar destfile="${transformedRepoLocation}-mirrored/content.jar" 
+			includes="content.xml"
+			basedir="${transformedRepoLocation}-mirrored"
+			update="true"/>
+	</target>
+</project>
