@@ -9,6 +9,7 @@ plugin@org.eclipse.core.resources=v20090716-1930,:pserver:anonymous@dev.eclipse.
 fragment@org.eclipse.core.resources.win32=v20081208-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32
 fragment@org.eclipse.core.resources.win32.x86=v20081211-1515,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32.x86
 fragment@org.eclipse.core.resources.win32.ia64=v20081211-1515,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.win32.ia64
+fragment@org.eclipse.core.resources.compatibility=v20081211-1515,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.compatibility
 
 !**** File System
 plugin@org.eclipse.core.filesystem=I20090521-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.filesystem
@@ -33,7 +34,7 @@ plugin@org.eclipse.ui.navigator.resources=v20090716-1930,:pserver:anonymous@dev.
 !**** and build it
 feature@org.eclipse.e4.resources.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.feature
 feature@org.eclipse.e4.resources.tests.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.tests.feature
-feature@org.eclipse.e4.resources.platform.patch=v20090921-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.platform.patch
+feature@org.eclipse.e4.resources.platform.patch=v20090624-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.platform.patch
 feature@org.eclipse.e4.resources.rcp.patch=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.rcp.patch
 
 
