@@ -14,4 +14,4 @@ plugin@org.eclipse.jdt.core.tests.compiler=v_963,:pserver:anonymous@dev.eclipse.
 
 !**** and build it
 feature@org.eclipse.e4.runtime.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.runtime/features/org.eclipse.e4.runtime.feature
-feature@org.eclipse.e4.tests.base.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.runtime/features/org.eclipse.e4.tests.base.feature
+feature@org.eclipse.e4.tests.base.feature=v20090922-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.runtime/features/org.eclipse.e4.tests.base.feature
