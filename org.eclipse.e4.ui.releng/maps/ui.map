@@ -38,7 +38,7 @@ plugin@org.eclipse.e4.ui.tests=v20090716-1530,:pserver:anonymous@dev.eclipse.org
 
 
 !**** and build it
-feature@org.eclipse.e4.ui.feature=v20090716-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.feature
+feature@org.eclipse.e4.ui.feature=v20090923-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.feature
 feature@org.eclipse.e4.ui.compatibility.feature=v20090630-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.compatibility.feature
 feature@org.eclipse.e4.ui.css.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.css.feature
 feature@org.eclipse.e4.ui.tests.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.tests.feature
