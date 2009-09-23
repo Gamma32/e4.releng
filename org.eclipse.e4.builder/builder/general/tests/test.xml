@@ -29,7 +29,7 @@
 	<property name="junit-report-output" value="${results}/${platform}" />
 
 	<!--Directory name of org.eclipse.test plug-in installed in ${eclipse-home}-->
-	<property name="org.eclipse.test" value="org.eclipse.test_3.2.0" />
+	<property name="org.eclipse.test" value="org.eclipse.test_3.2.100" />
 
 	<target name="setup" unless="noclean" depends="init">
 		<condition property="setupTarget" value="setup-zip">
