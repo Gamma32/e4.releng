@@ -87,13 +87,13 @@
 			<source>
 				<repository location="${eclipsep2Repo}" />
 			</source>
-			<slicingOptions includeNonGreedy="false" includeOptional="false"/>
+			<slicingOptions latestVersionOnly="true"/>
 			<iu id="org.eclipse.sdk.feature.group"/>
 			<iu id="org.eclipse.equinox.p2.user.ui.feature.group"/>
+			<iu id="org.eclipse.rcp.configuration.feature.group"/>
 			<!--iu id="org.eclipse.emf.sdk.feature.group"/-->
 			<!--iu id="org.eclipse.wst.xml_ui.feature.feature.group"/-->
 			<!--iu id="org.eclipse.gef.feature.group"/-->
-			<iu id="org.eclipse.rcp.configuration.feature.group"/>
 		</p2.mirror>
 		<!--unjar src="${transformedRepoLocation}-mirrored/content.jar" dest="${transformedRepoLocation}-mirrored"/>
 		<xslt style="${builder}/fix-ibuild.xsl" in="${transformedRepoLocation}-mirrored/content.xml" out="${transformedRepoLocation}-mirrored/out_content.xml">
@@ -107,7 +107,7 @@
 		<delete file="${transformedRepoLocation}-mirrored/content.xml"/-->
 
 		<echo>Running against helios I builds: ${transformedRepoLocation} </echo>
-		<p2.repo2runnable destination="${transformedRepoLocation}">
+		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
 			<source>
 				<repository location="file:${transformedRepoLocation}-mirrored" />
 				<repository location="${emfp2Repo}" />
