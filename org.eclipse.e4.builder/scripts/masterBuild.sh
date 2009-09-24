@@ -52,7 +52,7 @@ testBuildProperties () {
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
     basebuilderBranch=v20090916c
-    #wstBuildDir=$( ls -d /home/data/httpd/download.eclipse.org/webtools/downloads/drops/R3.2/I-* | tail -1 | cut -d/ -f9 )
+    #wstBuildDir=$( ls -d /home/data/httpd/download.eclipse.org/webtools/downloads/drops/R3.2/I-* | tail -1 | cut -d/ -f10 )
     wstBuildDir=I-3.2I-20090910052601
 }
 
