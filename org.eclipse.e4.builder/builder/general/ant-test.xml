@@ -1,8 +1,16 @@
-<project name="Build specific targets and properties" default="postSetup">
-	<property name="transformedRepoLocation" value="/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/targets/helios-p2"/>
+<project name="Build specific targets and properties" default="testTransform">
+	<property name="builddate" value="20090924"/>
+	<property name="buildtime" value="1515"/>
+	<property name="wstBuildDir" value="I-3.2I-20090910052601"/>
+	
 	<property name="builder" value="/opt/pwebster/workspaces/e4/releng/org.eclipse.e4.builder/builder/general"/>
+	<property name="buildProperties" location="${builder}/build.properties"/>
+	<property file="${buildProperties}"/>
+	
+	<!--property name="transformedRepoLocation" value="/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/targets/helios-p2"/-->
 
-	<target name="postSetup">
+	
+	<target name="testFixIbuild">
 		<unjar src="${transformedRepoLocation}-mirrored/content.jar" dest="${transformedRepoLocation}-mirrored"/>
 		<xslt style="${builder}/fix-ibuild.xsl" in="${transformedRepoLocation}-mirrored/content.xml" out="${transformedRepoLocation}-mirrored/out_content.xml">
 			<outputproperty name="method" value="xml"/>
@@ -12,5 +20,26 @@
 			includes="content.xml"
 			basedir="${transformedRepoLocation}-mirrored"
 			update="true"/>
+	</target>
+	
+	<target name="testTransform">
+		<echo>${builddate}</echo>
+		<echo>${buildLabel}</echo>
+		<echo>${buildId}</echo>
+		<filter token="repbuildid" value="${buildLabel}"/>
+		<filter token="repmaindate" value="${repmaindate}"/>
+		<filter token="repbuilddate" value="${buildLabel}"/>
+		<filter token="repobuildsize" value="${repobuildsize}"/>
+		<filter token="timestamp" value="${timestamp}"/>
+		<filter token="buildType" value="${buildType}"/>
+		<filter token="buildId" value="${buildId}"/>
+		<filter token="buildLabel" value="${buildLabel}"/>
+		<filter token="eclipsep2Repo" value="${eclipsep2Repo}"/>
+		<filter token="emfp2Repo" value="${emfp2Repo}"/>
+		<filter token="gefp2Repo" value="${gefp2Repo}"/>
+		<filter token="wstp2Repo" value="${wstp2Repo}"/>
+		<filter token="wstBuildDir" value="${wstBuildDir}"/>
+		<delete file="${builder}/0.html"/>
+		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${builder}/0.html" />
 	</target>
 </project>
