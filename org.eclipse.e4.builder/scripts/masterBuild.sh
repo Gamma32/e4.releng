@@ -32,6 +32,8 @@ realBuildProperties () {
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
     #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
     basebuilderBranch=v20090916c
+    #wstBuildDir=$( ls -d /home/data/httpd/download.eclipse.org/webtools/downloads/drops/R3.2/I-* | tail -1 | cut -d/ -f10 )
+    wstBuildDir=I-3.2I-20090910052601
 }
 
 
@@ -50,6 +52,7 @@ testBuildProperties () {
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
     basebuilderBranch=v20090916c
+    #wstBuildDir=$( ls -d /home/data/httpd/download.eclipse.org/webtools/downloads/drops/R3.2/I-* | tail -1 | cut -d/ -f9 )
     wstBuildDir=I-3.2I-20090910052601
 }
 
@@ -300,7 +303,7 @@ generateRepoHtml
 #generateSwtZip
 
 # try some tests
-runTheTests
+#runTheTests
 
 cp /shared/eclipse/e4/logs/current.log \
     $buildResults/buildlog.txt

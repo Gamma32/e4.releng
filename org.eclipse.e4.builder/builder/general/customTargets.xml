@@ -106,6 +106,10 @@
 			update="true"/>
 		<delete file="${transformedRepoLocation}-mirrored/content.xml"/-->
 
+		<echo>${eclipsep2Repo}</echo>
+		<echo>${emfp2Repo}</echo>
+		<echo>${gefp2Repo}</echo>
+		<echo>${wstp2Repo}</echo>
 		<echo>Running against helios I builds: ${transformedRepoLocation} </echo>
 		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
 			<source>
