@@ -207,24 +207,6 @@
 		
 		<length file="${buildDirectory}/${buildLabel}/eclipse-e4-repo-incubation-${buildLabel}.zip" property="repobuildsize"/>
 		
-		<filter token="repbuildid" value="${buildLabel}"/>
-		<filter token="repmaindate" value="${repmaindate}"/>
-		<filter token="repbuilddate" value="${buildLabel}"/>
-		<filter token="repobuildsize" value="${repobuildsize}"/>
-		<filter token="timestamp" value="${timestamp}"/>
-		<filter token="buildType" value="${buildType}"/>
-		<filter token="buildId" value="${buildId}"/>
-		<filter token="buildLabel" value="${buildLabel}"/>
-		<filter token="eclipseIbuild" value="${eclipseBuildId}"/>
-		<filter token="emfBuildId" value="${emfBuildId}"/>
-		<filter token="eclipsep2Repo" value="${eclipsep2Repo}"/>
-		<filter token="emfp2Repo" value="${emfp2Repo}"/>
-		<filter token="gefp2Repo" value="${gefp2Repo}"/>
-		<filter token="wstp2Repo" value="${wstp2Repo}"/>
-		<filter token="wstBuildDir" value="${wstBuildDir}"/>
-		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${buildDirectory}/${buildLabel}/index.html" />
-		<copy filtering="true" file="${builder}/tests/build.label.properties" tofile="${buildDirectory}/label.properties" />
-
 		<generateTestProperties
 					buildDirectory="${buildDirectory}"
 					featureId="org.eclipse.e4.resources.tests.feature"
@@ -277,6 +259,33 @@
 		<antcall target="e4.product"/>
 		<antcall target="provision.e4"/>
 		<antcall target="zip.install"/>
+		
+		<delete file="${buildDirectory}/version.properties"/>
+		<antcall target="run.version.query">
+			<param name="list.repo" value="file:${p2.sdk.install.linux.gtk.x86}/eclipse/p2/org.eclipse.equinox.p2.engine/profileRegistry/SDKProfile.profile" />
+			<param name="list.iu" value="org.eclipse.e4.workbench.sdk,org.eclipse.emf,org.eclipse.gef,org.eclipse.sdk,org.eclipse.wst.jsdt.ui,org.eclipse.xsd,org.eclipse.wst.xml_ui.feature.feature.group" />
+		</antcall>
+		<property file="${buildDirectory}/version.properties"/>
+		
+		<!-- generate the build index, guess the component version numbers -->
+		<filter token="repbuildid" value="${buildLabel}"/>
+		<filter token="repmaindate" value="${repmaindate}"/>
+		<filter token="repbuilddate" value="${buildLabel}"/>
+		<filter token="repobuildsize" value="${repobuildsize}"/>
+		<filter token="timestamp" value="${timestamp}"/>
+		<filter token="buildType" value="${buildType}"/>
+		<filter token="buildId" value="${buildId}"/>
+		<filter token="buildLabel" value="${buildLabel}"/>
+		<filter token="eclipseIbuild" value="${org.eclipse.sdk}"/>
+		<filter token="emfBuildId" value="${org.eclipse.emf}"/>
+		<filter token="gefBuildId" value="${org.eclipse.gef}"/>
+		<filter token="eclipsep2Repo" value="${eclipsep2Repo}"/>
+		<filter token="emfp2Repo" value="${emfp2Repo}"/>
+		<filter token="gefp2Repo" value="${gefp2Repo}"/>
+		<filter token="wstp2Repo" value="${wstp2Repo}"/>
+		<filter token="wstBuildDir" value="${wstBuildDir}"/>
+		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${buildDirectory}/${buildLabel}/index.html" />
+		<copy filtering="true" file="${builder}/tests/build.label.properties" tofile="${buildDirectory}/label.properties" />
 	</target>
 
 	<!-- ===================================================================== -->
@@ -320,6 +329,17 @@
 		</exec>
 		<echo message="director ${p2.director.install.path}" file="${directorlog}" append="true" />
 		<echo message="${directorcode}" file="${directorlog}" append="true" />
+	</target>
+	
+	<target name="run.version.query">
+		<delete dir="${base.builder}/configuration/.settings" includeemptydirs="true" failonerror="false" />
+		<exec executable="${java15-home}/bin/java" failonerror="false" dir="${base.builder}" timeout="900000" output="${buildDirectory}/version.properties" error="/dev/null">
+			<arg line="-jar ${base.builder.launcher}" />
+			<arg line="-application org.eclipse.equinox.p2.director" />
+			<arg line="-nosplash" />
+			<arg line="-repository ${list.repo}" />
+			<arg line="-list ${list.iu}" />
+		</exec>
 	</target>
 	
 	<target name="run.category.generation">

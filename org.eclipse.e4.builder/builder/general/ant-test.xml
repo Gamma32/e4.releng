@@ -8,7 +8,9 @@
 	<property file="${buildProperties}"/>
 	
 	<!--property name="transformedRepoLocation" value="/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/targets/helios-p2"/-->
-
+	<property name="p2.output.base" value="/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/I20090924-1312/20090924-1312/p2temp/equinox.p2.build"/>
+	<property name="base.builder" value="/shared/eclipse/e4/build/e4/org.eclipse.releng.basebuilder"/>
+	<property name="base.builder.launcher" value="${base.builder}/plugins/org.eclipse.equinox.launcher_1.0.300.v20090720.jar"/>
 	
 	<target name="testFixIbuild">
 		<unjar src="${transformedRepoLocation}-mirrored/content.jar" dest="${transformedRepoLocation}-mirrored"/>
@@ -23,6 +25,13 @@
 	</target>
 	
 	<target name="testTransform">
+		<delete file="${builder}/version.properties"/>
+		<antcall target="run.version.query">
+			<param name="list.repo" value="file:${p2.output.base}/sdk.install.linux.gtk.x86/eclipse/p2/org.eclipse.equinox.p2.engine/profileRegistry/SDKProfile.profile" />
+			<param name="list.iu" value="org.eclipse.e4.workbench.sdk,org.eclipse.emf,org.eclipse.gef,org.eclipse.sdk,org.eclipse.wst.jsdt.ui,org.eclipse.xsd,org.eclipse.wst.xml_ui.feature.feature.group" />
+		</antcall>
+		<property file="${builder}/version.properties"/>
+
 		<echo>${builddate}</echo>
 		<echo>${buildLabel}</echo>
 		<echo>${buildId}</echo>
@@ -34,6 +43,9 @@
 		<filter token="buildType" value="${buildType}"/>
 		<filter token="buildId" value="${buildId}"/>
 		<filter token="buildLabel" value="${buildLabel}"/>
+		<filter token="eclipseIbuild" value="${org.eclipse.sdk}"/>
+		<filter token="emfBuildId" value="${org.eclipse.emf}"/>
+		<filter token="gefBuildId" value="${org.eclipse.gef}"/>
 		<filter token="eclipsep2Repo" value="${eclipsep2Repo}"/>
 		<filter token="emfp2Repo" value="${emfp2Repo}"/>
 		<filter token="gefp2Repo" value="${gefp2Repo}"/>
@@ -42,4 +54,28 @@
 		<delete file="${builder}/0.html"/>
 		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${builder}/0.html" />
 	</target>
+	
+	<target name="testVersionQuery">
+		<delete file="${builder}/version.properties"/>
+		<antcall target="run.version.query">
+			<param name="list.repo" value="file:${p2.output.base}/sdk.install.linux.gtk.x86/eclipse/p2/org.eclipse.equinox.p2.engine/profileRegistry/SDKProfile.profile" />
+			<param name="list.iu" value="org.eclipse.e4.workbench.sdk,org.eclipse.emf,org.eclipse.gef,org.eclipse.sdk,org.eclipse.wst.jsdt.ui,org.eclipse.xsd,org.eclipse.wst.xml_ui.feature.feature.group" />
+		</antcall>
+		<property file="${builder}/version.properties"/>
+		<echo>org.eclipse.e4.workbench.sdk = ${org.eclipse.e4.workbench.sdk}</echo>
+		<echo>org.eclipse.emf = ${org.eclipse.emf}</echo>
+	</target>
+	
+	<target name="run.version.query">
+		<delete dir="${base.builder}/configuration/.settings" includeemptydirs="true" failonerror="false" />
+		<exec executable="/opt/local/ibm-java2-i386-50/bin/java" failonerror="false" dir="${base.builder}" timeout="900000" output="${builder}/version.properties" error="/dev/null">
+			<arg line="-jar ${base.builder.launcher}" />
+			<arg line="-application org.eclipse.equinox.p2.director" />
+			<arg line="-nosplash" />
+			<arg line="-repository ${list.repo}" />
+			<arg line="-list ${list.iu}" />
+		</exec>
+	</target>
+	
+
 </project>
