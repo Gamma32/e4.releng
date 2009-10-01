@@ -83,6 +83,7 @@
 	<!-- ===================================================================== -->
 	<target name="postSetup">
 		<antcall target="getBaseComponents" />
+		<echo message="Mirror from ${eclipsep2Repo} to ${transformedRepoLocation}-mirrored" />
 		<p2.mirror destination="${transformedRepoLocation}-mirrored">
 			<source>
 				<repository location="${eclipsep2Repo}" />
@@ -95,16 +96,6 @@
 			<!--iu id="org.eclipse.wst.xml_ui.feature.feature.group"/-->
 			<!--iu id="org.eclipse.gef.feature.group"/-->
 		</p2.mirror>
-		<!--unjar src="${transformedRepoLocation}-mirrored/content.jar" dest="${transformedRepoLocation}-mirrored"/>
-		<xslt style="${builder}/fix-ibuild.xsl" in="${transformedRepoLocation}-mirrored/content.xml" out="${transformedRepoLocation}-mirrored/out_content.xml">
-			<outputproperty name="method" value="xml"/>
-		</xslt>
-		<move file="${transformedRepoLocation}-mirrored/out_content.xml" tofile="${transformedRepoLocation}-mirrored/content.xml" />
-		<jar destfile="${transformedRepoLocation}-mirrored/content.jar" 
-			includes="content.xml"
-			basedir="${transformedRepoLocation}-mirrored"
-			update="true"/>
-		<delete file="${transformedRepoLocation}-mirrored/content.xml"/-->
 
 		<echo>${eclipsep2Repo}</echo>
 		<echo>${emfp2Repo}</echo>
@@ -182,12 +173,18 @@
 	<target name="postPackage">
 	</target>
 
+	<target name="unzipContentJar" if="contentJar">
+		<unzip src="${p2.repo}/content.jar" dest="${p2.repo}" />
+		<delete file="${p2.repo}/content.jar" />
+	</target>
 	<!-- ===================================================================== -->
 	<!-- Steps to do after the build is done. -->
 	<!-- ===================================================================== -->
 	<target name="postBuild">
 		<antcall target="gatherLogs" />
 		<eclipse.convert input="${buildDirectory}/${buildLabel}/compilelogs" />
+		<available file="${p2.repo}/content.jar" property="contentJar" />
+		<antcall target="unzipContentJar" />
 		<xslt style="${builder}/patch-ver.xsl" in="${p2.repo}/content.xml" out="${p2.repo}/out_content.xml">
 			<outputproperty name="method" value="xml"/>
 		</xslt>
@@ -202,41 +199,11 @@
 		<copy file="${builder}/../../templates/OK.gif" tofile="${buildDirectory}/${buildLabel}/OK.gif" />
 		<copy file="${builder}/../../templates/build.download.php" tofile="${buildDirectory}/${buildLabel}/download.php" />
 		<copy file="${buildDirectory}/directory.txt" todir="${buildDirectory}/${buildLabel}" />
-		<move file="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildId}-group.group.group.zip" tofile="${buildDirectory}/${buildLabel}/${topLevelElementId}-${buildLabel}.zip" />
+		
 		<zip destfile="${buildDirectory}/${buildLabel}/eclipse-e4-repo-incubation-${buildLabel}.zip" basedir="${p2.repo}"></zip>
 		
 		<length file="${buildDirectory}/${buildLabel}/eclipse-e4-repo-incubation-${buildLabel}.zip" property="repobuildsize"/>
 		
-		<generateTestProperties
-					buildDirectory="${buildDirectory}"
-					featureId="org.eclipse.e4.resources.tests.feature"
-					outputFile="${buildDirectory}/test.properties"
-				/>
-		<generateTestProperties
-					buildDirectory="${buildDirectory}"
-					featureId="org.eclipse.e4.swt.as.tests.feature"
-					outputFile="${buildDirectory}/test.properties"
-				/>
-		<generateTestProperties
-					buildDirectory="${buildDirectory}"
-					featureId="org.eclipse.e4.ui.tests.feature"
-					outputFile="${buildDirectory}/test.properties"
-				/>
-		<generateTestProperties
-					buildDirectory="${buildDirectory}"
-					featureId="org.eclipse.e4.xwt.tests.feature"
-					outputFile="${buildDirectory}/test.properties"
-				/>
-		<generateTestProperties
-					buildDirectory="${buildDirectory}"
-					featureId="org.eclipse.e4.languages.tests.feature"
-					outputFile="${buildDirectory}/test.properties"
-				/>
-		<generateTestProperties
-					buildDirectory="${buildDirectory}"
-					featureId="org.eclipse.e4.tm.tests.feature"
-					outputFile="${buildDirectory}/test.properties"
-				/>
 		
 		<property name="buildlogs" value="${buildDirectory}/${buildLabel}" />
 		<property name="p2.root" value="${buildDirectory}/${buildId}/p2temp" />
@@ -255,7 +222,6 @@
 		<mkdir dir="${p2.sdk.install.macosx.cocoa.x86}" />
 
 
-		<antcall target="run.category.generation"/>
 		<antcall target="e4.product"/>
 		<antcall target="provision.e4"/>
 		<antcall target="zip.install"/>
@@ -307,9 +273,15 @@
 		<echo message="You must specify a target when invoking this file" />
 	</target>
 
-	<target name="run.director">
-		<delete dir="${base.builder}/configuration/.settings" includeemptydirs="true" failonerror="false" />
-		<!--	<copy file="${equinox.build.configs}/equinox.prov/files/config.ini.director" tofile="${base.builder}/configuration/config.ini" overwrite="true" /> -->
+	<target name="initLauncher" unless="base.builder.launcher" >
+		<path id="launcher.path">
+			<last count="1"><sort>
+				<fileset dir="${eclipse.home}" includes="**/org.eclipse.equinox.launcher_*.jar" />
+			</sort></last>
+		</path>
+		<property name="base.builder.launcher" refid="launcher.path" />
+	</target>
+	<target name="run.director" depends="initLauncher">
 		<exec executable="${java15-home}/bin/java" failonerror="false" dir="${base.builder}" timeout="900000" output="${directorlog}" resultproperty="directorcode">
 			<arg line="-jar ${base.builder.launcher}" />
 			<arg line="-application org.eclipse.equinox.p2.director" />
@@ -329,6 +301,16 @@
 		</exec>
 		<echo message="director ${p2.director.install.path}" file="${directorlog}" append="true" />
 		<echo message="${directorcode}" file="${directorlog}" append="true" />
+		
+		<!-- ant antfile="${genericTargets}" target="runDirector" inheritAll="true">
+			<property name="equinoxLauncherJar" value="${base.builder.launcher}"/>
+			<property name="p2.repo" value="${p2.build.repo},file:${transformedRepoLocation}"/>
+			<property name="p2.director.iu" value="${p2.director.installIU}"/>
+			<property name="p2.director.installPath" value="${p2.director.install.path}"/>
+			<property name="os" value="${p2.os}" />
+			<property name="ws" value="${p2.ws}" />
+			<property name="arch" value="${p2.arch}" />
+		</ant -->
 	</target>
 	
 	<target name="run.version.query">
@@ -340,22 +322,6 @@
 			<arg line="-repository ${list.repo}" />
 			<arg line="-list ${list.iu}" />
 		</exec>
-	</target>
-	
-	<target name="run.category.generation">
-		<delete dir="${base.builder}/configuration/.settings" includeemptydirs="true" failonerror="false" />
-		<!--	<copy file="${equinox.build.configs}/equinox.prov/files/config.ini.director" tofile="${base.builder}/configuration/config.ini" overwrite="true" /> -->
-		<exec executable="${java15-home}/bin/java" failonerror="false" dir="${base.builder}" timeout="900000" output="${directorlog}" resultproperty="directorcode">
-			<arg line="-jar ${base.builder.launcher}" />
-			<arg line="-application org.eclipse.equinox.p2.publisher.CategoryPublisher" />
-			<arg line="-nosplash" />
-			<arg line="-consoleLog" />
-			<arg line="-metadataRepository file:${p2.repo}" />
-			<arg line="-categoryDefinition file:${builder}/e4-category.xml" />
-			<arg line="-categoryQualifier" />
-		</exec>
-		<echo message="director ${p2.director.install.path}" file="${directorlog}" append="true" />
-		<echo message="${directorcode}" file="${directorlog}" append="true" />
 	</target>
 	
 	<target name="e4.product">
@@ -375,7 +341,6 @@
 	<target name="provision.e4">
 		<antcall target="run.director">
 			<param name="p2.director.installIU" value="org.eclipse.e4.workbench.sdk" />
-			<param name="p2.director.version" value="3.5.0.${buildId}" />
 			<param name="p2.director.profile" value="SDKProfile" />
 			<param name="p2.director.install.path" value="${p2.sdk.install.win32.win32.x86}/eclipse" />
 			<param name="p2.director.extraArgs" value="-profileProperties org.eclipse.update.install.features=true" />
@@ -386,7 +351,6 @@
 
 		<antcall target="run.director">
 			<param name="p2.director.installIU" value="org.eclipse.e4.workbench.sdk" />
-			<param name="p2.director.version" value="3.5.0.${buildId}" />
 			<param name="p2.director.profile" value="SDKProfile" />
 			<param name="p2.director.install.path" value="${p2.sdk.install.linux.gtk.x86}/eclipse" />
 			<param name="p2.director.extraArgs" value="-profileProperties org.eclipse.update.install.features=true" />
@@ -397,7 +361,6 @@
 
 		<antcall target="run.director">
 			<param name="p2.director.installIU" value="org.eclipse.e4.workbench.sdk" />
-			<param name="p2.director.version" value="3.5.0.${buildId}" />
 			<param name="p2.director.profile" value="SDKProfile" />
 			<param name="p2.director.install.path" value="${p2.sdk.install.linux.gtk.ppc}/eclipse" />
 			<param name="p2.director.extraArgs" value="-profileProperties org.eclipse.update.install.features=true" />
@@ -408,7 +371,6 @@
 
 		<antcall target="run.director">
 			<param name="p2.director.installIU" value="org.eclipse.e4.workbench.sdk" />
-			<param name="p2.director.version" value="3.5.0.${buildId}" />
 			<param name="p2.director.profile" value="SDKProfile" />
 			<param name="p2.director.install.path" value="${p2.sdk.install.macosx.cocoa.x86}/eclipse" />
 			<param name="p2.director.extraArgs" value="-profileProperties org.eclipse.update.install.features=true" />
