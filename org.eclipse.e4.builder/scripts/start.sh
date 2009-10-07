@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#
+#  This file is no longer used.
+#
+#
+
 export PATH=/bin:/usr/bin/:/usr/local/bin
 export CVS_RSH=/usr/bin/ssh
 umask 002
