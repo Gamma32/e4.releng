@@ -32,8 +32,8 @@ realBuildProperties () {
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
     #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
     basebuilderBranch=v20090916c
-    #wstBuildDir=$( ls -d /home/www/webtools/downloads/drops/R3.2/I-* | tail -1 | cut -d/ -f10 )
-    wstBuildDir=S-3.2.0M2-20090924194346
+    wstBuildDir=$( ls -d /home/www/webtools/downloads/drops/R3.2.0/I-* | tail -1 | cut -d/ -f8 )
+    #wstBuildDir=I-3.2.0-20091008044047
 }
 
 
@@ -52,8 +52,7 @@ testBuildProperties () {
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
     basebuilderBranch=v20090916c
-    #wstBuildDir=$( ls -d /home/data/httpd/download.eclipse.org/webtools/downloads/drops/R3.2/I-* | tail -1 | cut -d/ -f10 )
-    wstBuildDir=S-3.2.0M2-20090924194346
+    wstBuildDir=I-3.2.0-20091008044047
 }
 
 commonProperties () {
@@ -214,7 +213,7 @@ buildMasterFeature () {
     echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
     cmd="$javaHome/bin/java -enableassertions \
       -cp $cpAndMain \
-      -application org.eclipse.ant.core.antRunner \
+      -application org.eclipse.ant.core.antRunner -v \
       -buildfile $buildfile \
       -Dbuilder=${builderDir}/builder/general \
       -Dbuilddate=$builddate \

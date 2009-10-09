@@ -1,4 +1,4 @@
-<project name="Build specific targets and properties" default="testTransform">
+<project name="Build specific targets and properties" default="fixMirror">
 	<property name="builddate" value="20090924"/>
 	<property name="buildtime" value="1515"/>
 	<property name="wstBuildDir" value="I-3.2I-20090910052601"/>
@@ -67,7 +67,6 @@
 	</target>
 	
 	<target name="run.version.query">
-		<delete dir="${base.builder}/configuration/.settings" includeemptydirs="true" failonerror="false" />
 		<exec executable="/opt/local/ibm-java2-i386-50/bin/java" failonerror="false" dir="${base.builder}" timeout="900000" output="${builder}/version.properties" error="/dev/null">
 			<arg line="-jar ${base.builder.launcher}" />
 			<arg line="-application org.eclipse.equinox.p2.director" />
@@ -78,4 +77,9 @@
 	</target>
 	
 
+	<target name="fixMirror">
+		<p2.mirror source="http://download.eclipse.org/eclipse/updates/3.6-I-builds" destination="file:/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/targets/old-helios-p2-mirrored">
+			<iu id="org.eclipse.help.base" version="3.4.100.v20090904"/>
+		</p2.mirror>
+	</target>
 </project>

@@ -84,7 +84,7 @@
 	<target name="postSetup">
 		<antcall target="getBaseComponents" />
 		<echo message="Mirror from ${eclipsep2Repo} to ${transformedRepoLocation}-mirrored" />
-		<p2.mirror destination="${transformedRepoLocation}-mirrored">
+		<!--p2.mirror destination="${transformedRepoLocation}-mirrored">
 			<source>
 				<repository location="${eclipsep2Repo}" />
 			</source>
@@ -92,10 +92,10 @@
 			<iu id="org.eclipse.sdk.feature.group"/>
 			<iu id="org.eclipse.equinox.p2.user.ui.feature.group"/>
 			<iu id="org.eclipse.rcp.configuration.feature.group"/>
-			<!--iu id="org.eclipse.emf.sdk.feature.group"/-->
+			<iu id="org.eclipse.emf.sdk.feature.group"/-->
 			<!--iu id="org.eclipse.wst.xml_ui.feature.feature.group"/-->
 			<!--iu id="org.eclipse.gef.feature.group"/-->
-		</p2.mirror>
+		<!--/p2.mirror-->
 
 		<echo>${eclipsep2Repo}</echo>
 		<echo>${emfp2Repo}</echo>
@@ -104,7 +104,8 @@
 		<echo>Running against helios I builds: ${transformedRepoLocation} </echo>
 		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
 			<source>
-				<repository location="file:${transformedRepoLocation}-mirrored" />
+				<!--repository location="file:${transformedRepoLocation}-mirrored" /-->
+				<repository location="${eclipsep2Repo}" />
 				<repository location="${emfp2Repo}" />
 				<repository location="${gefp2Repo}" />
 				<repository location="${wstp2Repo}" />
