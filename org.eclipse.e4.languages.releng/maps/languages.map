@@ -1,6 +1,6 @@
 !**** e4 languages
-plugin@org.eclipse.e4.languages.javascript=v20090921,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript
-plugin@org.eclipse.e4.languages.javascript.registry=v20090921,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.registry
+plugin@org.eclipse.e4.languages.javascript=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript
+plugin@org.eclipse.e4.languages.javascript.registry=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.registry
 
 
 !**** e4 languages debug
@@ -20,8 +20,8 @@ plugin@org.eclipse.e4.languages.javascript.debug.test=v20090921,:pserver:anonymo
 
 
 !**** and build it
-feature@org.eclipse.e4.languages.feature=v20090923-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.feature
-feature@org.eclipse.e4.languages.tests.feature=v20090921,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.tests.feature
+feature@org.eclipse.e4.languages.feature=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.feature
+feature@org.eclipse.e4.languages.tests.feature=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.tests.feature
 
 !**** Test Suites
 #plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
