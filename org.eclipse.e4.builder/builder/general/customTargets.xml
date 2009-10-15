@@ -91,9 +91,9 @@
 				<repository location="${eclipseRepoURL}" />
 			</source>
 		</p2.mirror>
-		<get dest="${transformedRepoLocation}-downloads/${emfRepoZip}" src="${emfRepoURL}"/>
-		<get dest="${transformedRepoLocation}-downloads/${gefRepoZip}" src="${gefRepoURL}"/>
-		<get dest="${transformedRepoLocation}-downloads/${wtpRepoZip}" src="${wptRepoURL}"/>
+		<get usetimestamp="true" dest="${transformedRepoLocation}-downloads/${emfRepoZip}" src="${emfRepoURL}"/>
+		<get usetimestamp="true" dest="${transformedRepoLocation}-downloads/${gefRepoZip}" src="${gefRepoURL}"/>
+		<get usetimestamp="true" dest="${transformedRepoLocation}-downloads/${wtpRepoZip}" src="${wptRepoURL}"/>
 
 		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
 			<source>
