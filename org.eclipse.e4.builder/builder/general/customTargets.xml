@@ -6,6 +6,8 @@
 	<!-- ===================================================================== -->
 	<available property="allElementsFile" file="${builder}/allElements.xml" value="${builder}/allElements.xml"/>
 	<property name="allElementsFile" location="${eclipse.pdebuild.templates}/headless-build/allElements.xml"/>
+	<loadproperties srcfile="${builder}/update_repo.properties"/>
+	<property name="transformedRepoLocation" value="${targetDir}/${targetDownloadId}"/>
 
 	
 	<import file="${allElementsFile}" />
@@ -83,32 +85,22 @@
 	<!-- ===================================================================== -->
 	<target name="postSetup">
 		<antcall target="getBaseComponents" />
-		<echo message="Mirror from ${eclipsep2Repo} to ${transformedRepoLocation}-mirrored" />
-		<!--p2.mirror destination="${transformedRepoLocation}-mirrored">
+		<echo message="Mirror from ${eclipseRepoURL} to ${transformedRepoLocation}-downloads/eclipse-repo-${eclipseBuildId}" />
+		<p2.mirror destination="${transformedRepoLocation}-downloads/eclipse-repo-${eclipseBuildId}">
 			<source>
-				<repository location="${eclipsep2Repo}" />
+				<repository location="${eclipseRepoURL}" />
 			</source>
-			<slicingOptions latestVersionOnly="true"/>
-			<iu id="org.eclipse.sdk.feature.group"/>
-			<iu id="org.eclipse.equinox.p2.user.ui.feature.group"/>
-			<iu id="org.eclipse.rcp.configuration.feature.group"/>
-			<iu id="org.eclipse.emf.sdk.feature.group"/-->
-			<!--iu id="org.eclipse.wst.xml_ui.feature.feature.group"/-->
-			<!--iu id="org.eclipse.gef.feature.group"/-->
-		<!--/p2.mirror-->
+		</p2.mirror>
+		<get dest="${transformedRepoLocation}-downloads/${emfRepoZip}" src="${emfRepoURL}"/>
+		<get dest="${transformedRepoLocation}-downloads/${gefRepoZip}" src="${gefRepoURL}"/>
+		<get dest="${transformedRepoLocation}-downloads/${wtpRepoZip}" src="${wptRepoURL}"/>
 
-		<echo>${eclipsep2Repo}</echo>
-		<echo>${emfp2Repo}</echo>
-		<echo>${gefp2Repo}</echo>
-		<echo>${wstp2Repo}</echo>
-		<echo>Running against helios I builds: ${transformedRepoLocation} </echo>
 		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
 			<source>
-				<!--repository location="file:${transformedRepoLocation}-mirrored" /-->
-				<repository location="${eclipsep2Repo}" />
-				<repository location="${emfp2Repo}" />
-				<repository location="${gefp2Repo}" />
-				<repository location="${wstp2Repo}" />
+				<repository location="file:${transformedRepoLocation}-downloads/eclipse-repo-${eclipseBuildId}" />
+				<repository location="file:${transformedRepoLocation}-downloads/${emfRepoZip}" />
+				<repository location="file:${transformedRepoLocation}-downloads/${gefRepoZip}" />
+				<repository location="file:${transformedRepoLocation}-downloads/${wtpRepoZip}" />
 			</source>
 		</p2.repo2runnable>
 	</target>
