@@ -1,6 +1,6 @@
 !**** e4 UI
 plugin@org.eclipse.e4.ui.services=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.services
-plugin@org.eclipse.e4.ui.model.workbench=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.model.workbench
+plugin@org.eclipse.e4.ui.model.workbench=v20091016-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.model.workbench
 plugin@org.eclipse.e4.ui.workbench=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench
 plugin@org.eclipse.e4.ui.workbench.renderers.swt=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt
 plugin@org.eclipse.e4.ui.workbench.renderers.swt.contributions=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt.contributions
@@ -32,7 +32,7 @@ plugin@org.eclipse.e4.demo.modifier=v20091015-1330,:pserver:anonymous@dev.eclips
 
 
 !*** e4 UI tests
-plugin@org.eclipse.e4.ui.tests.css.swt=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.swt
+plugin@org.eclipse.e4.ui.tests.css.swt=v20091016-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.swt
 plugin@org.eclipse.e4.ui.tests.css.core=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.core
 plugin@org.eclipse.e4.ui.tests=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests
 
