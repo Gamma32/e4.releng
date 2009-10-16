@@ -687,6 +687,8 @@
 	<target name="e4less">
 		<antcall target="cssSwt" />
 		<antcall target="cssCore" />
+		<antcall target="e4xwt" />
+		<antcall target="e4xwtEmf" />
 		<antcall target="coreServices" />
 		<antcall target="e4Lang" />
 		<antcall target="e4ui" />
