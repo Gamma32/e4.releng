@@ -87,6 +87,12 @@
    <feature url="features/org.eclipse.e4.xwt.workbench.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.xwt.workbench.source.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.xwt.category"/>
    </feature>
+   <feature url="features/org.eclipse.e4.ui.web.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.ui.web.feature" version="0.9.0.qualifier">
+      <category name="org.eclipse.e4.ui.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.ui.web.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.ui.web.source.feature" version="0.9.0.qualifier">
+      <category name="org.eclipse.e4.ui.category"/>
+   </feature>
    <category-def name="org.eclipse.e4.swt.category" label="E4 SWT"/>
    <category-def name="org.eclipse.e4.ui.category" label="E4 UI"/>
    <category-def name="org.eclipse.e4.lang.category" label="E4 Language Support"/>
