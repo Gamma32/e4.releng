@@ -1,15 +1,15 @@
 !**** e4 languages
-plugin@org.eclipse.e4.languages.javascript=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript
+plugin@org.eclipse.e4.languages.javascript=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript
 plugin@org.eclipse.e4.languages.javascript.registry=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.registry
 
 
 !**** e4 languages debug
-plugin@org.eclipse.e4.languages.javascript.debug.connect=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.connect
-plugin@org.eclipse.e4.languages.javascript.debug.jsdi=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.jsdi
-plugin@org.eclipse.e4.languages.javascript.debug.jsdi.rhino=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.jsdi.rhino
-plugin@org.eclipse.e4.languages.javascript.debug.model=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.model
-plugin@org.eclipse.e4.languages.javascript.debug.rhino=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.rhino
-plugin@org.eclipse.e4.languages.javascript.debug.ui=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.ui
+plugin@org.eclipse.e4.languages.javascript.debug.connect=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.connect
+plugin@org.eclipse.e4.languages.javascript.debug.jsdi=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.jsdi
+plugin@org.eclipse.e4.languages.javascript.debug.jsdi.rhino=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.jsdi.rhino
+plugin@org.eclipse.e4.languages.javascript.debug.model=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.model
+plugin@org.eclipse.e4.languages.javascript.debug.rhino=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.rhino
+plugin@org.eclipse.e4.languages.javascript.debug.ui=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.ui
 
 !*** e4 languages examples
 
