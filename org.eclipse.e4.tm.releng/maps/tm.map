@@ -1,9 +1,9 @@
-!**** e4 XWT tools
+!**** e4 TM tools
 plugin@org.eclipse.e4.tm=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm
 plugin@org.eclipse.e4.tm.builder=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm.builder
 plugin@org.eclipse.e4.tm.ui=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm.ui
 plugin@org.eclipse.e4.emf.javascript=v20090716-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.emf.javascript
-
+plugin@org.eclipse.e4.emf.javascript.ui=v20090716-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.emf.javascript.ui
 
 !**** and build it
 feature@org.eclipse.e4.tm.feature=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/features/org.eclipse.e4.tm.feature
