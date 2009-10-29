@@ -4,6 +4,7 @@ plugin@org.eclipse.e4.tm.builder=v20091009-1415,:pserver:anonymous@dev.eclipse.o
 plugin@org.eclipse.e4.tm.ui=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm.ui
 plugin@org.eclipse.e4.emf.javascript=v20090716-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.emf.javascript
 plugin@org.eclipse.e4.emf.javascript.ui=v20091023-1600,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.emf.javascript.ui
+plugin@org.eclipse.e4.tm.graphics=v20091029-1230,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/bundles/org.eclipse.e4.tm.graphics
 
 !**** and build it
 feature@org.eclipse.e4.tm.feature=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/features/org.eclipse.e4.tm.feature
@@ -12,3 +13,5 @@ feature@org.eclipse.e4.tm.tests.feature=v20091009-1415,:pserver:anonymous@dev.ec
 !**** Test Suites
 plugin@org.eclipse.e4.tm.builder.tests=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.tm.builder.tests
 plugin@org.eclipse.e4.emf.javascript.tests=v20090626-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.emf.javascript.tests
+plugin@org.eclipse.e4.tm.graphics.tests=v20091029-1230,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tm/tests/org.eclipse.e4.tm.graphics.tests
+
