@@ -5,7 +5,7 @@ plugin@org.eclipse.e4.core.commands=v20091029-1230,:pserver:anonymous@dev.eclips
 
 plugin@org.eclipse.e4.core.javascript=v20090714-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.javascript
 
-fragment@org.eclipse.e4.core.services.annotations=v20091029-1230,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services.annotations
+fragment@org.eclipse.e4.core.services.annotations=v20091030-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services.annotations
 
 !*** e4 core tests
 plugin@org.eclipse.e4.core.tests.services=v20091029-1230,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests.services
