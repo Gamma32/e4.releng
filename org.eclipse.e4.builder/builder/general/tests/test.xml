@@ -676,6 +676,10 @@
 		<runTests testPlugin="org.eclipse.e4.core.commands.tests" />
 	</target>
 
+	<target name="e4annotations">
+		<runTests testPlugin="org.eclipse.e4.core.tests.services.annotations" />
+	</target>
+
 	<target name="e4">
 		<antcall target="coreresources" />
 		<antcall target="cssSwt" />
@@ -688,6 +692,7 @@
 		<antcall target="e4tm" />
 		<antcall target="e4tmJavascript" />
 		<antcall target="e4Commands" />
+		<antcall target="e4annotations" />
 	</target>
 	<target name="e4less">
 		<antcall target="cssSwt" />
@@ -700,5 +705,6 @@
 		<antcall target="e4tm" />
 		<antcall target="e4tmJavascript" />
 		<antcall target="e4Commands" />
+		<antcall target="e4annotations" />
 	</target>
 </project>
