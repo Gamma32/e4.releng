@@ -1,5 +1,5 @@
 !**** e4 XWT tools
-plugin@org.eclipse.e4.xwt=v20091029-1230,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
+plugin@org.eclipse.e4.xwt=v20091105-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
 plugin@org.eclipse.e4.xwt.css=v20090714-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.css
 plugin@org.eclipse.e4.xwt.tools.ui=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui
 plugin@org.eclipse.e4.xwt.tools.ui.editor=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui.editor
@@ -20,5 +20,5 @@ feature@org.eclipse.e4.xwt.emf.feature=v20090624-1330,:pserver:anonymous@dev.ecl
 feature@org.eclipse.e4.xwt.workbench.feature=v20090909-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.workbench.feature
 
 !**** Test Suites
-plugin@org.eclipse.e4.xwt.tests=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.tests
+plugin@org.eclipse.e4.xwt.tests=v20091105-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.tests
 plugin@org.eclipse.e4.xwt.emf.test=v20091016-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.emf.test
