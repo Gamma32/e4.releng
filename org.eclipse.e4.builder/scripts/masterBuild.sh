@@ -297,7 +297,7 @@ generateRepoHtml
 #generateSwtZip
 
 # try some tests
-runTheTests e4bindings
+runTheTests e4less
 
 cp /shared/eclipse/e4/logs/current.log \
     $buildResults/buildlog.txt
