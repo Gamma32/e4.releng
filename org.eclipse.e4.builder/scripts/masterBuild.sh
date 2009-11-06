@@ -184,7 +184,7 @@ runTheTests () {
     cp -r ${builderDir}/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
-        -arch ${arch}  e4less
+        -arch ${arch}  $1
 
     mkdir -p $buildResults/results
     cp -r results/* $buildResults/results
@@ -274,11 +274,10 @@ generateSwtZip () {
 
 
 
-#realBuildProperties
-testBuildProperties
+realBuildProperties
+#testBuildProperties
 commonProperties
 #updateBaseBuilder
-#updateE4Builder
 
 updateBaseBuilderInfo
 
@@ -298,7 +297,7 @@ generateRepoHtml
 #generateSwtZip
 
 # try some tests
-runTheTests
+runTheTests e4bindings
 
 cp /shared/eclipse/e4/logs/current.log \
     $buildResults/buildlog.txt
