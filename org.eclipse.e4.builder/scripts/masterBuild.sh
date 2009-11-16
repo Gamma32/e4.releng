@@ -26,12 +26,13 @@ realBuildProperties () {
     tagMaps=-tagMaps
 
 #publish
-    publishDir="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads/drops "
+    publishIndex="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads"
+    publishDir="${publishIndex}/drops"
 
 # available builds
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
     #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
-    basebuilderBranch=v20090916c
+    basebuilderBranch=36M3
 }
 
 
@@ -49,7 +50,7 @@ testBuildProperties () {
     buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
-    basebuilderBranch=v20090916c
+    basebuilderBranch=36M3
 }
 
 commonProperties () {
@@ -306,5 +307,8 @@ cp /shared/eclipse/e4/logs/current.log \
 if [ ! -z "$publishDir" ]; then
     echo Publishing  $buildResults to "$publishDir"
     scp -r $buildResults "$publishDir" 
-    sendMail 
+    sendMail
+    sleep 60
+    wget -O index.txt http://download.eclipse.org/e4/downloads/createIndex.php
+    scp index.txt "$publishIndex"/index.html
 fi
