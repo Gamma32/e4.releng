@@ -20,7 +20,7 @@ plugin@org.eclipse.e4.xwt.ui.workbench=v20091119-0800,:pserver:anonymous@dev.ecl
 !**** and build it
 feature@org.eclipse.e4.xwt.feature=v20091126-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.feature
 feature@org.eclipse.e4.xwt.tests.feature=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tests.feature
-feature@org.eclipse.e4.xwt.tools.feature=v20090610-0930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tools.feature
+feature@org.eclipse.e4.xwt.tools.feature=v20091204-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.tools.feature
 feature@org.eclipse.e4.xwt.css.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.css.feature
 feature@org.eclipse.e4.xwt.emf.feature=v20090624-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.emf.feature
 feature@org.eclipse.e4.xwt.workbench.feature=v20090909-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.workbench.feature
