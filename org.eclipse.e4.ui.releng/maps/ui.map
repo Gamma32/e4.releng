@@ -43,7 +43,7 @@ plugin@org.eclipse.e4.ui.bindings.tests=v20091203-1000,:pserver:anonymous@dev.ec
 !**** and build it
 feature@org.eclipse.e4.ui.feature=v20091105-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.feature
 feature@org.eclipse.e4.ui.web.feature=v20091022-1230,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.web.feature
-feature@org.eclipse.e4.ui.compatibility.feature=v20091022-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.compatibility.feature
+feature@org.eclipse.e4.ui.compatibility.feature=v20091210-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.compatibility.feature
 feature@org.eclipse.e4.ui.css.feature=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.css.feature
 feature@org.eclipse.e4.ui.tests.feature=v20091105-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.tests.feature
 feature@org.eclipse.e4.ui.examples.feature=v20090617-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.examples.feature
