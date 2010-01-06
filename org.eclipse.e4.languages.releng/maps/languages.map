@@ -14,7 +14,7 @@ plugin@org.eclipse.e4.languages.javascript.debug.ui=v20091215,:pserver:anonymous
 !*** e4 languages examples
 
 !*** e4 languages tests
-plugin@org.eclipse.e4.languages.javascript.test=v20090921,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/tests/org.eclipse.e4.languages.javascript.test
+plugin@org.eclipse.e4.languages.javascript.test=v20100106,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/tests/org.eclipse.e4.languages.javascript.test
 plugin@org.eclipse.e4.languages.javascript.registry.test=v20090921,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/tests/org.eclipse.e4.languages.javascript.registry.test
 plugin@org.eclipse.e4.languages.javascript.debug.test=v20091211,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/tests/org.eclipse.e4.languages.javascript.debug.test
 
