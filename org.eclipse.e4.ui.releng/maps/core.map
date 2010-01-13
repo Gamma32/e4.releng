@@ -1,6 +1,6 @@
 !**** e4 core
 
-plugin@org.eclipse.e4.core.services=v20100111-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services
+plugin@org.eclipse.e4.core.services=v20100113-1830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services
 plugin@org.eclipse.e4.core.commands=v20091203-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.commands
 
 plugin@org.eclipse.e4.core.javascript=v20090714-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.javascript
