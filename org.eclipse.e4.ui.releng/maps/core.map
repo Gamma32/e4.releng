@@ -1,6 +1,6 @@
 !**** e4 core
 
-plugin@org.eclipse.e4.core.services=v20100114-2100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services
+plugin@org.eclipse.e4.core.services=v20100121-2130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services
 plugin@org.eclipse.e4.core.commands=v20091203-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.commands
 
 plugin@org.eclipse.e4.core.javascript=v20090714-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.javascript
@@ -8,6 +8,6 @@ plugin@org.eclipse.e4.core.javascript=v20090714-1930,:pserver:anonymous@dev.ecli
 fragment@org.eclipse.e4.core.services.annotations=v20091118-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services.annotations
 
 !*** e4 core tests
-plugin@org.eclipse.e4.core.tests.services=v20091203-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests.services
+plugin@org.eclipse.e4.core.tests.services=v20100121-2130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests.services
 plugin@org.eclipse.e4.core.commands.tests=v20091203-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.commands.tests
 plugin@org.eclipse.e4.core.tests.services.annotations=v20091203-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests.services.annotations
