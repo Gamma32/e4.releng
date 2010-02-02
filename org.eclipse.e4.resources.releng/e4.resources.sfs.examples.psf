@@ -2,5 +2,7 @@
 <psf version="2.0">
 <provider id="org.eclipse.team.cvs.core.cvsnature">
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.resources/examples/org.eclipse.core.resources.semantic.examples,org.eclipse.core.resources.semantic.examples"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.resources/examples/org.eclipse.e4.demo.e4photo.withSFS,org.eclipse.e4.demo.e4photo.withSFS"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.demo.e4photo,org.eclipse.e4.demo.e4photo"/>
 </provider>
 </psf>
