@@ -684,6 +684,10 @@
 		<runTests testPlugin="org.eclipse.e4.ui.bindings.tests" />
 	</target>
 
+	<target name="semanticResources">
+		<runTests testPlugin="org.eclipse.core.resources.semantic.test" />
+	</target>
+
 	<target name="e4">
 		<antcall target="coreresources" />
 		<antcall target="cssSwt" />
@@ -698,6 +702,7 @@
 		<antcall target="e4Commands" />
 		<antcall target="e4annotations" />
 		<antcall target="e4bindings" />
+		<antcall target="semanticResources" />
 	</target>
 	<target name="e4less">
 		<antcall target="cssSwt" />
@@ -712,5 +717,6 @@
 		<antcall target="e4Commands" />
 		<antcall target="e4annotations" />
 		<antcall target="e4bindings" />
+		<antcall target="semanticResources" />
 	</target>
 </project>
