@@ -8,14 +8,10 @@ plugin@org.eclipse.core.resources.semantic.test=v20100211-0930,:pserver:anonymou
 
 
 !**** and build it
-feature@org.eclipse.e4.resources.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.feature
-feature@org.eclipse.e4.resources.tests.feature=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.tests.feature
+feature@org.eclipse.e4.resources.feature=v20100211-0930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.feature
+feature@org.eclipse.e4.resources.tests.feature=v20100211-0930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.tests.feature
 
 
 !**** Test Suites
 #plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 #plugin@org.eclipse.test.performance=v20081108,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
-
-
-
-
