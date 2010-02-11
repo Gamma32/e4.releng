@@ -18,15 +18,6 @@
    <feature url="features/org.eclipse.e4.server.bespin.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.server.bespin.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.server.category"/>
    </feature>
-   <feature url="features/org.eclipse.e4.resources.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.resources.feature" version="0.9.0.qualifier">
-      <category name="org.eclipse.e4.resources.category"/>
-   </feature>
-   <feature url="features/org.eclipse.e4.resources.platform.patch_0.9.0.qualifier.jar" id="org.eclipse.e4.resources.platform.patch" version="0.9.0.qualifier" patch="true">
-      <category name="org.eclipse.e4.resources.category"/>
-   </feature>
-   <feature url="features/org.eclipse.e4.resources.rcp.patch_0.9.0.qualifier.jar" id="org.eclipse.e4.resources.rcp.patch" version="0.9.0.qualifier" patch="true">
-      <category name="org.eclipse.e4.resources.category"/>
-   </feature>
    <feature url="features/org.eclipse.e4.xwt.css.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.xwt.css.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.xwt.category"/>
    </feature>
@@ -60,12 +51,6 @@
    <feature url="features/org.eclipse.e4.server.bespin.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.server.bespin.source.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.server.category"/>
    </feature>
-   <feature url="features/org.eclipse.e4.resources.platform.patch.source_0.9.0.qualifier.jar" id="org.eclipse.e4.resources.platform.patch.source" version="0.9.0.qualifier" patch="true">
-      <category name="org.eclipse.e4.resources.category"/>
-   </feature>
-   <feature url="features/org.eclipse.e4.resources.rcp.patch.source_0.9.0.qualifier.jar" id="org.eclipse.e4.resources.rcp.patch.source" version="0.9.0.qualifier" patch="true">
-      <category name="org.eclipse.e4.resources.category"/>
-   </feature>
    <feature url="features/org.eclipse.e4.xwt.css.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.xwt.css.source.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.xwt.category"/>
    </feature>
@@ -92,6 +77,12 @@
    </feature>
    <feature url="features/org.eclipse.e4.ui.web.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.ui.web.source.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.ui.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.resources.feature_0.10.0.qualifier.jar" id="org.eclipse.e4.resources.feature" version="0.10.0.qualifier">
+      <category name="org.eclipse.e4.resources.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.resources.source.feature_0.10.0.qualifier.jar" id="org.eclipse.e4.resources.source.feature" version="0.10.0.qualifier">
+      <category name="org.eclipse.e4.resources.category"/>
    </feature>
    <category-def name="org.eclipse.e4.swt.category" label="E4 SWT"/>
    <category-def name="org.eclipse.e4.ui.category" label="E4 UI"/>
