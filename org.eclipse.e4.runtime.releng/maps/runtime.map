@@ -3,12 +3,12 @@
 #what if we get concurrent from the eclipse SDK repo, already there
 #plugin@org.eclipse.equinox.concurrent,1.0.0=GET,http://download.eclipse.org/equinox/drops/S-3.5M5-200902021535/org.eclipse.equinox.concurrent_1.0.0.v20090125-0800.jar
 
-plugin@org.eclipse.test=v20091002,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.test=v20100118,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 fragment@org.eclipse.ant.optional.junit=v20080717,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
-plugin@org.eclipse.test.performance=v20091014,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.test.performance=v20100122,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
-plugin@org.eclipse.core.tests.harness=v20090911,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.core.tests.harness=v20091203,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 plugin@org.eclipse.jdt.core.tests.compiler=v_963,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 
