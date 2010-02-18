@@ -85,22 +85,22 @@
 	<!-- ===================================================================== -->
 	<target name="postSetup">
 		<antcall target="getBaseComponents" />
-		<echo message="Mirror from ${eclipseRepoURL} to ${transformedRepoLocation}-downloads/eclipse-repo-${eclipseBuildId}" />
-		<p2.mirror destination="${transformedRepoLocation}-downloads/eclipse-repo-${eclipseBuildId}">
+		<echo message="Mirror from ${eclipseRepoURL} to ${targetDir}/eclipse-repo-${eclipseBuildId}" />
+		<p2.mirror destination="${targetDir}/eclipse-repo-${eclipseBuildId}">
 			<source>
 				<repository location="${eclipseRepoURL}" />
 			</source>
 		</p2.mirror>
-		<get usetimestamp="true" dest="${transformedRepoLocation}-downloads/${emfRepoZip}" src="${emfRepoURL}"/>
-		<get usetimestamp="true" dest="${transformedRepoLocation}-downloads/${gefRepoZip}" src="${gefRepoURL}"/>
-		<get usetimestamp="true" dest="${transformedRepoLocation}-downloads/${wtpRepoZip}" src="${wptRepoURL}"/>
+		<get usetimestamp="true" dest="${targetDir}/${emfRepoZip}" src="${emfRepoURL}"/>
+		<get usetimestamp="true" dest="${targetDir}/${gefRepoZip}" src="${gefRepoURL}"/>
+		<get usetimestamp="true" dest="${targetDir}/${wtpRepoZip}" src="${wptRepoURL}"/>
 
 		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
 			<source>
-				<repository location="file:${transformedRepoLocation}-downloads/eclipse-repo-${eclipseBuildId}" />
-				<repository location="file:${transformedRepoLocation}-downloads/${emfRepoZip}" />
-				<repository location="file:${transformedRepoLocation}-downloads/${gefRepoZip}" />
-				<repository location="file:${transformedRepoLocation}-downloads/${wtpRepoZip}" />
+				<repository location="file:${targetDir}/eclipse-repo-${eclipseBuildId}" />
+				<repository location="file:${targetDir}/${emfRepoZip}" />
+				<repository location="file:${targetDir}/${gefRepoZip}" />
+				<repository location="file:${targetDir}/${wtpRepoZip}" />
 			</source>
 		</p2.repo2runnable>
 	</target>
