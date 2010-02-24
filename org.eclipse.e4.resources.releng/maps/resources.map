@@ -12,7 +12,7 @@ plugin@org.eclipse.ui.resources.semantic.examples.test=v20100224-0930,:pserver:a
 
 !**** and build it
 feature@org.eclipse.e4.resources.feature=v20100211-0930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.feature
-feature@org.eclipse.e4.resources.tests.feature=v20100211-0930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.tests.feature
+feature@org.eclipse.e4.resources.tests.feature=v20100224-0930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/features/org.eclipse.e4.resources.tests.feature
 
 
 !**** Test Suites
