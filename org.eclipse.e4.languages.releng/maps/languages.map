@@ -1,13 +1,13 @@
 !**** e4 languages
-plugin@org.eclipse.e4.languages.javascript=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript
+plugin@org.eclipse.e4.languages.javascript=v20100312,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript
 plugin@org.eclipse.e4.languages.javascript.registry=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.registry
 
 
 !**** e4 languages debug
-plugin@org.eclipse.e4.languages.javascript.debug.connect=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.connect
-plugin@org.eclipse.e4.languages.javascript.debug.jsdi=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.jsdi
-plugin@org.eclipse.e4.languages.javascript.debug.jsdi.rhino=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.jsdi.rhino
-plugin@org.eclipse.e4.languages.javascript.debug.model=v20091215,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.model
+plugin@org.eclipse.e4.languages.javascript.debug.connect=v20100312,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.connect
+plugin@org.eclipse.e4.languages.javascript.debug.jsdi=v20100312,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.jsdi
+plugin@org.eclipse.e4.languages.javascript.debug.jsdi.rhino=v20100312,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.jsdi.rhino
+plugin@org.eclipse.e4.languages.javascript.debug.model=v20100312,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.model
 plugin@org.eclipse.e4.languages.javascript.debug.rhino=v20091022-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.rhino
 plugin@org.eclipse.e4.languages.javascript.debug.ui=v20091215,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/bundles/org.eclipse.e4.languages.javascript.debug.ui
 
@@ -20,7 +20,7 @@ plugin@org.eclipse.e4.languages.javascript.debug.test=v20091211,:pserver:anonymo
 
 
 !**** and build it
-feature@org.eclipse.e4.languages.feature=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.feature
+feature@org.eclipse.e4.languages.feature=v20100312,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.feature
 feature@org.eclipse.e4.languages.tests.feature=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.tests.feature
 
 !**** Test Suites
