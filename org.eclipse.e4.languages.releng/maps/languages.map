@@ -21,7 +21,7 @@ plugin@org.eclipse.e4.languages.javascript.debug.test=v20091211,:pserver:anonymo
 
 !**** and build it
 feature@org.eclipse.e4.languages.feature=v20100312,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.feature
-feature@org.eclipse.e4.languages.tests.feature=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.tests.feature
+feature@org.eclipse.e4.languages.tests.feature=v20100312-1545,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.languages/features/org.eclipse.e4.languages.tests.feature
 
 !**** Test Suites
 #plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
