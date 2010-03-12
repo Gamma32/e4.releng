@@ -86,14 +86,14 @@
 	<target name="postSetup">
 		<antcall target="getBaseComponents" />
 		<echo message="Mirror from ${eclipseRepoURL} to ${targetDir}/eclipse-repo-${eclipseBuildId}" />
-		<p2.mirror destination="${targetDir}/eclipse-repo-${eclipseBuildId}">
+		<p2.mirror destination="${targetDir}/eclipse-repo-${eclipseBuildId}" ignoreerrors="true">
 			<source>
 				<repository location="${eclipseRepoURL}" />
 			</source>
 		</p2.mirror>
-		<get usetimestamp="true" dest="${targetDir}/${emfRepoZip}" src="${emfRepoURL}"/>
-		<get usetimestamp="true" dest="${targetDir}/${gefRepoZip}" src="${gefRepoURL}"/>
-		<get usetimestamp="true" dest="${targetDir}/${wtpRepoZip}" src="${wptRepoURL}"/>
+		<get usetimestamp="true" dest="${targetDir}/${emfRepoZip}" src="${emfRepoURL}" ignoreerrors="true"/>
+		<get usetimestamp="true" dest="${targetDir}/${gefRepoZip}" src="${gefRepoURL}" ignoreerrors="true"/>
+		<get usetimestamp="true" dest="${targetDir}/${wtpRepoZip}" src="${wptRepoURL}" ignoreerrors="true"/>
 
 		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
 			<source>
