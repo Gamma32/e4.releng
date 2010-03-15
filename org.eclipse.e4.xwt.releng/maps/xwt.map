@@ -1,7 +1,7 @@
 !**** e4 XWT tools
-plugin@org.eclipse.e4.xwt=I20100310,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
+plugin@org.eclipse.e4.xwt=v20100315-1230,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
 plugin@org.eclipse.e4.xwt.css=v20091118-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.css
-plugin@org.eclipse.e4.tools.ui.designer=I20100313,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.tools.ui.designer
+plugin@org.eclipse.e4.tools.ui.designer=v20100315-1230,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.tools.ui.designer
 plugin@org.eclipse.e4.xwt.tools.ui=I20100313,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui
 plugin@org.eclipse.e4.xwt.tools.ui.editor=v20100113-1830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui.editor
 plugin@org.eclipse.e4.xwt.tools.ui.designer=I20100313,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui.designer
