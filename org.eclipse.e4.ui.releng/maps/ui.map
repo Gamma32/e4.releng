@@ -34,7 +34,7 @@ plugin@org.eclipse.e4.demo.contacts=v20100406-1400,:pserver:anonymous@dev.eclips
 plugin@org.eclipse.e4.ui.examples.css=v20100205-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.ui.examples.css
 plugin@org.eclipse.e4.ui.examples.css.nebula=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.ui.examples.css.nebula
 plugin@org.eclipse.e4.ui.examples.css.rcp=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.ui.examples.css.rcp
-plugin@org.eclipse.e4.ui.examples.legacy.workbench=v20100406-0930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.ui.examples.legacy.workbench
+plugin@org.eclipse.e4.ui.examples.legacy.workbench=v20100409-1730,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.ui.examples.legacy.workbench
 plugin@org.eclipse.e4.ui.css.legacy=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.legacy
 plugin@org.eclipse.e4.examples.services=v20100407-1147,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/examples/org.eclipse.e4.examples.services
 
