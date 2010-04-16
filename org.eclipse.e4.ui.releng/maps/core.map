@@ -11,6 +11,6 @@ plugin@org.eclipse.e4.core.javascript=v20100407-1900,:pserver:anonymous@dev.ecli
 
 !*** e4 core tests
 plugin@org.eclipse.e4.core.tests.services=v20100407-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests.services
-plugin@org.eclipse.e4.core.tests=v20100408-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests
+plugin@org.eclipse.e4.core.tests=v20100416-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests
 plugin@org.eclipse.e4.core.commands.tests=v20100407-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.commands.tests
 plugin@org.eclipse.e4.core.tests.services.annotations=v20100415-1630,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests.services.annotations
