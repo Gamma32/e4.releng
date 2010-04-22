@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <psf version="2.0">
 <provider id="org.eclipse.team.cvs.core.cvsnature">
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services,org.eclipse.e4.core.services"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.commands,org.eclipse.e4.core.commands"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.contexts,org.eclipse.e4.core.contexts"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.javascript,org.eclipse.e4.core.javascript"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.di,org.eclipse.e4.core.di"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.di.extensions,org.eclipse.e4.core.di.extensions"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.contexts,org.eclipse.e4.core.contexts"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services,org.eclipse.e4.core.services"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services.annotations,org.eclipse.e4.core.services.annotations"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.feature,org.eclipse.e4.ui.feature"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/features/org.eclipse.e4.master,org.eclipse.e4.master"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.ui,org.eclipse.e4.pde.ui"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.webui,org.eclipse.e4.pde.webui"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.bindings,org.eclipse.e4.ui.bindings"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.feature,org.eclipse.e4.ui.feature"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.gadgets,org.eclipse.e4.ui.gadgets"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.model.workbench,org.eclipse.e4.ui.model.workbench"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.services,org.eclipse.e4.ui.services"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.web,org.eclipse.e4.ui.web"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.web.feature,org.eclipse.e4.ui.web.feature"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench,org.eclipse.e4.ui.workbench"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.javascript,org.eclipse.e4.core.javascript"/>
+<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.addons.swt,org.eclipse.e4.ui.workbench.addons.swt"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt,org.eclipse.e4.ui.workbench.renderers.swt"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt.contributions,org.eclipse.e4.ui.workbench.renderers.swt.contributions"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.swt,org.eclipse.e4.ui.workbench.swt"/>
@@ -20,12 +28,5 @@
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/javax.inject,javax.inject,v1_0"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/javax.xml,javax.xml,v1_3_4"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.dojotoolkit,org.dojotoolkit_1.1.0,v200907071809"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.web,org.eclipse.e4.ui.web"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.ui,org.eclipse.e4.pde.ui"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.webui,org.eclipse.e4.pde.webui"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.commands,org.eclipse.e4.core.commands"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.gadgets,org.eclipse.e4.ui.gadgets"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.web.feature,org.eclipse.e4.ui.web.feature"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.bindings,org.eclipse.e4.ui.bindings"/>
 </provider>
 </psf>
