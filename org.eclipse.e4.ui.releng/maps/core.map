@@ -13,5 +13,4 @@ plugin@org.eclipse.e4.core.javascript=v20100407-1900,:pserver:anonymous@dev.ecli
 plugin@org.eclipse.e4.core.tests.services=v20100424-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests.services
 plugin@org.eclipse.e4.core.tests=v20100421-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests
 plugin@org.eclipse.e4.core.commands.tests=v20100407-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.commands.tests
-plugin@org.eclipse.e4.core.tests.services.annotations=v20100415-1630,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests.services.annotations
 plugin@com.google.code.atinject.tck=v20100419-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/com.google.code.atinject.tck
