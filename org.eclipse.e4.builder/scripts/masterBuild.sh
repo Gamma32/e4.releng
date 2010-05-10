@@ -278,7 +278,7 @@ generateSwtZip () {
 realBuildProperties
 #testBuildProperties
 commonProperties
-#updateBaseBuilder
+updateBaseBuilder
 
 updateBaseBuilderInfo
 
