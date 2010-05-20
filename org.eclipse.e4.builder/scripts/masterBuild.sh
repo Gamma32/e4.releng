@@ -211,7 +211,7 @@ buildMasterFeature () {
     echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
     cmd="$javaHome/bin/java -enableassertions \
       -cp $cpAndMain \
-      -application org.eclipse.ant.core.antRunner  \
+      -application org.eclipse.ant.core.antRunner  -v \
       -buildfile $buildfile \
       -Dbuilder=${builderDir}/builder/general \
       -Dbuilddate=$builddate \
