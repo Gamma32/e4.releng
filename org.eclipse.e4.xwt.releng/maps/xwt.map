@@ -15,7 +15,7 @@ plugin@org.eclipse.e4.xwt.doc.user=v20100304-0800,:pserver:anonymous@dev.eclipse
 plugin@org.eclipse.e4.xwt.xml=v20091203-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.xml
 plugin@org.eclipse.e4.xwt.forms=v20100504,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.forms
 plugin@org.eclipse.e4.xwt.emf=v20100514-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.emf
-plugin@org.eclipse.e4.xwt.ui.workbench=v20100521,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.ui.workbench
+plugin@org.eclipse.e4.xwt.ui.workbench=v20100521-0900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.ui.workbench
 
 
 !**** and build it
