@@ -5,7 +5,6 @@ plugin@org.eclipse.e4.ui.model.workbench.edit=v20100520-1200,:pserver:anonymous@
 plugin@org.eclipse.e4.ui.workbench=v20100525-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench
 plugin@org.eclipse.e4.ui.workbench3=v20100408-2100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench3
 plugin@org.eclipse.e4.ui.workbench.renderers.swt=v20100525-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt
-plugin@org.eclipse.e4.ui.workbench.renderers.swt.contributions=v20091015-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt.contributions
 plugin@org.eclipse.e4.ui.workbench.swt=v20100525-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.swt
 plugin@org.eclipse.e4.ui.widgets=v20091119-1445,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.widgets
 plugin@org.eclipse.e4.ui.bindings=v20100519-0930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.bindings
