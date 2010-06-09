@@ -23,10 +23,5 @@
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt,org.eclipse.e4.ui.workbench.renderers.swt"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.swt,org.eclipse.e4.ui.workbench.swt"/>
 <project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench3,org.eclipse.e4.ui.workbench3"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.mozilla.javascript,org.mozilla.javascript,v1_7_2"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/javax.inject,javax.inject,v1_0"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/javax.annotation,javax.annotation,v1_0_0"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/javax.xml,javax.xml,v1_3_4"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/tools,org.eclipse.orbit/org.dojotoolkit,org.dojotoolkit_1.1.0,v200907071809"/>
 </provider>
 </psf>
