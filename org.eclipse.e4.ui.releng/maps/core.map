@@ -4,7 +4,7 @@ plugin@org.eclipse.e4.core.services=v20100415-1630,:pserver:anonymous@dev.eclips
 plugin@org.eclipse.e4.core.commands=v20100609-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.commands
 plugin@org.eclipse.e4.core.di=v20100520-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.di
 plugin@org.eclipse.e4.core.contexts=v20100609-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.contexts
-plugin@org.eclipse.e4.core.di.extensions=v20100609-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.di.extensions
+plugin@org.eclipse.e4.core.di.extensions=v20100613-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.di.extensions
 
 plugin@org.eclipse.e4.core.javascript=v20100531-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.javascript
 
