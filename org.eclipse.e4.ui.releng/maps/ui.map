@@ -46,7 +46,7 @@ plugin@org.eclipse.e4.examples.services=v20100407-1147,:pserver:anonymous@dev.ec
 !*** e4 UI tests
 plugin@org.eclipse.e4.ui.tests.css.swt=v20100603-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.swt
 plugin@org.eclipse.e4.ui.tests.css.core=v20090609-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.core
-plugin@org.eclipse.e4.ui.tests=v20100609-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests
+plugin@org.eclipse.e4.ui.tests=v20100613-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests
 plugin@org.eclipse.e4.ui.bindings.tests=v20100428-1730,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.bindings.tests
 
 
