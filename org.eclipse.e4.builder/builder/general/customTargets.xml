@@ -94,6 +94,7 @@
 			<iu id="org.eclipse.wst.xml_ui.feature.feature.group" />
 			<iu id="org.eclipse.wst.web_core.feature.feature.group" />
 			<iu id="org.eclipse.emf.sdk.feature.group" />
+			<iu id="org.eclipse.xsd.edit.feature.group" />
 			<iu id="org.apache.commons.beanutils" />
 		</p2.mirror>
 		<p2.remove.iu>
