@@ -85,26 +85,25 @@
 	<!-- ===================================================================== -->
 	<target name="postSetup">
 		<antcall target="getBaseComponents" />
-		<echo message="Mirror from ${eclipseRepoURL} to ${targetDir}/eclipse-repo-${eclipseBuildId}" />
-		<p2.mirror destination="${targetDir}/eclipse-repo-${eclipseBuildId}" ignoreerrors="true">
-			<source>
-				<repository location="${eclipseRepoURL}" />
-			</source>
+		<echo message="Mirror from ${eclipseRepoURL} to ${targetDir}/helios-repo-${eclipseBuildId}" />
+		<p2.mirror destination="${targetDir}/helios-repo-${eclipseBuildId}" ignoreerrors="true">
+			<source location="http://download.eclipse.org/releases/helios" />
+			<slicingOptions includeOptional="false" includeNonGreedy="false" />
+			<iu id="org.eclipse.sdk.ide" />
+			<iu id="org.eclipse.equinox.core.sdk.feature.group" />
+			<iu id="org.eclipse.wst.xml_ui.feature.feature.group" />
+			<iu id="org.eclipse.wst.web_core.feature.feature.group" />
+			<iu id="org.eclipse.emf.sdk.feature.group" />
+			<iu id="org.apache.commons.beanutils" />
 		</p2.mirror>
-		<get usetimestamp="true" dest="${targetDir}/${emfRepoZip}" src="${emfRepoURL}" ignoreerrors="true"/>
-		<get usetimestamp="true" dest="${targetDir}/${gefRepoZip}" src="${gefRepoURL}" ignoreerrors="true"/>
-		<get usetimestamp="true" dest="${targetDir}/${wtpRepoZip}" src="${wptRepoURL}" ignoreerrors="true"/>
 
 		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
 			<source>
-				<repository location="file:${targetDir}/eclipse-repo-${eclipseBuildId}" />
-				<repository location="file:${targetDir}/${emfRepoZip}" />
-				<repository location="file:${targetDir}/${gefRepoZip}" />
-				<repository location="file:${targetDir}/${wtpRepoZip}" />
+				<repository location="file:${targetDir}/helios-repo-${eclipseBuildId}" />
 			</source>
 		</p2.repo2runnable>
 	</target>
-
+	
 	<!-- ===================================================================== -->
 	<!-- Steps to do before fetching the build elements -->
 	<!-- ===================================================================== -->
