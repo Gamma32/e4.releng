@@ -28,6 +28,7 @@ plugin@org.eclipse.e4.tools.emf.ui=v20100616-1900,:pserver:anonymous@dev.eclipse
 plugin@org.eclipse.e4.tools.emf.editor3x=v20100614-1830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.editor3x
 plugin@org.eclipse.e4.tools.compat=v20100615-2100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.compat
 plugin@org.eclipse.e4.tools.services=v20100603-1300,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.services
+plugin@org.eclipse.e4.tools.emf.liveeditor=v20100622-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.liveeditor
 
 
 !*** e4 UI examples
