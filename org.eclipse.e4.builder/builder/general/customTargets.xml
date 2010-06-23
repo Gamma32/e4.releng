@@ -9,6 +9,7 @@
 	<loadproperties srcfile="${builder}/update_repo.properties"/>
 	<property name="transformedRepoLocation" value="${targetDir}/${targetDownloadId}"/>
 	<property name="updateSite" value="${targetDir}/updates/2010"/>
+	<property name="repoBaseline" value="${updateSite}"/>
 
 	
 	<import file="${allElementsFile}" />
@@ -190,14 +191,13 @@
 		</xslt>
 		<move file="${p2.repo}/out_content.xml" tofile="${p2.repo}/content.xml" />
 		
-		<p2.composite.repo location="file:${updateSite}" name="${p2.repo.name}" compressed="true" />
 		<p2.mirror source="file:${p2.repo}" log="${buildDirectory}/${buildLabel}/mirrorLog.txt" ignoreErrors="true" >
 			<destination compressed="true" name="${p2.repo.name}" location="file:${updateSite}/${buildId}" append="true" format="file:${p2.repo}" />
 			<comparator comparator="org.eclipse.equinox.p2.repository.tools.jar.comparator" comparatorLog="${buildDirectory}/${buildLabel}/comparatorlog.txt">
 				<repository location="${repoBaseline}" />
 			</comparator>
 		</p2.mirror>
-		<p2.composite.repo location="file:${updateSite}" compressed="true" >
+		<p2.composite.repo location="file:${updateSite}" >
 			<add location="${buildId}" />
 		</p2.composite.repo>
 		

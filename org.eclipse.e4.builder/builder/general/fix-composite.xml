@@ -1,0 +1,22 @@
+<project name="temp-fix" default="main">
+	<property name="updateDir" value="/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/targets/updates" />
+	<property name="updateSite" value="${updateDir}/2010" />
+	<property name="repoBaseline" value="${updateSite}" />
+	<property name="p2.repo.name" value="E4 2010 Update Site" />
+	<property name="buildId" value="S-1.0RC0-201006181645" />
+	<property name="p2.repo" value="/home/data/httpd/download.eclipse.org/e4/downloads/drops/S-1.0RC0-201006181645/repository" />
+
+	<target name="main">
+		<!--p2.composite.repository location="file:${updateSite}"  /-->
+		<p2.mirror source="file:${p2.repo}" log="${updateDir}/mirrorLog.txt" ignoreErrors="true">
+			<destination compressed="true" name="${p2.repo.name}" location="file:${updateSite}/${buildId}" append="true" format="file:${p2.repo}" />
+			<comparator comparator="org.eclipse.equinox.p2.repository.tools.jar.comparator" comparatorLog="${updateDir}/comparatorlog.txt">
+				<repository location="${repoBaseline}" />
+			</comparator>
+		</p2.mirror>
+		<p2.composite.repository location="file:${updateSite}">
+			<add location="${buildId}" />
+		</p2.composite.repository>
+	</target>
+
+</project>
