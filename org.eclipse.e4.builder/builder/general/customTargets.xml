@@ -197,9 +197,12 @@
 				<repository location="${repoBaseline}" />
 			</comparator>
 		</p2.mirror>
-		<p2.composite.repository location="file:${updateSite}" >
+        <p2.composite.artifact.repository.add location="file://${updateSite}" child="${buildLabel}" />
+        <p2.composite.metadata.repository.add location="file://${updateSite}" child="${buildLabel}" />
+
+		<!--p2.composite.repository location="file:${updateSite}" >
 			<add location="${buildLabel}" />
-		</p2.composite.repository>
+		</p2.composite.repository-->
 		
 		<tstamp>
 		<format property="repmaindate" pattern="yyyy MMMM dd HH:mm" locale="en"/>
