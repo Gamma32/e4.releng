@@ -197,9 +197,9 @@
 				<repository location="${repoBaseline}" />
 			</comparator>
 		</p2.mirror>
-		<p2.composite.repo location="file:${updateSite}" >
+		<p2.composite.repository location="file:${updateSite}" >
 			<add location="${buildId}" />
-		</p2.composite.repo>
+		</p2.composite.repository>
 		
 		<tstamp>
 		<format property="repmaindate" pattern="yyyy MMMM dd HH:mm" locale="en"/>
