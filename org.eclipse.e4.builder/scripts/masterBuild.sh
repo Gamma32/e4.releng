@@ -27,6 +27,7 @@ realBuildProperties () {
 
 #publish
     publishIndex="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads"
+    publishUpdates="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/updates"
     publishDir="${publishIndex}/drops"
 
 # available builds
@@ -41,9 +42,9 @@ realBuildProperties () {
 #
 testBuildProperties () {
 	supportDir=$writableBuildRoot/build/e4
-#	builderDir=${supportDir}/org.eclipse.e4.builder
+	builderDir=${supportDir}/org.eclipse.e4.builder
 
-	builderDir=/opt/pwebster/workspaces/e4/releng/org.eclipse.e4.builder
+#	builderDir=/opt/pwebster/workspaces/e4/releng/org.eclipse.e4.builder
 #builddate=20090624
 #buildtime=1012
     builddate=$( date +%Y%m%d )
@@ -306,7 +307,9 @@ cp /shared/eclipse/e4/logs/current.log \
 
 if [ ! -z "$publishDir" ]; then
     echo Publishing  $buildResults to "$publishDir"
-    scp -r $buildResults "$publishDir" 
+    scp -r $buildResults "$publishDir"
+    rsync --recursive --delete ${targetDir}/updates/2010 \
+      "${publishUpdates}"
     sendMail
     sleep 60
     wget -O index.txt http://download.eclipse.org/e4/downloads/createIndex.php
