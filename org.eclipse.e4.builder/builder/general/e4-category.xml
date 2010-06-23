@@ -84,12 +84,19 @@
    <feature url="features/org.eclipse.e4.resources.source.feature_0.10.0.qualifier.jar" id="org.eclipse.e4.resources.source.feature" version="0.10.0.qualifier">
       <category name="org.eclipse.e4.resources.category"/>
    </feature>
-   <category-def name="org.eclipse.e4.swt.category" label="E4 SWT"/>
-   <category-def name="org.eclipse.e4.ui.category" label="E4 UI"/>
-   <category-def name="org.eclipse.e4.lang.category" label="E4 Language Support"/>
-   <category-def name="org.eclipse.e4.runtime.category" label="E4 Runtime Features"/>
-   <category-def name="org.eclipse.e4.server.category" label="E4 Server Features"/>
-   <category-def name="org.eclipse.e4.resources.category" label="E4 Resources"/>
-   <category-def name="org.eclipse.e4.xwt.category" label="E4 XWT"/>
-   <category-def name="org.eclipse.e4.tm.category" label="E4 Toolkit Model"/>
+   <feature url="features/org.eclipse.e4.core.tools.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.core.tools.feature" version="0.9.0.qualifier">
+      <category name="org.eclipse.e4.tools.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.tools.source.feature_0.9.0.v20100603-1900-37H-AkF7B77VAP3CSA7.jar" id="org.eclipse.e4.core.tools.source.feature" version="0.9.0.v20100603-1900-37H-AkF7B77VAP3CSA7">
+      <category name="org.eclipse.e4.tools.category"/>
+   </feature>
+   <category-def name="org.eclipse.e4.swt.category" label="e4 SWT"/>
+   <category-def name="org.eclipse.e4.ui.category" label="e4 UI"/>
+   <category-def name="org.eclipse.e4.lang.category" label="e4 Language Support"/>
+   <category-def name="org.eclipse.e4.runtime.category" label="e4 Runtime Features"/>
+   <category-def name="org.eclipse.e4.server.category" label="e4 Server Features"/>
+   <category-def name="org.eclipse.e4.resources.category" label="e4 Resources"/>
+   <category-def name="org.eclipse.e4.xwt.category" label="e4 XWT"/>
+   <category-def name="org.eclipse.e4.tm.category" label="e4 Toolkit Model"/>
+   <category-def name="org.eclipse.e4.tools.category" label="e4 Tools"/>
 </site>
