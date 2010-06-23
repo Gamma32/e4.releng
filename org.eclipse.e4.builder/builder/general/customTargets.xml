@@ -192,13 +192,13 @@
 		<move file="${p2.repo}/out_content.xml" tofile="${p2.repo}/content.xml" />
 		
 		<p2.mirror source="file:${p2.repo}" log="${buildDirectory}/${buildLabel}/mirrorLog.txt" ignoreErrors="true" >
-			<destination compressed="true" name="${p2.repo.name}" location="file:${updateSite}/${buildId}" append="true" format="file:${p2.repo}" />
+			<destination compressed="true" name="${p2.repo.name}" location="file:${updateSite}/${buildLabel}" append="true" format="file:${p2.repo}" />
 			<comparator comparator="org.eclipse.equinox.p2.repository.tools.jar.comparator" comparatorLog="${buildDirectory}/${buildLabel}/comparatorlog.txt">
 				<repository location="${repoBaseline}" />
 			</comparator>
 		</p2.mirror>
 		<p2.composite.repository location="file:${updateSite}" >
-			<add location="${buildId}" />
+			<add location="${buildLabel}" />
 		</p2.composite.repository>
 		
 		<tstamp>
