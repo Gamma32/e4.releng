@@ -15,7 +15,9 @@
 			</comparator>
 		</p2.mirror>
 		<p2.composite.repository location="file:${updateSite}">
-			<add location="${buildId}" />
+			<add>
+				<repository location="${buildId}" />
+			</add>
 		</p2.composite.repository>
 	</target>
 
