@@ -33,7 +33,7 @@ realBuildProperties () {
 # available builds
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
     #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
-    basebuilderBranch=v20100519b
+    basebuilderBranch=R3_6
 }
 
 
@@ -51,7 +51,7 @@ testBuildProperties () {
     buildtime=$( date +%H%M )
 
     projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
-    basebuilderBranch=v20100519b
+    basebuilderBranch=R3_6
 }
 
 commonProperties () {
