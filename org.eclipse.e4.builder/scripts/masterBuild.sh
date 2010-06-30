@@ -66,6 +66,8 @@ commonProperties () {
     buildResults=$buildDirectory/I$buildTimestamp
     relengBaseBuilderDir=$supportDir/org.eclipse.releng.basebuilder
     buildDirEclipse="$buildDir/eclipse"
+    WORKSPACE="$buildDir/workspace"
+    export WORKSPACE
 }
 
 # first, let's check out all of those pesky projects
@@ -112,6 +114,51 @@ updateE4Builder () {
     ln -s ${supportDir}/org.eclipse.e4.builder_${projRelengBranch} org.eclipse.e4.builder
 
 }
+
+update40Workspace () {
+cd $WORKSPACE
+    echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.releng"
+    if [[ ! -d org.eclipse.releng.eclipsebuilder ]]; then
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r R4_HEAD org.eclipse.releng.eclipsebuilder"
+        echo $cmd
+        $cmd
+    else
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -d org.eclipse.releng.eclipsebuilder "
+        echo $cmd
+        $cmd
+    fi
+    echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.releng.eclipsebuilder"
+    if [[ ! -d org.eclipse.releng ]]; then
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r R4_HEAD org.eclipse.releng.eclipsebuilder"
+        echo $cmd
+        $cmd
+    else
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -d org.eclipse.releng.eclipsebuilder "
+        echo $cmd
+        $cmd
+    fi
+
+}
+
+run40Build () {
+cd $WORKSPACE
+chmod -R 755 $WORKSPACE/org.eclipse.releng.eclipsebuilder/runIBuilde4
+chmod -R 755 $WORKSPACE/org.eclipse.releng.eclipsebuilder/*.sh
+
+echo WORKSPACE $WORKSPACE
+
+export WORKSPACE="${WORKSPACE}"
+#$WORKSPACE/org.eclipse.releng.eclipsebuilder/runIBuilde4
+mkdir $WORKSPACE/builds
+cd $WORKSPACE/builds
+mkdir -p $WORKSPACE/builds/I
+mkdir -p $WORKSPACE/builds/transfer/files/testUpdates-I
+rm -f $WORKSPACE/builds/transfer/files/testUpdates-I/build_done.txt
+$WORKSPACE/org.eclipse.releng.eclipsebuilder/bootstrapHudsone4.sh -test -skipTest -buildDirectory $WORKSPACE/builds/I -hudson -updateSite $WORKSPACE/builds/transfer/files/testUpdates-I I
+touch $WORKSPACE/builds/transfer/files/testUpdates-I/build_done.txt
+
+}
+
 
 copyCompileLogs () {
     pushd $buildResults
@@ -315,3 +362,6 @@ if [ ! -z "$publishDir" ]; then
     wget -O index.txt http://download.eclipse.org/e4/downloads/createIndex.php
     scp index.txt "$publishIndex"/index.html
 fi
+
+
+
