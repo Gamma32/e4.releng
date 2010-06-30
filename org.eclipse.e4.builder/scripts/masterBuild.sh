@@ -118,17 +118,17 @@ updateE4Builder () {
 update40Workspace () {
 cd $WORKSPACE
     echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.releng"
-    if [[ ! -d org.eclipse.releng.eclipsebuilder ]]; then
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r R4_HEAD org.eclipse.releng.eclipsebuilder"
+    if [[ ! -d org.eclipse.releng ]]; then
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r R4_HEAD org.eclipse.releng"
         echo $cmd
         $cmd
     else
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -d org.eclipse.releng.eclipsebuilder "
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -d org.eclipse.releng "
         echo $cmd
         $cmd
     fi
     echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.releng.eclipsebuilder"
-    if [[ ! -d org.eclipse.releng ]]; then
+    if [[ ! -d org.eclipse.releng.eclipsebuilder ]]; then
         cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r R4_HEAD org.eclipse.releng.eclipsebuilder"
         echo $cmd
         $cmd
@@ -361,6 +361,8 @@ if [ ! -z "$publishDir" ]; then
     sleep 60
     wget -O index.txt http://download.eclipse.org/e4/downloads/createIndex.php
     scp index.txt "$publishIndex"/index.html
+    update40Workspace
+    run40Build
 fi
 
 
