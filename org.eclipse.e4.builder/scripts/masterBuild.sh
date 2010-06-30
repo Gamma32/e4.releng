@@ -152,11 +152,12 @@ export WORKSPACE="${WORKSPACE}"
 mkdir $WORKSPACE/builds
 cd $WORKSPACE/builds
 mkdir -p $WORKSPACE/builds/I
-mkdir -p $WORKSPACE/builds/transfer/files/testUpdates-I
-rm -f $WORKSPACE/builds/transfer/files/testUpdates-I/build_done.txt
-$WORKSPACE/org.eclipse.releng.eclipsebuilder/bootstrapHudsone4.sh -test -skipTest -buildDirectory $WORKSPACE/builds/I -hudson -updateSite $WORKSPACE/builds/transfer/files/testUpdates-I I
-touch $WORKSPACE/builds/transfer/files/testUpdates-I/build_done.txt
-
+#mkdir -p $WORKSPACE/builds/transfer/files/testUpdates-I
+updateDir=$targetDir/updates/4.0
+rm -f $updateDir/build_done.txt
+$WORKSPACE/org.eclipse.releng.eclipsebuilder/bootstrapHudsone4.sh -test -skipTest -buildDirectory $WORKSPACE/builds/I -hudson -updateSite $updateDir I
+/bin/bash $writableBuildRoot/sdk/template/sync.sh
+/bin/bash $writableBuildRoot/sdk/template/publish.sh
 }
 
 
