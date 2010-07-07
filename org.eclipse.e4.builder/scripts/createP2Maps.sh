@@ -9,8 +9,11 @@
 for f in "$@"; do
 echo Working on $f
 rm -f t1 t2
-sed 's/plugin@\([^=]*\)=.*$/plugin@\1=p2IU,id=\1,version=,repository=http:\/\/download.eclipse.org\/eclipse\/updates\/3.6\//g' $f >t1
-sed 's/fragment@\([^=]*\)=.*$/fragment@\1=p2IU,id=\1,version=,repository=http:\/\/download.eclipse.org\/eclipse\/updates\/3.6\//g' t1 >t2
+dos2unix $f
+sed 's/^plugin@\([^=]*\)=.*$/plugin@\1=p2IU,id=\1,version=,repository=http:\/\/download.eclipse.org\/eclipse\/updates\/3.6\/\
+plugin@\1.source=p2IU,id=\1.source,version=,repository=http:\/\/download.eclipse.org\/eclipse\/updates\/3.6\//g' $f >t1
+sed 's/^fragment@\([^=]*\)=.*$/fragment@\1=p2IU,id=\1,version=,repository=http:\/\/download.eclipse.org\/eclipse\/updates\/3.6\/\
+fragment@\1.source=p2IU,id=\1.source,version=,repository=http:\/\/download.eclipse.org\/eclipse\/updates\/3.6\//g' t1 >t2
 
 mv t2 $f
 
