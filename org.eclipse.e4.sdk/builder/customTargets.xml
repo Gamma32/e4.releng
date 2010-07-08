@@ -94,6 +94,12 @@
 	<!-- Steps to do after fetching the build elements -->
 	<!-- ===================================================================== -->
 	<target name="postFetch">
+		<!-- change source references to pserver if ssh was used -->
+		<replace file="${buildDirectory}/sourceReferences.properties" token=":extssh" value=":pserver" />
+
+		<replace dir="${buildDirectory}/plugins" value="${buildLabel}" token="@build@">
+			<include name="**/about.mappings" />
+		</replace>
 	</target>
 
 	<!-- ===================================================================== -->
@@ -190,14 +196,14 @@
 
 		<echo message="Mirroring org.eclipse.rcp.configuration.feature.group to file:${p2.repo}" />
 		<p2.mirror destination="file:${p2.repo}">
-			<source location="file:${p2.repo}"/>
+			<source location="file:${p2.repo}" />
 			<source location="file:${localRepoLocation}" />
 			<slicingOptions includeNonGreedy="false" />
 			<iu id="org.eclipse.rcp.configuration.feature.group" />
-			<iu id="org.eclipse.e4.rcp.feature.group"/>
+			<iu id="org.eclipse.e4.rcp.feature.group" />
 		</p2.mirror>
-		
-		<antcall target="provision.e4"/>
+
+		<antcall target="provision.e4" />
 	</target>
 
 	<macrodef name="callDirector">
