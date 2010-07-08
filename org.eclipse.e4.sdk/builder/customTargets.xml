@@ -212,6 +212,8 @@
 		<attribute name="os" />
 		<attribute name="ws" />
 		<attribute name="arch" />
+		<attribute name="archiveSuffix" />
+		<attribute name="archiveFormat" />
 		<sequential>
 			<ant antfile="${eclipse.pdebuild.scripts}/genericTargets.xml" target="runDirector">
 				<property name="p2.director.installPath" value="${p2.sdk.install}.@{os}.@{ws}.@{arch}/eclipse" />
@@ -222,14 +224,36 @@
 				<property name="arch" value="@{arch}" />
 				<property name="p2.repo" value="file:${p2.repo}" />
 			</ant>
+			<delete file="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-incubation-${buildLabel}-@{archiveSuffix}.@{archiveFormat}" failonerror="false" />
+			<antcall target="p2.@{archiveFormat}">
+				<param name="fileName" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-incubation-${buildLabel}-@{archiveSuffix}.@{archiveFormat}" />
+				<param name="inputFolder" value="${p2.sdk.install}.@{os}.@{ws}.@{arch}" />
+			</antcall>
 		</sequential>
 	</macrodef>
 
 	<target name="provision.e4">
 		<property name="p2.sdk.install" value="${buildDirectory}/${buildId}/p2temp/sdk.install" />
-		<callDirector os="win32"  ws="win32" arch="x86" />
-		<callDirector os="linux"  ws="gtk"   arch="x86" />
-		<callDirector os="macosx" ws="cocoa" arch="x86" />
+		<parallel failonany="true" threadCount='4'>
+			<sequential> <callDirector os="win32"  ws="win32" arch="x86" archiveFormat="zip" archiveSuffix="win32" />        </sequential>
+			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86" archiveFormat="tar" archiveSuffix="linux-gtk" />    </sequential>
+			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86" archiveFormat="tar" archiveSuffix="macosx-cocoa" /> </sequential>
+		</parallel>
+	</target>
+
+	<target name="p2.tar">
+		<echo message="Building tar ${fileName}.gz from ${inputFolder}/*" />
+		<exec dir="${inputFolder}" executable="sh">
+			<arg line='-c "tar -cvf ${fileName} *"' />
+		</exec>
+		<gzip zipfile="${fileName}.gz" src="${fileName}" />
+		<delete file="${fileName}" />
+	</target>
+
+	<target name="p2.zip">
+		<exec dir="${inputFolder}" executable="zip">
+			<arg line="-q ${fileName} -r ." />
+		</exec>
 	</target>
 
 	<!-- ===================================================================== -->
