@@ -246,12 +246,12 @@
 		<property name="p2.sdk.install" value="${buildDirectory}/${buildId}/p2temp/sdk.install" />
 		<parallel failonany="true" threadCount='4'>
 			<sequential> <callDirector os="win32"  ws="win32" arch="x86" archiveFormat="zip" archiveSuffix="win32" />        </sequential>
-			<sequential> <callDirector os="win32"  ws="win32" arch="x86_64" archiveFormat="zip" archiveSuffix="win32" />        </sequential>
+			<sequential> <callDirector os="win32"  ws="win32" arch="x86_64" archiveFormat="zip" archiveSuffix="win32-x86_64" />        </sequential>
 			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86" archiveFormat="tar" archiveSuffix="linux-gtk" />    </sequential>
-			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86_64" archiveFormat="tar" archiveSuffix="linux-gtk" />    </sequential>
-			<sequential> <callDirector os="linux"  ws="gtk"   arch="ppc" archiveFormat="tar" archiveSuffix="linux-gtk" />    </sequential>
+			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86_64" archiveFormat="tar" archiveSuffix="linux-gtk-x86_64" />    </sequential>
+			<sequential> <callDirector os="linux"  ws="gtk"   arch="ppc" archiveFormat="tar" archiveSuffix="linux-gtk-ppc" />    </sequential>
 			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86" archiveFormat="tar" archiveSuffix="macosx-cocoa" /> </sequential>
-			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86_64" archiveFormat="tar" archiveSuffix="macosx-cocoa" /> </sequential>
+			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86_64" archiveFormat="tar" archiveSuffix="macosx-cocoa-x86_64" /> </sequential>
 		</parallel>
 	</target>
 
