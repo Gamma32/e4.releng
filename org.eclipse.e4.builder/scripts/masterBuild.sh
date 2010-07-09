@@ -115,6 +115,20 @@ updateE4Builder () {
 
 }
 
+updateSDKBuilder () {
+    cd $supportDir
+    echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.e4.sdk"
+    if [[ ! -d org.eclipse.e4.sdk ]]; then
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co  -d org.eclipse.e4.sdk e4/releng/org.eclipse.e4.sdk"
+        echo $cmd
+        $cmd
+    else
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -d org.eclipse.e4.sdk "
+        echo $cmd
+        $cmd
+    fi
+}
+
 update40Workspace () {
 cd $WORKSPACE
     echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.releng"
@@ -159,6 +173,27 @@ $WORKSPACE/org.eclipse.releng.eclipsebuilder/bootstrapHudsone4.sh -test -skipTes
 /bin/bash $writableBuildRoot/sdk/template/sync.sh
 /bin/bash $writableBuildRoot/sdk/template/publish.sh
 }
+
+runSDKBuild () {
+    cmd="$javaHome/bin/java -enableassertions \
+      -cp $cpAndMain \
+      -application org.eclipse.ant.core.antRunner  \
+      -buildfile $buildfile \
+  -Dbuilder=$supportDir/org.eclipse.e4.sdk/builder \
+  -Declipse.build.configs=$supportDir/org.eclipse.releng.eclipsebuilder/eclipse/buildConfigs \
+  -DbuildType=I \
+  -Dbuilddate=$( date +%Y%m%d ) \
+  -Dbuildtime=$( date +%H%M ) \
+  -Dbase=$buildDir/40builds \
+  -DupdateSite=$targetDir/updates/4.0
+"   
+    echo $cmd
+    $cmd
+/bin/bash $writableBuildRoot/sdk/template/sync.sh
+/bin/bash $writableBuildRoot/sdk/template/publish.sh
+
+}
+
 
 
 copyCompileLogs () {
@@ -328,7 +363,6 @@ realBuildProperties
 #testBuildProperties
 commonProperties
 updateBaseBuilder
-
 updateBaseBuilderInfo
 
 
@@ -362,8 +396,9 @@ if [ ! -z "$publishDir" ]; then
     sleep 60
     wget -O index.txt http://download.eclipse.org/e4/downloads/createIndex.php
     scp index.txt "$publishIndex"/index.html
-    update40Workspace
-    run40Build
+    #update40Workspace
+    #run40Build
+    runSDKBuild
 fi
 
 
