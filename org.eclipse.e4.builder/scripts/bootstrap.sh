@@ -9,6 +9,8 @@ cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse update \
   -d org.eclipse.e4.builder_HEAD
 cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse update \
   -d org.eclipse.e4.sdk
+cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse update \
+  -d org.eclipse.releng.eclipsebuilder
 
 cp org.eclipse.e4.builder_HEAD/scripts/masterBuild.sh $writableBuildRoot
 
