@@ -7,6 +7,8 @@ supportDir=$writableBuildRoot/build/e4
 cd $supportDir
 cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse update \
   -d org.eclipse.e4.builder_HEAD
+cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse update \
+  -d org.eclipse.e4.sdk
 
 cp org.eclipse.e4.builder_HEAD/scripts/masterBuild.sh $writableBuildRoot
 
