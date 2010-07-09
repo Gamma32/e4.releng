@@ -6,6 +6,7 @@
 	<!-- ===================================================================== -->
 	<available property="allElementsFile" file="${builder}/allElements.xml" value="${builder}/allElements.xml" />
 	<property name="allElementsFile" location="${eclipse.pdebuild.templates}/headless-build/allElements.xml" />
+	<property name="repoBaseline" value="${updateSite}"/>
 
 	<import file="${allElementsFile}" />
 	<target name="allElements">
@@ -203,6 +204,15 @@
 			<iu id="org.eclipse.e4.rcp.feature.group" />
 		</p2.mirror>
 
+		<p2.mirror source="file:${p2.repo}" log="${buildDirectory}/${buildLabel}/mirrorLog.txt" ignoreErrors="true" >
+			<destination compressed="true" name="${p2.repo.name}" location="file:${updateSite}/${buildLabel}" append="true" format="file:${p2.repo}" />
+			<comparator comparator="org.eclipse.equinox.p2.repository.tools.jar.comparator" comparatorLog="${buildDirectory}/${buildLabel}/comparatorlog.txt">
+				<repository location="${repoBaseline}" />
+			</comparator>
+		</p2.mirror>
+        <p2.composite.artifact.repository.add location="file://${updateSite}" child="${buildLabel}" />
+        <p2.composite.metadata.repository.add location="file://${updateSite}" child="${buildLabel}" />
+
 		<antcall target="provision.e4" />
 	</target>
 
@@ -224,9 +234,9 @@
 				<property name="arch" value="@{arch}" />
 				<property name="p2.repo" value="file:${p2.repo}" />
 			</ant>
-			<delete file="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-incubation-${buildLabel}-@{archiveSuffix}.@{archiveFormat}" failonerror="false" />
+			<delete file="${buildDirectory}/${buildLabel}/eclipse-SDK-${buildLabel}-@{archiveSuffix}.@{archiveFormat}" failonerror="false" />
 			<antcall target="p2.@{archiveFormat}">
-				<param name="fileName" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-incubation-${buildLabel}-@{archiveSuffix}.@{archiveFormat}" />
+				<param name="fileName" value="${buildDirectory}/${buildLabel}/eclipse-SDK-${buildLabel}-@{archiveSuffix}.@{archiveFormat}" />
 				<param name="inputFolder" value="${p2.sdk.install}.@{os}.@{ws}.@{arch}" />
 			</antcall>
 		</sequential>
@@ -236,8 +246,12 @@
 		<property name="p2.sdk.install" value="${buildDirectory}/${buildId}/p2temp/sdk.install" />
 		<parallel failonany="true" threadCount='4'>
 			<sequential> <callDirector os="win32"  ws="win32" arch="x86" archiveFormat="zip" archiveSuffix="win32" />        </sequential>
+			<sequential> <callDirector os="win32"  ws="win32" arch="x86_64" archiveFormat="zip" archiveSuffix="win32" />        </sequential>
 			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86" archiveFormat="tar" archiveSuffix="linux-gtk" />    </sequential>
+			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86_64" archiveFormat="tar" archiveSuffix="linux-gtk" />    </sequential>
+			<sequential> <callDirector os="linux"  ws="gtk"   arch="ppc" archiveFormat="tar" archiveSuffix="linux-gtk" />    </sequential>
 			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86" archiveFormat="tar" archiveSuffix="macosx-cocoa" /> </sequential>
+			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86_64" archiveFormat="tar" archiveSuffix="macosx-cocoa" /> </sequential>
 		</parallel>
 	</target>
 
