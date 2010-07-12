@@ -170,7 +170,7 @@
 	<target name="postBuild">
 		<antcall target="gatherLogs" />
 
-		<replace token="@qualifier@" file="${eclipse.build.configs}/sdk/builder/sdk.product" value="${buildId}" />
+		<replace token="@qualifier@" file="${eclipse.build.configs}/sdk/builder/sdk.product" value="${buildLabel}" />
 		<echo message="Publishing ${eclipse.build.configs}/sdk/builder/sdk.product to file:${p2.repo}" />
 		<p2.publish.product flavor="tooling" repository="file:${p2.repo}" productFile="${eclipse.build.configs}/sdk/builder/sdk.product" compress="true">
 			<contextRepository location="file:${localRepoLocation}" />
