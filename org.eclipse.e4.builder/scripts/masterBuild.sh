@@ -175,6 +175,14 @@ $WORKSPACE/org.eclipse.releng.eclipsebuilder/bootstrapHudsone4.sh -test -skipTes
 }
 
 runSDKBuild () {
+cd $supportDir
+
+    cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.releng.eclipsebuilder "
+    echo $cmd
+    $cmd
+    
+    cd $buildDir/40builds
+    
     cmd="$javaHome/bin/java -enableassertions \
       -cp $cpAndMain \
       -application org.eclipse.ant.core.antRunner  \
