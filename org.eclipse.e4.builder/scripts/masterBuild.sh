@@ -147,7 +147,7 @@ cd $WORKSPACE
         echo $cmd
         $cmd
     else
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -d org.eclipse.releng.eclipsebuilder "
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.releng.eclipsebuilder "
         echo $cmd
         $cmd
     fi
