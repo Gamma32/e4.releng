@@ -569,6 +569,46 @@
 		</exec>
 	</target>
 
+	<target name="waitForChangedAttribs" unless="attribs.changed">
+			<antcall target="compareAttribs" inheritAll="false">
+				<param name="originalAttribs" value="${originalAttribs}" />
+				<param name="signpoll" value="${signpoll}" />
+			</antcall>
+		</target>
+
+		<target name="compareAttribs">
+			<!--poll file for change in attributes-->
+			<exec dir="${buildDirectory}" executable="${signpoll}" outputProperty="polledAttribs">
+				<arg line="${signpollline}" />
+			</exec>
+			<echo message="original:  ${originalAttribs}" />
+			<condition property="attribChanged">
+				<and>
+					<not>
+						<contains string="${polledAttribs}" substring="Permission denied, please try again." casesensitive="no" />
+					</not>
+					<not>
+						<contains string="${polledAttribs}" substring="Host key verification failed." casesensitive="no" />
+					</not>
+					<or>
+						<not>
+							<contains string="${polledAttribs}" substring="No such file or directory" casesensitive="no" />
+						</not>
+						<contains string="${polledAttribs}" substring="bash: line 0: cd:" casesensitive="no" />
+					</or>
+				</and>
+			</condition>
+			<echo message="polled:  ${polledAttribs}" />
+			<antcall target="writeDiffResult" />
+			<sleep seconds="120" />
+			<available property="attribs.changed" file="${buildDirectory}/attribDiff.txt" />
+			<antcall target="waitForChangedAttribs" />
+		</target>
+
+		<target name="writeDiffResult" if="attribChanged">
+			<echo message="original: ${originalAttribs}" file="${buildDirectory}/attribDiff.txt" />
+			<echo message="new: ${polledAttribs}" file="${buildDirectory}/attribDiff.txt" append="true" />
+		</target>
 
 </project>
 
