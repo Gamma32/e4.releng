@@ -4,14 +4,14 @@
 	<!-- Run a given ${target} on all elements being built -->
 	<!-- Add on <ant> task for each top level element being built. -->
 	<!-- ===================================================================== -->
-	<available property="allElementsFile" file="${builder}/allElements.xml" value="${builder}/allElements.xml"/>
-	<property name="allElementsFile" location="${eclipse.pdebuild.templates}/headless-build/allElements.xml"/>
-	<loadproperties srcfile="${builder}/update_repo.properties"/>
-	<property name="transformedRepoLocation" value="${targetDir}/${targetDownloadId}"/>
-	<property name="updateSite" value="${targetDir}/updates/2010"/>
-	<property name="repoBaseline" value="${updateSite}"/>
+	<available property="allElementsFile" file="${builder}/allElements.xml" value="${builder}/allElements.xml" />
+	<property name="allElementsFile" location="${eclipse.pdebuild.templates}/headless-build/allElements.xml" />
+	<loadproperties srcfile="${builder}/update_repo.properties" />
+	<property name="transformedRepoLocation" value="${targetDir}/${targetDownloadId}" />
+	<property name="updateSite" value="${targetDir}/updates/2010" />
+	<property name="repoBaseline" value="${updateSite}" />
 
-	
+
 	<import file="${allElementsFile}" />
 	<target name="allElements">
 		<antcall target="allElementsDelegator" />
@@ -100,7 +100,7 @@
 			<iu id="org.apache.commons.beanutils" />
 		</p2.mirror>
 		<p2.remove.iu>
-			<repository location="file:${targetDir}/helios-repo-${eclipseBuildId}"/>
+			<repository location="file:${targetDir}/helios-repo-${eclipseBuildId}" />
 			<iu id="org.eclipse.rap.jface" />
 			<iu id="org.eclipse.rap.rwt" />
 			<iu id="org.eclipse.rap.ui.forms" />
@@ -112,7 +112,7 @@
 			</source>
 		</p2.repo2runnable>
 	</target>
-	
+
 	<!-- ===================================================================== -->
 	<!-- Steps to do before fetching the build elements -->
 	<!-- ===================================================================== -->
@@ -187,39 +187,52 @@
 		<available file="${p2.repo}/content.jar" property="contentJar" />
 		<antcall target="unzipContentJar" />
 		<xslt style="${builder}/patch-ver.xsl" in="${p2.repo}/content.xml" out="${p2.repo}/out_content.xml">
-			<outputproperty name="method" value="xml"/>
+			<outputproperty name="method" value="xml" />
 		</xslt>
 		<move file="${p2.repo}/out_content.xml" tofile="${p2.repo}/content.xml" />
-		
-		<p2.mirror source="file:${p2.repo}" log="${buildDirectory}/${buildLabel}/mirrorLog.txt" ignoreErrors="true" >
+
+		<!--sign the build -->
+		<antcall target="signMasterFeature" />
+		<!--unzip signed build into repository for mirroring and packaging-->
+		<property name="p2.repo.unsigned" value="${p2.repo}.unsigned" />
+		<mkdir dir="${p2.repo.unsigned}" />		
+		<move todir="${p2.repo.unsigned}">
+		    <fileset dir="${p2.repo}"/>
+		</move>		
+		<unzip dest="${p2.repo}" src="${buildDirectory}/${buildLabel}/eclipse-master-${buildId}.zip" />
+
+		<!--pack master feature and update repository with new checksums for signed bundles -->
+		<p2.process.artifacts repositoryPath="file://${p2.repo}" pack="true" />
+
+		<p2.mirror source="file:${p2.repo}" log="${buildDirectory}/${buildLabel}/mirrorLog.txt" ignoreErrors="true">
 			<destination compressed="true" name="${p2.repo.name}" location="file:${updateSite}/${buildLabel}" append="true" format="file:${p2.repo}" />
 			<comparator comparator="org.eclipse.equinox.p2.repository.tools.jar.comparator" comparatorLog="${buildDirectory}/${buildLabel}/comparatorlog.txt">
 				<repository location="${repoBaseline}" />
 			</comparator>
 		</p2.mirror>
-        <p2.composite.artifact.repository.add location="file://${updateSite}" child="${buildLabel}" />
-        <p2.composite.metadata.repository.add location="file://${updateSite}" child="${buildLabel}" />
+		<p2.composite.artifact.repository.add location="file://${updateSite}" child="${buildLabel}" />
+		<p2.composite.metadata.repository.add location="file://${updateSite}" child="${buildLabel}" /> 
 
 		<!--p2.composite.repository location="file:${updateSite}" >
 			<add location="${buildLabel}" />
 		</p2.composite.repository-->
-		
+
 		<tstamp>
-		<format property="repmaindate" pattern="yyyy MMMM dd HH:mm" locale="en"/>
+			<format property="repmaindate" pattern="yyyy MMMM dd HH:mm" locale="en" />
 		</tstamp>
-		
+
 		<copy file="${builder}/../../templates/dl-icon-update-zip.gif" tofile="${buildDirectory}/${buildLabel}/dl-icon-update-zip.gif" />
 		<copy file="${builder}/../../templates/FAIL.gif" tofile="${buildDirectory}/${buildLabel}/FAIL.gif" />
 		<copy file="${builder}/../../templates/new.gif" tofile="${buildDirectory}/${buildLabel}/new.gif" />
 		<copy file="${builder}/../../templates/OK.gif" tofile="${buildDirectory}/${buildLabel}/OK.gif" />
 		<copy file="${builder}/../../templates/build.download.php" tofile="${buildDirectory}/${buildLabel}/download.php" />
 		<copy file="${buildDirectory}/directory.txt" todir="${buildDirectory}/${buildLabel}" />
-		
+
 		<zip destfile="${buildDirectory}/${buildLabel}/eclipse-e4-repo-incubation-${buildLabel}.zip" basedir="${p2.repo}"></zip>
-		
-		<length file="${buildDirectory}/${buildLabel}/eclipse-e4-repo-incubation-${buildLabel}.zip" property="repobuildsize"/>
-		
-		
+
+		<length file="${buildDirectory}/${buildLabel}/eclipse-e4-repo-incubation-${buildLabel}.zip" property="repobuildsize" />
+
+
 		<property name="buildlogs" value="${buildDirectory}/${buildLabel}" />
 		<property name="p2.root" value="${buildDirectory}/${buildId}/p2temp" />
 		<mkdir dir="${p2.root}" />
@@ -282,10 +295,10 @@
 		<echo message="You must specify a target when invoking this file" />
 	</target>
 
-	<target name="initLauncher" unless="base.builder.launcher" >
+	<target name="initLauncher" unless="base.builder.launcher">
 		<path id="launcher.path">
 			<last count="1"><sort>
-				<fileset dir="${eclipse.home}" includes="**/org.eclipse.equinox.launcher_*.jar" />
+					<fileset dir="${eclipse.home}" includes="**/org.eclipse.equinox.launcher_*.jar" />
 			</sort></last>
 		</path>
 		<property name="base.builder.launcher" refid="launcher.path" />
@@ -310,7 +323,7 @@
 		</exec>
 		<echo message="director ${p2.director.install.path}" file="${directorlog}" append="true" />
 		<echo message="${directorcode}" file="${directorlog}" append="true" />
-		
+
 		<!-- ant antfile="${genericTargets}" target="runDirector" inheritAll="true">
 			<property name="equinoxLauncherJar" value="${base.builder.launcher}"/>
 			<property name="p2.repo" value="${p2.build.repo},file:${transformedRepoLocation}"/>
@@ -321,7 +334,7 @@
 			<property name="arch" value="${p2.arch}" />
 		</ant -->
 	</target>
-	
+
 	<target name="run.version.query">
 		<delete dir="${base.builder}/configuration/.settings" includeemptydirs="true" failonerror="false" />
 		<exec executable="${java15-home}/bin/java" failonerror="false" dir="${base.builder}" timeout="900000" output="${buildDirectory}/version.properties" error="/dev/null">
@@ -332,7 +345,7 @@
 			<arg line="-list ${list.iu}" />
 		</exec>
 	</target>
-	
+
 	<target name="e4.product">
 		<replace token="@qualifier@" file="${buildDirectory}/plugins/org.eclipse.e4.ui.examples.legacy.workbench/legacy-eclipse.product" value="${buildLabel}" />
 		<p2.publish.product flavor="tooling" repository="file:${p2.repo}" productFile="${buildDirectory}/plugins/org.eclipse.e4.ui.examples.legacy.workbench/legacy-eclipse.product" compress="true">
@@ -412,7 +425,7 @@
 			<param name="p2.ws" value="cocoa" />
 			<param name="p2.arch" value="x86" />
 		</antcall>
-		
+
 		<antcall target="run.director">
 			<param name="p2.director.installIU" value="org.eclipse.e4.workbench.sdk" />
 			<param name="p2.director.profile" value="SDKProfile" />
@@ -458,11 +471,145 @@
 	</target>
 
 	<target name="find.a.file">
-	    <fileset id="base.launcher.file" dir="${base.builder}">
-	      <filename name="plugins/org.eclipse.equinox.launcher_*.jar"/>
-	    </fileset>
-	    <property name="base.launcher" refid="base.launcher.file"/>
-	    <echo>${base.launcher}</echo>
+		<fileset id="base.launcher.file" dir="${base.builder}">
+			<filename name="plugins/org.eclipse.equinox.launcher_*.jar" />
+		</fileset>
+		<property name="base.launcher" refid="base.launcher.file" />
+		<echo>${base.launcher}</echo>
 	</target>
+
+	<!--target name="signMasterFeature" if="sign"-->
+	<target name="signMasterFeature">
+		<property name="packtmp" value="${buildDirectory}/packtmp" />
+		<property name="stagingDirectoryOutput" value="/home/data/httpd/download-staging.priv/eclipse/e4/${buildId}-out" />
+		<property name="stagingDirectory" value="/home/data/httpd/download-staging.priv/eclipse/e4" />
+		<property name="archiveName" value="eclipse-master-${buildId}.zip" />
+
+		<property name="outputFile" value="${stagingDirectoryOutput}/${archiveName}" />
+		<mkdir dir="${packtmp}" />
+		<zip zipfile="${buildDirectory}/${buildLabel}/${archiveName}" basedir="${p2.repo}" />
+		<move file="${buildDirectory}/${buildLabel}/${archiveName}" tofile="${packtmp}/${archiveName}" />
+
+		<!--push drop to staging directory-->
+		<echo message="push drop to staging directory" />
+
+		<condition property="signcopy" value="cp">
+			<equals arg1="${hudson}" arg2="true" />
+		</condition>
+		<property name="signcopy" value="scp" />
+
+		<condition property="signexec" value="/bin/bash">
+			<equals arg1="${hudson}" arg2="true" />
+		</condition>
+		<property name="signexec" value="ssh" />
+
+		<condition property="signUser" value="">
+			<equals arg1="${hudson}" arg2="true" />
+		</condition>
+		<property name="signUser" value="pwebster@" />
+
+		<condition property="signhost" value="">
+			<equals arg1="${hudson}" arg2="true" />
+		</condition>
+		<property name="signhost" value="build.eclipse.org" />
+
+		<condition property="signdelimiter" value="">
+			<equals arg1="${hudson}" arg2="true" />
+		</condition>
+		<property name="signdelimiter" value=":" />
+
+		<condition property="signquote" value="">
+			<equals arg1="${hudson}" arg2="true" />
+		</condition>
+		<property name="signquote" value="&quot;" />
+
+		<condition property="signpoll" value="ls">
+			<equals arg1="${hudson}" arg2="true" />
+		</condition>
+		<property name="signpoll" value="ssh" />
+
+		<exec dir="${packtmp}" executable="${signcopy}" output="signing.txt">
+			<arg line="${archiveName} ${signUser}${signhost}${signdelimiter}${stagingDirectory}" />
+		</exec>
+
+		<exec dir="${buildDirectory}" executable="${signexec}" output="signing.txt" append="true">
+			<arg line=" ${signUser}${signhost} /bin/chmod ugo+rw ${stagingDirectory}/${archiveName}" />
+		</exec>
+
+		<!--invoke sign script and wait-->
+		<echo message="invoke sign script and wait" />
+		<exec dir="." executable="${signexec}" output="signing.txt" append="true">
+			<arg line=" ${signUser}${signhost} ${signquote}/usr/bin/sign ${stagingDirectory}/${archiveName} nomail ${stagingDirectoryOutput}${signquote}" />
+		</exec>
+
+		<!--Wait for build to be available -->
+		<condition property="signpollline" value="${stagingDirectoryOutput}/${archiveName}">
+			<equals arg1="${hudson}" arg2="true" />
+		</condition>
+		<property name="signpollline" value="${signhost} ${signquote}cd ${stagingDirectoryOutput};ls ${archiveName}${signquote}" />
+
+		<antcall target="waitForChangedAttribs">
+			<param name="signpoll" value="${signpoll}" />
+			<param name="signpollline" value="${signpollline}" />
+		</antcall>
+
+		<!--copy zip back to build machine -->
+		<sleep minutes="2" />
+		<echo message="copy zip back to build machine" />
+		<exec dir="." executable="${signcopy}" output="signing.txt" append="true">
+			<arg line=" ${signUser}${signhost}${signdelimiter}${stagingDirectory}/${buildId}-out/${archiveName} ${buildDirectory}/${buildLabel}" />
+		</exec>
+		<antcall target="deletetempsigningfiles" />
+	</target>
+
+	<target name="deletetempsigningfiles" unless="hudson">
+		<echo message="delete temp files on build.eclipse.org" />
+		<property name="signdeleteline" value="${signUser}${signhost} ${signquote}/bin/rm -rf ${stagingDirectory}/${buildId}-out ${stagingDirectory}/${archiveName}${signquote}" />
+		<exec dir="." executable="${signexec}" output="signing.txt" append="true">
+			<arg line="${signdeleteline}" />
+		</exec>
+	</target>
+
+	<target name="waitForChangedAttribs" unless="attribs.changed">
+			<antcall target="compareAttribs" inheritAll="false">
+				<param name="originalAttribs" value="${originalAttribs}" />
+				<param name="signpoll" value="${signpoll}" />
+			</antcall>
+		</target>
+
+		<target name="compareAttribs">
+			<!--poll file for change in attributes-->
+			<exec dir="${buildDirectory}" executable="${signpoll}" outputProperty="polledAttribs">
+				<arg line="${signpollline}" />
+			</exec>
+			<echo message="original:  ${originalAttribs}" />
+			<condition property="attribChanged">
+				<and>
+					<not>
+						<contains string="${polledAttribs}" substring="Permission denied, please try again." casesensitive="no" />
+					</not>
+					<not>
+						<contains string="${polledAttribs}" substring="Host key verification failed." casesensitive="no" />
+					</not>
+					<or>
+						<not>
+							<contains string="${polledAttribs}" substring="No such file or directory" casesensitive="no" />
+						</not>
+						<contains string="${polledAttribs}" substring="bash: line 0: cd:" casesensitive="no" />
+					</or>
+				</and>
+			</condition>
+			<echo message="polled:  ${polledAttribs}" />
+			<antcall target="writeDiffResult" />
+			<sleep seconds="120" />
+			<available property="attribs.changed" file="${buildDirectory}/attribDiff.txt" />
+			<antcall target="waitForChangedAttribs" />
+		</target>
+
+		<target name="writeDiffResult" if="attribChanged">
+			<echo message="original: ${originalAttribs}" file="${buildDirectory}/attribDiff.txt" />
+			<echo message="new: ${polledAttribs}" file="${buildDirectory}/attribDiff.txt" append="true" />
+		</target>
+
 </project>
 
