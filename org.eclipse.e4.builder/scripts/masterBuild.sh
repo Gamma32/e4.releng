@@ -123,7 +123,7 @@ updateSDKBuilder () {
         echo $cmd
         $cmd
     else
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -d org.eclipse.e4.sdk "
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.e4.sdk "
         echo $cmd
         $cmd
     fi
@@ -137,7 +137,7 @@ cd $WORKSPACE
         echo $cmd
         $cmd
     else
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -d org.eclipse.releng "
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.releng "
         echo $cmd
         $cmd
     fi
@@ -163,13 +163,13 @@ echo WORKSPACE $WORKSPACE
 
 export WORKSPACE="${WORKSPACE}"
 #$WORKSPACE/org.eclipse.releng.eclipsebuilder/runIBuilde4
-mkdir $WORKSPACE/builds
+mkdir -p $WORKSPACE/builds
 cd $WORKSPACE/builds
 mkdir -p $WORKSPACE/builds/I
 #mkdir -p $WORKSPACE/builds/transfer/files/testUpdates-I
 updateDir=$targetDir/updates/4.0
 rm -f $updateDir/build_done.txt
-$WORKSPACE/org.eclipse.releng.eclipsebuilder/bootstrapHudsone4.sh -test -skipTest -buildDirectory $WORKSPACE/builds/I -hudson -updateSite $updateDir I
+$WORKSPACE/org.eclipse.releng.eclipsebuilder/bootstrapHudsone4.sh -test -skipTest -buildDirectory $WORKSPACE/builds/I -sign -updateSite $updateDir I
 /bin/bash $writableBuildRoot/sdk/template/sync.sh
 /bin/bash $writableBuildRoot/sdk/template/publish.sh
 }
@@ -404,10 +404,8 @@ if [ ! -z "$publishDir" ]; then
     sleep 60
     wget -O index.txt http://download.eclipse.org/e4/downloads/createIndex.php
     scp index.txt "$publishIndex"/index.html
-    #update40Workspace
-    #run40Build
-    runSDKBuild
+    update40Workspace
+    run40Build
+    #runSDKBuild
 fi
-
-
 
