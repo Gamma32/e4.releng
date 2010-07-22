@@ -488,6 +488,8 @@
 		<property name="outputFile" value="${stagingDirectoryOutput}/${archiveName}" />
 		<mkdir dir="${packtmp}" />
 		<zip zipfile="${buildDirectory}/${buildLabel}/${archiveName}" basedir="${p2.repo}" />
+		<!--update pack.properties to exclude Orbit bundles from being signed and packed -->
+		<antcall target="updatePackProperties" />
 		<move file="${buildDirectory}/${buildLabel}/${archiveName}" tofile="${packtmp}/${archiveName}" />
 
 		<!--push drop to staging directory-->
@@ -612,6 +614,20 @@
 	<target name="writeDiffResult" if="attribChanged">
 		<echo message="original: ${originalAttribs}" file="${buildDirectory}/attribDiff.txt" />
 		<echo message="new: ${polledAttribs}" file="${buildDirectory}/attribDiff.txt" append="true" />
+	</target>
+
+	<target name="updatePackProperties">
+		<!--exclude pre-built Orbit bundles from being signed and packed-->
+		<property name="packproperties" value="${buildDirectory}/updatePackProperties.txt" />
+		<generateExcludeList mapFile="${buildDirectory}/maps/e4/releng/org.eclipse.e4.ui.releng/maps/orbit.map" outputFile="${packproperties}" />
+		<loadfile property="pack.properties" srcFile="${packproperties}" />
+		<delete file="${packproperties}" failonerror="false" />
+		<replace file="${builder}/pack.properties" token="@excludejars@" value="${pack.properties}" />
+		<property name="archiveName" value="eclipse-master-${buildId}.zip" />
+		<!-- add pack.properties file that specifies effort level -->
+		<exec dir="${builder}/pack.properties" executable="zip">
+			<arg line="-r ${buildDirectory}/${buildLabel}/${archiveName} pack.properties" />
+		</exec>
 	</target>
 
 </project>
