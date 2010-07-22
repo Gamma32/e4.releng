@@ -203,6 +203,11 @@
 
 		<!--pack master feature and update repository with new checksums for signed bundles -->
 		<p2.process.artifacts repositoryPath="file://${p2.repo}" pack="true" />
+		<delete>
+			<fileset dir="${p2.repo}">
+				<include name="pack.properties" />
+			</fileset>
+		</delete>
 
 		<p2.mirror source="file:${p2.repo}" log="${buildDirectory}/${buildLabel}/mirrorLog.txt" ignoreErrors="true">
 			<destination compressed="true" name="${p2.repo.name}" location="file:${updateSite}/${buildLabel}" append="true" format="file:${p2.repo}" />
@@ -621,7 +626,7 @@
 		<property name="packproperties" value="${buildDirectory}/updatePackProperties.txt" />
 		<generateExcludeList mapFile="${buildDirectory}/maps/e4/releng/org.eclipse.e4.ui.releng/maps/orbit.map" outputFile="${packproperties}" />
 		<loadfile property="pack.properties" srcFile="${packproperties}" />
-		<!--<delete file="${packproperties}" failonerror="false" /> -->
+		<delete file="${packproperties}" failonerror="false" />
 		<replace file="${builder}/pack.properties" token="@excludejars@" value="${pack.properties}" />
 		<property name="archiveName" value="eclipse-master-${buildId}.zip" />
 		<!-- add pack.properties file that specifies effort level -->
