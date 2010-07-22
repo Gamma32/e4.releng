@@ -559,7 +559,7 @@
 		<exec dir="." executable="${signcopy}" output="signing.txt" append="true">
 			<arg line=" ${signUser}${signhost}${signdelimiter}${stagingDirectory}/${buildId}-out/${archiveName} ${buildDirectory}/${buildLabel}" />
 		</exec>
-		<!-- <antcall target="deletetempsigningfiles" /> -->
+		<antcall target="deletetempsigningfiles" />
 	</target>
 
 	<target name="deletetempsigningfiles" unless="hudson">
