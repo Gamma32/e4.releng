@@ -195,10 +195,10 @@
 		<antcall target="signMasterFeature" />
 		<!--unzip signed build into repository for mirroring and packaging-->
 		<property name="p2.repo.unsigned" value="${p2.repo}.unsigned" />
-		<mkdir dir="${p2.repo.unsigned}" />		
+		<mkdir dir="${p2.repo.unsigned}" />
 		<move todir="${p2.repo.unsigned}">
-		    <fileset dir="${p2.repo}"/>
-		</move>		
+			<fileset dir="${p2.repo}" />
+		</move>
 		<unzip dest="${p2.repo}" src="${buildDirectory}/${buildLabel}/eclipse-master-${buildId}.zip" />
 
 		<!--pack master feature and update repository with new checksums for signed bundles -->
@@ -211,7 +211,7 @@
 			</comparator>
 		</p2.mirror>
 		<p2.composite.artifact.repository.add location="file://${updateSite}" child="${buildLabel}" />
-		<p2.composite.metadata.repository.add location="file://${updateSite}" child="${buildLabel}" /> 
+		<p2.composite.metadata.repository.add location="file://${updateSite}" child="${buildLabel}" />
 
 		<!--p2.composite.repository location="file:${updateSite}" >
 			<add location="${buildLabel}" />
@@ -244,34 +244,34 @@
 		<mkdir dir="${p2.sdk.install.linux.gtk.ppc}" />
 
 
-		<antcall target="e4.product"/>
-		<antcall target="provision.e4"/>
-		<antcall target="zip.install"/>
-		
-		<delete file="${buildDirectory}/version.properties"/>
+		<antcall target="e4.product" />
+		<antcall target="provision.e4" />
+		<antcall target="zip.install" />
+
+		<delete file="${buildDirectory}/version.properties" />
 		<antcall target="run.version.query">
 			<param name="list.repo" value="file:${p2.sdk.install.linux.gtk.ppc}/eclipse/p2/org.eclipse.equinox.p2.engine/profileRegistry/SDKProfile.profile" />
 			<param name="list.iu" value="org.eclipse.e4.workbench.sdk,org.eclipse.emf,org.eclipse.gef,org.eclipse.sdk,org.eclipse.wst.jsdt.ui,org.eclipse.xsd,org.eclipse.wst.xml_ui.feature.feature.group" />
 		</antcall>
-		<property file="${buildDirectory}/version.properties"/>
-		
+		<property file="${buildDirectory}/version.properties" />
+
 		<!-- generate the build index, guess the component version numbers -->
-		<filter token="repbuildid" value="${buildLabel}"/>
-		<filter token="repmaindate" value="${repmaindate}"/>
-		<filter token="repbuilddate" value="${buildLabel}"/>
-		<filter token="repobuildsize" value="${repobuildsize}"/>
-		<filter token="timestamp" value="${timestamp}"/>
-		<filter token="buildType" value="${buildType}"/>
-		<filter token="buildId" value="${buildId}"/>
-		<filter token="buildLabel" value="${buildLabel}"/>
-		<filter token="eclipseIbuild" value="${org.eclipse.sdk}"/>
-		<filter token="emfBuildId" value="${org.eclipse.emf}"/>
-		<filter token="gefBuildId" value="${org.eclipse.gef}"/>
-		<filter token="eclipseBuildURL" value="${eclipseBuildURL}"/>
-		<filter token="emfBuildURL" value="${emfBuildURL}"/>
-		<filter token="gefBuildURL" value="${gefBuildURL}"/>
-		<filter token="wtpBuildURL" value="${wtpBuildURL}"/>
-		<filter token="wtpBuildId" value="${wtpBuildId}"/>
+		<filter token="repbuildid" value="${buildLabel}" />
+		<filter token="repmaindate" value="${repmaindate}" />
+		<filter token="repbuilddate" value="${buildLabel}" />
+		<filter token="repobuildsize" value="${repobuildsize}" />
+		<filter token="timestamp" value="${timestamp}" />
+		<filter token="buildType" value="${buildType}" />
+		<filter token="buildId" value="${buildId}" />
+		<filter token="buildLabel" value="${buildLabel}" />
+		<filter token="eclipseIbuild" value="${org.eclipse.sdk}" />
+		<filter token="emfBuildId" value="${org.eclipse.emf}" />
+		<filter token="gefBuildId" value="${org.eclipse.gef}" />
+		<filter token="eclipseBuildURL" value="${eclipseBuildURL}" />
+		<filter token="emfBuildURL" value="${emfBuildURL}" />
+		<filter token="gefBuildURL" value="${gefBuildURL}" />
+		<filter token="wtpBuildURL" value="${wtpBuildURL}" />
+		<filter token="wtpBuildId" value="${wtpBuildId}" />
 		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${buildDirectory}/${buildLabel}/index.html" />
 		<copy filtering="true" file="${builder}/tests/build.label.properties" tofile="${buildDirectory}/label.properties" />
 	</target>
@@ -358,11 +358,11 @@
 			<config os="macosx" ws="cocoa" arch="x86_64" />
 			<advice kind="featureVersions" file="${buildDirectory}/finalFeaturesVersions.properties" />
 			<advice kind="pluginVersions" file="${buildDirectory}/finalPluginsVersions.properties" />
-			<contextrepository location="file:${transformedRepoLocation}" artifact="true" metadata="true"/>
+			<contextrepository location="file:${transformedRepoLocation}" artifact="true" metadata="true" />
 		</p2.publish.product>
 
 	</target>
-	
+
 	<target name="provision.e4">
 		<!--
 		<antcall target="run.director">
@@ -438,7 +438,7 @@
 			-->
 	</target>
 
-	
+
 	<target name="zip.install">
 
 		<property name="output.dir" value="${buildDirectory}/${buildLabel}" />
@@ -460,7 +460,7 @@
 
 		</parallel>
 	</target>
-	
+
 	<target name="p2.tar">
 		<echo message="Building tar ${tar.base.filename} from ${tar.base.dir}/*" />
 		<exec dir="${tar.base.dir}" executable="sh">
@@ -571,45 +571,48 @@
 	</target>
 
 	<target name="waitForChangedAttribs" unless="attribs.changed">
-			<antcall target="compareAttribs" inheritAll="false">
-				<param name="originalAttribs" value="${originalAttribs}" />
-				<param name="signpoll" value="${signpoll}" />
-			</antcall>
-		</target>
+		<antcall target="compareAttribs" inheritAll="false">
+			<param name="originalAttribs" value="${originalAttribs}" />
+			<param name="signpoll" value="${signpoll}" />
+		</antcall>
+	</target>
 
-		<target name="compareAttribs">
-			<!--poll file for change in attributes-->
-			<exec dir="${buildDirectory}" executable="${signpoll}" outputProperty="polledAttribs">
-				<arg line="${signpollline}" />
-			</exec>
-			<echo message="original:  ${originalAttribs}" />
-			<condition property="attribChanged">
-				<and>
+	<target name="compareAttribs">
+		<!--poll file for change in attributes-->
+		<exec dir="${buildDirectory}" executable="${signpoll}" outputProperty="polledAttribs">
+			<arg line="${signpollline}" />
+		</exec>
+		<echo message="original:  ${originalAttribs}" />
+		<condition property="attribChanged">
+			<and>
+				<not>
+					<contains string="${polledAttribs}" substring="Permission denied, please try again." casesensitive="no" />
+				</not>
+				<not>
+					<contains string="${polledAttribs}" substring="Host key verification failed." casesensitive="no" />
+				</not>
+				<not>
+					<contains string="${polledAttribs}" substring="Connection closed by UNKNOWN" casesensitive="no" />
+				</not>
+				<or>
 					<not>
-						<contains string="${polledAttribs}" substring="Permission denied, please try again." casesensitive="no" />
+						<contains string="${polledAttribs}" substring="No such file or directory" casesensitive="no" />
 					</not>
-					<not>
-						<contains string="${polledAttribs}" substring="Host key verification failed." casesensitive="no" />
-					</not>
-					<or>
-						<not>
-							<contains string="${polledAttribs}" substring="No such file or directory" casesensitive="no" />
-						</not>
-						<contains string="${polledAttribs}" substring="bash: line 0: cd:" casesensitive="no" />
-					</or>
-				</and>
-			</condition>
-			<echo message="polled:  ${polledAttribs}" />
-			<antcall target="writeDiffResult" />
-			<sleep seconds="120" />
-			<available property="attribs.changed" file="${buildDirectory}/attribDiff.txt" />
-			<antcall target="waitForChangedAttribs" />
-		</target>
+					<contains string="${polledAttribs}" substring="bash: line 0: cd:" casesensitive="no" />
+				</or>
+			</and>
+		</condition>
+		<echo message="polled:  ${polledAttribs}" />
+		<antcall target="writeDiffResult" />
+		<sleep seconds="120" />
+		<available property="attribs.changed" file="${buildDirectory}/attribDiff.txt" />
+		<antcall target="waitForChangedAttribs" />
+	</target>
 
-		<target name="writeDiffResult" if="attribChanged">
-			<echo message="original: ${originalAttribs}" file="${buildDirectory}/attribDiff.txt" />
-			<echo message="new: ${polledAttribs}" file="${buildDirectory}/attribDiff.txt" append="true" />
-		</target>
+	<target name="writeDiffResult" if="attribChanged">
+		<echo message="original: ${originalAttribs}" file="${buildDirectory}/attribDiff.txt" />
+		<echo message="new: ${polledAttribs}" file="${buildDirectory}/attribDiff.txt" append="true" />
+	</target>
 
 </project>
 
