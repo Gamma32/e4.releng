@@ -621,11 +621,11 @@
 		<property name="packproperties" value="${buildDirectory}/updatePackProperties.txt" />
 		<generateExcludeList mapFile="${buildDirectory}/maps/e4/releng/org.eclipse.e4.ui.releng/maps/orbit.map" outputFile="${packproperties}" />
 		<loadfile property="pack.properties" srcFile="${packproperties}" />
-		<delete file="${packproperties}" failonerror="false" />
+		<!--<delete file="${packproperties}" failonerror="false" /> -->
 		<replace file="${builder}/pack.properties" token="@excludejars@" value="${pack.properties}" />
 		<property name="archiveName" value="eclipse-master-${buildId}.zip" />
 		<!-- add pack.properties file that specifies effort level -->
-		<exec dir="${builder}/pack.properties" executable="zip">
+		<exec dir="${builder}" executable="zip">
 			<arg line="-r ${buildDirectory}/${buildLabel}/${archiveName} pack.properties" />
 		</exec>
 	</target>
