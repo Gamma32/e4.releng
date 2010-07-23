@@ -171,7 +171,7 @@ updateDir=$targetDir/updates/4.0
 rm -f $updateDir/build_done.txt
 $WORKSPACE/org.eclipse.releng.eclipsebuilder/bootstrapHudsone4.sh -test -skipTest -buildDirectory $WORKSPACE/builds/I -sign -updateSite $updateDir I
 /bin/bash $writableBuildRoot/sdk/template/sync.sh
-/bin/bash $writableBuildRoot/sdk/template/publish.sh
+/bin/bash $writableBuildRoot/sdk/template/publishLong.sh
 }
 
 runSDKBuild () {
