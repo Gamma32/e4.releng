@@ -404,8 +404,8 @@ if [ ! -z "$publishDir" ]; then
     sleep 60
     wget -O index.txt http://download.eclipse.org/e4/downloads/createIndex.php
     scp index.txt "$publishIndex"/index.html
-    update40Workspace
-    run40Build
-    #runSDKBuild
+    #update40Workspace
+    #run40Build
+    runSDKBuild
 fi
 
