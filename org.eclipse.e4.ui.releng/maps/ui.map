@@ -3,16 +3,16 @@ plugin@org.eclipse.e4.ui.di=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/c
 plugin@org.eclipse.e4.ui.services=v20100722-1830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.services
 plugin@org.eclipse.e4.ui.model.workbench=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.model.workbench
 plugin@org.eclipse.e4.ui.model.workbench.edit=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.model.workbench.edit
-plugin@org.eclipse.e4.ui.workbench=v20100722-1830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench
+plugin@org.eclipse.e4.ui.workbench=v20100723-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench
 plugin@org.eclipse.e4.ui.workbench3=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench3
-plugin@org.eclipse.e4.ui.workbench.renderers.swt=v20100722-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt
-plugin@org.eclipse.e4.ui.workbench.swt=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.swt
-plugin@org.eclipse.e4.ui.widgets=v20100722-1830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.widgets
+plugin@org.eclipse.e4.ui.workbench.renderers.swt=v20100723-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt
+plugin@org.eclipse.e4.ui.workbench.swt=v20100723-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.swt
+plugin@org.eclipse.e4.ui.widgets=v20100723-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.widgets
 plugin@org.eclipse.e4.ui.bindings=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.bindings
 plugin@org.pushingpixels.trident=v20100204-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.pushingpixels.trident
 
 plugin@org.eclipse.e4.ui.css.core=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.core
-plugin@org.eclipse.e4.ui.css.swt.theme=v20100721-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.swt.theme
+plugin@org.eclipse.e4.ui.css.swt.theme=v20100723-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.swt.theme
 plugin@org.eclipse.e4.ui.css.jface=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.jface
 plugin@org.eclipse.e4.ui.css.swt=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.swt
 plugin@org.eclipse.e4.ui.css.nebula=v20100630-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.nebula
@@ -25,12 +25,12 @@ plugin@org.eclipse.e4.pde.ui=v20090714-1930,:pserver:anonymous@dev.eclipse.org:/
 plugin@org.eclipse.e4.pde.webui=v20100531-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.webui
 plugin@org.eclipse.e4.ui.gadgets=v20100428-1730,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.gadgets
 
-plugin@org.eclipse.e4.tools.emf.ui=v20100721-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.ui
+plugin@org.eclipse.e4.tools.emf.ui=v20100723-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.ui
 plugin@org.eclipse.e4.tools.emf.editor3x=v20100722-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.editor3x
 plugin@org.eclipse.e4.tools.compat=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.compat
 plugin@org.eclipse.e4.tools.services=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.services
 plugin@org.eclipse.e4.tools.emf.liveeditor=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.liveeditor
-plugin@org.eclipse.e4.tools=v20100721-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools
+plugin@org.eclipse.e4.tools=v20100723-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools
 
 
 !*** e4 UI examples
@@ -65,7 +65,7 @@ feature@org.eclipse.e4.core.tools.feature=v20100720-1930,:pserver:anonymous@dev.
 
 feature@org.eclipse.e4.sdk.runtime.feature=v20100723-1115,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.sdk.runtime.feature
 feature@org.eclipse.e4.sdk.source.feature=v20100723-1115,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.sdk.source.feature
-feature@org.eclipse.e4.master=v20100723-1115,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.master
+feature@org.eclipse.e4.master=v20100723-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.master
 
 !**** Test Suites
 #plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
