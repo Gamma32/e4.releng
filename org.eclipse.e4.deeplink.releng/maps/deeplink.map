@@ -19,5 +19,5 @@ feature@org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature=v20100722-
 feature@org.eclipse.e4.core.deeplink.launchproxy.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.core.deeplink.launchproxy.feature
 feature@org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature
 
-feature@org.eclipse.e4.ui.deeplink.typehandler.perspective.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.ui.deeplink.typehandler.perspective.feature
+feature@org.eclipse.e4.ui.deeplink.typehandler.perspective.feature=v20100723-1115,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.ui.deeplink.typehandler.perspective.feature
 feature@org.eclipse.e4.ui.deeplink.handler.dependencies.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.ui.deeplink.handler.dependencies.feature
