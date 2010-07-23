@@ -99,6 +99,7 @@
 			<iu id="org.eclipse.xsd.edit.feature.group" />
 			<iu id="org.apache.commons.beanutils" />
 			<iu id="org.apache.commons.lang" />
+			<iu id="javax.el" />
 		</p2.mirror>
 		<p2.remove.iu>
 			<repository location="file:${targetDir}/helios-repo-${eclipseBuildId}" />
