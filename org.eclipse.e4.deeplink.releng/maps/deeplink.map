@@ -7,6 +7,8 @@ plugin@org.eclipse.e4.core.deeplink=v20100722-1700,:pserver:anonymous@dev.eclips
 plugin@org.eclipse.e4.core.deeplink.handler=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink.handler
 plugin@org.eclipse.e4.core.deeplink.launchproxy=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink.launchproxy
 plugin@org.eclipse.e4.core.deeplink.typehandler.extensionpt=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink.typehandler.extensionpt
+plugin@org.eclipse.e4.ui.deeplink.typehandler.perspective=v20100723-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.ui.deeplink.typehandler.perspective
+
 
 
 !**** and build it
