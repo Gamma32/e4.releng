@@ -87,8 +87,56 @@
    <feature url="features/org.eclipse.e4.core.tools.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.core.tools.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.tools.category"/>
    </feature>
-   <feature url="features/org.eclipse.e4.core.tools.source.feature_0.9.0.v20100603-1900-37H-AkF7B77VAP3CSA7.jar" id="org.eclipse.e4.core.tools.source.feature" version="0.9.0.v20100603-1900-37H-AkF7B77VAP3CSA7">
+   <feature url="features/org.eclipse.e4.core.tools.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.core.tools.source.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.tools.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.deeplink.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.deeplink.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.deeplink.source.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.deeplink.source.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.deeplink.launchproxy.dependencies.source.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.deeplink.launchproxy.dependencies.source.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.deeplink.launchproxy.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.deeplink.launchproxy.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.deeplink.launchproxy.source.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.deeplink.launchproxy.source.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature_1.0.0.qualifier.jar" id="org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature" version="1.0.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.deeplink.typehandler.extensionpt.source.feature_1.0.0.qualifier.jar" id="org.eclipse.e4.core.deeplink.typehandler.extensionpt.source.feature" version="1.0.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.functionalprog.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.functionalprog.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.functionalprog.source.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.functionalprog.source.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.metaconfig.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.metaconfig.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.core.metaconfig.source.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.metaconfig.source.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.ui.deeplink.handler.dependencies.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.ui.deeplink.handler.dependencies.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.ui.deeplink.handler.dependencies.source.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.ui.deeplink.handler.dependencies.source.feature" version="4.6.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.ui.deeplink.typehandler.perspective.feature_1.0.0.qualifier.jar" id="org.eclipse.e4.ui.deeplink.typehandler.perspective.feature" version="1.0.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
+   </feature>
+   <feature url="features/org.eclipse.e4.ui.deeplink.typehandler.perspective.source.feature_1.0.0.qualifier.jar" id="org.eclipse.e4.ui.deeplink.typehandler.perspective.source.feature" version="1.0.0.qualifier">
+      <category name="org.eclipse.e4.deeplink.category"/>
    </feature>
    <category-def name="org.eclipse.e4.swt.category" label="E4 SWT"/>
    <category-def name="org.eclipse.e4.ui.category" label="E4 UI"/>
@@ -99,4 +147,5 @@
    <category-def name="org.eclipse.e4.xwt.category" label="E4 XWT"/>
    <category-def name="org.eclipse.e4.tm.category" label="E4 Toolkit Model"/>
    <category-def name="org.eclipse.e4.tools.category" label="E4 Tools"/>
+   <category-def name="org.eclipse.e4.deeplink.category" label="E4 Deeplink"/>
 </site>
