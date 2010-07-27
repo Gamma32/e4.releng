@@ -6,7 +6,9 @@
 		<property name="buildtime" value="1530" />
 		<property name="skipFetch" value="true" />
 		-->
-		
+
+		<!-- locations for builds to take place ... outside the main workspace -->
+		<property name="WORKSPACE" value="/opt/pwebster/workspaces"/>
 		<!-- locations for JREs -->
 		<property name="JRE_ROOT" value="/opt/public/common" />
 		<property name="JAVA60_HOME" value="${JRE_ROOT}/ibm-java-jdk-ppc-60" />
@@ -20,8 +22,8 @@
 		<property name="buildtime" value="${TSTAMP}" />
 		<property name="buildTimestamp" value="${builddate}-${buildtime}" />
 		
-		<property name="targetDir" value="${basedir}/../../targets" />
-		<property name="buildArea" value="${basedir}/../../builds" />
+		<property name="targetDir" value="${WORKSPACE}/targets" />
+		<property name="buildArea" value="${WORKSPACE}/builds" />
 		
 		<path id="path_1.6"><fileset dir="${JAVA60_HOME}" includes="jre/lib/*.jar"/></path>
 		<path id="path_1.5"><fileset dir="${JAVA50_HOME}" includes="jre/lib/*.jar"/></path>
@@ -45,3 +47,4 @@
 	</target>
 	
 </project>
+
