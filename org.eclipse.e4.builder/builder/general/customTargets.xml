@@ -8,7 +8,7 @@
 	<property name="allElementsFile" location="${eclipse.pdebuild.templates}/headless-build/allElements.xml" />
 	<loadproperties srcfile="${builder}/update_repo.properties" />
 	<property name="transformedRepoLocation" value="${targetDir}/${targetDownloadId}" />
-	<property name="updateSite" value="${targetDir}/updates/2010" />
+	<property name="updateSite" value="${targetDir}/updates/0.11-I-builds" />
 	<property name="repoBaseline" value="${updateSite}" />
 
 

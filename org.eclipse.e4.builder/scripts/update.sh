@@ -9,6 +9,6 @@ scp index.txt pwebster@dev.eclipse.org:/home/data/httpd/${1}.eclipse.org/e4/${2}
 
 update_http download downloads
 update_http download sdk
-update_http archive downloads
-update_http archive sdk
+#update_http archive downloads
+#update_http archive sdk
 

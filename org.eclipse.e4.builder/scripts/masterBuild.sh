@@ -167,11 +167,11 @@ mkdir -p $WORKSPACE/builds
 cd $WORKSPACE/builds
 mkdir -p $WORKSPACE/builds/I
 #mkdir -p $WORKSPACE/builds/transfer/files/testUpdates-I
-updateDir=$targetDir/updates/4.0
+updateDir=$targetDir/updates/4.1-I-builds
 rm -f $updateDir/build_done.txt
 $WORKSPACE/org.eclipse.releng.eclipsebuilder/bootstrapHudsone4.sh -test -skipTest -buildDirectory $WORKSPACE/builds/I -sign -updateSite $updateDir I
-/bin/bash $writableBuildRoot/sdk/template/sync.sh
-/bin/bash $writableBuildRoot/sdk/template/publishLong.sh
+/bin/bash ${builderDir}/scripts/sync.sh
+/bin/bash ${builderDir}/scripts/publishLong.sh
 }
 
 runSDKBuild () {
@@ -193,12 +193,12 @@ cd $supportDir
   -Dbuilddate=$( date +%Y%m%d ) \
   -Dbuildtime=$( date +%H%M ) \
   -Dbase=$buildDir/40builds \
-  -DupdateSite=$targetDir/updates/4.0
+  -DupdateSite=$targetDir/updates/4.1-I-builds
 "   
     echo $cmd
     $cmd
-/bin/bash $writableBuildRoot/sdk/template/sync.sh
-/bin/bash $writableBuildRoot/sdk/template/publish.sh
+/bin/bash ${builderDir}/scripts/sync.sh
+/bin/bash ${builderDir}/scripts/publish.sh
 
 }
 
@@ -288,7 +288,7 @@ runTheTests () {
 }
 
 sendMail () {
-    mailx -s "Integration Build: I$buildTimestamp" e4-dev@eclipse.org <<EOF
+    mailx -s "0.11 Integration Build: I$buildTimestamp" e4-dev@eclipse.org <<EOF
 
 Check here for test results and update site: 
 http://download.eclipse.org/e4/downloads/drops/I$buildTimestamp
@@ -398,7 +398,7 @@ cp /shared/eclipse/e4/logs/current.log \
 if [ ! -z "$publishDir" ]; then
     echo Publishing  $buildResults to "$publishDir"
     scp -r $buildResults "$publishDir"
-    rsync --recursive --delete ${targetDir}/updates/2010 \
+    rsync --recursive --delete ${targetDir}/updates/0.11-I-Builds \
       "${publishUpdates}"
     sendMail
     sleep 60
