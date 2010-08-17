@@ -68,12 +68,12 @@ scp -r $BASE_DIR/$buildId pwebster@dev.eclipse.org:/home/data/httpd/download.ecl
 
 echo Done $buildId
 
-#    mailx -s "4.1 short SDK Build: $buildId" e4-dev@eclipse.org <<EOF
-#
-#The 4.1 SDK build:
-#http://download.eclipse.org/e4/sdk/drops/$buildId
-#
-#EOF
+    mailx -s "4.1 short SDK Build: $buildId" e4-dev@eclipse.org <<EOF
+
+The 4.1 SDK build:
+http://download.eclipse.org/e4/sdk/drops/$buildId
+
+EOF
 
 }
 
