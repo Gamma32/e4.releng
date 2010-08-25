@@ -87,12 +87,16 @@
 	<!-- ===================================================================== -->
 	<target name="postSetup">
 		<antcall target="getBaseComponents" />
-		<echo message="Mirror from ${eclipseRepoURL} to ${targetDir}/helios-repo-${eclipseBuildId}" />
-		<p2.mirror destination="${targetDir}/helios-repo-${eclipseBuildId}" ignoreerrors="true">
-			<source location="http://download.eclipse.org/releases/helios" />
+		<echo message="Mirror from XXX to ${targetDir}/helios-repo-${targetDownloadId}" />
+		<p2.mirror destination="${targetDir}/helios-repo-${targetDownloadId}" ignoreerrors="true">
+			<source location="http://download.eclipse.org/eclipse/updates/3.7-I-builds" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" />
 			<iu id="org.eclipse.sdk.ide" />
 			<iu id="org.eclipse.equinox.core.sdk.feature.group" />
+		</p2.mirror>
+		<p2.mirror destination="${targetDir}/helios-repo-${targetDownloadId}" ignoreerrors="true">
+			<source location="http://download.eclipse.org/releases/helios" />
+			<slicingOptions includeOptional="false" includeNonGreedy="false" />
 			<iu id="org.eclipse.wst.xml_ui.feature.feature.group" />
 			<iu id="org.eclipse.wst.web_core.feature.feature.group" />
 			<iu id="org.eclipse.emf.sdk.feature.group" />
@@ -102,7 +106,7 @@
 			<iu id="javax.el" />
 		</p2.mirror>
 		<p2.remove.iu>
-			<repository location="file:${targetDir}/helios-repo-${eclipseBuildId}" />
+			<repository location="file:${targetDir}/helios-repo-${targetDownloadId}" />
 			<iu id="org.eclipse.rap.jface" />
 			<iu id="org.eclipse.rap.rwt" />
 			<iu id="org.eclipse.rap.ui.forms" />
@@ -110,7 +114,7 @@
 
 		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
 			<source>
-				<repository location="file:${targetDir}/helios-repo-${eclipseBuildId}" />
+				<repository location="file:${targetDir}/helios-repo-${targetDownloadId}" />
 			</source>
 		</p2.repo2runnable>
 	</target>
