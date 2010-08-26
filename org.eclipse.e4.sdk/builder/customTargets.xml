@@ -67,6 +67,10 @@
 			<iu id="org.eclipse.sdk.ide" />
 			<iu id="org.eclipse.equinox.core.sdk.feature.group" />
 			<iu id="org.eclipse.equinox.p2.user.ui.source.feature.group" />
+		</p2.mirror>
+		<p2.mirror destination="file:${localRepoLocation}" ignoreerrors="true">
+			<source location="${indigoRepoURL}" />
+			<slicingOptions includeOptional="false" includeNonGreedy="false" />
 			<iu id="org.apache.commons.beanutils" />
 		</p2.mirror>
 		<p2.remove.iu>
