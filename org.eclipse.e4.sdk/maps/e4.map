@@ -52,13 +52,13 @@ plugin@org.eclipse.ui.workbench=v20100825-1300,:pserver:anonymous@dev.eclipse.or
 plugin@org.eclipse.ui=v20100714-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 !**** EMF
-feature@org.eclipse.emf.ecore,2.6.0=p2IU,id=org.eclipse.emf.ecore.feature.jar,version=,repository=http://download.eclipse.org/releases/helios/
-plugin@org.eclipse.emf.ecore.change,2.5.0=p2IU,id=org.eclipse.emf.ecore.change,version=,repository=http://download.eclipse.org/releases/helios/
-plugin@org.eclipse.emf.ecore,2.6.0=p2IU,id=org.eclipse.emf.ecore,version=,repository=http://download.eclipse.org/releases/helios/
-plugin@org.eclipse.emf.ecore.xmi,2.5.0=p2IU,id=org.eclipse.emf.ecore.xmi,version=,repository=http://download.eclipse.org/releases/helios/
-feature@org.eclipse.emf.common,2.6.0=p2IU,id=org.eclipse.emf.common.feature.jar,version=,repository=http://download.eclipse.org/releases/helios/
-plugin@org.eclipse.emf.common,2.6.0=p2IU,id=org.eclipse.emf.common,version=,repository=http://download.eclipse.org/releases/helios/
-plugin@org.eclipse.emf.databinding,1.2.0=p2IU,id=org.eclipse.emf.databinding,version=,repository=http://download.eclipse.org/releases/helios/
+feature@org.eclipse.emf.ecore,2.6.0=p2IU,id=org.eclipse.emf.ecore.feature.jar,version=,repository=http://download.eclipse.org/releases/indigo/
+plugin@org.eclipse.emf.ecore.change,2.5.0=p2IU,id=org.eclipse.emf.ecore.change,version=,repository=http://download.eclipse.org/releases/indigo/
+plugin@org.eclipse.emf.ecore,2.6.0=p2IU,id=org.eclipse.emf.ecore,version=,repository=http://download.eclipse.org/releases/indigo/
+plugin@org.eclipse.emf.ecore.xmi,2.5.0=p2IU,id=org.eclipse.emf.ecore.xmi,version=,repository=http://download.eclipse.org/releases/indigo/
+feature@org.eclipse.emf.common,2.6.0=p2IU,id=org.eclipse.emf.common.feature.jar,version=,repository=http://download.eclipse.org/releases/indigo/
+plugin@org.eclipse.emf.common,2.6.0=p2IU,id=org.eclipse.emf.common,version=,repository=http://download.eclipse.org/releases/indigo/
+plugin@org.eclipse.emf.databinding,1.2.0=p2IU,id=org.eclipse.emf.databinding,version=,repository=http://download.eclipse.org/releases/indigo/
 
 !**** Nebula
 

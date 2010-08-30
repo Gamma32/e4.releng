@@ -95,7 +95,7 @@
 			<iu id="org.eclipse.equinox.core.sdk.feature.group" />
 		</p2.mirror>
 		<p2.mirror destination="${targetDir}/helios-repo-${targetDownloadId}" ignoreerrors="true">
-			<source location="http://download.eclipse.org/releases/helios" />
+			<source location="http://download.eclipse.org/releases/indigo" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" />
 			<iu id="org.eclipse.wst.xml_ui.feature.feature.group" />
 			<iu id="org.eclipse.wst.web_core.feature.feature.group" />
