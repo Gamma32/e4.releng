@@ -13,5 +13,5 @@ plugin@org.eclipse.core.tests.harness=v20091203,:pserver:anonymous@dev.eclipse.o
 
 
 !**** and build it
-feature@org.eclipse.e4.runtime.feature=v20091009-1415,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.runtime/features/org.eclipse.e4.runtime.feature
+feature@org.eclipse.e4.runtime.feature=v20100917-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.runtime/features/org.eclipse.e4.runtime.feature
 feature@org.eclipse.e4.tests.base.feature=v20100825-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.runtime/features/org.eclipse.e4.tests.base.feature
