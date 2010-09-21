@@ -109,6 +109,12 @@
 			<iu id="org.eclipse.emf.sdk.feature.group" />
 			<iu id="org.eclipse.xsd.edit.feature.group" />
 		</p2.mirror>
+		<echo message="Mirror from ${gefRepoURL} to ${targetDir}/${targetDownloadId}-p2" />
+		<p2.mirror destination="${targetDir}/${targetDownloadId}-p2" ignoreerrors="true">
+			<source location="${gefRepoURL}" />
+			<slicingOptions includeOptional="false" includeNonGreedy="false" />
+			<iu id="org.eclipse.gef.feature.group" />
+		</p2.mirror>
 		<echo message="Mirror from ${wtpRepoURL} to ${targetDir}/${targetDownloadId}-p2" />
 		<p2.mirror destination="${targetDir}/${targetDownloadId}-p2" ignoreerrors="true">
 			<source location="${wtpRepoURL}" />
