@@ -3,8 +3,8 @@
 quietCVS=-Q
 writableBuildRoot=/shared/eclipse/e4
 projRelengBranch="HEAD"; # default set below
-arch="x86"
-archProp=""
+arch="x86_64"
+archProp="-x86_64"
 processor=$( uname -p )
 if [ $processor = ppc -o $processor = ppc64 ]; then
     archProp="-ppc"
@@ -55,7 +55,7 @@ testBuildProperties () {
 }
 
 commonProperties () {
-    javaHome=/opt/public/common/ibm-java2-ppc-50
+    javaHome=/opt/public/common/jdk-1.6.x86_64
     buildTimestamp=${builddate}-${buildtime}
     buildDir=$writableBuildRoot/build/e4/downloads/drops/4.0.0
     targetDir=${buildDir}/targets
@@ -389,7 +389,7 @@ generateRepoHtml
 #generateSwtZip
 
 # try some tests
-runTheTests e4less
+#runTheTests e4less
 
 cp /shared/eclipse/e4/logs/current.log \
     $buildResults/buildlog.txt
