@@ -198,7 +198,7 @@
 		<move file="${p2.repo}/out_content.xml" tofile="${p2.repo}/content.xml" />
 
 		<!--sign the build -->
-		<antcall target="signMasterFeature" />
+		<!--antcall target="signMasterFeature" /-->
 		<!--unzip signed build into repository for mirroring and packaging-->
 		<property name="p2.repo.unsigned" value="${p2.repo}.unsigned" />
 		<mkdir dir="${p2.repo.unsigned}" />
