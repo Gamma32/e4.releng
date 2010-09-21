@@ -200,20 +200,20 @@
 		<!--sign the build -->
 		<!--antcall target="signMasterFeature" /-->
 		<!--unzip signed build into repository for mirroring and packaging-->
-		<property name="p2.repo.unsigned" value="${p2.repo}.unsigned" />
+		<!--property name="p2.repo.unsigned" value="${p2.repo}.unsigned" />
 		<mkdir dir="${p2.repo.unsigned}" />
 		<move todir="${p2.repo.unsigned}">
 			<fileset dir="${p2.repo}" />
 		</move>
-		<unzip dest="${p2.repo}" src="${buildDirectory}/${buildLabel}/eclipse-master-${buildId}.zip" />
+		<unzip dest="${p2.repo}" src="${buildDirectory}/${buildLabel}/eclipse-master-${buildId}.zip" /-->
 
-		<!--pack master feature and update repository with new checksums for signed bundles -->
+		<!--pack master feature and update repository with new checksums for signed bundles >
 		<p2.process.artifacts repositoryPath="file://${p2.repo}" pack="true" />
 		<delete>
 			<fileset dir="${p2.repo}">
 				<include name="pack.properties" />
 			</fileset>
-		</delete>
+		</delete-->
 
 		<p2.mirror source="file:${p2.repo}" log="${buildDirectory}/${buildLabel}/mirrorLog.txt" ignoreErrors="true">
 			<destination compressed="true" name="${p2.repo.name}" location="file:${updateSite}/${buildLabel}" append="true" format="file:${p2.repo}" />
@@ -253,6 +253,8 @@
 
 		<property name="p2.sdk.install.linux.gtk.ppc" value="${p2.output.base}/sdk.install.linux.gtk.ppc" />
 		<mkdir dir="${p2.sdk.install.linux.gtk.ppc}" />
+		<property name="p2.sdk.install.linux.gtk.x86_64" value="${p2.output.base}/sdk.install.linux.gtk.x86_64" />
+		<mkdir dir="${p2.sdk.install.linux.gtk.x86_64}" />
 
 
 		<antcall target="e4.product" />
@@ -261,7 +263,7 @@
 
 		<delete file="${buildDirectory}/version.properties" />
 		<antcall target="run.version.query">
-			<param name="list.repo" value="file:${p2.sdk.install.linux.gtk.ppc}/eclipse/p2/org.eclipse.equinox.p2.engine/profileRegistry/SDKProfile.profile" />
+			<param name="list.repo" value="file:${p2.sdk.install.linux.gtk.x86_64}/eclipse/p2/org.eclipse.equinox.p2.engine/profileRegistry/SDKProfile.profile" />
 			<param name="list.iu" value="org.eclipse.e4.workbench.sdk,org.eclipse.emf,org.eclipse.gef,org.eclipse.sdk,org.eclipse.wst.jsdt.ui,org.eclipse.xsd,org.eclipse.wst.xml_ui.feature.feature.group" />
 		</antcall>
 		<property file="${buildDirectory}/version.properties" />
