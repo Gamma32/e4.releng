@@ -107,6 +107,7 @@
 			<source location="${emfRepoURL}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" />
 			<iu id="org.eclipse.emf.sdk.feature.group" />
+			<iu id="org.eclipse.xsd.edit.feature.group" />
 		</p2.mirror>
 		<echo message="Mirror from ${wtpRepoURL} to ${targetDir}/${targetDownloadId}-p2" />
 		<p2.mirror destination="${targetDir}/${targetDownloadId}-p2" ignoreerrors="true">
@@ -114,7 +115,6 @@
 			<slicingOptions includeOptional="false" includeNonGreedy="false" />
 			<iu id="org.eclipse.wst.xml_ui.feature.feature.group" />
 			<iu id="org.eclipse.wst.web_core.feature.feature.group" />
-			<iu id="org.eclipse.xsd.edit.feature.group" />
 		</p2.mirror>
 		<p2.remove.iu>
 			<repository location="file:${targetDir}/${targetDownloadId}-p2" />
