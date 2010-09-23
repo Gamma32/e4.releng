@@ -63,7 +63,7 @@
 	<target name="installTestPlugins">
 		<echo>-installIU ${testPlugin} +</echo>
 		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
-			<arg line="-vm /opt/public/common/ibm-java2-ppc-50/bin/java" />
+			<arg line="-vm /opt/public/common/jdk-1.6.x86_64/bin/java" />
 			<arg line="-application org.eclipse.equinox.p2.director" />
 			<arg line="-nosplash" />
 			<arg line="--launcher.suppressErrors" />
@@ -129,6 +129,13 @@
 				<equals arg1="${os}" arg2="linux" />
 				<equals arg1="${ws}" arg2="gtk" />
 				<equals arg1="${arch}" arg2="x86" />
+			</and>
+		</condition>
+		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-linux-gtk-x86_64.tar.gz">
+			<and>
+				<equals arg1="${os}" arg2="linux" />
+				<equals arg1="${ws}" arg2="gtk" />
+				<equals arg1="${arch}" arg2="x86_64" />
 			</and>
 		</condition>
 		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-linux-motif.tar.gz">
