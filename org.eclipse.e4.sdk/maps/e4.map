@@ -52,13 +52,13 @@ plugin@org.eclipse.ui.workbench=v20101007-1500,:pserver:anonymous@dev.eclipse.or
 plugin@org.eclipse.ui=v20100924-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 !**** EMF
-feature@org.eclipse.emf.ecore=p2IU,id=org.eclipse.emf.ecore.feature.jar,version=,repository=http://download.eclipse.org/releases/staging
-plugin@org.eclipse.emf.ecore.change=p2IU,id=org.eclipse.emf.ecore.change,version=,repository=http://download.eclipse.org/releases/staging
-plugin@org.eclipse.emf.ecore=p2IU,id=org.eclipse.emf.ecore,version=,repository=http://download.eclipse.org/releases/staging
-plugin@org.eclipse.emf.ecore.xmi=p2IU,id=org.eclipse.emf.ecore.xmi,version=,repository=http://download.eclipse.org/releases/staging
-feature@org.eclipse.emf.common=p2IU,id=org.eclipse.emf.common.feature.jar,version=,repository=http://download.eclipse.org/releases/staging
-plugin@org.eclipse.emf.common=p2IU,id=org.eclipse.emf.common,version=,repository=http://download.eclipse.org/releases/staging
-plugin@org.eclipse.emf.databinding=p2IU,id=org.eclipse.emf.databinding,version=,repository=http://download.eclipse.org/releases/staging
+feature@org.eclipse.emf.ecore=p2IU,id=org.eclipse.emf.ecore.feature.jar,version=,repository=http://download.eclipse.org/releases/indigo
+plugin@org.eclipse.emf.ecore.change=p2IU,id=org.eclipse.emf.ecore.change,version=,repository=http://download.eclipse.org/releases/indigo
+plugin@org.eclipse.emf.ecore=p2IU,id=org.eclipse.emf.ecore,version=,repository=http://download.eclipse.org/releases/indigo
+plugin@org.eclipse.emf.ecore.xmi=p2IU,id=org.eclipse.emf.ecore.xmi,version=,repository=http://download.eclipse.org/releases/indigo
+feature@org.eclipse.emf.common=p2IU,id=org.eclipse.emf.common.feature.jar,version=,repository=http://download.eclipse.org/releases/indigo
+plugin@org.eclipse.emf.common=p2IU,id=org.eclipse.emf.common,version=,repository=http://download.eclipse.org/releases/indigo
+plugin@org.eclipse.emf.databinding=p2IU,id=org.eclipse.emf.databinding,version=,repository=http://download.eclipse.org/releases/indigo
 
 !**** Nebula
 
