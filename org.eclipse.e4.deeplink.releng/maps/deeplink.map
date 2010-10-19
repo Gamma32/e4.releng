@@ -1,25 +1,48 @@
 !**** e4 deeplink
-plugin@org.eclipse.e4.core.functionalprog=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.utils/bundles/org.eclipse.e4.core.functionalprog
-plugin@org.eclipse.e4.core.metaconfig=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.utils/bundles/org.eclipse.e4.core.metaconfig
-
-plugin@org.eclipse.e4.core.deeplink.launchproxy.product=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink.launchproxy.product
-plugin@org.eclipse.e4.core.deeplink=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink
-plugin@org.eclipse.e4.core.deeplink.handler=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink.handler
-plugin@org.eclipse.e4.core.deeplink.launchproxy=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink.launchproxy
-plugin@org.eclipse.e4.core.deeplink.typehandler.extensionpt=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink.typehandler.extensionpt
-plugin@org.eclipse.e4.ui.deeplink.typehandler.perspective=v20100723-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.ui.deeplink.typehandler.perspective
+!#plugin@org.eclipse.e4.core.functionalprog=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.utils/bundles/org.eclipse.e4.core.functionalprog
+!#plugin@org.eclipse.e4.core.metaconfig=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.utils/bundles/org.eclipse.e4.core.metaconfig
+!#
+!#plugin@org.eclipse.e4.core.deeplink.launchproxy.product=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink.launchproxy.product
+!#plugin@org.eclipse.e4.core.deeplink=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink
+!#plugin@org.eclipse.e4.core.deeplink.handler=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink.handler
+!#plugin@org.eclipse.e4.core.deeplink.launchproxy=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink.launchproxy
+!#plugin@org.eclipse.e4.core.deeplink.typehandler.extensionpt=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.core.deeplink.typehandler.extensionpt
+!#plugin@org.eclipse.e4.ui.deeplink.typehandler.perspective=v20100723-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/bundles/org.eclipse.e4.ui.deeplink.typehandler.perspective
 
 
 
 !**** and build it
-feature@org.eclipse.e4.core.functionalprog.feature=v20100723-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.utils/features/org.eclipse.e4.core.functionalprog.feature
-feature@org.eclipse.e4.core.metaconfig.feature=v20100723-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.utils/features/org.eclipse.e4.core.metaconfig.feature
+!#feature@org.eclipse.e4.core.functionalprog.feature=v20100723-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.utils/features/org.eclipse.e4.core.functionalprog.feature
+!#feature@org.eclipse.e4.core.metaconfig.feature=v20100723-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.utils/features/org.eclipse.e4.core.metaconfig.feature
+!#
+!#feature@org.eclipse.e4.deeplink.master=v20100723-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.deeplink.master
+!#feature@org.eclipse.e4.core.deeplink.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.core.deeplink.feature
+!#feature@org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature
+!#feature@org.eclipse.e4.core.deeplink.launchproxy.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.core.deeplink.launchproxy.feature
+!#feature@org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature
+!#
+!#feature@org.eclipse.e4.ui.deeplink.typehandler.perspective.feature=v20100723-1115,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.ui.deeplink.typehandler.perspective.feature
+!#feature@org.eclipse.e4.ui.deeplink.handler.dependencies.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.ui.deeplink.handler.dependencies.feature
 
-feature@org.eclipse.e4.deeplink.master=v20100723-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.deeplink.master
-feature@org.eclipse.e4.core.deeplink.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.core.deeplink.feature
-feature@org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature
-feature@org.eclipse.e4.core.deeplink.launchproxy.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.core.deeplink.launchproxy.feature
-feature@org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature
+#Git!
+plugin@org.eclipse.e4.core.functionalprog=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.utils.git,path=bundles/org.eclipse.e4.core.functionalprog
+plugin@org.eclipse.e4.core.metaconfig=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.utils.git,path=bundles/org.eclipse.e4.core.metaconfig
 
-feature@org.eclipse.e4.ui.deeplink.typehandler.perspective.feature=v20100723-1115,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.ui.deeplink.typehandler.perspective.feature
-feature@org.eclipse.e4.ui.deeplink.handler.dependencies.feature=v20100722-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.deeplink/features/org.eclipse.e4.ui.deeplink.handler.dependencies.feature
+plugin@org.eclipse.e4.core.deeplink.launchproxy.product=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=bundles/org.eclipse.e4.core.deeplink.launchproxy.product
+plugin@org.eclipse.e4.core.deeplink=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=bundles/org.eclipse.e4.core.deeplink
+plugin@org.eclipse.e4.core.deeplink.handler=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=bundles/org.eclipse.e4.core.deeplink.handler
+plugin@org.eclipse.e4.core.deeplink.launchproxy=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=bundles/org.eclipse.e4.core.deeplink.launchproxy
+plugin@org.eclipse.e4.core.deeplink.typehandler.extensionpt=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=bundles/org.eclipse.e4.core.deeplink.typehandler.extensionpt
+plugin@org.eclipse.e4.ui.deeplink.typehandler.perspective=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=bundles/org.eclipse.e4.ui.deeplink.typehandler.perspective
+
+feature@org.eclipse.e4.core.functionalprog.feature=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.utils.git,path=features/org.eclipse.e4.core.functionalprog.feature
+feature@org.eclipse.e4.core.metaconfig.feature=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.utils.git,path=features/org.eclipse.e4.core.metaconfig.feature
+
+feature@org.eclipse.e4.deeplink.master=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.deeplink.master
+feature@org.eclipse.e4.core.deeplink.feature=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.core.deeplink.feature
+feature@org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature
+feature@org.eclipse.e4.core.deeplink.launchproxy.feature=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.core.deeplink.launchproxy.feature
+feature@org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature
+
+feature@org.eclipse.e4.ui.deeplink.typehandler.perspective.feature=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.ui.deeplink.typehandler.perspective.feature
+feature@org.eclipse.e4.ui.deeplink.handler.dependencies.feature=GIT,tag=v20101019-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.ui.deeplink.handler.dependencies.feature
