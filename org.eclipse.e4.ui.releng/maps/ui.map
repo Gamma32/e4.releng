@@ -25,6 +25,8 @@ plugin@org.eclipse.e4.pde.ui=v20090714-1930,:pserver:anonymous@dev.eclipse.org:/
 plugin@org.eclipse.e4.pde.webui=v20100531-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.webui
 plugin@org.eclipse.e4.ui.gadgets=v20100428-1730,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.gadgets
 
+plugin@org.eclipse.e4.emf.xpath=v20101022_1145,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.emf.xpath
+
 plugin@org.eclipse.e4.tools.emf.ui=v20100914-0830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.ui
 plugin@org.eclipse.e4.tools.emf.editor3x=v20100730-0930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.editor3x
 plugin@org.eclipse.e4.tools.compat=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.compat
@@ -54,7 +56,7 @@ plugin@org.eclipse.e4.ui.bindings.tests=v20101006-1500,:pserver:anonymous@dev.ec
 
 
 !**** and build it
-feature@org.eclipse.e4.ui.feature=v20100722-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.feature
+feature@org.eclipse.e4.ui.feature=v20101022-1436,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.feature
 feature@org.eclipse.e4.ui.web.feature=v20091022-1230,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.web.feature
 feature@org.eclipse.e4.ui.compatibility.feature=v20091210-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.compatibility.feature
 feature@org.eclipse.e4.ui.css.feature=v20100603-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.css.feature
