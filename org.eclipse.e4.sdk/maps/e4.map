@@ -23,6 +23,9 @@ plugin@org.eclipse.e4.ui.workbench3=p2IU,id=org.eclipse.e4.ui.workbench3,version
 plugin@org.eclipse.e4.ui.widgets=p2IU,id=org.eclipse.e4.ui.widgets,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 fragment@org.eclipse.e4.ui.workbench.renderers.swt.cocoa=p2IU,id=org.eclipse.e4.ui.workbench.renderers.swt.cocoa,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 
+plugin@org.eclipse.e4.emf.xpath=p2IU,id=org.eclipse.e4.emf.xpath,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
+plugin@org.eclipse.e4.emf.xpath.source=p2IU,id=org.eclipse.e4.emf.xpath.source,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
+
 !**** Source e4 plug-ins
 plugin@org.eclipse.e4.core.commands.source=p2IU,id=org.eclipse.e4.core.commands,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 plugin@org.eclipse.e4.core.contexts.source=p2IU,id=org.eclipse.e4.core.contexts,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
