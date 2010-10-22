@@ -86,7 +86,9 @@
 				<repository location="http://download.eclipse.org/releases/indigo" />
 			</source>
 			<iu id="org.eclipse.emf.ecore.feature.group" version=""/>
-			<iu id="org.eclipse.emf.common" version="" />
+			<iu id="org.eclipse.emf.ecore.feature.jar" version=""/>
+			<iu id="org.eclipse.emf.common.feature.group" version="" />
+			<iu id="org.eclipse.emf.common.feature.jar" version="" />
 		</p2.repo2runnable>
 		
 	
