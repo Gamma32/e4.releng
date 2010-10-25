@@ -69,6 +69,12 @@
 			<iu id="org.eclipse.equinox.p2.user.ui.source.feature.group" />
 		</p2.mirror>
 		<p2.mirror destination="file:${localRepoLocation}" ignoreerrors="true">
+			<source location="${eclipseRepoURL}" />
+			<slicingOptions includeOptional="false" includeNonGreedy="false" />
+			<iu id="org.junit" version="0.0.0" />
+			<iu id="org.junit.source" version="0.0.0" />
+		</p2.mirror>
+		<p2.mirror destination="file:${localRepoLocation}" ignoreerrors="true">
 			<source location="${indigoRepoURL}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true" />
 			<iu id="org.apache.commons.beanutils" />
