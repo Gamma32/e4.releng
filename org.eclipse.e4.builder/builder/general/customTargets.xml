@@ -100,6 +100,8 @@
 			<slicingOptions includeOptional="false" includeNonGreedy="false" />
 			<iu id="org.apache.commons.beanutils" />
 			<iu id="org.apache.commons.lang" />
+			<iu id="org.junit" version="0.0.0" />
+			<iu id="org.junit.source" version="0.0.0" />
 			<iu id="javax.el" />
 		</p2.mirror>
 		<echo message="Mirror from ${emfRepoURL} to ${targetDir}/${targetDownloadId}-p2" />
