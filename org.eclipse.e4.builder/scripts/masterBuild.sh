@@ -188,6 +188,7 @@ cd $supportDir
       -application org.eclipse.ant.core.antRunner  \
       -buildfile $buildfile \
   -Dbuilder=$supportDir/org.eclipse.e4.sdk/builder \
+  -Dorg.eclipse.e4.builder=$supportDir/org.eclipse.e4.builder \
   -Declipse.build.configs=$supportDir/org.eclipse.releng.eclipsebuilder/eclipse/buildConfigs \
   -DbuildType=I \
   -Dbuilddate=$( date +%Y%m%d ) \

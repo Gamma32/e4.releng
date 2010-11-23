@@ -191,6 +191,24 @@
 	<target name="postBuild">
 		<antcall target="gatherLogs" />
 
+		<!--sign the build --> 
+		<ant antfile="${org.eclipse.e4.builder}/builder/general/sign.xml" dir="${basedir}" target="signMasterFeature" />
+		
+		<!--unzip signed build over top of the repository -->
+		<unzip dest="${p2.repo}" src="${buildDirectory}/${buildLabel}/eclipse-master-${buildId}.zip" />
+
+		<!-- use eclipse.jarProcessor directly instead of the "pack" on p2.process.artifacts so that we 
+		     can specify the file to pack instead of doing everything
+		     
+		     TODO: this doesn't look so good when the p2.repo doesn't already have publishPackAsSiblings
+		<eclipse.jarProcessor inputFolder="${p2.repo}" pack="true" >
+			<file dir="${p2.repo}" includesfile="${buildDirectory}/pack.list" />
+		</eclipse.jarProcessor>
+		 --> 
+		<!--update repository with new checksums for signed bundles -->
+		<p2.process.artifacts repositoryPath="file://${p2.repo}" />
+		<delete file="${p2.repo}/pack.properties" />
+		
 		<replace token="@qualifier@" file="${eclipse.build.configs}/sdk/builder/sdk.product" value="${buildLabel}" />
 		<echo message="Publishing ${eclipse.build.configs}/sdk/builder/sdk.product to file:${p2.repo}" />
 		<p2.publish.product flavor="tooling" repository="file:${p2.repo}" productFile="${eclipse.build.configs}/sdk/builder/sdk.product" compress="true">

@@ -1,0 +1,12 @@
+<project name="CustomAssemble.overrides" default="noDefault">
+
+	<import file="${eclipse.pdebuild.templates}/headless-build/customAssembly.xml" />
+
+	<!-- every time gather.bin.parts is called, we will add the resulting artifact into a separate archive to be sent for signing -->
+	<target name="gather.bin.parts" >
+		<zip basedir="${p2.repo}" destfile="${signingArchive}" includes="**/${projectName}.jar" update="true" duplicate="preserve" />
+		<!-- remember this file pattern so that later we can pack only these things we signed -->
+		<echo append="true" file="${buildDirectory}/pack.list" message="**/${projectName}.jar${line.separator}" />
+	</target>
+	
+</project>
