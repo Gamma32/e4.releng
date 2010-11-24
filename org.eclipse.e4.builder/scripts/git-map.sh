@@ -42,5 +42,5 @@ done
 
 git log  ${LATEST_SUBMISSION}..${BUILD_TAG} "$BASEDIR" \
  | grep '[Bb]ug '  \
- | sed 's/.*[Bb]ug[^0-9]*\([0-9][0-9][0-9][0-9][0-9]*\)[^0-9]*$/\1/g' >>$BUG
+ | sed 's/.*[Bb]ug[^0-9]*\([0-9][0-9][0-9][0-9][0-9]*\)[^0-9].*$/\1/g' >>$BUG
 
