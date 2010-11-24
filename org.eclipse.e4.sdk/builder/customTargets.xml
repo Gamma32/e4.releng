@@ -20,6 +20,7 @@
 	<target name="getMapFiles" depends="checkLocalMaps" unless="skipMaps">
 		<property name="mapsCheckoutTag" value="HEAD" />
 		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
+		<replace dir="${buildDirectory}/maps/" value="${eclipseRepoURL}" token="ECLIPSE_PLATFORM_REPO" />
 	</target>
 
 	<target name="checkLocalMaps">
