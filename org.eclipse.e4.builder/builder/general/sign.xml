@@ -7,7 +7,7 @@
 		<zip zipfile="${signingArchive}" basedir="${p2.repo}" />
 	</target>
 	
-	<target name="signMasterFeature">
+	<target name="signMasterFeature" unless="skipSigning" >
 		<property name="packtmp" value="${buildDirectory}/packtmp" />
 		<property name="stagingDirectoryOutput" value="/home/data/httpd/download-staging.priv/eclipse/e4/${buildId}-out" />
 		<property name="stagingDirectory" value="/home/data/httpd/download-staging.priv/eclipse/e4" />
