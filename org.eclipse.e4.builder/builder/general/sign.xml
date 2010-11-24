@@ -15,7 +15,7 @@
 		<property name="outputFile" value="${stagingDirectoryOutput}/${archiveName}" />
 		<mkdir dir="${packtmp}" />
 		<!--update pack.properties to exclude Orbit bundles from being signed and packed -->
-		<antcall target="updatePackProperties" />
+		<!--<antcall target="updatePackProperties" /> -->
 		<move file="${signingArchive}" tofile="${packtmp}/${archiveName}" />
 
 		<!--push drop to staging directory-->
