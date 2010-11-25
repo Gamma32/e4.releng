@@ -12,5 +12,5 @@ plugin@org.eclipse.platform.discovery.ui.test.comp=GIT,tag=v20101124-0800,repo=g
 plugin@org.eclipse.platform.discovery.ui.test.unit=GIT,tag=v20101124-0800,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.ui.test.unit
 plugin@org.eclipse.platform.discovery.util.test.unit=GIT,tag=v20101124-0800,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.util.test.unit
 
-feature@org.eclipse.platform.discovery.feature=GIT,tag=v20101124-0800,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.feature
+feature@org.eclipse.platform.discovery=GIT,tag=v20101124-0800,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.feature
 features@org.eclipse.platform.discovery_tests.feature=GIT,tag=v20101124-0800,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery_tests.feature
