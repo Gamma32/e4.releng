@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<psf version="2.0">
-<provider id="org.eclipse.team.cvs.core.cvsnature">
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.resources/examples/org.eclipse.core.resources.semantic.examples,org.eclipse.core.resources.semantic.examples"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.resources/tests/org.eclipse.core.resources.semantic.test,org.eclipse.core.resources.semantic.test"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.resources/examples/org.eclipse.ui.resources.semantic.examples,org.eclipse.ui.resources.semantic.examples"/>
-<project reference="1.0,:pserver:dev.eclipse.org:/cvsroot/eclipse,e4/org.eclipse.e4.resources/tests/org.eclipse.ui.resources.semantic.examples.test,org.eclipse.ui.resources.semantic.examples.test"/>
-</provider>
-</psf>
