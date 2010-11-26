@@ -704,7 +704,7 @@
 		<antcall target="cssSwt" />
 		<antcall target="cssCore" />
 		<antcall target="e4xwt" />
-		<antcall target="e4xwtEmf" />
+		<!-- bug 331225 <antcall target="e4xwtEmf" />-->
 		<antcall target="coreServices" />
 		<antcall target="e4ui" />
 		<antcall target="e4tm" />
@@ -719,7 +719,7 @@
 		<antcall target="cssSwt" />
 		<antcall target="cssCore" />
 		<antcall target="e4xwt" />
-		<antcall target="e4xwtEmf" />
+		<!-- bug 331225 <antcall target="e4xwtEmf" />-->
 		<antcall target="coreServices" />
 		<antcall target="e4ui" />
 		<antcall target="e4tm" />
