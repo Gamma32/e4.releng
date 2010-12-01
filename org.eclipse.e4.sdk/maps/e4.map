@@ -2,7 +2,7 @@
 
 !**** Binary e4 plug-ins
 
-feature@org.eclipse.e4.rcp=v20101025-1420,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/features/org.eclipse.e4.rcp
+feature@org.eclipse.e4.rcp=v20101201-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/features/org.eclipse.e4.rcp
 plugin@org.eclipse.e4.core.commands=p2IU,id=org.eclipse.e4.core.commands,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 plugin@org.eclipse.e4.core.contexts=p2IU,id=org.eclipse.e4.core.contexts,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 plugin@org.eclipse.e4.core.di=p2IU,id=org.eclipse.e4.core.di,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
@@ -50,8 +50,8 @@ fragment@org.eclipse.e4.ui.workbench.renderers.swt.cocoa.source=p2IU,id=org.ecli
 
 !**** Workbench Compatibility
 
-plugin@org.eclipse.e4.ui.workbench.addons.swt=v20101029-1030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.addons.swt
-plugin@org.eclipse.ui.workbench=v20101125-1630,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/bundles/org.eclipse.ui.workbench
+plugin@org.eclipse.e4.ui.workbench.addons.swt=v20101201-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.addons.swt
+plugin@org.eclipse.ui.workbench=v20101201-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/bundles/org.eclipse.ui.workbench
 plugin@org.eclipse.ui=v20100924-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 !**** EMF
