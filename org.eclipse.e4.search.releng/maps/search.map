@@ -16,5 +16,5 @@ plugin@org.eclipse.demo.cheatsheets.search=GIT,tag=v20101201-0835,repo=git://git
 
 feature@org.eclipse.platform.discovery.feature=GIT,tag=v20101201-0835,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.feature
 feature@org.eclipse.platform.discovery_tests.feature=GIT,tag=v20101201-0835,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery_tests.feature
-feature@org.eclipse.demo.search.example.feature=GIT,tag=v20101201-0835,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.demo.search.example.feature
+feature@org.eclipse.demo.search.example.feature=GIT,tag=v20101202-0800,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.demo.search.example.feature
 feature@org.eclipse.platform.discovery.master=GIT,tag=v20101202-0700,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.master
