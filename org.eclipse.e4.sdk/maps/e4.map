@@ -5,6 +5,7 @@
 feature@org.eclipse.e4.rcp=v20101201-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/features/org.eclipse.e4.rcp
 plugin@org.eclipse.e4.core.commands=p2IU,id=org.eclipse.e4.core.commands,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 plugin@org.eclipse.e4.core.contexts=p2IU,id=org.eclipse.e4.core.contexts,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
+plugin@org.eclipse.e4.core.contexts.debug=p2IU,id=org.eclipse.e4.core.contexts.debug,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 plugin@org.eclipse.e4.core.di=p2IU,id=org.eclipse.e4.core.di,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 plugin@org.eclipse.e4.ui.di=p2IU,id=org.eclipse.e4.ui.di,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 plugin@org.eclipse.e4.core.di.extensions=p2IU,id=org.eclipse.e4.core.di.extensions,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
@@ -29,6 +30,7 @@ plugin@org.eclipse.e4.emf.xpath.source=p2IU,id=org.eclipse.e4.emf.xpath.source,v
 !**** Source e4 plug-ins
 plugin@org.eclipse.e4.core.commands.source=p2IU,id=org.eclipse.e4.core.commands,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 plugin@org.eclipse.e4.core.contexts.source=p2IU,id=org.eclipse.e4.core.contexts,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
+plugin@org.eclipse.e4.core.contexts.debug.source=p2IU,id=org.eclipse.e4.core.contexts.debug.source,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 plugin@org.eclipse.e4.core.di.source=p2IU,id=org.eclipse.e4.core.di,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 plugin@org.eclipse.e4.ui.di.source=p2IU,id=org.eclipse.e4.ui.di,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
 plugin@org.eclipse.e4.core.di.extensions.source=p2IU,id=org.eclipse.e4.core.di.extensions,version=,repository=http://download.eclipse.org/e4/updates/0.11-I-builds/
