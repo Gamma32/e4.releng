@@ -98,13 +98,11 @@
 		<!-- work around bug 328405 -->
 		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
 			<source>
-				<repository location="http://download.eclipse.org/releases/indigo"/>
+				<repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.7-I-builds/base"/>
 			</source>
 			<iu id="org.eclipse.emf.ecore.feature.jar" version=""/>
 			<iu id="org.eclipse.emf.common.feature.jar" version="" />
 		</p2.repo2runnable>
-		
-	
 	</target>
 
 	<!-- ===================================================================== -->
