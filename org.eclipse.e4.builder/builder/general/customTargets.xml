@@ -8,6 +8,7 @@
 	<property name="allElementsFile" location="${eclipse.pdebuild.templates}/headless-build/allElements.xml" />
 	<loadproperties srcfile="${builder}/update_repo.properties" />
 	<property name="transformedRepoLocation" value="${targetDir}/${targetDownloadId}" />
+	<property name="repoBaseLocation" value="${targetDir}/${targetDownloadId}-p2" />
 	<property name="updateSite" value="${targetDir}/updates/0.11-I-builds" />
 	<property name="repoBaseline" value="${updateSite}" />
 
@@ -88,18 +89,16 @@
 	<target name="postSetup">
 		<antcall target="getBaseComponents" />
 		
-		<property name="${repoBaseLocation}" value="${targetDir}/${targetDownloadId}" />
-		
-		<echo message="Mirror from ${eclipseRepoURL} to ${targetDir}/${targetDownloadId}-p2" />
-		<p2.mirror destination="${repoBaseLocation}/eclipseSDK" ignoreerrors="true">
+		<echo message="Mirror from ${eclipseRepoURL} to ${repoBaseLocation}/eclipseSDK" />
+		<p2.mirror destination="file:${repoBaseLocation}/eclipseSDK" ignoreerrors="true">
 			<source location="${eclipseRepoURL}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true"/>
 			<iu id="org.eclipse.sdk.ide" />
 			<!--<iu id="org.eclipse.equinox.core.sdk.feature.group" /> -->
 		</p2.mirror>
 		
-		<echo message="Mirror from ${orbitRepoURL} to ${targetDir}/${targetDownloadId}-p2" />
-		<p2.mirror destination="${repoBaseLocation}/orbit" ignoreerrors="true">
+		<echo message="Mirror from ${orbitRepoURL} to ${repoBaseLocation}/orbit" />
+		<p2.mirror destination="file:${repoBaseLocation}/orbit" ignoreerrors="true">
 			<source location="${orbitRepoURL}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" />
 			<iu id="org.apache.commons.beanutils" />
@@ -109,23 +108,23 @@
 			<iu id="javax.el" />
 		</p2.mirror>
 		
-		<echo message="Mirror from ${emfRepoURL} to ${targetDir}/${targetDownloadId}-p2" />
-		<p2.mirror destination="${repoBaseLocation}/emf" ignoreerrors="true">
+		<echo message="Mirror from ${emfRepoURL} to ${repoBaseLocation}/emf" />
+		<p2.mirror destination="file:${repoBaseLocation}/emf" ignoreerrors="true">
 			<source location="${emfRepoURL}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true" />
 			<iu id="org.eclipse.emf.sdk.feature.group" />
 			<iu id="org.eclipse.xsd.edit.feature.group" />
 		</p2.mirror>
 		
-		<echo message="Mirror from ${gefRepoURL} to ${targetDir}/${targetDownloadId}-p2" />
-		<p2.mirror destination="${repoBaseLocation}/gef" ignoreerrors="true">
+		<echo message="Mirror from ${gefRepoURL} to ${repoBaseLocation}/gef" />
+		<p2.mirror destination="file:${repoBaseLocation}/gef" ignoreerrors="true">
 			<source location="${gefRepoURL}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" />
 			<iu id="org.eclipse.gef.feature.group" />
 		</p2.mirror>
 		
-		<echo message="Mirror from ${wtpRepoURL} to ${targetDir}/${targetDownloadId}-p2" />
-		<p2.mirror destination="${repoBaseLocation}/wtp" ignoreerrors="true">
+		<echo message="Mirror from ${wtpRepoURL} to ${repoBaseLocation}/wtp" />
+		<p2.mirror destination="file:${repoBaseLocation}/wtp" ignoreerrors="true">
 			<source location="${wtpRepoURL}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" />
 			<iu id="org.eclipse.wst.xml_ui.feature.feature.group" />
@@ -140,7 +139,7 @@
 		</p2.remove.iu>-->
 	
 		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
-			<source dir="${repoBaseLocation}/" includes="*" excludes="${repoBaseLocation.excludes}"/>
+			<source dir="${repoBaseLocation}" includes="*" excludes="${repoBaseLocation.excludes}"/>
 		</p2.repo2runnable>
 	</target>	
 
