@@ -198,8 +198,8 @@ runSDKBuild () {
 	"   
     echo $cmd
     $cmd
-	/bin/bash ${builderDir}/scripts/sync.sh
-	/bin/bash ${builderDir}/scripts/publish.sh
+	#/bin/bash ${builderDir}/scripts/sync.sh
+	#/bin/bash ${builderDir}/scripts/publish.sh
 }
 
 
