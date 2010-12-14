@@ -198,8 +198,8 @@ runSDKBuild () {
 	"   
     echo $cmd
     $cmd
-	#/bin/bash ${builderDir}/scripts/sync.sh
-	#/bin/bash ${builderDir}/scripts/publish.sh
+	/bin/bash ${builderDir}/scripts/sync.sh
+	/bin/bash ${builderDir}/scripts/publish.sh
 }
 
 
@@ -380,8 +380,6 @@ cd ${builderDir}/scripts
 echo "[start] [`date +%H\:%M\:%S`] setting eclipse $eclipseIBuild"
 
 runSDKBuild
-
-exit
 
 buildMasterFeature
 

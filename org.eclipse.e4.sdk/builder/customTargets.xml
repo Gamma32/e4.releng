@@ -171,7 +171,9 @@
 		<antcall target="gatherLogs" />
 
 		<!--sign the build --> 
-		<zip basedir="${p2.repo}" destfile="${signingArchive}" includesfile="${buildDirectory}/built.list" />
+		<ant antfile="${builder}/sign.xml" dir="${basedir}" target="createSigningArchive" >
+			<property name="includesFile" value="${buildDirectory}/built.list" />
+		</ant>
 		<ant antfile="${org.eclipse.e4.builder}/builder/general/sign.xml" dir="${basedir}" target="signMasterFeature" />
 		
 		<!--unzip signed build over top of the repository -->
