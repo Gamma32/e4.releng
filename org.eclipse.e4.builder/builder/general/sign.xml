@@ -4,6 +4,14 @@
 	<property name="signingArchive" value="${buildDirectory}/${buildLabel}/${archiveName}" />
 	
 	<target name="createSigningArchive" >
+		<antcall target="_createSigningArchiveIncludes" />
+		<antcall target="_createSigningArchiveNoIncludes" />
+	</target>
+	
+	<target name="_createSigningArchiveIncludes" if="includesFile" >
+		<zip zipfile="${signingArchive}" basedir="${p2.repo}" includesFile="${includesFile}" />
+	</target>
+	<target name="_createSigningArchiveNoIncludes" unless="includesFile" >
 		<zip zipfile="${signingArchive}" basedir="${p2.repo}" />
 	</target>
 	

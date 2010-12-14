@@ -255,25 +255,17 @@
 		<move file="${p2.repo}/out_content.xml" tofile="${p2.repo}/content.xml" />
 
 		<!--sign the build -->
-		<ant antfile="${builder}/sign.xml" dir="${basedir}" target="createSigningArchive" />
-		<ant antfile="${builder}/sign.xml" dir="${basedir}" target="updatePackProperties" />
+		<ant antfile="${builder}/sign.xml" dir="${basedir}" target="createSigningArchive" >
+			<property name="includesFile" value="${buildDirectory}/built.list" />
+		</ant>
 		<ant antfile="${builder}/sign.xml" dir="${basedir}" target="signMasterFeature" />
 		
 		<!--unzip signed build into repository for mirroring and packaging-->
-		<property name="p2.repo.unsigned" value="${p2.repo}.unsigned" />
-		<mkdir dir="${p2.repo.unsigned}" />
-		<move todir="${p2.repo.unsigned}">
-			<fileset dir="${p2.repo}" />
-		</move>
 		<unzip dest="${p2.repo}" src="${buildDirectory}/${buildLabel}/eclipse-master-${buildId}.zip" />
 
 		<!--pack master feature and update repository with new checksums for signed bundles -->
-		<p2.process.artifacts repositoryPath="file://${p2.repo}" pack="true" />
-		<delete>
-			<fileset dir="${p2.repo}">
-				<include name="pack.properties" />
-			</fileset>
-		</delete>
+		<p2.process.artifacts repositoryPath="file://${p2.repo}"  />
+		<delete file="${p2.repo}/pack.properties" />
 
 		<filter token="BUILD_ID" value="${buildLabel}" />
 		<copy filtering="true" file="${builder}/templates/artifacts.xml" tofile="${buildDirectory}/formatRepo/artifacts.xml" />
@@ -313,17 +305,7 @@
 		<property name="p2.output.base" value="${p2.root}/equinox.p2.build" />
 		<mkdir dir="${p2.output.base}" />
 		<property name="directorlog" value="${buildlogs}/director.txt" />
-
-		<property name="p2.sdk.install.linux.gtk.x86_64" value="${p2.output.base}/sdk.install.linux.gtk.x86_64" />
-		<mkdir dir="${p2.sdk.install.linux.gtk.x86_64}" />
-
-
-		<!--
-		<antcall target="e4.product" />
-		<antcall target="provision.e4" />
-		<antcall target="zip.install" />
-		-->
-		
+	
 		<delete file="${buildDirectory}/version.properties" />
 		<antcall target="run.version.query">
 			<param name="list.repo" value="file:${p2.sdk.install.linux.gtk.x86_64}/eclipse/p2/org.eclipse.equinox.p2.engine/profileRegistry/SDKProfile.profile" />
@@ -381,46 +363,6 @@
 		<echo message="You must specify a target when invoking this file" />
 	</target>
 
-	<target name="initLauncher" unless="base.builder.launcher">
-		<path id="launcher.path">
-			<last count="1"><sort>
-					<fileset dir="${eclipse.home}" includes="**/org.eclipse.equinox.launcher_*.jar" />
-			</sort></last>
-		</path>
-		<property name="base.builder.launcher" refid="launcher.path" />
-	</target>
-	<target name="run.director" depends="initLauncher">
-		<exec executable="${java15-home}/bin/java" failonerror="false" dir="${base.builder}" timeout="900000" output="${directorlog}" resultproperty="directorcode">
-			<arg line="-jar ${base.builder.launcher}" />
-			<arg line="-application org.eclipse.equinox.p2.director" />
-			<arg line="-nosplash" />
-			<arg line="-consoleLog" />
-			<arg line="-flavor ${p2.flavor}" />
-			<arg line="-installIU ${p2.director.installIU}" />
-			<arg line="-p2.os ${p2.os}" />
-			<arg line="-p2.ws ${p2.ws}" />
-			<arg line="-p2.arch ${p2.arch}" />
-			<arg line="-roaming" />
-			<arg line="-profile ${p2.director.profile}" />
-			<arg line="${p2.director.extraArgs}" />
-			<arg line="-repository file:${transformedRepoLocation},file:${p2.repo}" />
-			<arg line="-destination ${p2.director.install.path}" />
-			<arg line="-bundlepool ${p2.director.install.path}" />
-		</exec>
-		<echo message="director ${p2.director.install.path}" file="${directorlog}" append="true" />
-		<echo message="${directorcode}" file="${directorlog}" append="true" />
-
-		<!-- ant antfile="${genericTargets}" target="runDirector" inheritAll="true">
-			<property name="equinoxLauncherJar" value="${base.builder.launcher}"/>
-			<property name="p2.repo" value="${p2.build.repo},file:${transformedRepoLocation}"/>
-			<property name="p2.director.iu" value="${p2.director.installIU}"/>
-			<property name="p2.director.installPath" value="${p2.director.install.path}"/>
-			<property name="os" value="${p2.os}" />
-			<property name="ws" value="${p2.ws}" />
-			<property name="arch" value="${p2.arch}" />
-		</ant -->
-	</target>
-
 	<target name="run.version.query">
 		<delete dir="${base.builder}/configuration/.settings" includeemptydirs="true" failonerror="false" />
 		<exec executable="${java15-home}/bin/java" failonerror="false" dir="${base.builder}" timeout="900000" output="${buildDirectory}/version.properties" error="/dev/null">
@@ -430,75 +372,6 @@
 			<arg line="-repository ${list.repo}" />
 			<arg line="-list ${list.iu}" />
 		</exec>
-	</target>
-
-	<target name="e4.product">
-		<replace token="@qualifier@" file="${buildDirectory}/plugins/org.eclipse.e4.ui.examples.legacy.workbench/legacy-eclipse.product" value="${buildLabel}" />
-		<p2.publish.product flavor="tooling" repository="file:${p2.repo}" productFile="${buildDirectory}/plugins/org.eclipse.e4.ui.examples.legacy.workbench/legacy-eclipse.product" compress="true">
-			<config os="win32" ws="win32" arch="x86" />
-			<config os="win32" ws="win32" arch="x86_64" />
-			<config os="linux" ws="gtk" arch="x86" />
-			<config os="linux" ws="gtk" arch="x86_64" />
-			<config os="linux" ws="gtk" arch="ppc" />
-			<config os="macosx" ws="cocoa" arch="x86" />
-			<config os="macosx" ws="cocoa" arch="x86_64" />
-			<advice kind="featureVersions" file="${buildDirectory}/finalFeaturesVersions.properties" />
-			<advice kind="pluginVersions" file="${buildDirectory}/finalPluginsVersions.properties" />
-			<contextrepository location="file:${transformedRepoLocation}" artifact="true" metadata="true" />
-		</p2.publish.product>
-
-	</target>
-
-	<target name="provision.e4">
-		<antcall target="run.director">
-			<param name="p2.director.installIU" value="org.eclipse.e4.workbench.sdk" />
-			<param name="p2.director.profile" value="SDKProfile" />
-			<param name="p2.director.install.path" value="${p2.sdk.install.linux.gtk.x86_64}/eclipse" />
-			<param name="p2.director.extraArgs" value="-profileProperties org.eclipse.update.install.features=true" />
-			<param name="p2.os" value="linux" />
-			<param name="p2.ws" value="gtk" />
-			<param name="p2.arch" value="x86_64" />
-		</antcall>
-	</target>
-
-
-	<target name="zip.install">
-
-		<property name="output.dir" value="${buildDirectory}/${buildLabel}" />
-		<mkdir dir="${output.dir}" />
-
-
-		<parallel failonany="true" threadCount='4'>
-			<sequential>
-				<!-- linux gtk x86_64 -->
-				<antcall target="p2.tar">
-					<param name="tar.base.dir" value="${p2.sdk.install.linux.gtk.x86_64}" />
-					<param name="tar.base.filename" value="${buildDirectory}/${buildLabel}/eclipse-e4-SDK-incubation-${buildLabel}-linux-gtk-x86_64.tar" />
-				</antcall>
-				<!--antcall target="generateChecksums">
-					<param name="archiveName" value="eclipse-e4-SDK-incubation-${buildLabel}-linux-gtk-ppc.tar.gz" />
-				</antcall-->
-
-			</sequential>
-
-		</parallel>
-	</target>
-
-	<target name="p2.tar">
-		<echo message="Building tar ${tar.base.filename} from ${tar.base.dir}/*" />
-		<exec dir="${tar.base.dir}" executable="sh">
-			<arg line='-c "tar -cvf ${tar.base.filename} *"' />
-		</exec>
-		<gzip zipfile="${tar.base.filename}.gz" src="${tar.base.filename}" />
-		<delete file="${tar.base.filename}" />
-	</target>
-
-	<target name="find.a.file">
-		<fileset id="base.launcher.file" dir="${base.builder}">
-			<filename name="plugins/org.eclipse.equinox.launcher_*.jar" />
-		</fileset>
-		<property name="base.launcher" refid="base.launcher.file" />
-		<echo>${base.launcher}</echo>
 	</target>
 
 </project>
