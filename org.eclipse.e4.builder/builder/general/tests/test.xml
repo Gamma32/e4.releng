@@ -29,6 +29,7 @@
 	<property name="org.eclipse.test" value="org.eclipse.test_3.3.0" />
 
 	<target name="setup" unless="noclean" depends="init">
+		<echo message="Runtime Archive is ${runtimeArchive}" />
 		<condition property="setupTarget" value="setup-zip">
 			<contains string="${runtimeArchive}" substring=".zip" />
 		</condition>
@@ -100,9 +101,9 @@
 		<p2.composite.repository destination="file:${repoLocation}" >
 			<add location="file:${sdkResults}/repository" />
 			<add location="file:${e4Results}/repository" />
-			<add location="file:${target}/emf" />
-			<add location="file:${target}/gef" />
-			<add location="file:${target}/wtp" />
+			<add location="file:${e4.targetDir}/emf" />
+			<add location="file:${e4.targetDir}/gef" />
+			<add location="file:${e4.targetDir}/wtp" />
 		</p2.composite.repository>
 		
 		<!--Unlock files on the Mac before starting tests.
