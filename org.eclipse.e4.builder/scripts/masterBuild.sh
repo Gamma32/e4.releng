@@ -249,7 +249,8 @@ runTheTests () {
 
     cd $testDir/eclipse-testing
 
-    cp $sdkResults/eclipse-SDK-I${buildTimestamp}-linux-gtk${archProp}.tar.gz  .
+	echo "Copying eclipse SDK archive to tests." 
+    cp $sdkResults/eclipse-SDK-*-linux-gtk${archProp}.tar.gz  .
 
     cat $buildDirectory/test.properties >> test.properties
     cat $buildDirectory/label.properties >> label.properties
@@ -257,6 +258,7 @@ runTheTests () {
 	echo "sdkResults=$sdkResults" >> label.properties
 	echo "e4Results=$buildResults" >> label.properties
 
+	echo "Copying test framework."
     cp -r ${builderDir}/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
