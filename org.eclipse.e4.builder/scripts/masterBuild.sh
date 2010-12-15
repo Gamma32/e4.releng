@@ -64,6 +64,7 @@ commonProperties () {
     buildDirectory=$buildDir/I$buildTimestamp
     testDir=$buildDirectory/tests
     buildResults=$buildDirectory/I$buildTimestamp
+    sdkResults=$buildDir/40Build/I$buildTimestamp/I$buildTimestamp
     relengBaseBuilderDir=$supportDir/org.eclipse.releng.basebuilder
     buildDirEclipse="$buildDir/eclipse"
     WORKSPACE="$buildDir/workspace"
@@ -154,26 +155,6 @@ cd $WORKSPACE
 
 }
 
-run40Build () {
-	cd $WORKSPACE
-	chmod -R 755 $WORKSPACE/org.eclipse.releng.eclipsebuilder/runIBuilde4
-	chmod -R 755 $WORKSPACE/org.eclipse.releng.eclipsebuilder/*.sh
-	
-	echo WORKSPACE $WORKSPACE
-	
-	export WORKSPACE="${WORKSPACE}"
-	#$WORKSPACE/org.eclipse.releng.eclipsebuilder/runIBuilde4
-	mkdir -p $WORKSPACE/builds
-	cd $WORKSPACE/builds
-	mkdir -p $WORKSPACE/builds/I
-	#mkdir -p $WORKSPACE/builds/transfer/files/testUpdates-I
-	updateDir=$targetDir/updates/4.1-I-builds
-	rm -f $updateDir/build_done.txt
-	$WORKSPACE/org.eclipse.releng.eclipsebuilder/bootstrapHudsone4.sh -test -skipTest -buildDirectory $WORKSPACE/builds/I -sign -updateSite $updateDir I
-	/bin/bash ${builderDir}/scripts/sync.sh
-	/bin/bash ${builderDir}/scripts/publishLong.sh
-}
-
 runSDKBuild () {
 	cd $supportDir
 
@@ -191,8 +172,8 @@ runSDKBuild () {
 	  -Dorg.eclipse.e4.builder=$supportDir/org.eclipse.e4.builder \
 	  -Declipse.build.configs=$supportDir/org.eclipse.releng.eclipsebuilder/eclipse/buildConfigs \
 	  -DbuildType=I \
-	  -Dbuilddate=$( date +%Y%m%d ) \
-	  -Dbuildtime=$( date +%H%M ) \
+	  -Dbuilddate=$builddate \
+	  -Dbuildtime=$buildtime \
 	  -Dbase=$buildDir/40builds \
 	  -DupdateSite=$targetDir/updates/4.1-I-builds
 	"   
@@ -268,7 +249,7 @@ runTheTests () {
 
     cd $testDir/eclipse-testing
 
-    cp $buildResults/eclipse-e4-SDK-incubation-I${buildTimestamp}-linux-gtk${archProp}.tar.gz  .
+    cp $sdkResults/eclipse-SDK-I${buildTimestamp}-linux-gtk${archProp}.tar.gz  .
 
     cat $buildDirectory/test.properties >> test.properties
     cat $buildDirectory/label.properties >> label.properties
