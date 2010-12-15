@@ -254,6 +254,8 @@ runTheTests () {
     cat $buildDirectory/test.properties >> test.properties
     cat $buildDirectory/label.properties >> label.properties
 
+	echo "sdkResults=$sdkResults" >> label.properties
+	echo "e4Results=$buildResults" >> label.properties
 
     cp -r ${builderDir}/builder/general/tests/* .
 
