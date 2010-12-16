@@ -171,7 +171,7 @@
 		<antcall target="gatherLogs" />
 
 		<!--sign the build --> 
-		<ant antfile="${builder}/sign.xml" dir="${basedir}" target="createSigningArchive" >
+		<ant antfile="${org.eclipse.e4.builder}/builder/general/sign.xml" dir="${basedir}" target="createSigningArchive" >
 			<property name="includesFile" value="${buildDirectory}/built.list" />
 		</ant>
 		<ant antfile="${org.eclipse.e4.builder}/builder/general/sign.xml" dir="${basedir}" target="signMasterFeature" />
