@@ -1,9 +1,9 @@
 !***************  FEATURE CONTRIBUTION  ******************************************************
-feature@org.eclipse.sdk=v20101004,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.sdk
+feature@org.eclipse.sdk=v20101214,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.sdk
 plugin@org.eclipse.sdk=v20101014-1600,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 feature@org.eclipse.platform=v20101006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.platform-feature
-plugin@org.eclipse.platform=v20101125-1630,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.platform=v20101202-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 feature@org.eclipse.jdt=p2IU,id=org.eclipse.jdt.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.pde=p2IU,id=org.eclipse.pde.feature.jar,repository=ECLIPSE_PLATFORM_REPO
@@ -11,4 +11,3 @@ feature@org.eclipse.cvs=p2IU,id=org.eclipse.cvs.feature.jar,repository=ECLIPSE_P
 plugin@org.eclipse.cvs=p2IU,id=org.eclipse.cvs,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.help=p2IU,id=org.eclipse.help.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.equinox.p2.user.ui=p2IU,id=org.eclipse.equinox.p2.user.ui.feature.jar,repository=ECLIPSE_PLATFORM_REPO
-
