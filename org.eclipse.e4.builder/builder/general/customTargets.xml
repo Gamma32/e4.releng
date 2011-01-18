@@ -83,15 +83,28 @@
 	<target name="preSetup">
 	</target>
 
+	<target name="initLocations" >
+	<!-- figure out what the most recent eclipse IBuild is -->
+		<get src="${eclipseRepoURL}/compositeContent.jar" dest="${buildDirectory}/temp.jar" />
+		<unzip src="${buildDirectory}/temp.jar" dest="${buildDirectory}/latest" />
+		<delete file="${buildDirectory}/temp.jar" />
+		<replaceregexp 	byline="false" file="${buildDirectory}/latest/compositeContent.xml"
+						flags="s"
+						match=".*location\s*=\s*'(.+)'.*" 
+						replace="eclipseBuildId=\1\n" />
+		<property file="${buildDirectory}/latest/compositeContent.xml" />
+		<property name="eclipseRepoURL-latest" value="${eclipseRepoURL}/${eclipseBuildId}" />
+	</target>
+	
 	<!-- ===================================================================== -->
 	<!-- Steps to do after setup but before starting the build proper -->
 	<!-- ===================================================================== -->
-	<target name="postSetup">
+	<target name="postSetup" depends="initLocations">
 		<antcall target="getBaseComponents" />
 		
-		<echo message="Mirror from ${eclipseRepoURL} to ${repoBaseLocation}/eclipseSDK" />
+		<echo message="Mirror from ${eclipseRepoURL-latest} to ${repoBaseLocation}/eclipseSDK" />
 		<p2.mirror destination="file:${repoBaseLocation}/eclipseSDK" ignoreerrors="true">
-			<source location="${eclipseRepoURL}" />
+			<source location="${eclipseRepoURL-latest}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true"/>
 			<iu id="org.eclipse.sdk.ide" />
 			<!--<iu id="org.eclipse.equinox.core.sdk.feature.group" /> -->
