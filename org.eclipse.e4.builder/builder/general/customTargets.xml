@@ -91,7 +91,7 @@
 		<replaceregexp 	byline="false" file="${buildDirectory}/latest/compositeContent.xml"
 						flags="s"
 						match=".*location\s*=\s*'(.+)'.*" 
-						replace="eclipseBuildId=\1\n" />
+						replace="eclipseBuildId=\1" />
 		<property file="${buildDirectory}/latest/compositeContent.xml" />
 		<property name="eclipseRepoURL-latest" value="${eclipseRepoURL}/${eclipseBuildId}" />
 	</target>
