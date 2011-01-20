@@ -8,7 +8,7 @@ cd $supportDir
 cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse update \
   -d org.eclipse.e4.builder_HEAD
 cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse update \
-  -d org.eclipse.e4.sdk
+  -d org.eclipse.e4.sdk_HEAD
 cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse update \
   -d org.eclipse.releng.eclipsebuilder
 

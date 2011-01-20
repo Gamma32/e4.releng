@@ -19,7 +19,8 @@
 	<!-- ===================================================================== -->
 	<target name="getMapFiles" depends="checkLocalMaps" unless="skipMaps">
 		<property name="mapsCheckoutTag" value="HEAD" />
-		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
+		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot_sdk}" dest="${buildDirectory}/maps" tag="R4_1_SDK_LONGBUILD" />
+		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot_e4}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
 		<replace dir="${buildDirectory}/maps/" value="${eclipseRepoURL}" token="ECLIPSE_PLATFORM_REPO" />
 	</target>
 
@@ -28,7 +29,8 @@
 	</target>
 
 	<target name="tagMapFiles" if="tagMaps">
-		<cvs dest="${buildDirectory}/maps/${mapsRoot}" command="tag ${mapsTagTag}" />
+		<cvs dest="${buildDirectory}/maps/${mapsRoot_sdk}" command="tag ${mapsTagTag}" />
+		<cvs dest="${buildDirectory}/maps/${mapsRoot_e4}" command="tag ${mapsTagTag}" />
 	</target>
 
 	<!-- ===================================================================== -->
@@ -75,34 +77,12 @@
 			<iu id="org.junit" version="0.0.0" />
 			<iu id="org.junit.source" version="0.0.0" />
 		</p2.mirror>
-		<echo message="Mirror from ${e4RepoURL} to ${localRepoLocation}" />
-		<p2.mirror destination="file:${localRepoLocation}" ignoreerrors="true">
-			<source location="${e4RepoURL}" />
-			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true"/>
-			<iu id="org.eclipse.e4.ui.source.feature.feature.group" />
-			<iu id="org.eclipse.e4.ui.css.source.feature.feature.group" />
-		</p2.mirror>
 		<echo message="Mirror from ${indigoRepoURL} to ${localRepoLocation}" />
 		<p2.mirror destination="file:${localRepoLocation}" ignoreerrors="true">
 			<source location="${indigoRepoURL}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true" />
 			<iu id="org.apache.commons.beanutils" />
 		</p2.mirror>
-		<p2.remove.iu>
-			<repository location="file:${localRepoLocation}" />
-			<iu id="org.eclipse.rap.jface" />
-			<iu id="org.eclipse.rap.rwt" />
-			<iu id="org.eclipse.rap.ui.forms" />
-		</p2.remove.iu>
-
-		<!-- work around bug 328405 -->
-		<p2.repo2runnable destination="${transformedRepoLocation}" failOnError="false">
-			<source>
-				<repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.7milestones/base/"/>
-			</source>
-			<iu id="org.eclipse.emf.ecore.feature.jar" version=""/>
-			<iu id="org.eclipse.emf.common.feature.jar" version="" />
-		</p2.repo2runnable>
 	</target>
 
 	<!-- ===================================================================== -->
@@ -191,15 +171,18 @@
 		<antcall target="gatherLogs" />
 
 		<!--sign the build --> 
+		<ant antfile="${org.eclipse.e4.builder}/builder/general/sign.xml" dir="${basedir}" target="createSigningArchive" >
+			<property name="includesFile" value="${buildDirectory}/built.list" />
+		</ant>
 		<ant antfile="${org.eclipse.e4.builder}/builder/general/sign.xml" dir="${basedir}" target="signMasterFeature" />
 		
 		<!--unzip signed build over top of the repository -->
-		<unzip dest="${p2.repo}" src="${buildDirectory}/${buildLabel}/eclipse-master-${buildId}.zip" />
+		<unzip dest="${p2.repo}" src="${signingArchive}" />
 
 		<!-- use eclipse.jarProcessor directly instead of the "pack" on p2.process.artifacts so that we 
 		     can specify the file to pack instead of doing everything -->
 		<eclipse.jarProcessor inputFolder="${p2.repo}" pack="true" >
-			<file dir="${p2.repo}" includesfile="${buildDirectory}/pack.list" />
+			<file dir="${p2.repo}" includesfile="${buildDirectory}/built.list" />
 		</eclipse.jarProcessor>
 		<!--update repository with new checksums for signed bundles -->
 		<p2.process.artifacts repositoryPath="file://${p2.repo}" />
@@ -237,7 +220,7 @@
 			<source location="file:${localRepoLocation}" />
 			<slicingOptions includeNonGreedy="false" />
 			<iu id="org.eclipse.rcp.configuration.feature.group" />
-			<iu id="org.eclipse.e4.rcp.feature.group" />
+			<!--<iu id="org.eclipse.e4.rcp.feature.group" /> -->
 		</p2.mirror>
 
 		<filter token="BUILD_ID" value="${buildLabel}" />
@@ -285,12 +268,12 @@
 	<target name="provision.e4">
 		<property name="p2.sdk.install" value="${buildDirectory}/${buildId}/p2temp/sdk.install" />
 		<parallel failonany="true" threadCount='4'>
-			<sequential> <callDirector os="win32"  ws="win32" arch="x86" archiveFormat="zip" archiveSuffix="win32" />        </sequential>
+			<sequential> <callDirector os="win32"  ws="win32" arch="x86"    archiveFormat="zip" archiveSuffix="win32" />        </sequential>
 			<sequential> <callDirector os="win32"  ws="win32" arch="x86_64" archiveFormat="zip" archiveSuffix="win32-x86_64" />        </sequential>
-			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86" archiveFormat="tar" archiveSuffix="linux-gtk" />    </sequential>
+			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86"    archiveFormat="tar" archiveSuffix="linux-gtk" />    </sequential>
 			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86_64" archiveFormat="tar" archiveSuffix="linux-gtk-x86_64" />    </sequential>
-			<sequential> <callDirector os="linux"  ws="gtk"   arch="ppc64" archiveFormat="tar" archiveSuffix="linux-gtk-ppc64" />    </sequential>
-			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86" archiveFormat="tar" archiveSuffix="macosx-cocoa" /> </sequential>
+			<sequential> <callDirector os="linux"  ws="gtk"   arch="ppc64"  archiveFormat="tar" archiveSuffix="linux-gtk-ppc64" />    </sequential>
+			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86"    archiveFormat="tar" archiveSuffix="macosx-cocoa" /> </sequential>
 			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86_64" archiveFormat="tar" archiveSuffix="macosx-cocoa-x86_64" /> </sequential>
 		</parallel>
 	</target>

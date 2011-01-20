@@ -1,9 +1,12 @@
 <project name="Automated Eclipse Testing" default="all" basedir=".">
 
 
+	
 	<!--properties file containing the build information-->
 	<property file="label.properties" />
 
+	<property name="runtimeArchivePrefix" value="eclipse-SDK" />
+	
 	<!--default directory where test-eclipse will be installed-->
 	<property name="install" value="${basedir}/test-eclipse" />
 
@@ -13,9 +16,7 @@
 	<!-- The root of the eclipse installation -->
 	<property name="eclipse-home" value="${install}/eclipse" />
 
-	<property name="repoLocation" value="${basedir}/../../${e4.buildLabel}/repository"/>
-
-	<property name="testRepo" value="${basedir}/testRepo"/>
+	<property name="repoLocation" value="${basedir}/testComposite"/>
 
 	<!-- The directory that will contain all files containing information on the tests that ran.-->
 	<property name="results" value="${basedir}/results" />
@@ -28,6 +29,7 @@
 	<property name="org.eclipse.test" value="org.eclipse.test_3.3.0" />
 
 	<target name="setup" unless="noclean" depends="init">
+		<echo message="Runtime Archive is ${runtimeArchive}" />
 		<condition property="setupTarget" value="setup-zip">
 			<contains string="${runtimeArchive}" substring=".zip" />
 		</condition>
@@ -95,6 +97,15 @@
 		<mkdir dir="${results}/html" />
 		<mkdir dir="${junit-report-output}" />
 
+		<mkdir dir="${repoLocation}"/>
+		<p2.composite.repository destination="file:${repoLocation}" >
+			<add location="file:${sdkResults}/repository" />
+			<add location="file:${e4Results}/repository" />
+			<add location="file:${e4.targetDir}/emf" />
+			<add location="file:${e4.targetDir}/gef" />
+			<add location="file:${e4.targetDir}/wtp" />
+		</p2.composite.repository>
+		
 		<!--Unlock files on the Mac before starting tests.
 		  Required to delete some workspace directories (org.eclipse.core.filebuffers.tests and Team CVS tests).-->
 		<exec dir="${basedir}" executable="chflags" os="Mac OS X">
@@ -103,132 +114,8 @@
 	</target>
 
 	<target name="setRuntimeArchive">
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${buildId}-win32.zip">
-			<and>
-				<equals arg1="${os}" arg2="win32" />
-				<equals arg1="${ws}" arg2="win32" />
-				<equals arg1="${arch}" arg2="x86" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${buildId}-win32-wpf.zip">
-			<and>
-				<equals arg1="${os}" arg2="win32" />
-				<equals arg1="${ws}" arg2="wpf" />
-				<equals arg1="${arch}" arg2="x86" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${buildId}-win32-win32-x86_64.zip">
-			<and>
-				<equals arg1="${os}" arg2="win32" />
-				<equals arg1="${ws}" arg2="win32" />
-				<equals arg1="${arch}" arg2="x86_64" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-linux-gtk.tar.gz">
-			<and>
-				<equals arg1="${os}" arg2="linux" />
-				<equals arg1="${ws}" arg2="gtk" />
-				<equals arg1="${arch}" arg2="x86" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-linux-gtk-x86_64.tar.gz">
-			<and>
-				<equals arg1="${os}" arg2="linux" />
-				<equals arg1="${ws}" arg2="gtk" />
-				<equals arg1="${arch}" arg2="x86_64" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-linux-motif.tar.gz">
-			<and>
-				<equals arg1="${os}" arg2="linux" />
-				<equals arg1="${ws}" arg2="motif" />
-				<equals arg1="${arch}" arg2="x86" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-linux-gtk-ppc.tar.gz">
-			<and>
-				<equals arg1="${os}" arg2="linux" />
-				<equals arg1="${ws}" arg2="gtk" />
-				<equals arg1="${arch}" arg2="ppc" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-linux-gtk-x86_64.tar.gz">
-			<and>
-				<equals arg1="${os}" arg2="linux" />
-				<equals arg1="${ws}" arg2="gtk" />
-				<equals arg1="${arch}" arg2="ppc" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-macosx-carbon.tar.gz">
-			<and>
-				<equals arg1="${os}" arg2="macosx" />
-				<equals arg1="${ws}" arg2="carbon" />
-				<equals arg1="${arch}" arg2="ppc" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-macosx-carbon.tar.gz">
-			<and>
-				<equals arg1="${os}" arg2="macosx" />
-				<equals arg1="${ws}" arg2="carbon" />
-				<equals arg1="${arch}" arg2="x86" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-macosx-cocoa-ppc.tar.gz">
-			<and>
-				<equals arg1="${os}" arg2="macosx" />
-				<equals arg1="${ws}" arg2="cocoa" />
-				<equals arg1="${arch}" arg2="ppc" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-macosx-cocoa.tar.gz">
-			<and>
-				<equals arg1="${os}" arg2="macosx" />
-				<equals arg1="${ws}" arg2="cocoa" />
-				<equals arg1="${arch}" arg2="x86" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-macosx-cocoa-x86_64.tar.gz">
-			<and>
-				<equals arg1="${os}" arg2="macosx" />
-				<equals arg1="${ws}" arg2="cocoa" />
-				<equals arg1="${arch}" arg2="x86_64" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-hpux-motif.zip">
-			<and>
-				<equals arg1="${os}" arg2="hpux" />
-				<equals arg1="${ws}" arg2="motif" />
-				<equals arg1="${arch}" arg2="PA_RISC" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-hpux-motif.zip">
-			<and>
-				<equals arg1="${os}" arg2="hpux" />
-				<equals arg1="${ws}" arg2="motif" />
-				<equals arg1="${arch}" arg2="ia64_32" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-solaris-motif.zip">
-			<and>
-				<equals arg1="${os}" arg2="solaris" />
-				<equals arg1="${ws}" arg2="motif" />
-				<equals arg1="${arch}" arg2="sparc" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-solaris-gtk.zip">
-			<and>
-				<equals arg1="${os}" arg2="solaris" />
-				<equals arg1="${ws}" arg2="gtk" />
-				<equals arg1="${arch}" arg2="sparc" />
-			</and>
-		</condition>
-		<condition property="runtimeArchive" value="eclipse-e4-SDK-incubation-${e4.buildLabel}-aix-motif.zip">
-			<and>
-				<equals arg1="${os}" arg2="aix" />
-				<equals arg1="${ws}" arg2="motif" />
-				<equals arg1="${arch}" arg2="ppc" />
-			</and>
-		</condition>
+		<fileset id="archive.id" dir="${basedir}" includes="${runtimeArchivePrefix}*" />
+		<property name="runtimeArchive" refid="archive.id" />
 	</target>
 
 	<target name="setJVMProperties" depends="setJVMfromUserSpecified">

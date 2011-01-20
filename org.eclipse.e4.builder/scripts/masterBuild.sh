@@ -64,6 +64,7 @@ commonProperties () {
     buildDirectory=$buildDir/I$buildTimestamp
     testDir=$buildDirectory/tests
     buildResults=$buildDirectory/I$buildTimestamp
+    sdkResults=$buildDir/40Build/I$buildTimestamp/I$buildTimestamp
     relengBaseBuilderDir=$supportDir/org.eclipse.releng.basebuilder
     buildDirEclipse="$buildDir/eclipse"
     WORKSPACE="$buildDir/workspace"
@@ -154,28 +155,8 @@ cd $WORKSPACE
 
 }
 
-run40Build () {
-cd $WORKSPACE
-chmod -R 755 $WORKSPACE/org.eclipse.releng.eclipsebuilder/runIBuilde4
-chmod -R 755 $WORKSPACE/org.eclipse.releng.eclipsebuilder/*.sh
-
-echo WORKSPACE $WORKSPACE
-
-export WORKSPACE="${WORKSPACE}"
-#$WORKSPACE/org.eclipse.releng.eclipsebuilder/runIBuilde4
-mkdir -p $WORKSPACE/builds
-cd $WORKSPACE/builds
-mkdir -p $WORKSPACE/builds/I
-#mkdir -p $WORKSPACE/builds/transfer/files/testUpdates-I
-updateDir=$targetDir/updates/4.1-I-builds
-rm -f $updateDir/build_done.txt
-$WORKSPACE/org.eclipse.releng.eclipsebuilder/bootstrapHudsone4.sh -test -skipTest -buildDirectory $WORKSPACE/builds/I -sign -updateSite $updateDir I
-/bin/bash ${builderDir}/scripts/sync.sh
-/bin/bash ${builderDir}/scripts/publishLong.sh
-}
-
 runSDKBuild () {
-cd $supportDir
+	cd $supportDir
 
     cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.releng.eclipsebuilder "
     echo $cmd
@@ -187,20 +168,19 @@ cd $supportDir
       -cp $cpAndMain \
       -application org.eclipse.ant.core.antRunner  \
       -buildfile $buildfile \
-  -Dbuilder=$supportDir/org.eclipse.e4.sdk/builder \
-  -Dorg.eclipse.e4.builder=$supportDir/org.eclipse.e4.builder \
-  -Declipse.build.configs=$supportDir/org.eclipse.releng.eclipsebuilder/eclipse/buildConfigs \
-  -DbuildType=I \
-  -Dbuilddate=$( date +%Y%m%d ) \
-  -Dbuildtime=$( date +%H%M ) \
-  -Dbase=$buildDir/40builds \
-  -DupdateSite=$targetDir/updates/4.1-I-builds
-"   
+	  -Dbuilder=$supportDir/org.eclipse.e4.sdk/builder \
+	  -Dorg.eclipse.e4.builder=$supportDir/org.eclipse.e4.builder \
+	  -Declipse.build.configs=$supportDir/org.eclipse.releng.eclipsebuilder/eclipse/buildConfigs \
+	  -DbuildType=I \
+	  -Dbuilddate=$builddate \
+	  -Dbuildtime=$buildtime \
+	  -Dbase=$buildDir/40builds \
+	  -DupdateSite=$targetDir/updates/4.1-I-builds
+	"   
     echo $cmd
     $cmd
-/bin/bash ${builderDir}/scripts/sync.sh
-/bin/bash ${builderDir}/scripts/publish.sh
-
+	/bin/bash ${builderDir}/scripts/sync.sh
+	/bin/bash ${builderDir}/scripts/publish.sh
 }
 
 
@@ -269,12 +249,16 @@ runTheTests () {
 
     cd $testDir/eclipse-testing
 
-    cp $buildResults/eclipse-e4-SDK-incubation-I${buildTimestamp}-linux-gtk${archProp}.tar.gz  .
+	echo "Copying eclipse SDK archive to tests." 
+    cp $sdkResults/eclipse-SDK-*-linux-gtk${archProp}.tar.gz  .
 
     cat $buildDirectory/test.properties >> test.properties
     cat $buildDirectory/label.properties >> label.properties
 
+	echo "sdkResults=$sdkResults" >> label.properties
+	echo "e4Results=$buildResults" >> label.properties
 
+	echo "Copying test framework."
     cp -r ${builderDir}/builder/general/tests/* .
 
     ./runtests -os linux -ws gtk \
@@ -380,6 +364,8 @@ cd ${builderDir}/scripts
 
 echo "[start] [`date +%H\:%M\:%S`] setting eclipse $eclipseIBuild"
 
+runSDKBuild
+
 buildMasterFeature
 
 # copy some other logs
@@ -405,8 +391,5 @@ if [ ! -z "$publishDir" ]; then
     sleep 60
     wget -O index.txt http://download.eclipse.org/e4/downloads/createIndex.php
     scp index.txt "$publishIndex"/index.html
-    #update40Workspace
-    #run40Build
-    runSDKBuild
 fi
 
