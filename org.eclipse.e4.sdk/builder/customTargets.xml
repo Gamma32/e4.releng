@@ -17,11 +17,11 @@
 	<!-- Check out map files from correct repository -->
 	<!-- Replace values for mapsCheckoutTag as desired. -->
 	<!-- ===================================================================== -->
-	<target name="getMapFiles" depends="checkLocalMaps" unless="skipMaps">
+	<target name="getMapFiles" depends="checkLocalMaps,initLocations" unless="skipMaps">
 		<property name="mapsCheckoutTag" value="HEAD" />
 		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot_sdk}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
 		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot_e4}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
-		<replace dir="${buildDirectory}/maps/" value="${eclipseRepoURL}" token="ECLIPSE_PLATFORM_REPO" />
+		<replace dir="${buildDirectory}/maps/" value="${eclipseRepoURL-latest}" token="ECLIPSE_PLATFORM_REPO" />
 	</target>
 
 	<target name="checkLocalMaps">
@@ -59,20 +59,40 @@
 	<target name="preSetup">
 	</target>
 
+	<target name="downloadComposite" unless="latestComposite" >
+		<get src="${eclipseRepoURL}/compositeContent.jar" dest="${buildDirectory}/temp.jar" />
+		<unzip src="${buildDirectory}/temp.jar" dest="${buildDirectory}/latest" />
+		<delete file="${buildDirectory}/temp.jar" />
+		<replaceregexp 	byline="false" file="${buildDirectory}/latest/compositeContent.xml"
+						flags="s"
+						match=".*location\s*=\s*'(.+)'.*" 
+						replace="eclipseBuildId=\1" />
+	</target>
+		
+	<target name="initLocations" >
+		<available file="${buildDirectory}/latest/compositeContent.xml" property="latestComposite" />
+		<antcall target="downloadComposite" />
+		
+		<!-- figure out what the most recent eclipse IBuild is -->
+		<property file="${buildDirectory}/latest/compositeContent.xml" />
+		<property name="eclipseRepoURL-latest" value="${eclipseRepoURL}/${eclipseBuildId}" />
+		<echo message="${eclipseRepoURL-latest}" />
+	</target>
+	
 	<!-- ===================================================================== -->
 	<!-- Steps to do after setup but before starting the build proper -->
 	<!-- ===================================================================== -->
-	<target name="postSetup">
-		<echo message="Mirror from ${eclipseRepoURL} to ${localRepoLocation}" />
+	<target name="postSetup" depends="initLocations">
+		<echo message="Mirror from ${eclipseRepoURL-latest} to ${localRepoLocation}" />
 		<p2.mirror destination="file:${localRepoLocation}" ignoreerrors="true">
-			<source location="${eclipseRepoURL}" />
+			<source location="${eclipseRepoURL-latest}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true"/>
 			<iu id="org.eclipse.sdk.ide" />
 			<iu id="org.eclipse.equinox.core.sdk.feature.group" />
 			<iu id="org.eclipse.equinox.p2.user.ui.source.feature.group" />
 		</p2.mirror>
 		<p2.mirror destination="file:${localRepoLocation}" ignoreerrors="true">
-			<source location="${eclipseRepoURL}" />
+			<source location="${eclipseRepoURL-latest}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" />
 			<iu id="org.junit" version="0.0.0" />
 			<iu id="org.junit.source" version="0.0.0" />
