@@ -1,9 +1,9 @@
 !***************  FEATURE CONTRIBUTION  ******************************************************
 feature@org.eclipse.sdk=v20101214,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.sdk
-plugin@org.eclipse.sdk=v20101014-1600,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.sdk=v20110127-2200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 feature@org.eclipse.platform=v20101006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.platform-feature
-plugin@org.eclipse.platform=v20110113-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.platform=v20110127-2200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 feature@org.eclipse.jdt=p2IU,id=org.eclipse.jdt.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.pde=p2IU,id=org.eclipse.pde.feature.jar,repository=ECLIPSE_PLATFORM_REPO
