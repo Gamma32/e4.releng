@@ -6,7 +6,7 @@ feature@org.eclipse.e4.rcp=v20101201-1400,:pserver:anonymous@dev.eclipse.org:/cv
 
 !**** Workbench Compatibility
 
-plugin@org.eclipse.e4.ui.workbench.addons.swt=v20110126-2200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.addons.swt
+plugin@org.eclipse.e4.ui.workbench.addons.swt=v20110127-2200a,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.addons.swt
 plugin@org.eclipse.ui.workbench=v20110124-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/bundles/org.eclipse.ui.workbench
 plugin@org.eclipse.ui=v20100924-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
