@@ -26,7 +26,7 @@
 	<property name="junit-report-output" value="${results}/${platform}" />
 
 	<!--Directory name of org.eclipse.test plug-in installed in ${eclipse-home}-->
-	<property name="org.eclipse.test" value="org.eclipse.test_3.3.0" />
+	<property name="org.eclipse.test" value="org.eclipse.test_3.3.100" />
 
 	<target name="setup" unless="noclean" depends="init">
 		<echo message="Runtime Archive is ${runtimeArchive}" />
@@ -204,6 +204,7 @@
 		</antcall>
 		<!--library.xml is now in dropins folder -->
 		<property name="library-file" value="${eclipse-home}/plugins/${org.eclipse.test}/library.xml" />
+		<property name="junit-stylesheet" value="${eclipse-home}/plugins/${org.eclipse.test}/JUNIT.XSL" />
 		<echo>trying to find ${testPlugin}_v*</echo>
 		<fileset id="test.plugin.file" dir="${eclipse-home}/plugins">
 			<filename name="${testPlugin}_*/test.xml"/>
