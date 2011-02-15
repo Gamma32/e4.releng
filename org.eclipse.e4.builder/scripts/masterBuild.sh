@@ -64,7 +64,7 @@ commonProperties () {
     buildDirectory=$buildDir/I$buildTimestamp
     testDir=$buildDirectory/tests
     buildResults=$buildDirectory/I$buildTimestamp
-    sdkResults=$buildDir/40Build/I$buildTimestamp/I$buildTimestamp
+    sdkResults=$buildDir/40builds/I$buildTimestamp/I$buildTimestamp
     relengBaseBuilderDir=$supportDir/org.eclipse.releng.basebuilder
     buildDirEclipse="$buildDir/eclipse"
     WORKSPACE="$buildDir/workspace"
