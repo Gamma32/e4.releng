@@ -1,7 +1,7 @@
 plugin@org.eclipse.platform.discovery.core=GIT,tag=v20101129-0900,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=bundles/org.eclipse.platform.discovery.core
 plugin@org.eclipse.platform.discovery.integration=GIT,tag=v20110125-1300,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=bundles/org.eclipse.platform.discovery.integration
 plugin@org.eclipse.platform.discovery.runtime=GIT,tag=v20101129-0900,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=bundles/org.eclipse.platform.discovery.runtime
-plugin@org.eclipse.platform.discovery.ui=GIT,tag=v20110215-0845,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=bundles/org.eclipse.platform.discovery.ui
+plugin@org.eclipse.platform.discovery.ui=GIT,tag=v20110215-0945,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=bundles/org.eclipse.platform.discovery.ui
 plugin@org.eclipse.platform.discovery.util=GIT,tag=v20110215-0845,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=bundles/org.eclipse.platform.discovery.util
 
 plugin@org.eclipse.platform.discovery.core.test.unit=GIT,tag=v20110215-0845,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.core.test.unit
