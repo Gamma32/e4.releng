@@ -355,7 +355,7 @@
 		<copy filtering="true" file="${builder}/../../templates/build.index.html" tofile="${buildDirectory}/${buildLabel}/index.html" />
 		<copy filtering="true" file="${builder}/tests/build.label.properties" tofile="${buildDirectory}/label.properties" />
 		
-		<echo message="e4.targetDir=${repoBaseLocation}" file="${buildDirectory}/label.properties" append="true" />
+		<echo message="e4.targetDir=${repoBaseLocation}${line.separator}" file="${buildDirectory}/label.properties" append="true" />
 	</target>
 
 	<!-- ===================================================================== -->
