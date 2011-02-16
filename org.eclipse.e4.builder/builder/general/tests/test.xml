@@ -97,7 +97,7 @@
 		<mkdir dir="${results}/html" />
 		<mkdir dir="${junit-report-output}" />
 
-		<properties file="${sdkResults}/../eclipseRepoURL.properties"/>
+		<property file="${sdkResults}/../eclipseRepoURL.properties"/>
 		
 		<mkdir dir="${repoLocation}"/>
 		<p2.composite.repository destination="file:${repoLocation}" >
