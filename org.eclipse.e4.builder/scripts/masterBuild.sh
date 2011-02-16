@@ -64,7 +64,10 @@ commonProperties () {
     buildDirectory=$buildDir/I$buildTimestamp
     testDir=$buildDirectory/tests
     buildResults=$buildDirectory/I$buildTimestamp
+    
     sdkResults=$buildDir/40builds/I$buildTimestamp/I$buildTimestamp
+    sdkBuildDirectory=$buildDir/40builds/I$buildTimestamp
+		
     relengBaseBuilderDir=$supportDir/org.eclipse.releng.basebuilder
     buildDirEclipse="$buildDir/eclipse"
     WORKSPACE="$buildDir/workspace"
@@ -183,7 +186,28 @@ runSDKBuild () {
 	/bin/bash ${builderDir}/scripts/publish.sh
 }
 
+runSDKTests() {
+    mkdir -p $sdkBuildDirectory/eclipse-testing
+    cd $sdkBuildDirectory/eclipse-testing
 
+	echo "Copying eclipse SDK archive to tests." 
+    cp $sdkResults/eclipse-SDK-*-linux-gtk${archProp}.tar.gz  .
+
+    cat $sdkBuildDirectory/test.properties >> test.properties
+    cat $sdkBuildDirectory/label.properties >> label.properties
+
+	echo "sdkResults=$sdkResults" >> label.properties
+
+	echo "Copying test framework."
+    cp -r ${builderDir}/builder/general/tests/* .
+
+    ./runtests -os linux -ws gtk -arch ${arch} sdk
+
+    mkdir -p $sdkResults/results
+    cp -r results/* $sdkResults/results
+
+    cp ${builderDir}/templates/build.testResults.html $sdkResults/testResults.html
+}
 
 copyCompileLogs () {
     pushd $buildResults
@@ -376,6 +400,7 @@ generateRepoHtml
 #generateSwtZip
 
 # try some tests
+runSDKTests
 runTheTests e4less
 
 cp /shared/eclipse/e4/logs/current.log \

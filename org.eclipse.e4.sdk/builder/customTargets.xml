@@ -59,26 +59,30 @@
 	<target name="preSetup">
 	</target>
 
-	<target name="downloadComposite" unless="latestComposite" >
-		<get src="${eclipseRepoURL}/compositeContent.jar" dest="${buildDirectory}/temp.jar" />
-		<unzip src="${buildDirectory}/temp.jar" dest="${buildDirectory}/latest" />
-		<delete file="${buildDirectory}/temp.jar" />
-		<replaceregexp 	byline="false" file="${buildDirectory}/latest/compositeContent.xml"
-						flags="s"
-						match=".*location\s*=\s*'(.+)'.*" 
-						replace="eclipseBuildId=\1" />
-	</target>
-		
 	<target name="initLocations" >
-		<available file="${buildDirectory}/latest/compositeContent.xml" property="latestComposite" />
-		<antcall target="downloadComposite" />
-		
-		<!-- figure out what the most recent eclipse IBuild is -->
-		<property file="${buildDirectory}/latest/compositeContent.xml" />
-		<property name="eclipseRepoURL-latest" value="${eclipseRepoURL}/${eclipseBuildId}" />
-		<echo message="${eclipseRepoURL-latest}" />
+		<available property="repoURLFile" file="${buildDirectory}/eclipseRepoURL.properties" />
+		<antcall target="loadRepoURLFile"/>
+		<antcall target="initRepoURLFile" />
 	</target>
 	
+	<target name="loadRepoURLFile" if="repoURLFile" >
+		<properties file="${repoURLFile}"/>
+	</target>
+	
+	<target name="initRepoURLFile" unless="eclipseRepoURL-latest" >
+		<!-- figure out what the most recent eclipse IBuild is -->
+		<get src="${eclipseRepoURL}/compositeContent.jar" dest="${buildDirectory}/eclipseRepo.jar" />
+		<loadproperties>
+			<zipentry zipfile="${buildDirectory}/eclipseRepo.jar" name="compositeContent.xml" />
+			<filterchain>
+				<replaceregex pattern=".*location\s*=\s*'(.+)'.*" replace="eclipseBuildId=\1" flags="s" />
+			</filterchain>
+		</loadproperties>
+		<property name="eclipseRepoURL-latest" value="${eclipseRepoURL}/${eclipseBuildId}" />
+		<!-- store it for others -->
+		<echo message="eclipseRepoURL-latest=${eclipseRepoURL-latest}${line.separator}" file="${buildDirectory}/eclipseRepoURL.properties" />
+	</target>
+		
 	<!-- ===================================================================== -->
 	<!-- Steps to do after setup but before starting the build proper -->
 	<!-- ===================================================================== -->

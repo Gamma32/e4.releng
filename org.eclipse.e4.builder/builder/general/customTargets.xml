@@ -84,16 +84,27 @@
 	</target>
 
 	<target name="initLocations" >
-	<!-- figure out what the most recent eclipse IBuild is -->
-		<get src="${eclipseRepoURL}/compositeContent.jar" dest="${buildDirectory}/temp.jar" />
-		<unzip src="${buildDirectory}/temp.jar" dest="${buildDirectory}/latest" />
-		<delete file="${buildDirectory}/temp.jar" />
-		<replaceregexp 	byline="false" file="${buildDirectory}/latest/compositeContent.xml"
-						flags="s"
-						match=".*location\s*=\s*'(.+)'.*" 
-						replace="eclipseBuildId=\1" />
-		<property file="${buildDirectory}/latest/compositeContent.xml" />
+		<available property="repoURLFile" file="${buildDirectory}/eclipseRepoURL.properties" />
+		<antcall target="loadRepoURLFile"/>
+		<antcall target="initRepoURLFile" />
+	</target>
+	
+	<target name="loadRepoURLFile" if="repoURLFile" >
+		<properties file="${repoURLFile}"/>
+	</target>
+	
+	<target name="initRepoURLFile" unless="eclipseRepoURL-latest" >
+		<!-- figure out what the most recent eclipse IBuild is -->
+		<get src="${eclipseRepoURL}/compositeContent.jar" dest="${buildDirectory}/eclipseRepo.jar" />
+		<loadproperties>
+			<zipentry zipfile="${buildDirectory}/eclipseRepo.jar" name="compositeContent.xml" />
+			<filterchain>
+				<replaceregex pattern=".*location\s*=\s*'(.+)'.*" replace="eclipseBuildId=\1" flags="s" />
+			</filterchain>
+		</loadproperties>
 		<property name="eclipseRepoURL-latest" value="${eclipseRepoURL}/${eclipseBuildId}" />
+		<!-- store it for others -->
+		<echo message="eclipseRepoURL-latest=${eclipseRepoURL-latest}${line.separator}" file="${buildDirectory}/eclipseRepoURL.properties" />
 	</target>
 	
 	<!-- ===================================================================== -->
@@ -256,7 +267,7 @@
 	<!-- ===================================================================== -->
 	<!-- Steps to do after the build is done. -->
 	<!-- ===================================================================== -->
-	<target name="postBuild">
+	<target name="postBuild" depends="initLocations">
 		<antcall target="gatherLogs" />
 		<eclipse.convert input="${buildDirectory}/${buildLabel}/compilelogs" />
 		<available file="${p2.repo}/content.jar" property="contentJar" />
@@ -324,17 +335,7 @@
 			<param name="list.iu" value="org.eclipse.e4.workbench.sdk,org.eclipse.emf,org.eclipse.gef,org.eclipse.sdk,org.eclipse.wst.jsdt.ui,org.eclipse.xsd,org.eclipse.wst.xml_ui.feature.feature.group" />
 		</antcall>
 		<property file="${buildDirectory}/version.properties" />
-
-		<!-- figure out what the most recent eclipse IBuild is -->
-		<get src="${eclipseRepoURL}/compositeContent.jar" dest="${buildDirectory}/temp.jar" />
-		<unzip src="${buildDirectory}/temp.jar" dest="${buildDirectory}/latest" />
-		<delete file="${buildDirectory}/temp.jar" />
-		<replaceregexp 	byline="false" file="${buildDirectory}/latest/compositeContent.xml"
-						flags="s"
-						match=".*location\s*=\s*'(.+)'.*" 
-						replace="eclipseBuildId=\1\n" />
-		<property file="${buildDirectory}/latest/compositeContent.xml" />
-			
+		
 		<!-- generate the build index, guess the component version numbers -->
 		<filter token="repbuildid" value="${buildLabel}" />
 		<filter token="repmaindate" value="${repmaindate}" />
@@ -347,7 +348,7 @@
 		<filter token="eclipseIbuild" value="${org.eclipse.sdk}" />
 		<filter token="emfBuildId" value="${org.eclipse.emf}" />
 		<filter token="gefBuildId" value="${org.eclipse.gef}" />
-		<filter token="eclipseBuildURL" value="${eclipseBuildURL}${eclipseBuildId}" />
+		<filter token="eclipseBuildURL" value="${eclipseRepoURL-latest}" />
 		<filter token="emfBuildURL" value="${emfBuildURL}" />
 		<filter token="gefBuildURL" value="${gefBuildURL}" />
 		<filter token="wtpBuildURL" value="${wtpBuildURL}" />

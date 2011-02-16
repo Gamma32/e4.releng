@@ -97,6 +97,8 @@
 		<mkdir dir="${results}/html" />
 		<mkdir dir="${junit-report-output}" />
 
+		<properties file="${sdkResults}/../eclipseRepoURL.properties"/>
+		
 		<mkdir dir="${repoLocation}"/>
 		<p2.composite.repository destination="file:${repoLocation}" >
 			<add location="file:${sdkResults}/repository" />
@@ -104,6 +106,7 @@
 			<add location="file:${e4.targetDir}/emf" />
 			<add location="file:${e4.targetDir}/gef" />
 			<add location="file:${e4.targetDir}/wtp" />
+			<add location="${eclipseRepoURL-latest}"/>
 		</p2.composite.repository>
 		
 		<!--Unlock files on the Mac before starting tests.
@@ -234,6 +237,10 @@
 		<runTests testPlugin="org.eclipse.ant.tests.ui" />
 	</target>
 
+	<target name="debug">
+		<runTests testPlugin="org.eclipse.debug.tests" />
+	</target>
+		
 	<target name="compare">
 		<runTests testPlugin="org.eclipse.compare.tests" />
 	</target>
@@ -603,19 +610,31 @@
 		<antcall target="semanticUi" />
 		<antcall target="coreTests" />
 	</target>
+	
 	<target name="e4less">
-		<antcall target="cssSwt" />
-		<antcall target="cssCore" />
 		<antcall target="e4xwt" />
-		<!-- bug 331225 <antcall target="e4xwtEmf" />-->
-		<antcall target="coreServices" />
-		<antcall target="e4ui" />
 		<antcall target="e4tm" />
 		<antcall target="e4tmJavascript" />
 		<antcall target="e4Commands" />
 		<antcall target="e4bindings" />
 		<antcall target="semanticResources" />
 		<antcall target="semanticUi" />
+	</target>
+	
+	<target name="sdk">
+		<antcall target="ant" />
+		<antcall target="antui" />
+		<antcall target="debug" />
+		<antcall target="jdttext" />
+		<antcall target="jdtcompilerapt" />
+		<antcall target="jdtui" />
+		<antcall target="jface" />
+		<antcall target="pdeui" />
+		<antcall target="text" />
+		<antcall target="cssSwt" />
+		<antcall target="cssCore" />
+		<antcall target="e4ui" />
+		<antcall target="coreServices" />
 		<antcall target="coreTests" />
 	</target>
 </project>
