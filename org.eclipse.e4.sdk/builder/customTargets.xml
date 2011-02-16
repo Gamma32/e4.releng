@@ -60,8 +60,9 @@
 	</target>
 
 	<target name="initLocations" >
-		<available property="repoURLFile" file="${buildDirectory}/eclipseRepoURL.properties" />
+		<available property="repoURLFile" value="${buildDirectory}/eclipseRepoURL.properties" file="${buildDirectory}/eclipseRepoURL.properties" />
 		<antcall target="initRepoURLFile" />
+		<property name="repoURLFile" value="${buildDirectory}/eclipseRepoURL.properties" />
 		<property file="${repoURLFile}"/>
 	</target>
 	
