@@ -85,15 +85,11 @@
 
 	<target name="initLocations" >
 		<available property="repoURLFile" file="${buildDirectory}/eclipseRepoURL.properties" />
-		<antcall target="loadRepoURLFile"/>
 		<antcall target="initRepoURLFile" />
-	</target>
-	
-	<target name="loadRepoURLFile" if="repoURLFile" >
 		<property file="${repoURLFile}"/>
 	</target>
 	
-	<target name="initRepoURLFile" unless="eclipseRepoURL-latest" >
+	<target name="initRepoURLFile" unless="repoURLFile" >
 		<!-- figure out what the most recent eclipse IBuild is -->
 		<get src="${eclipseRepoURL}/compositeContent.jar" dest="${buildDirectory}/eclipseRepo.jar" />
 		<loadproperties>
@@ -102,9 +98,9 @@
 				<replaceregex pattern=".*location\s*=\s*'(.+)'.*" replace="eclipseBuildId=\1" flags="s" />
 			</filterchain>
 		</loadproperties>
-		<property name="eclipseRepoURL-latest" value="${eclipseRepoURL}/${eclipseBuildId}" />
+		
 		<!-- store it for others -->
-		<echo message="eclipseRepoURL-latest=${eclipseRepoURL-latest}${line.separator}" file="${buildDirectory}/eclipseRepoURL.properties" />
+		<echo message="eclipseRepoURL-latest=${eclipseRepoURL}/${eclipseBuildId}${line.separator}" file="${buildDirectory}/eclipseRepoURL.properties" />
 	</target>
 	
 	<!-- ===================================================================== -->
