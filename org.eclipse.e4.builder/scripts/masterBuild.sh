@@ -62,7 +62,10 @@ commonProperties () {
     targetZips=$targetDir/downloads
     transformedRepo=${targetDir}/helios-p2
     buildDirectory=$buildDir/I$buildTimestamp
-    testDir=$buildDirectory/tests
+    
+    e4TestDir=/opt/buildhomes/e4Build/e4Tests/I$buildTimestamp
+    sdkTestDir=/opt/buildhomes/e4Build/sdkTests/I$buildTimestamp
+    
     buildResults=$buildDirectory/I$buildTimestamp
     
     sdkResults=$buildDir/40builds/I$buildTimestamp/I$buildTimestamp
@@ -187,8 +190,8 @@ runSDKBuild () {
 }
 
 runSDKTests() {
-    mkdir -p $sdkBuildDirectory/eclipse-testing
-    cd $sdkBuildDirectory/eclipse-testing
+    mkdir -p $sdkTestDir
+    cd $sdkTestDir
 
 	echo "Copying eclipse SDK archive to tests." 
     cp $sdkResults/eclipse-SDK-*-linux-gtk${archProp}.tar.gz  .
@@ -206,6 +209,9 @@ runSDKTests() {
     mkdir -p $sdkResults/results
     cp -r results/* $sdkResults/results
 
+	cd $sdkBuildDirectory
+	mv $sdkTestDir $sdkBuildDirectory/eclipse-testing
+	
     cp ${builderDir}/templates/build.testResults.html $sdkResults/testResults.html
 }
 
@@ -269,9 +275,8 @@ EOF
 
 
 runTheTests () {
-    mkdir -p $testDir/eclipse-testing
-
-    cd $testDir/eclipse-testing
+    mkdir -p $sdkTestDir
+    cd $sdkTestDir
 
 	echo "Copying eclipse SDK archive to tests." 
     cp $sdkResults/eclipse-SDK-*-linux-gtk${archProp}.tar.gz  .
@@ -291,6 +296,9 @@ runTheTests () {
     mkdir -p $buildResults/results
     cp -r results/* $buildResults/results
 
+	cd $buildDirectory
+	mv $sdkTestDir $buildDirectory/eclipse-testing
+	
     cp ${builderDir}/templates/build.testResults.html \
         $buildResults/testResults.html
 
