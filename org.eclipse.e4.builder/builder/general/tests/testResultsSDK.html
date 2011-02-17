@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<?php
+		 $parts = explode("/", getcwd());
+		 $parts2 = explode("-", $parts[count($parts) - 1]);
+		 $buildName = $parts2[0] . "-" . $parts2[1];
+		 
+		 // Get build type names
+
+		 $fileHandle = fopen("../../dlconfig2.txt", "r");
+		 while (!feof($fileHandle)) {
+		 		 
+		 		 $aLine = fgets($fileHandle, 4096); // Length parameter only optional after 4.2.0
+		 		 $parts = explode(",", $aLine);
+		 		 $dropNames[trim($parts[0])] = trim($parts[1]);
+ 		 }
+		 fclose($fileHandle);
+
+		 $buildType = $dropNames[$parts2[0]];
+
+		 echo "<title>Test Results for $buildType $buildName </title>";
+?>
+
+
+
+<STYLE TYPE="text/css">
+<!--
+P {text-indent: 30pt; margin: inherit}
+-->
+</STYLE>
+
+
+<title>Drop Test Results</title>
+		 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		 <meta name="author" content="Eclipse Foundation, Inc." />
+		 <meta name="keywords" content="eclipse,project,plug-ins,plugins,java,ide,swt,refactoring,free java ide,tools,platform,open source,development environment,development,ide" />
+		 <link rel="stylesheet" type="text/css" href="../../../eclipse.org-common/stylesheets/visual.css" media="screen" />
+		 <link rel="stylesheet" type="text/css" href="../../../eclipse.org-common/stylesheets/layout.css" media="screen" />
+		 <link rel="stylesheet" type="text/css" href="../../../eclipse.org-common/stylesheets/print.css" media="print" />
+		 <script type="text/javascript">
+
+sfHover = function() {
+		 var sfEls = document.getElementById("leftnav").getElementsByTagName("LI");
+		 for (var i=0; i<sfEls.length; i++) {
+		 		 sfEls[i].onmouseover=function() {
+		 		 		 this.className+=" sfhover";
+		 		 }
+		 		 sfEls[i].onmouseout=function() {
+		 		 		 this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		 		 }
+		 }
+}
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script>
+</head>
+<body>
+<div id="header">
+		 <a href="http://www.eclipse.org/"><img src="../../../eclipse.org-common/stylesheets/header_logo.gif" width="163" height="68" border="0" alt="Eclipse Logo" class="logo" /></a>
+		 <div id="searchbar">
+		 		 <img src="../../../eclipse.org-common/stylesheets/searchbar_transition.gif" width="92" height="26" class="transition" alt="" />
+		 		 <img src="../../../eclipse.org-common/stylesheets/searchbar_header.gif" width="64" height="17" class="header" alt="Search" />
+		 		 <form method="get" action="http://www.eclipse.org/search/search.cgi">
+		 		 		 <input type="hidden" name="t" value="All" />
+		 		 		 <input type="hidden" name="t" value="Doc" />
+		 		 		 <input type="hidden" name="t" value="Downloads" />
+		 		 		 <input type="hidden" name="t" value="Wiki" />
+		 		 		 <input type="hidden" name="wf" value="574a74" />
+		 		 		 <input type="text" name="q" value="" />
+		 		 		 <input type="image" class="button" src="../../../eclipse.org-common/stylesheets/searchbar_submit.gif" alt="Submit" onclick="this.submit();" />
+		 		 </form>
+		 </div>
+		 <ul id="headernav">
+		 		 <li class="first"><a href="http://www.eclipse.org/org/foundation/contact.php">Contact</a></li>
+		 		 <li><a href="http://www.eclipse.org/legal/">Legal</a></li>
+		 </ul>
+</div><div id="topnav">
+		 <ul>
+		 		 <li><a>Downloads</a></li>
+		 		 <li class="tabstart">&#160;&#160;&#160;</li>
+		 		 <li><a class="" href="index.php" target="_self">All Platforms</a></li>
+		 </ul>
+</div>
+<div id="topnavsep"></div>
+<div id="leftcol">
+<ul id="leftnav">
+<li><a href="#Logs">Logs</a></li>
+<li><a href="#UnitTest">Unit Test Results</a></li>
+<li><a href="#PluginsErrors">Plugins Containing Compile Errors</a></li>
+ 
+  </li>
+  <li style="background-image: url(../../../eclipse.org-common/stylesheets/leftnav_fade.jpg); background-repeat: repeat-x; border-style: none;">
+		 		 		 <br /><br /><br /><br /><br />
+  </li>
+</ul>
+
+</div>
+
+<div id="midcolumn">
+<p><b><font face="Verdana" size="+3">Test Results</font></b> </p>
+
+<div class="homeitem3col">
+<h3><a name="UnitTest"> Unit Test Results for <?php echo "$buildType $buildName"; ?> </a></h3> 
+</br>
+&nbsp;&nbsp;The table shows the test results of the build on the various platforms: Red Hat and Windows. If errors occured,
+the number of errors is indicated in a red bold font and you may access the page specific to each component on
+a specific platform by clicking the cell link.</br></br>
+<table width="85%" border="1" bgcolor="#EEEEEE" rules="groups" align="center">
+<tr bgcolor="#9999CC"> <th width="40%" align="center">Component </th>
+<th width="12%"># Tests</th><th width="12%">Failures</th><th width="12%">Errors</th><th width="12%">Success Rate</th><th width="12%">Time</th></tr>
+<tbody><tr><td><b>Ant Tests</b><td><td><td><td></tr>
+<tr><td><p>ant.tests.core </tr>
+<tr><td><p>ant.tests.ui </tr>
+
+<tbody><tr><td><b>debug.tests </tr>
+
+<tbody><tr><td><b>JDT Tests</b><td><td><td><td></tr>
+<tr><td><p>jdt.text.tests </tr>
+<tr><td><p>jdt.compiler.apt.tests </tr>
+<tr><td><p>jdt.ui.tests </tr>
+
+<tbody><tr><td><b>jface.text.tests </tr>
+<tbody><tr><td><b>pde.ui.tests </tr>
+<tbody><tr><td><b>text.tests </tr>
+
+<tbody><tr><td><b>e4 Tests</b><td><td><td><td></tr>
+<tr><td><p>e4.ui.tests.css.swt </tr>
+<tr><td><p>e4.ui.tests.css.core </tr>
+<tr><td><p>e4.ui.tests </tr>
+<tr><td><p>e4.core.tests.services </tr>
+<tr><td><p>e4.core.tests </tr>
+</table>
+</br>
+</div>
+</br></br>
+<div id="footer">
+		 <ul id="footernav">
+		 		 <li class="first"><a href="http://www.eclipse.org">Home</a></li>
+		 		 <li><a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+		 		 <li><a href="http://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+		 </ul>
+		 <p>Copyright &copy; 2006 The Eclipse Foundation. All Rights
+Reserved</p>
+</div>
+</body>
+</html>

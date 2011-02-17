@@ -168,7 +168,53 @@
 		</exec>
 	</target>
 
-
+	<macrodef name="updateTestResult">
+		<attribute name="testPlugin" />
+		<sequential>
+			<!-- grab the status summary -->
+			<loadfile srcfile="${results}/html/@{testPlugin}_${platform}.html" property="@{testPlugin}_status" failonerror="false" >
+				<filterchain>
+					<linecontainsregexp>
+						<regexp pattern=".*&lt;td&gt;[0-9]*&lt;/td&gt;&lt;td&gt;[0-9]*&lt;/td&gt;&lt;td&gt;(NaN|([.0-9]*%))&lt;/td&gt;.*" />
+					</linecontainsregexp>
+					<replaceregex pattern="&lt;td&gt;" replace="&lt;td align=&quot;center&quot; style=&quot;color:black&quot;&gt;" flags="g" />
+					<striplinebreaks/>
+				</filterchain>
+			</loadfile>
+			
+			<echo message="${@{testPlugin}_status}"/>
+			
+			<!-- if we couldn't read a status, use DNF -->
+			<condition property="@{testPlugin}_value" value="${@{testPlugin}_status}" else="&lt;td align=&quot;center&quot; style=&quot;color:black&quot;&gt;DNF&lt;/td&gt;" >
+				<isset property="@{testPlugin}_status" />
+			</condition>
+			
+			<!-- results will be red if they arent't 100% -->
+			<condition property="@{testPlugin}_color" value="black" else="red">
+				<contains string="${@{testPlugin}_value}" substring="100.00%" />
+			</condition>
+			<loadresource property="@{testPlugin}_result" >
+				<string value="${@{testPlugin}_value}" />
+				<filterchain>
+					<replaceregex pattern="color:black" replace="color:${@{testPlugin}_color}" flags="g"/>
+				</filterchain>
+			</loadresource>
+			
+			<echo message="@{testPlugin}_result : ${@{testPlugin}_result}" />
+			<loadresource property="@{testPlugin}_token" >
+				<string value="@{testPlugin}" />
+				<filterchain>
+					<replaceregex pattern="^org.eclipse." replace="" />
+				</filterchain>
+			</loadresource>
+			<echo message="@{testPlugin}_token : ${@{testPlugin}_token}"/>
+			<replace file="${results}/testResults.html" >
+				<replacefilter token="${@{testPlugin}_token} " 
+					value="&lt;a href=&quot;html/@{testPlugin}_${platform}.html&quot;&gt;${@{testPlugin}_token}&lt;/a&gt; ${@{testPlugin}_result}" />
+			</replace>
+		</sequential>
+	</macrodef>
+	
 	<macrodef name="runTests">
 		<attribute name="testPlugin" />
 
@@ -194,12 +240,14 @@
 			<condition property="derby" value="eclipse/dropins/eclipse/plugins/org.apache.derby*/**">
 				<equals arg1="${test.target}" arg2="performance" />
 			</condition>
-			<!--	<property name="derby" value="" />  -->
+			<!--	<property name="derby" value="" />  
 			<antcall target="${test.target}">
 				<param name="testPlugin" value="@{testPlugin}" />
 				<param name="output-file" value="@{testPlugin}.xml" />
 				<param name="vmargs" value=" -Xms40m -Xmx384m -XX:MaxPermSize=256m" />
 			</antcall>
+			-->
+			<updateTestResult testPlugin="@{testPlugin}" />
 		</sequential>
 	</macrodef>
 
@@ -613,6 +661,7 @@
 	</target>
 	
 	<target name="e4less">
+		<copy file="${basedir}/testResultsE4.html" tofile="${results}/testResults.html" />
 		<antcall target="e4xwt" />
 		<antcall target="e4tm" />
 		<antcall target="e4tmJavascript" />
@@ -623,6 +672,8 @@
 	</target>
 	
 	<target name="sdk">
+		<copy file="${basedir}/testResultsSDK.html" tofile="${results}/testResults.html" />
+		
 		<antcall target="ant" />
 		<antcall target="antui" />
 		<antcall target="debug" />
