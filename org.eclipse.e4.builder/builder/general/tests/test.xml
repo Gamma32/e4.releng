@@ -198,6 +198,7 @@
 			<antcall target="${test.target}">
 				<param name="testPlugin" value="@{testPlugin}" />
 				<param name="output-file" value="@{testPlugin}.xml" />
+				<param name="vmargs" value=" -Xms40m -Xmx384m -XX:MaxPermSize=256m" />
 			</antcall>
 		</sequential>
 	</macrodef>
