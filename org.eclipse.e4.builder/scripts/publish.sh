@@ -20,7 +20,6 @@ FILES_TO_UPDATE="
 linPlatform.php
 macPlatform.php
 sourceBuilds.php
-testResults.php
 winPlatform.php
 index.php
 "
