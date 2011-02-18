@@ -1,7 +1,7 @@
 !**** e4 XWT tools
-plugin@org.eclipse.e4.xwt=v20101119-0800,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
+plugin@org.eclipse.e4.xwt=v20110218-0800,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt
 plugin@org.eclipse.e4.xwt.css=v20100617-2100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.css
-plugin@org.eclipse.e4.tools.ui.designer=v20101201-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.tools.ui.designer
+plugin@org.eclipse.e4.tools.ui.designer=v20110218-0800,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.tools.ui.designer
 plugin@org.eclipse.e4.xwt.tools.ui=v20101021,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui
 plugin@org.eclipse.e4.xwt.tools.ui.editor=v20101021,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.ui.editor
 plugin@org.eclipse.e4.xwt.tools.categorynode=v20100617-2100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/bundles/org.eclipse.e4.xwt.tools.categorynode
@@ -29,5 +29,5 @@ feature@org.eclipse.e4.xwt.emf.feature=v20090624-1330,:pserver:anonymous@dev.ecl
 feature@org.eclipse.e4.xwt.workbench.feature=v20100618,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/features/org.eclipse.e4.xwt.workbench.feature
 
 !**** Test Suites
-plugin@org.eclipse.e4.xwt.tests=v20101021,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.tests
+plugin@org.eclipse.e4.xwt.tests=v20110218-0800,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.tests
 plugin@org.eclipse.e4.xwt.emf.test=v20101025,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.xwt/tests/org.eclipse.e4.xwt.emf.test
