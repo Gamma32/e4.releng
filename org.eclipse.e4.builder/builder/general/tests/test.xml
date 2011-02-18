@@ -240,13 +240,13 @@
 			<condition property="derby" value="eclipse/dropins/eclipse/plugins/org.apache.derby*/**">
 				<equals arg1="${test.target}" arg2="performance" />
 			</condition>
-			<!--	<property name="derby" value="" />  
+			<!--	<property name="derby" value="" />  -->
 			<antcall target="${test.target}">
 				<param name="testPlugin" value="@{testPlugin}" />
 				<param name="output-file" value="@{testPlugin}.xml" />
 				<param name="vmargs" value=" -Xms40m -Xmx384m -XX:MaxPermSize=256m" />
 			</antcall>
-			-->
+			
 			<updateTestResult testPlugin="@{testPlugin}" />
 		</sequential>
 	</macrodef>
