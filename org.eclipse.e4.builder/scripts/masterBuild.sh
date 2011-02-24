@@ -200,6 +200,7 @@ runSDKTests() {
     cat $sdkBuildDirectory/label.properties >> label.properties
 
 	echo "sdkResults=$sdkResults" >> label.properties
+	echo "e4Results=$buildResults" >> label.properties
 
 	echo "Copying test framework."
     cp -r ${builderDir}/builder/general/tests/* .
