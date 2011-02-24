@@ -683,6 +683,13 @@
 		<antcall target="jface" />
 		<antcall target="pdeui" />
 		<antcall target="text" />
+		<antcall target="compare" />
+		<antcall target="jdtdebug" />
+        <antcall target="ltkuirefactoringtests" />
+        <antcall target="ua" />
+        <antcall target="uiforms" />
+        <antcall target="equinoxp2ui" />
+        <antcall target="search" />
 		<antcall target="cssSwt" />
 		<antcall target="cssCore" />
 		<antcall target="e4ui" />
