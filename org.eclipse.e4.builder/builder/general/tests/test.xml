@@ -209,7 +209,7 @@
 			</loadresource>
 			<echo message="@{testPlugin}_token : ${@{testPlugin}_token}"/>
 			<replace file="${results}/testResults.html" >
-				<replacefilter token="${@{testPlugin}_token} " 
+				<replacefilter token=" ${@{testPlugin}_token} " 
 					value="&lt;a href=&quot;html/@{testPlugin}_${platform}.html&quot;&gt;${@{testPlugin}_token}&lt;/a&gt; ${@{testPlugin}_result}" />
 			</replace>
 		</sequential>

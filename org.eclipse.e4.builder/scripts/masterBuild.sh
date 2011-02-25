@@ -27,6 +27,7 @@ realBuildProperties () {
 
 #publish
     publishIndex="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads"
+    publishSDKIndex="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/sdk"
     publishUpdates="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/updates"
     publishDir="${publishIndex}/drops"
 
@@ -214,6 +215,8 @@ runSDKTests() {
 	mv $sdkTestDir $sdkBuildDirectory/eclipse-testing
 	
     cp ${builderDir}/templates/build.testResults.html $sdkResults/testResults.html
+    
+    scp -r $sdkResults $publishSDKIndex/drops/I$buildTimestamp
 }
 
 copyCompileLogs () {
