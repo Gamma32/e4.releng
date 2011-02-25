@@ -213,10 +213,8 @@ runSDKTests() {
 
 	cd $sdkBuildDirectory
 	mv $sdkTestDir $sdkBuildDirectory/eclipse-testing
-	
-    cp ${builderDir}/templates/build.testResults.html $sdkResults/testResults.html
     
-    scp -r $sdkResults $publishSDKIndex/drops/I$buildTimestamp
+    scp -r $sdkResults/results $publishSDKIndex/drops/I$buildTimestamp
 }
 
 copyCompileLogs () {
