@@ -64,6 +64,7 @@ feature@org.eclipse.e4.ui.tests.feature=v20100428-1730,:pserver:anonymous@dev.ec
 feature@org.eclipse.e4.ui.examples.feature=v20101215-1120,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.examples.feature
 
 feature@org.eclipse.e4.core.tools.feature=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/features/org.eclipse.e4.core.tools.feature
+feature@org.eclipse.e4.tools.e3x.bridge.feature=v20110302-1508,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/features/org.eclipse.e4.tools.e3x.bridge.feature
 
 feature@org.eclipse.e4.sdk.runtime.feature=v20100917-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.sdk.runtime.feature
 feature@org.eclipse.e4.sdk.source.feature=v20100917-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.sdk.source.feature
