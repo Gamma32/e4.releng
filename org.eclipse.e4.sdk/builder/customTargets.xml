@@ -122,6 +122,11 @@
 		<replace dir="${buildDirectory}/plugins" value="${buildLabel}" token="@build@">
 			<include name="**/about.mappings" />
 		</replace>
+		
+		<!-- bug 338230 - update branding plugins to get proper versions in Help/About-->
+		<concat destfile="${buildDirectory}/plugins/org.eclipse.sdk/build.properties" append="true">qualifier=v${buildId}</concat>
+		<concat destfile="${buildDirectory}/plugins/org.eclipse.platform/build.properties" append="true">qualifier=v${buildId}</concat>
+		<concat destfile="${buildDirectory}/plugins/org.eclipse.rcp/build.properties" append="true">qualifier=v${buildId}</concat>
 	</target>
 
 	<!-- ===================================================================== -->
