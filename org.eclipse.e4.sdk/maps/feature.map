@@ -5,6 +5,8 @@ plugin@org.eclipse.sdk=v20110127-2200,:pserver:anonymous@dev.eclipse.org:/cvsroo
 feature@org.eclipse.platform=v20110303,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.platform-feature
 plugin@org.eclipse.platform=v20110218-0800,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
+feature@org.eclipse.license=v20110208,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.license
+
 feature@org.eclipse.jdt=p2IU,id=org.eclipse.jdt.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.pde=p2IU,id=org.eclipse.pde.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.cvs=p2IU,id=org.eclipse.cvs.feature.jar,repository=ECLIPSE_PLATFORM_REPO

@@ -116,6 +116,11 @@
 	<!-- Steps to do after fetching the build elements -->
 	<!-- ===================================================================== -->
 	<target name="postFetch">
+		<ant antfile="${genericTargets}" target="fetchElement">
+		    <property name="type" value="feature"/>
+		    <property name="id" value="org.eclipse.license" />
+		 </ant>
+
 		<!-- change source references to pserver if ssh was used -->
 		<replace file="${buildDirectory}/sourceReferences.properties" token=":extssh" value=":pserver" />
 
