@@ -187,7 +187,9 @@ runSDKBuild () {
     echo $cmd
     $cmd
 	/bin/bash ${builderDir}/scripts/sync.sh
-	/bin/bash ${builderDir}/scripts/publish.sh
+	
+	#Done at the end of runSDKTests()
+	#/bin/bash ${builderDir}/scripts/publish.sh
 }
 
 runSDKTests() {
@@ -214,7 +216,7 @@ runSDKTests() {
 	cd $sdkBuildDirectory
 	mv $sdkTestDir $sdkBuildDirectory/eclipse-testing
     
-    scp -r $sdkResults/results $publishSDKIndex/drops/I$buildTimestamp
+    /bin/bash ${builderDir}/scripts/publish.sh
 }
 
 copyCompileLogs () {

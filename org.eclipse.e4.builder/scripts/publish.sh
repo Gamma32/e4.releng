@@ -32,48 +32,65 @@ HUDSON_REPO=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/targets/updates/4.
 #HUDSON_REPO=$HUDSON_COMMON/testUpdates-I
 
 process_build () {
-buildId=$1 ; shift
-echo Processing $BASE_DIR/$buildId/$buildId
+	buildId=$1 ; shift
+	echo Processing $BASE_DIR/$buildId/$buildId
+	
+	if [ -e $BASE_DIR/$buildId ]; then
+	return;
+	fi
+	
+	mkdir -p $BASE_DIR/$buildId
+	
+	cd $TMPL_DIR
+	cp *.php *.htm*  *.gif *.jpg  $BASE_DIR/$buildId
+	
+	cd $HUDSON_DROPS/$buildId/$buildId
+	
+	cp *.htm*  $BASE_DIR/$buildId
+	cp -r results $BASE_DIR/$buildId
+	
+	ZIPS=$( echo $ORIG_ZIPS | sed "s/ReplaceMe/$buildId/g" )
+	for f in $ZIPS; do
+	echo $f
+	cp $f  $BASE_DIR/$buildId
+	done
+	
+	cp -fr repository buildlogs checksum compilelogs $BASE_DIR/$buildId
+	#cp -r $HUDSON_REPO/$buildId  $BASE_DIR/$buildId/repository
+	
+	cp  $TMPL_DIR/download.php  $BASE_DIR/$buildId
+	
+	for f in $( echo $FILES_TO_UPDATE ); do
+	cat $TMPL_DIR/$f | sed "s/ReplaceMe/$buildId/g" >$BASE_DIR/$buildId/$f
+	done
+	
+	scp -r $BASE_DIR/$buildId pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/sdk/drops
+	
 
-if [ -e $BASE_DIR/$buildId ]; then
-return;
-fi
+	echo Done $buildId
 
-mkdir -p $BASE_DIR/$buildId
-
-cd $TMPL_DIR
-cp *.php *.htm*  *.gif *.jpg  $BASE_DIR/$buildId
-
-cd $HUDSON_DROPS/$buildId/$buildId
-
-cp *.htm*  $BASE_DIR/$buildId
-
-ZIPS=$( echo $ORIG_ZIPS | sed "s/ReplaceMe/$buildId/g" )
-for f in $ZIPS; do
-echo $f
-cp $f  $BASE_DIR/$buildId
-done
-
-cp -fr repository buildlogs checksum compilelogs $BASE_DIR/$buildId
-#cp -r $HUDSON_REPO/$buildId  $BASE_DIR/$buildId/repository
-
-cp  $TMPL_DIR/download.php  $BASE_DIR/$buildId
-
-for f in $( echo $FILES_TO_UPDATE ); do
-cat $TMPL_DIR/$f | sed "s/ReplaceMe/$buildId/g" >$BASE_DIR/$buildId/$f
-done
-
-scp -r $BASE_DIR/$buildId pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/sdk/drops
-
-echo Done $buildId
-
-    mailx -s "4.1 short SDK Build: $buildId" e4-dev@eclipse.org <<EOF
-
-The 4.1 SDK build:
-http://download.eclipse.org/e4/sdk/drops/$buildId
-
-EOF
-
+	failed=""
+	testsMsg=$(sed -n '/<!--START-TESTS-->/,/<!--END-TESTS-->/p' $HUDSON_DROPS/$buildId/$buildId/results/testResults.html > mail.txt)
+	testsMsg=$(cat mail.txt | sed s_href=\"_href=\"http://download.eclipse.org/e4/sdk/drops/$buildId/results/_)
+	rm mail.txt
+	
+	red=$(echo $testsMsg | grep "color:red")
+    if [[ ! -z $red ]]; then
+		failed="tests failed"
+    fi
+ 
+(
+echo "From: e4Build@build.eclipse.org "
+echo "To: e4-dev@eclipse.org "
+echo "MIME-Version: 1.0 "
+echo "Content-Type: text/html; charset=us-ascii"
+echo "Subject: 4.1 SDK Build: $buildId $failed"
+echo ""
+echo "<html><head><title>4.1 SDK Build $buildId</title></head>" 
+echo "<body>Check here for the build results: <a href="http://download.eclipse.org/e4/sdk/drops/$buildId">$buildId</a><br>" 
+echo "$testsMsg</body></html>" 
+) | /usr/lib/sendmail -t
+   
 }
 
 # find the builds to process
