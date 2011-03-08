@@ -309,12 +309,27 @@ runTheTests () {
 }
 
 sendMail () {
-    mailx -s "0.11 Integration Build: I$buildTimestamp" e4-dev@eclipse.org <<EOF
-
-Check here for test results and update site: 
-http://download.eclipse.org/e4/downloads/drops/I$buildTimestamp
-
-EOF
+	failed=""
+	testsMsg=$(sed -n '/<!--START-TESTS-->/,/<!--END-TESTS-->/p' $buildResults/results/testResults.html > mail.txt)
+	testsMsg=$(cat mail.txt | sed s_href=\"_href=\"http://download.eclipse.org/e4/downloads/drops/I$buildTimestamp/results/_)
+	rm mail.txt
+	
+	red=$(echo $testsMsg | grep "color:red")
+    if [[ ! -z $red ]]; then
+		failed="tests failed"
+    fi
+ 
+(
+echo "From: e4Build@build.eclipse.org "
+echo "To: e4-dev@eclipse.org "
+echo "MIME-Version: 1.0 "
+echo "Content-Type: text/html; charset=us-ascii"
+echo "Subject: 0.11 Integration Build: I$buildTimestamp $failed"
+echo ""
+echo "<html><head><title>0.11 Integration Build: I$buildTimestamp $failed</title></head>" 
+echo "<body>Check here for the build results: <a href="http://download.eclipse.org/e4/downloads/drops/I$buildTimestamp">I$buildTimestamp</a><br><br>" 
+echo "$testsMsg</body></html>" 
+) | /usr/lib/sendmail -t
 
 }
 
