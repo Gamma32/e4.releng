@@ -33,6 +33,7 @@ plugin@org.eclipse.e4.tools.compat=v20110217-1700,:pserver:anonymous@dev.eclipse
 plugin@org.eclipse.e4.tools.services=v20110204-0700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.services
 plugin@org.eclipse.e4.tools.emf.liveeditor=v20110204-0700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.liveeditor
 plugin@org.eclipse.e4.tools=v20110217-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools
+plugin@org.eclipse.e4.tools.emf.ui.script.js=v20110309-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.ui.script.js
 
 
 !*** e4 UI examples
@@ -63,7 +64,7 @@ feature@org.eclipse.e4.ui.css.feature=v20100603-1900,:pserver:anonymous@dev.ecli
 feature@org.eclipse.e4.ui.tests.feature=v20100428-1730,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.tests.feature
 feature@org.eclipse.e4.ui.examples.feature=v20101215-1120,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.ui.examples.feature
 
-feature@org.eclipse.e4.core.tools.feature=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/features/org.eclipse.e4.core.tools.feature
+feature@org.eclipse.e4.core.tools.feature=v20110309-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/features/org.eclipse.e4.core.tools.feature
 feature@org.eclipse.e4.tools.e3x.bridge.feature=v20110302-1508,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/features/org.eclipse.e4.tools.e3x.bridge.feature
 
 feature@org.eclipse.e4.sdk.runtime.feature=v20100917-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/features/org.eclipse.e4.sdk.runtime.feature
