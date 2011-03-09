@@ -93,7 +93,7 @@
    <feature url="features/org.eclipse.e4.tools.e3x.bridge.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.tools.e3x.bridge.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.tools.category"/>
    </feature>
-   <feature url="features/org.eclipse.e4.tools.e3x.bridge.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.tools.e3x.bridge.feature" version="0.9.0.qualifier">
+   <feature url="features/org.eclipse.e4.tools.e3x.bridge.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.tools.e3x.bridge.source.feature" version="0.9.0.qualifier">
       <category name="org.eclipse.e4.tools.category"/>
    </feature>
    <feature url="features/org.eclipse.e4.core.deeplink.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.deeplink.feature" version="4.6.0.qualifier">
