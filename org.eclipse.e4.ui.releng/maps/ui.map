@@ -7,7 +7,7 @@ plugin@org.eclipse.e4.ui.workbench=v20110310-1900,:pserver:anonymous@dev.eclipse
 plugin@org.eclipse.e4.ui.workbench3=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench3
 plugin@org.eclipse.e4.ui.workbench.renderers.swt=v20110311-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt
 plugin@org.eclipse.e4.ui.workbench.swt=v20110310-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.swt
-plugin@org.eclipse.e4.ui.widgets=v20100726-2030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.widgets
+plugin@org.eclipse.e4.ui.widgets=v20110312-8000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.widgets
 plugin@org.eclipse.e4.ui.bindings=v20110308-1630,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.bindings
 plugin@org.pushingpixels.trident=v20100204-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.pushingpixels.trident
 
@@ -25,7 +25,7 @@ plugin@org.eclipse.e4.pde.ui=v20090714-1930,:pserver:anonymous@dev.eclipse.org:/
 plugin@org.eclipse.e4.pde.webui=v20100531-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.webui
 plugin@org.eclipse.e4.ui.gadgets=v20100428-1730,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.gadgets
 
-plugin@org.eclipse.e4.emf.xpath=v20101022_1145,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.emf.xpath
+plugin@org.eclipse.e4.emf.xpath=v20110312-8000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.emf.xpath
 
 plugin@org.eclipse.e4.tools.emf.ui=v20110310-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.ui
 plugin@org.eclipse.e4.tools.emf.editor3x=v20110217-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.editor3x
@@ -33,7 +33,7 @@ plugin@org.eclipse.e4.tools.compat=v20110217-1700,:pserver:anonymous@dev.eclipse
 plugin@org.eclipse.e4.tools.services=v20110204-0700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.services
 plugin@org.eclipse.e4.tools.emf.liveeditor=v20110309-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.liveeditor
 plugin@org.eclipse.e4.tools=v20110217-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools
-plugin@org.eclipse.e4.tools.emf.ui.script.js=v20110310-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.ui.script.js
+plugin@org.eclipse.e4.tools.emf.ui.script.js=v20110312-8000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.tools/bundles/org.eclipse.e4.tools.emf.ui.script.js
 
 
 !*** e4 UI examples
