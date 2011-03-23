@@ -129,9 +129,9 @@
 		</replace>
 		
 		<!-- bug 338230 - update branding plugins to get proper versions in Help/About-->
-		<concat destfile="${buildDirectory}/plugins/org.eclipse.sdk/build.properties" append="true">qualifier=v${buildId}</concat>
-		<concat destfile="${buildDirectory}/plugins/org.eclipse.platform/build.properties" append="true">qualifier=v${buildId}</concat>
-		<concat destfile="${buildDirectory}/plugins/org.eclipse.rcp/build.properties" append="true">qualifier=v${buildId}</concat>
+		<concat destfile="${buildDirectory}/plugins/org.eclipse.sdk/build.properties" append="true">${line.separator}qualifier=v${buildId}${line.separator}</concat>
+		<concat destfile="${buildDirectory}/plugins/org.eclipse.platform/build.properties" append="true">${line.separator}qualifier=v${buildId}${line.separator}</concat>
+		<concat destfile="${buildDirectory}/plugins/org.eclipse.rcp/build.properties" append="true">${line.separator}qualifier=v${buildId}${line.separator}</concat>
 	</target>
 
 	<!-- ===================================================================== -->
