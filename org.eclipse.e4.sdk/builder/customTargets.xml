@@ -57,6 +57,8 @@
 	<!-- Steps to do before setup -->
 	<!-- ===================================================================== -->
 	<target name="preSetup">
+		<filter token="BUILD_ID" value="${buildLabel}" />
+		<copy filtering="true" file="${builder}/templates/artifacts.xml" tofile="${p2.repo}/artifacts.xml" />
 	</target>
 
 	<target name="initLocations" >
