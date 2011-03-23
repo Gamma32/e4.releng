@@ -185,7 +185,35 @@ runSDKBuild () {
 	  -DupdateSite=$targetDir/updates/4.1-I-builds
 	"   
     echo $cmd
-    $cmd
+    $cmd  
+    
+   #stop now if the build failed
+	failure=$(sed -n '/BUILD FAILED/,/Total time/p' $writableBuildRoot/logs/current.log)
+	if [[ ! -z $failure ]]; then
+		compileMsg=""
+		prereqMsg=""
+		pushd $buildDirectory/plugins
+		compileProblems=$( find . -name compilation.problem | cut -d/ -f2 )
+		popd
+		
+		if [[ ! -z $compileProblems ]]; then
+			compileMsg="Compile errors occurred in the following bundles:"
+		fi
+		if [[ -e $buildDirectory/prereqErrors.log ]]; then
+			prereqMsg=`cat $buildDirectory/prereqErrors.log` 
+		fi
+		
+		mailx -s "4.1 SDK Build: $buildId failed" $resultsEmail <<EOF
+$compileMsg
+$compileProblems
+
+$prereqMsg
+
+$failure
+EOF
+		exit
+	fi 
+      
 	/bin/bash ${builderDir}/scripts/sync.sh
 	
 	#Done at the end of runSDKTests()
