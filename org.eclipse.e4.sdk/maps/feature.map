@@ -13,3 +13,6 @@ feature@org.eclipse.cvs=p2IU,id=org.eclipse.cvs.feature.jar,repository=ECLIPSE_P
 plugin@org.eclipse.cvs=p2IU,id=org.eclipse.cvs,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.help=p2IU,id=org.eclipse.help.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.equinox.p2.user.ui=p2IU,id=org.eclipse.equinox.p2.user.ui.feature.jar,repository=ECLIPSE_PLATFORM_REPO
+feature@org.eclipse.equinox.p2.core.feature=p2IU,id=org.eclipse.equinox.p2.core.feature.feature.jar,repository=ECLIPSE_PLATFORM_REPO
+feature@org.eclipse.equinox.p2.extras.feature=p2IU,id=org.eclipse.equinox.p2.extras.feature.feature.jar,repository=ECLIPSE_PLATFORM_REPO
+feature@org.eclipse.equinox.p2.rcp.feature=p2IU,id=org.eclipse.equinox.p2.rcp.feature.feature.jar,repository=ECLIPSE_PLATFORM_REPO
