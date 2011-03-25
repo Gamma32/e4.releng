@@ -87,7 +87,8 @@
 	<!-- ===================================================================== -->
 	<target name="postSetup" depends="initLocations">
 		<echo message="Mirror from ${eclipseRepoURL-latest} to ${localRepoLocation}" />
-		<p2.mirror destination="file:${localRepoLocation}" ignoreerrors="true">
+		<p2.mirror ignoreerrors="true">
+			<destination location="file:${localRepoLocation}" format="file:${p2.repo}" />
 			<source location="${eclipseRepoURL-latest}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true"/>
 			<iu id="org.eclipse.sdk.ide" />
