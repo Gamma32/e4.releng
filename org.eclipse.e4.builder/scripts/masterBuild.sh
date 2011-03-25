@@ -192,7 +192,7 @@ runSDKBuild () {
 	if [[ ! -z $failure ]]; then
 		compileMsg=""
 		prereqMsg=""
-		pushd $buildDirectory/plugins
+		pushd $sdkBuildDirectory/plugins
 		compileProblems=$( find . -name compilation.problem | cut -d/ -f2 )
 		popd
 		
@@ -203,7 +203,7 @@ runSDKBuild () {
 			prereqMsg=`cat $buildDirectory/prereqErrors.log` 
 		fi
 		
-		mailx -s "4.1 SDK Build: $buildId failed" $resultsEmail <<EOF
+		mailx -s "4.1 SDK Build: $buildId failed" e4Build@build.eclipse.org <<EOF
 $compileMsg
 $compileProblems
 
