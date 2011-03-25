@@ -203,7 +203,7 @@ runSDKBuild () {
 			prereqMsg=`cat $buildDirectory/prereqErrors.log` 
 		fi
 		
-		mailx -s "4.1 SDK Build: $buildId failed" e4Build@build.eclipse.org <<EOF
+		mailx -s "4.1 SDK Build: $buildId failed" e4-dev@eclipse.org <<EOF
 $compileMsg
 $compileProblems
 
