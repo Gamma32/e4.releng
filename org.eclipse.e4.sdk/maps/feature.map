@@ -8,11 +8,16 @@ plugin@org.eclipse.platform=v20110407-2030,:pserver:anonymous@dev.eclipse.org:/c
 feature@org.eclipse.license=v20110208,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.license
 
 feature@org.eclipse.jdt=p2IU,id=org.eclipse.jdt.feature.jar,repository=ECLIPSE_PLATFORM_REPO
+feature@org.eclipse.jdt.source=p2IU,id=org.eclipse.jdt.source.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.pde=p2IU,id=org.eclipse.pde.feature.jar,repository=ECLIPSE_PLATFORM_REPO
+feature@org.eclipse.pde.source=p2IU,id=org.eclipse.pde.source.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.cvs=p2IU,id=org.eclipse.cvs.feature.jar,repository=ECLIPSE_PLATFORM_REPO
+feature@org.eclipse.cvs.source=p2IU,id=org.eclipse.cvs.source.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 plugin@org.eclipse.cvs=p2IU,id=org.eclipse.cvs,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.help=p2IU,id=org.eclipse.help.feature.jar,repository=ECLIPSE_PLATFORM_REPO
+feature@org.eclipse.help.source=p2IU,id=org.eclipse.help.source.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.equinox.p2.user.ui=p2IU,id=org.eclipse.equinox.p2.user.ui.feature.jar,repository=ECLIPSE_PLATFORM_REPO
+feature@org.eclipse.equinox.p2.user.ui.source=p2IU,id=org.eclipse.equinox.p2.user.ui.source.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.equinox.p2.core.feature=p2IU,id=org.eclipse.equinox.p2.core.feature.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.equinox.p2.extras.feature=p2IU,id=org.eclipse.equinox.p2.extras.feature.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.equinox.p2.rcp.feature=p2IU,id=org.eclipse.equinox.p2.rcp.feature.feature.jar,repository=ECLIPSE_PLATFORM_REPO
