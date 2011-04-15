@@ -198,6 +198,37 @@
 	<target name="postPackage">
 	</target>
 
+	<macrodef name="publishProduct">
+		<attribute name="product" />
+		<sequential>
+			<replace token="@qualifier@" file="@{product}" value="${buildLabel}" />
+			<echo message="Publishing @{product} to file:${p2.repo}" />
+			<p2.publish.product flavor="tooling" repository="file:${p2.repo}" productFile="@{product}" compress="true">
+				<contextRepository location="file:${localRepoLocation}" />
+				<config os="win32" ws="win32" arch="x86" />
+				<config os="win32" ws="win32" arch="x86_64" />
+				<config os="linux" ws="gtk" arch="x86" />
+				<config os="linux" ws="gtk" arch="x86_64" />
+				<!-- <config os="linux" ws="gtk" arch="ppc" /> -->
+				<config os="linux" ws="gtk" arch="ppc64" />
+				<!--<config os="linux" ws="motif" arch="x86" /> 
+				<config os="linux" ws="gtk" arch="s390x" />
+				<config os="linux" ws="gtk" arch="s390" /> -->
+				<config os="solaris" ws="gtk" arch="sparc" />
+				<config os="solaris" ws="gtk" arch="x86" />
+				<config os="macosx" ws="cocoa" arch="x86" />
+				<config os="macosx" ws="cocoa" arch="x86_64" />
+				<config os="macosx" ws="carbon" arch="ppc" />
+				<config os="macosx" ws="carbon" arch="x86" />
+				<config os="hpux" ws="gtk" arch="ia64_32" />
+				<config os="aix" ws="gtk" arch="ppc" />
+				<config os="aix" ws="gtk" arch="ppc64" />
+				<advice kind="featureVersions" file="${buildDirectory}/finalFeaturesVersions.properties" />
+				<advice kind="pluginVersions" file="${buildDirectory}/finalPluginsVersions.properties" />
+			</p2.publish.product>
+		</sequential>
+	</macrodef>
+		
 	<!-- ===================================================================== -->
 	<!-- Steps to do after the build is done. -->
 	<!-- ===================================================================== -->
@@ -222,32 +253,11 @@
 		<p2.process.artifacts repositoryPath="file://${p2.repo}" />
 		<delete file="${p2.repo}/pack.properties" />
 		
-		<replace token="@qualifier@" file="${eclipse.build.configs}/sdk/builder/sdk.product" value="${buildLabel}" />
-		<echo message="Publishing ${eclipse.build.configs}/sdk/builder/sdk.product to file:${p2.repo}" />
-		<p2.publish.product flavor="tooling" repository="file:${p2.repo}" productFile="${eclipse.build.configs}/sdk/builder/sdk.product" compress="true">
-			<contextRepository location="file:${localRepoLocation}" />
-			<config os="win32" ws="win32" arch="x86" />
-			<config os="win32" ws="win32" arch="x86_64" />
-			<config os="linux" ws="gtk" arch="x86" />
-			<config os="linux" ws="gtk" arch="x86_64" />
-			<!-- <config os="linux" ws="gtk" arch="ppc" /> -->
-			<config os="linux" ws="gtk" arch="ppc64" />
-			<!--<config os="linux" ws="motif" arch="x86" /> 
-			<config os="linux" ws="gtk" arch="s390x" />
-			<config os="linux" ws="gtk" arch="s390" /> -->
-			<config os="solaris" ws="gtk" arch="sparc" />
-			<config os="solaris" ws="gtk" arch="x86" />
-			<config os="macosx" ws="cocoa" arch="x86" />
-			<config os="macosx" ws="cocoa" arch="x86_64" />
-			<config os="macosx" ws="carbon" arch="ppc" />
-			<config os="macosx" ws="carbon" arch="x86" />
-			<config os="hpux" ws="gtk" arch="ia64_32" />
-			<config os="aix" ws="gtk" arch="ppc" />
-			<config os="aix" ws="gtk" arch="ppc64" />
-			<advice kind="featureVersions" file="${buildDirectory}/finalFeaturesVersions.properties" />
-			<advice kind="pluginVersions" file="${buildDirectory}/finalPluginsVersions.properties" />
-		</p2.publish.product>
-
+		<publishProduct product="${eclipse.build.configs}/sdk/builder/sdk.product" />
+		<publishProduct product="${eclipse.build.configs}/platform/platform.product" />
+		<publishProduct product="${eclipse.build.configs}/platform.sdk/platform.product" />
+		<publishProduct product="${eclipse.build.configs}/rcp/rcp.product" />
+		
 		<echo message="Mirroring org.eclipse.rcp.configuration.feature.group to file:${p2.repo}" />
 		<p2.mirror destination="file:${p2.repo}">
 			<source location="file:${p2.repo}" />
