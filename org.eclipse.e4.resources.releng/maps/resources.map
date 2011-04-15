@@ -1,12 +1,12 @@
 !***************  RESOURCES CONTRIBUTION  ******************************************************** 
 
 !**** Semantic Resources EFS
-plugin@org.eclipse.core.resources.semantic=v20110414-2200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.semantic
-plugin@org.eclipse.ui.resources.semantic=v20110414-2200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.ui.resources.semantic
-plugin@org.eclipse.core.resources.semantic.examples=v20110414-2200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/examples/org.eclipse.core.resources.semantic.examples
-plugin@org.eclipse.core.resources.semantic.test=v20110414-2200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.resources.semantic.test
-plugin@org.eclipse.ui.resources.semantic.examples=v20110414-2200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/examples/org.eclipse.ui.resources.semantic.examples
-plugin@org.eclipse.ui.resources.semantic.examples.test=v20110414-2200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.ui.resources.semantic.examples.test
+plugin@org.eclipse.core.resources.semantic=v20110415-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.semantic
+plugin@org.eclipse.ui.resources.semantic=v20110415-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.ui.resources.semantic
+plugin@org.eclipse.core.resources.semantic.examples=v20110415-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/examples/org.eclipse.core.resources.semantic.examples
+plugin@org.eclipse.core.resources.semantic.test=v20110415-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.resources.semantic.test
+plugin@org.eclipse.ui.resources.semantic.examples=v20110415-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/examples/org.eclipse.ui.resources.semantic.examples
+plugin@org.eclipse.ui.resources.semantic.examples.test=v20110415-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.ui.resources.semantic.examples.test
 
 
 
