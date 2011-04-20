@@ -64,6 +64,7 @@
 
 	<target name="installTestPlugins">
 		<echo>-installIU ${testPlugin} +</echo>
+		<property name="additionalPlugins" value="" />
 		<exec executable="${eclipse-home}/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" output="${results}/director.log" resultproperty="directorcode">
 			<arg line="-vm /opt/public/common/jdk-1.6.x86_64/bin/java" />
 			<arg line="-application org.eclipse.equinox.p2.director" />
@@ -71,7 +72,7 @@
 			<arg line="--launcher.suppressErrors" />
 			<arg line="-consoleLog" />
 			<arg line="-flavor tooling" />
-			<arg line="-installIUs ${testPlugin},org.eclipse.test,org.eclipse.ant.optional.junit" />
+			<arg line="-installIUs ${testPlugin},org.eclipse.test,org.eclipse.ant.optional.junit,${additionalPlugins}" />
 			<arg line="-p2.os ${os}" />
 			<arg line="-p2.ws ${ws}" />
 			<arg line="-p2.arch ${arch}" />
@@ -217,7 +218,7 @@
 	
 	<macrodef name="runTests">
 		<attribute name="testPlugin" />
-
+		<attribute name="additionalPlugins" default="" />
 		<sequential>
 
 			<!--alwasy use eclipse executable to launch tests with the exception of performance tests-->
@@ -245,6 +246,7 @@
 				<param name="testPlugin" value="@{testPlugin}" />
 				<param name="output-file" value="@{testPlugin}.xml" />
 				<param name="vmargs" value=" -Xms40m -Xmx384m -XX:MaxPermSize=256m" />
+				<param name="additionalPlugins" value="@{additionalPlugins}" />
 			</antcall>
 			
 			<updateTestResult testPlugin="@{testPlugin}" />
@@ -610,6 +612,10 @@
 	<target name="e4ui">
 		<runTests testPlugin="org.eclipse.e4.ui.tests" />
 	</target>
+	
+	<target name="e4menu">
+		<runTests testPlugin="org.eclipse.e4.ui.menu.tests" additionalplugins="org.eclipse.e4.ui.menu.tests.p1,org.eclipse.e4.ui.menu.tests.p2,org.eclipse.e4.ui.menu.tests.p3,org.eclipse.e4.ui.menu.tests.p4"/>
+	</target>
 
 	<target name="e4tm">
 		<runTests testPlugin="org.eclipse.e4.tm.builder.tests" />
@@ -693,6 +699,7 @@
 		<antcall target="cssSwt" />
 		<antcall target="cssCore" />
 		<antcall target="e4ui" />
+		<antcall target="e4menu" />
 		<antcall target="coreServices" />
 		<antcall target="coreTests" />
 	</target>
