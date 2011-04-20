@@ -16,7 +16,7 @@ plugin@org.eclipse.e4.core.tests=v20110407-2030,:pserver:anonymous@dev.eclipse.o
 plugin@org.eclipse.e4.core.commands.tests=v20110317-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.commands.tests
 plugin@com.google.code.atinject.tck=v20110113-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/com.google.code.atinject.tck
 
-plugin@org.eclipse.e4.ui.menu.tests=v20110308-1650,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/tests/org.eclipse.e4.ui.menu.tests
+plugin@org.eclipse.e4.ui.menu.tests=v20110420,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/tests/org.eclipse.e4.ui.menu.tests
 plugin@org.eclipse.e4.ui.menu.tests.p1=v20110308-1650,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/tests/org.eclipse.e4.ui.menu.tests.p1
 plugin@org.eclipse.e4.ui.menu.tests.p2=v20110308-1650,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/tests/org.eclipse.e4.ui.menu.tests.p2
 plugin@org.eclipse.e4.ui.menu.tests.p3=v20110308-1650,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/tests/org.eclipse.e4.ui.menu.tests.p3
