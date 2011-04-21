@@ -104,9 +104,9 @@
 		<p2.composite.repository destination="file:${repoLocation}" >
 			<add location="file:${sdkResults}/repository" />
 			<add location="file:${e4Results}/repository" />
-			<add location="file:${e4.targetDir}/emf" />
+			<!--<add location="file:${e4.targetDir}/emf" />
 			<add location="file:${e4.targetDir}/gef" />
-			<add location="file:${e4.targetDir}/wtp" />
+			<add location="file:${e4.targetDir}/wtp" />-->
 			<add location="${eclipseRepoURL-latest}"/>
 		</p2.composite.repository>
 		
