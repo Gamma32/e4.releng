@@ -311,7 +311,7 @@
 
 	<target name="provision.e4">
 		<property name="p2.sdk.install" value="${buildDirectory}/${buildId}/p2temp/sdk.install" />
-		<parallel failonany="true" threadCount='4'>
+		<parallel failonany="true" threadCount='3'>
 			<sequential> <callDirector os="win32"  ws="win32" arch="x86"    archiveFormat="zip" archiveSuffix="win32" />        </sequential>
 			<sequential> <callDirector os="win32"  ws="win32" arch="x86_64" archiveFormat="zip" archiveSuffix="win32-x86_64" />        </sequential>
 			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86"    archiveFormat="tar" archiveSuffix="linux-gtk" />    </sequential>

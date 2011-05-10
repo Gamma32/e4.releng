@@ -171,7 +171,7 @@ runSDKBuild () {
     
     cd $buildDir/40builds
     
-    cmd="$javaHome/bin/java -enableassertions \
+    cmd="$javaHome/bin/java -Xmx500m -enableassertions \
       -cp $cpAndMain \
       -application org.eclipse.ant.core.antRunner  \
       -buildfile $buildfile \
@@ -365,7 +365,7 @@ buildMasterFeature () {
     mkdir -p $buildDirectory/eclipse; cd $buildDirectory
 
     echo "[start] [`date +%H\:%M\:%S`] Invoking Eclipse build with -enableassertions and -cp $cpAndMain ...";
-    cmd="$javaHome/bin/java -enableassertions \
+    cmd="$javaHome/bin/java -Xmx500m -enableassertions \
       -cp $cpAndMain \
       -application org.eclipse.ant.core.antRunner  \
       -buildfile $buildfile \
