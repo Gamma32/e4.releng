@@ -10,6 +10,11 @@ plugin@org.eclipse.e4.ui.workbench.addons.swt=v20110510-1500,:pserver:anonymous@
 plugin@org.eclipse.ui.workbench=v20110511-1600,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/bundles/org.eclipse.ui.workbench
 plugin@org.eclipse.ui=v20110506-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
+!**** 4.x Platform Doc
+
+plugin@org.eclipse.platform.doc.user=v20110512-1053,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.platform.doc.isv=v20110512-1053,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+
 !**** EMF
 feature@org.eclipse.emf.ecore=p2IU,id=org.eclipse.emf.ecore.feature.jar,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.7milestones/base/
 plugin@org.eclipse.emf.ecore.change=p2IU,id=org.eclipse.emf.ecore.change,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.7milestones/base/
