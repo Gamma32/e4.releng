@@ -18,7 +18,7 @@ plugin@org.eclipse.e4.ui.css.swt=v20110517-2030,:pserver:anonymous@dev.eclipse.o
 plugin@org.eclipse.e4.ui.css.nebula=v20100630-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.css.nebula
 
 fragment@org.eclipse.e4.ui.workbench.fragment=v20091203-1000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.fragment
-fragment@org.eclipse.e4.ui.workbench.renderers.swt.cocoa=v20110429-0730,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt.cocoa
+fragment@org.eclipse.e4.ui.workbench.renderers.swt.cocoa=v20110518-1420,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt.cocoa
 
 plugin@org.eclipse.e4.ui.web=v20110427-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.web
 plugin@org.eclipse.e4.pde.ui=v20090714-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.pde.ui
