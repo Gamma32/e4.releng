@@ -101,12 +101,6 @@
 			<iu id="org.junit" version="0.0.0" />
 			<iu id="org.junit.source" version="0.0.0" />
 		</p2.mirror>
-		<echo message="Mirror from ${indigoRepoURL} to ${localRepoLocation}" />
-		<p2.mirror destination="file:${localRepoLocation}" ignoreerrors="true">
-			<source location="${indigoRepoURL}" />
-			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true" />
-			<iu id="org.apache.commons.beanutils" />
-		</p2.mirror>
 	</target>
 
 	<!-- ===================================================================== -->
