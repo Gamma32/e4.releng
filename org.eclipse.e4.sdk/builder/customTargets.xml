@@ -286,6 +286,7 @@
 		<attribute name="archiveSuffix" />
 		<attribute name="archiveFormat" />
 		<sequential>
+			<!-- Bug 342853 - attempt to work around intermittent build failures by forking director calls
 			<ant antfile="${eclipse.pdebuild.scripts}/genericTargets.xml" target="runDirector">
 				<property name="p2.director.installPath" value="${p2.sdk.install}.@{os}.@{ws}.@{arch}/eclipse" />
 				<property name="p2.director.profile" value="@{profile}" />
@@ -294,7 +295,20 @@
 				<property name="ws" value="@{ws}" />
 				<property name="arch" value="@{arch}" />
 				<property name="p2.repo" value="file:${p2.repo}" />
-			</ant>
+			</ant> -->
+
+			<java jar="${equinoxLauncher}" fork="true" failonerror="false" timeout="900000" >
+				<arg line="-application org.eclipse.equinox.p2.director" />
+				<arg line="-nosplash -consoleLog" />
+				<arg line="-roaming -flavor ${p2.flavor} -profile @{profile}" />
+				<arg line="-installIU @{id}" />
+				<arg line="-p2.os @{os} -p2.ws @{ws} -p2.arch @{arch}" />
+				<arg line="-profileProperties org.eclipse.update.install.features=true" />
+				<arg line="-repository file:${p2.repo}" />
+				<arg line="-destination ${p2.sdk.install}.@{os}.@{ws}.@{arch}/eclipse" />
+				<arg line="-bundlepool ${p2.sdk.install}.@{os}.@{ws}.@{arch}/eclipse" />
+				<arg line="-shared  ${p2.sdk.install}.@{os}.@{ws}.@{arch}/eclipse/p2" />
+			</java>
 			<delete file="${buildDirectory}/${buildLabel}/eclipse-SDK-${buildLabel}-@{archiveSuffix}.@{archiveFormat}" failonerror="false" />
 			<antcall target="p2.@{archiveFormat}">
 				<param name="fileName" value="${buildDirectory}/${buildLabel}/eclipse-SDK-${buildLabel}-@{archiveSuffix}.@{archiveFormat}" />
@@ -304,6 +318,9 @@
 	</macrodef>
 
 	<target name="provision.e4">
+		<pathconvert property="equinoxLauncher" >
+			<last><sort><fileset dir="${eclipse.home}/plugins" includes="org.eclipse.equinox.launcher_*.jar" /></sort></last>
+		</pathconvert>
 		<property name="p2.sdk.install" value="${buildDirectory}/${buildId}/p2temp/sdk.install" />
 		<parallel failonany="true" threadCount='3'>
 			<sequential> <callDirector os="win32"  ws="win32" arch="x86"    archiveFormat="zip" archiveSuffix="win32" />               </sequential>
