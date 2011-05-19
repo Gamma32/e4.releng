@@ -306,13 +306,18 @@
 	<target name="provision.e4">
 		<property name="p2.sdk.install" value="${buildDirectory}/${buildId}/p2temp/sdk.install" />
 		<parallel failonany="true" threadCount='3'>
-			<sequential> <callDirector os="win32"  ws="win32" arch="x86"    archiveFormat="zip" archiveSuffix="win32" />        </sequential>
+			<sequential> <callDirector os="win32"  ws="win32" arch="x86"    archiveFormat="zip" archiveSuffix="win32" />               </sequential>
 			<sequential> <callDirector os="win32"  ws="win32" arch="x86_64" archiveFormat="zip" archiveSuffix="win32-x86_64" />        </sequential>
-			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86"    archiveFormat="tar" archiveSuffix="linux-gtk" />    </sequential>
+			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86"    archiveFormat="tar" archiveSuffix="linux-gtk" />           </sequential>
 			<sequential> <callDirector os="linux"  ws="gtk"   arch="x86_64" archiveFormat="tar" archiveSuffix="linux-gtk-x86_64" />    </sequential>
-			<sequential> <callDirector os="linux"  ws="gtk"   arch="ppc64"  archiveFormat="tar" archiveSuffix="linux-gtk-ppc64" />    </sequential>
-			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86"    archiveFormat="tar" archiveSuffix="macosx-cocoa" /> </sequential>
+			<sequential> <callDirector os="linux"  ws="gtk"   arch="ppc64"  archiveFormat="tar" archiveSuffix="linux-gtk-ppc64" />     </sequential>
+			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86"    archiveFormat="tar" archiveSuffix="macosx-cocoa" />        </sequential>
 			<sequential> <callDirector os="macosx" ws="cocoa" arch="x86_64" archiveFormat="tar" archiveSuffix="macosx-cocoa-x86_64" /> </sequential>
+			<sequential> <callDirector os="solaris" ws="gtk"  arch="sparc"  archiveFormat="zip" archiveSuffix="solaris-gtk" />         </sequential>
+			<sequential> <callDirector os="solaris" ws="gtk"  arch="x86"    archiveFormat="zip" archiveSuffix="solaris-gtk-x86" />     </sequential>
+			<sequential> <callDirector os="aix"    ws="gtk"   arch="ppc"    archiveFormat="zip" archiveSuffix="aix-gtk-ppc" />         </sequential>
+			<sequential> <callDirector os="aix"    ws="gtk"   arch="ppc64"  archiveFormat="zip" archiveSuffix="aix-gtk-ppc64" />       </sequential>
+			<sequential> <callDirector os="hpux"   ws="gtk"   arch="ia64_32" archiveFormat="zip" archiveSuffix="hpux-gtk-ia64_32" />   </sequential>
 		</parallel>
 	</target>
 

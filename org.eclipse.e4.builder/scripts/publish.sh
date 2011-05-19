@@ -14,6 +14,11 @@ eclipse-SDK-ReplaceMe-macosx-cocoa.tar.gz
 eclipse-SDK-ReplaceMe-macosx-cocoa-x86_64.tar.gz
 eclipse-SDK-ReplaceMe-win32-x86_64.zip
 eclipse-SDK-ReplaceMe-win32.zip
+eclipse-SDK-ReplaceMe-aix-gtk-ppc.zip
+eclipse-SDK-ReplaceMe-aix-gtk-ppc64.zip
+eclipse-SDK-ReplaceMe-hpux-gtk-ia64_32.zip
+eclipse-SDK-ReplaceMe-solaris-gtk.zip
+eclipse-SDK-ReplaceMe-solaris-gtk-x86.zip
 "
 
 FILES_TO_UPDATE="
