@@ -668,7 +668,6 @@
 	
 	<target name="e4less">
 		<copy file="${basedir}/testResultsE4.html" tofile="${results}/testResults.html" />
-		<antcall target="e4xwt" />
 		<antcall target="e4tm" />
 		<antcall target="e4tmJavascript" />
 		<antcall target="e4Commands" />
