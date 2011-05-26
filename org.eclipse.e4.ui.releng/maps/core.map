@@ -1,7 +1,7 @@
 !**** e4 core
 
 plugin@org.eclipse.e4.core.services=v20110517-2030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services
-plugin@org.eclipse.e4.core.commands=v20110525-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.commands
+plugin@org.eclipse.e4.core.commands=v20110526-1100,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.commands
 plugin@org.eclipse.e4.core.di=v20110517-2030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.di
 plugin@org.eclipse.e4.core.contexts=v20110517-2030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.contexts
 plugin@org.eclipse.e4.core.contexts.debug=v20110517-2030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.contexts.debug
