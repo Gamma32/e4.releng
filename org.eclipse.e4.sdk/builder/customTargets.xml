@@ -348,6 +348,7 @@
 	</target>
 
 	<target name="p2.zip">
+		<chmod dir="${inputFolder}" perm="755" includes="**/*.so" />
 		<exec dir="${inputFolder}" executable="zip">
 			<arg line="-q ${fileName} -r ." />
 		</exec>
