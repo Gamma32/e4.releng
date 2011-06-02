@@ -12,8 +12,8 @@ plugin@org.eclipse.ui=v20110506-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot
 
 !**** 4.x Platform Doc
 
-plugin@org.eclipse.platform.doc.user=v20110526-1540,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
-plugin@org.eclipse.platform.doc.isv=v20110531-1750,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.platform.doc.user=v20110602-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.platform.doc.isv=v20110602-1400,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 !**** EMF
 feature@org.eclipse.emf.ecore=p2IU,id=org.eclipse.emf.ecore.feature.jar,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.7milestones/base/
