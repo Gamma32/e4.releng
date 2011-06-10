@@ -5,8 +5,8 @@ plugin@org.eclipse.e4.ui.model.workbench=v20110517-2030,:pserver:anonymous@dev.e
 plugin@org.eclipse.e4.ui.model.workbench.edit=v20110308-1630,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.model.workbench.edit
 plugin@org.eclipse.e4.ui.workbench=v20110609-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench
 plugin@org.eclipse.e4.ui.workbench3=v20110517-2030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench3
-plugin@org.eclipse.e4.ui.workbench.renderers.swt=v20110609-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt
-plugin@org.eclipse.e4.ui.workbench.swt=v20110603-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.swt
+plugin@org.eclipse.e4.ui.workbench.renderers.swt=v20110610-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.renderers.swt
+plugin@org.eclipse.e4.ui.workbench.swt=v20110610-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.swt
 plugin@org.eclipse.e4.ui.widgets=v20110518-2130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.widgets
 plugin@org.eclipse.e4.ui.bindings=v20110526-1430,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.bindings
 plugin@org.pushingpixels.trident=v20110609-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.pushingpixels.trident
@@ -52,7 +52,7 @@ plugin@org.eclipse.e4.examples.services=v20110603-1130,:pserver:anonymous@dev.ec
 !*** e4 UI tests
 plugin@org.eclipse.e4.ui.tests.css.swt=v20101125-1630,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.swt
 plugin@org.eclipse.e4.ui.tests.css.core=v20100720-1930,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests.css.core
-plugin@org.eclipse.e4.ui.tests=v20110603-1900,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests
+plugin@org.eclipse.e4.ui.tests=v20110610-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.tests
 plugin@org.eclipse.e4.ui.bindings.tests=v20110428-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.ui.bindings.tests
 
 
