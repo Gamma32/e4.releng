@@ -6,7 +6,7 @@
    <feature url="features/org.eclipse.e4.ui.css.feature_0.9.1.qualifier.jar" id="org.eclipse.e4.ui.css.feature" version="0.9.1.qualifier">
       <category name="org.eclipse.e4.ui.category"/>
    </feature>
-   <feature url="features/org.eclipse.e4.ui.feature_0.9.1.qualifier.jar" id="org.eclipse.e4.ui.feature" version="0.9.1.qualifier">
+   <feature url="features/org.eclipse.e4.ui.feature_0.10.0.qualifier.jar" id="org.eclipse.e4.ui.feature" version="0.10.0.qualifier">
       <category name="org.eclipse.e4.ui.category"/>
    </feature>
    <feature url="features/org.eclipse.e4.languages.feature_0.9.1.qualifier.jar" id="org.eclipse.e4.languages.feature" version="0.9.1.qualifier">
@@ -39,7 +39,7 @@
    <feature url="features/org.eclipse.e4.ui.css.source.feature_0.9.1.qualifier.jar" id="org.eclipse.e4.ui.css.source.feature" version="0.9.1.qualifier">
       <category name="org.eclipse.e4.ui.category"/>
    </feature>
-   <feature url="features/org.eclipse.e4.ui.source.feature_0.9.1.qualifier.jar" id="org.eclipse.e4.ui.source.feature" version="0.9.1.qualifier">
+   <feature url="features/org.eclipse.e4.ui.source.feature_0.10.0.qualifier.jar" id="org.eclipse.e4.ui.source.feature" version="0.10.0.qualifier">
       <category name="org.eclipse.e4.ui.category"/>
    </feature>
    <feature url="features/org.eclipse.e4.languages.source.feature_0.9.1.qualifier.jar" id="org.eclipse.e4.languages.source.feature" version="0.9.1.qualifier">
@@ -84,16 +84,16 @@
    <feature url="features/org.eclipse.e4.resources.source.feature_0.10.0.qualifier.jar" id="org.eclipse.e4.resources.source.feature" version="0.10.0.qualifier">
       <category name="org.eclipse.e4.resources.category"/>
    </feature>
-   <feature url="features/org.eclipse.e4.core.tools.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.core.tools.feature" version="0.9.0.qualifier">
+   <feature url="features/org.eclipse.e4.core.tools.feature_0.10.0.qualifier.jar" id="org.eclipse.e4.core.tools.feature" version="0.10.0.qualifier">
       <category name="org.eclipse.e4.tools.category"/>
    </feature>
-   <feature url="features/org.eclipse.e4.core.tools.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.core.tools.source.feature" version="0.9.0.qualifier">
+   <feature url="features/org.eclipse.e4.core.tools.source.feature_0.10.0.qualifier.jar" id="org.eclipse.e4.core.tools.source.feature" version="0.10.0.qualifier">
       <category name="org.eclipse.e4.tools.category"/>
    </feature>
-   <feature url="features/org.eclipse.e4.tools.e3x.bridge.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.tools.e3x.bridge.feature" version="0.9.0.qualifier">
+   <feature url="features/org.eclipse.e4.tools.e3x.bridge.feature_0.11.0.qualifier.jar" id="org.eclipse.e4.tools.e3x.bridge.feature" version="0.11.0.qualifier">
       <category name="org.eclipse.e4.tools.category"/>
    </feature>
-   <feature url="features/org.eclipse.e4.tools.e3x.bridge.source.feature_0.9.0.qualifier.jar" id="org.eclipse.e4.tools.e3x.bridge.source.feature" version="0.9.0.qualifier">
+   <feature url="features/org.eclipse.e4.tools.e3x.bridge.source.feature_0.11.0.qualifier.jar" id="org.eclipse.e4.tools.e3x.bridge.source.feature" version="0.11.0.qualifier">
       <category name="org.eclipse.e4.tools.category"/>
    </feature>
    <feature url="features/org.eclipse.e4.core.deeplink.feature_4.6.0.qualifier.jar" id="org.eclipse.e4.core.deeplink.feature" version="4.6.0.qualifier">
