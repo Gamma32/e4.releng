@@ -2,7 +2,7 @@
 
 quietCVS=-Q
 writableBuildRoot=/shared/eclipse/e4
-projRelengBranch="HEAD"; # default set below
+projRelengBranch="R4_1_maintenance"; # default set below
 arch="x86_64"
 archProp="-x86_64"
 processor=$( uname -p )
@@ -33,7 +33,7 @@ realBuildProperties () {
 
 # available builds
     #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
-    #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
+    #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/M*/eclipse-SDK-M*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
     basebuilderBranch=v20110302
 }
 
@@ -62,15 +62,15 @@ commonProperties () {
     targetDir=${buildDir}/targets
     targetZips=$targetDir/downloads
     transformedRepo=${targetDir}/helios-p2
-    buildDirectory=$buildDir/I$buildTimestamp
+    buildDirectory=$buildDir/M$buildTimestamp
     
-    e4TestDir=/opt/buildhomes/e4Build/e4Tests/I$buildTimestamp
-    sdkTestDir=/opt/buildhomes/e4Build/sdkTests/I$buildTimestamp
+    e4TestDir=/opt/buildhomes/e4Build/e4Tests/M$buildTimestamp
+    sdkTestDir=/opt/buildhomes/e4Build/sdkTests/M$buildTimestamp
     
-    buildResults=$buildDirectory/I$buildTimestamp
+    buildResults=$buildDirectory/M$buildTimestamp
     
-    sdkResults=$buildDir/40builds/I$buildTimestamp/I$buildTimestamp
-    sdkBuildDirectory=$buildDir/40builds/I$buildTimestamp
+    sdkResults=$buildDir/40builds/M$buildTimestamp/M$buildTimestamp
+    sdkBuildDirectory=$buildDir/40builds/M$buildTimestamp
 		
     relengBaseBuilderDir=$supportDir/org.eclipse.releng.basebuilder
     buildDirEclipse="$buildDir/eclipse"
@@ -125,16 +125,19 @@ updateE4Builder () {
 
 updateSDKBuilder () {
     cd $supportDir
-    echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.e4.sdk"
-    if [[ ! -d org.eclipse.e4.sdk ]]; then
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co  -d org.eclipse.e4.sdk e4/releng/org.eclipse.e4.sdk"
+    echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.e4.sdk_${projRelengBranch}"
+    if [[ ! -d org.eclipse.e4.sdk_${projRelengBranch} ]]; then
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r $projRelengBranch -d org.eclipse.e4.sdk_${projRelengBranch} e4/releng/org.eclipse.e4.sdk"
         echo $cmd
         $cmd
     else
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.e4.sdk "
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.e4.sdk_${projRelengBranch} "
         echo $cmd
         $cmd
     fi
+    
+    rm org.eclipse.e4.builder
+    ln -s ${supportDir}/org.eclipse.e4.sdk_${projRelengBranch} org.eclipse.e4.sdk  
 }
 
 update40Workspace () {
@@ -178,7 +181,7 @@ runSDKBuild () {
 	  -Dbuilder=$supportDir/org.eclipse.e4.sdk/builder \
 	  -Dorg.eclipse.e4.builder=$supportDir/org.eclipse.e4.builder \
 	  -Declipse.build.configs=$supportDir/org.eclipse.releng.eclipsebuilder/eclipse/buildConfigs \
-	  -DbuildType=I \
+	  -DbuildType=M \
 	  -Dbuilddate=$builddate \
 	  -Dbuildtime=$buildtime \
 	  -Dbase=$buildDir/40builds \
@@ -203,7 +206,7 @@ runSDKBuild () {
 			prereqMsg=`cat $buildDirectory/prereqErrors.log` 
 		fi
 		
-		mailx -s "4.1 SDK Build: $buildId failed" e4-dev@eclipse.org <<EOF
+		mailx -s "4.1 SDK Maintenance Build: $buildId failed" e4-dev@eclipse.org <<EOF
 $compileMsg
 $compileProblems
 
@@ -339,7 +342,7 @@ runTheTests () {
 sendMail () {
 	failed=""
 	testsMsg=$(sed -n '/<!--START-TESTS-->/,/<!--END-TESTS-->/p' $buildResults/results/testResults.html > mail.txt)
-	testsMsg=$(cat mail.txt | sed s_href=\"_href=\"http://download.eclipse.org/e4/downloads/drops/I$buildTimestamp/results/_)
+	testsMsg=$(cat mail.txt | sed s_href=\"_href=\"http://download.eclipse.org/e4/downloads/drops/M$buildTimestamp/results/_)
 	rm mail.txt
 	
 	red=$(echo $testsMsg | grep "color:red")
@@ -354,8 +357,8 @@ echo "MIME-Version: 1.0 "
 echo "Content-Type: text/html; charset=us-ascii"
 echo "Subject: 0.11 Integration Build: I$buildTimestamp $failed"
 echo ""
-echo "<html><head><title>0.11 Integration Build: I$buildTimestamp $failed</title></head>" 
-echo "<body>Check here for the build results: <a href="http://download.eclipse.org/e4/downloads/drops/I$buildTimestamp">I$buildTimestamp</a><br><br>" 
+echo "<html><head><title>0.11 Maintenance Build: M$buildTimestamp $failed</title></head>" 
+echo "<body>Check here for the build results: <a href="http://download.eclipse.org/e4/downloads/drops/M$buildTimestamp">M$buildTimestamp</a><br><br>" 
 echo "$testsMsg</body></html>" 
 ) | /usr/lib/sendmail -t
 
