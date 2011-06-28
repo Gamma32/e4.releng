@@ -18,11 +18,11 @@ java=/shared/common/jdk-1.5.0-22.x86_64/jre/bin/java
 remoteBase=/home/data/httpd/download.eclipse.org
 
 e4Builds=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0
-e4Repo=$e4Builds/targets/updates/0.11-I-builds
+e4Repo=$e4Builds/targets/updates/0.12-I-builds
 e4Drops=$remoteBase/e4/downloads/drops
 
 sdkBuilds=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/40builds
-sdkRepo=$e4Builds/targets/updates/4.1-I-builds
+sdkRepo=$e4Builds/targets/updates/4.2-I-builds
 sdkDrops=$remoteBase/e4/sdk/drops
 
 generateCleanupXML() {

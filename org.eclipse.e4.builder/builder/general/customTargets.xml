@@ -9,7 +9,7 @@
 	<loadproperties srcfile="${builder}/update_repo.properties" />
 	<property name="transformedRepoLocation" value="${targetDir}/${targetDownloadId}" />
 	<property name="repoBaseLocation" value="${targetDir}/${targetDownloadId}-p2" />
-	<property name="updateSite" value="${targetDir}/updates/0.11-I-builds" />
+	<property name="updateSite" value="${targetDir}/updates/0.12-I-builds" />
 	<property name="repoBaseline" value="${updateSite}" />
 
 

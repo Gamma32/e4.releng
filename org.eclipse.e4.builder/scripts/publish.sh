@@ -33,7 +33,7 @@ index.php
 #HUDSON_COMMON=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/workspace/builds/transfer/files
 HUDSON_COMMON=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/40builds
 HUDSON_DROPS=$HUDSON_COMMON
-HUDSON_REPO=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/targets/updates/4.1-I-builds
+HUDSON_REPO=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/targets/updates/4.2-I-builds
 #HUDSON_REPO=$HUDSON_COMMON/testUpdates-I
 
 process_build () {
@@ -89,9 +89,9 @@ echo "From: e4Build@build.eclipse.org "
 echo "To: e4-dev@eclipse.org "
 echo "MIME-Version: 1.0 "
 echo "Content-Type: text/html; charset=us-ascii"
-echo "Subject: 4.1 SDK Build: $buildId $failed"
+echo "Subject: 4.2 SDK Build: $buildId $failed"
 echo ""
-echo "<html><head><title>4.1 SDK Build $buildId</title></head>" 
+echo "<html><head><title>4.2 SDK Build $buildId</title></head>" 
 echo "<body>Check here for the build results: <a href="http://download.eclipse.org/e4/sdk/drops/$buildId">$buildId</a><br>" 
 echo "$testsMsg</body></html>" 
 ) | /usr/lib/sendmail -t

@@ -29,7 +29,7 @@ index.php
 HUDSON_COMMON=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/workspace/builds/transfer/files
 #HUDSON_COMMON=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/40builds
 HUDSON_DROPS=$HUDSON_COMMON/bogus/downloads/drops
-HUDSON_REPO=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/targets/updates/4.1-I-builds
+HUDSON_REPO=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/targets/updates/4.2-I-builds
 #HUDSON_REPO=$HUDSON_COMMON/testUpdates-I
 
 process_build () {
@@ -68,9 +68,9 @@ scp -r $BASE_DIR/$buildId pwebster@dev.eclipse.org:/home/data/httpd/download.ecl
 
 echo Done $buildId
 
-    mailx -s "4.1 SDK Build: $buildId" e4-dev@eclipse.org <<EOF
+    mailx -s "4.2 SDK Build: $buildId" e4-dev@eclipse.org <<EOF
 
-The 4.1 SDK build:
+The 4.2 SDK build:
 http://download.eclipse.org/e4/sdk/drops/$buildId
 
 EOF

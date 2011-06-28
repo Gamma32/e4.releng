@@ -182,7 +182,7 @@ runSDKBuild () {
 	  -Dbuilddate=$builddate \
 	  -Dbuildtime=$buildtime \
 	  -Dbase=$buildDir/40builds \
-	  -DupdateSite=$targetDir/updates/4.1-I-builds
+	  -DupdateSite=$targetDir/updates/4.2-I-builds
 	"   
     echo $cmd
     $cmd  
@@ -203,7 +203,7 @@ runSDKBuild () {
 			prereqMsg=`cat $buildDirectory/prereqErrors.log` 
 		fi
 		
-		mailx -s "4.1 SDK Build: $buildId failed" e4-dev@eclipse.org <<EOF
+		mailx -s "4.2 SDK Build: $buildId failed" e4-dev@eclipse.org <<EOF
 $compileMsg
 $compileProblems
 
@@ -352,9 +352,9 @@ echo "From: e4Build@build.eclipse.org "
 echo "To: e4-dev@eclipse.org "
 echo "MIME-Version: 1.0 "
 echo "Content-Type: text/html; charset=us-ascii"
-echo "Subject: 0.11 Integration Build: I$buildTimestamp $failed"
+echo "Subject: 0.12 Integration Build: I$buildTimestamp $failed"
 echo ""
-echo "<html><head><title>0.11 Integration Build: I$buildTimestamp $failed</title></head>" 
+echo "<html><head><title>0.12 Integration Build: I$buildTimestamp $failed</title></head>" 
 echo "<body>Check here for the build results: <a href="http://download.eclipse.org/e4/downloads/drops/I$buildTimestamp">I$buildTimestamp</a><br><br>" 
 echo "$testsMsg</body></html>" 
 ) | /usr/lib/sendmail -t
@@ -465,7 +465,7 @@ cp /shared/eclipse/e4/logs/current.log \
 if [ ! -z "$publishDir" ]; then
     echo Publishing  $buildResults to "$publishDir"
     scp -r $buildResults "$publishDir"
-    rsync --recursive --delete ${targetDir}/updates/0.11-I-builds \
+    rsync --recursive --delete ${targetDir}/updates/0.12-I-builds \
       "${publishUpdates}"
     sendMail
     sleep 60
