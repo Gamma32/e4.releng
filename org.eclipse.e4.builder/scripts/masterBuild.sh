@@ -439,6 +439,8 @@ realBuildProperties
 commonProperties
 updateBaseBuilder
 updateBaseBuilderInfo
+updateSDKBuilder
+updateE4Builder
 
 
 cd ${builderDir}/scripts
