@@ -212,8 +212,8 @@
 				<config os="solaris" ws="gtk" arch="x86" />
 				<config os="macosx" ws="cocoa" arch="x86" />
 				<config os="macosx" ws="cocoa" arch="x86_64" />
-				<config os="macosx" ws="carbon" arch="ppc" />
-				<config os="macosx" ws="carbon" arch="x86" />
+				<!--<config os="macosx" ws="carbon" arch="ppc" />
+				<config os="macosx" ws="carbon" arch="x86" />-->
 				<config os="hpux" ws="gtk" arch="ia64_32" />
 				<config os="aix" ws="gtk" arch="ppc" />
 				<config os="aix" ws="gtk" arch="ppc64" />
