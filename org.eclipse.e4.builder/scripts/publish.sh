@@ -4,7 +4,7 @@
 # /home/data/httpd/download.eclipse.org/e4/sdk/drops/ReplaceMe
 
 BASE_DIR=/shared/eclipse/e4/sdk
-TMPL_DIR=$BASE_DIR/template
+TMPL_DIR=$BASE_DIR/template41x
 
 ORIG_ZIPS="
 eclipse-SDK-ReplaceMe-linux-gtk-ppc64.tar.gz
