@@ -144,6 +144,15 @@
    <feature url="features/org.eclipse.e4.ui.deeplink.typehandler.perspective.source.feature_1.0.0.qualifier.jar" id="org.eclipse.e4.ui.deeplink.typehandler.perspective.source.feature" version="1.0.0.qualifier">
       <category name="org.eclipse.e4.deeplink.category"/>
    </feature>
+   <feature url="features/org.eclipse.platform.discovery.feature_0.11.0.qualifier.jar" id="org.eclipse.platform.discovery.feature" version="0.11.0.qualifier">
+      <category name="org.eclipse.e4.search.category"/>
+   </feature>
+   <feature url="features/org.eclipse.platform.discovery.compatibility.feature_0.11.0.qualifier.jar" id="org.eclipse.platform.discovery.compatibility.feature" version="0.11.0.qualifier">
+      <category name="org.eclipse.e4.search.category"/>
+   </feature>
+      <feature url="features/org.eclipse.demo.search.example.feature_0.11.0.qualifier.jar" id="org.eclipse.demo.search.example.feature" version="0.11.0.qualifier">
+      <category name="org.eclipse.e4.search.category"/>
+   </feature>
    <category-def name="org.eclipse.e4.swt.category" label="E4 SWT"/>
    <category-def name="org.eclipse.e4.ui.category" label="E4 UI"/>
    <category-def name="org.eclipse.e4.lang.category" label="E4 Language Support"/>
@@ -154,4 +163,9 @@
    <category-def name="org.eclipse.e4.tm.category" label="E4 Toolkit Model"/>
    <category-def name="org.eclipse.e4.tools.category" label="E4 Tools"/>
    <category-def name="org.eclipse.e4.deeplink.category" label="E4 Deeplink"/>
+   <category-def name="org.eclipse.e4.search.category" label="E4 Search">
+      <description>
+         Eclipse Search Console
+      </description>
+   </category-def>
 </site>
