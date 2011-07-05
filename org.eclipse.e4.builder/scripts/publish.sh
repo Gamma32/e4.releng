@@ -89,7 +89,7 @@ echo "From: e4Build@build.eclipse.org "
 echo "To: e4-dev@eclipse.org "
 echo "MIME-Version: 1.0 "
 echo "Content-Type: text/html; charset=us-ascii"
-echo "Subject: 4.1 SDK Build: $buildId $failed"
+echo "Subject: 4.1 SDK Maintenance Build: $buildId $failed"
 echo ""
 echo "<html><head><title>4.1 SDK Build $buildId</title></head>" 
 echo "<body>Check here for the build results: <a href="http://download.eclipse.org/e4/sdk/drops/$buildId">$buildId</a><br>" 
@@ -100,7 +100,7 @@ echo "$testsMsg</body></html>"
 
 # find the builds to process
 
-BUILDS=$( ls -d $HUDSON_DROPS/I* | cut -d/ -f11 )
+BUILDS=$( ls -d $HUDSON_DROPS/M* | cut -d/ -f11 )
 
 if [ -z "$BUILDS" -o  "$BUILDS" = "I*" ]; then
 exit 0
