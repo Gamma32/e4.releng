@@ -1,23 +1,23 @@
 !**** e4 core
 
-plugin@org.eclipse.e4.core.services=v20110613-2030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.services
-plugin@org.eclipse.e4.core.commands=v20110613-2030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.commands
-plugin@org.eclipse.e4.core.di=v20110629-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.di
-plugin@org.eclipse.e4.core.contexts=v20110629-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.contexts
-plugin@org.eclipse.e4.core.contexts.debug=v20110517-2030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.contexts.debug
-plugin@org.eclipse.e4.core.di.extensions=v20110613-2030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.di.extensions
+plugin@org.eclipse.e4.core.services=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.services
+plugin@org.eclipse.e4.core.commands=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.core.commands
+plugin@org.eclipse.e4.core.di=GIT,tag=v20110629-1700,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.di
+plugin@org.eclipse.e4.core.contexts=GIT,tag=v20110629-1700,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.contexts
+plugin@org.eclipse.e4.core.contexts.debug=GIT,tag=v20110517-2030,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.core.contexts.debug
+plugin@org.eclipse.e4.core.di.extensions=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.di.extensions
 
-plugin@org.eclipse.e4.core.javascript=v20100614-1830,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.core.javascript
+plugin@org.eclipse.e4.core.javascript=GIT,tag=v20100614-1830,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=bundles/org.eclipse.e4.core.javascript
 
 
 !*** e4 core tests
-plugin@org.eclipse.e4.core.tests.services=v20110113-1500,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests.services
-plugin@org.eclipse.e4.core.tests=v20110629-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.tests
-plugin@org.eclipse.e4.core.commands.tests=v20110317-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/org.eclipse.e4.core.commands.tests
-plugin@com.google.code.atinject.tck=v20110603-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/tests/com.google.code.atinject.tck
+plugin@org.eclipse.e4.core.tests.services=GIT,tag=v20110113-1500,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=tests/org.eclipse.e4.core.tests.services
+plugin@org.eclipse.e4.core.tests=GIT,tag=v20110629-1700,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=tests/org.eclipse.e4.core.tests
+plugin@org.eclipse.e4.core.commands.tests=GIT,tag=v20110317-2000,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.core.commands.tests
+plugin@com.google.code.atinject.tck=GIT,tag=v20110603-1130,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=tests/com.google.code.atinject.tck
 
-plugin@org.eclipse.e4.ui.menu.tests=v20110603-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/tests/org.eclipse.e4.ui.menu.tests
-plugin@org.eclipse.e4.ui.menu.tests.p1=v20110308-1650,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/tests/org.eclipse.e4.ui.menu.tests.p1
-plugin@org.eclipse.e4.ui.menu.tests.p2=v20110308-1650,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/tests/org.eclipse.e4.ui.menu.tests.p2
-plugin@org.eclipse.e4.ui.menu.tests.p3=v20110308-1650,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/tests/org.eclipse.e4.ui.menu.tests.p3
-plugin@org.eclipse.e4.ui.menu.tests.p4=v20110308-1650,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/tests/org.eclipse.e4.ui.menu.tests.p4
+plugin@org.eclipse.e4.ui.menu.tests=GIT,tag=v20110603-1130,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.menu.tests
+plugin@org.eclipse.e4.ui.menu.tests.p1=GIT,tag=v20110308-1650,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.menu.tests.p1
+plugin@org.eclipse.e4.ui.menu.tests.p2=GIT,tag=v20110308-1650,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.menu.tests.p2
+plugin@org.eclipse.e4.ui.menu.tests.p3=GIT,tag=v20110308-1650,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.menu.tests.p3
+plugin@org.eclipse.e4.ui.menu.tests.p4=GIT,tag=v20110308-1650,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.menu.tests.p4
