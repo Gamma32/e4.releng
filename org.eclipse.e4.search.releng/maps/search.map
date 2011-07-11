@@ -17,8 +17,9 @@ plugin@org.eclipse.platform.discovery.compatibility.tests=GIT,tag=v20110215-1100
 plugin@org.eclipse.demo.cheatsheets.search=GIT,tag=v20110215-0845,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=examples/org.eclipse.demo.cheatsheets.search
 
 feature@org.eclipse.platform.discovery_tests.feature=GIT,tag=v20110215-1100,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery_tests.feature
-feature@org.eclipse.demo.search.example.feature=GIT,tag=v20110125-1300,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.demo.search.example.feature
-feature@org.eclipse.platform.discovery.feature=GIT,tag=v20110622-0630,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.feature
-feature@org.eclipse.platform.discovery.compatibility.feature=GIT,tag=v20110622-0630,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.compatibility.feature
-feature@org.eclipse.platform.discovery.master=GIT,tag=v20110622-0630,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.master
+feature@org.eclipse.demo.search.example.feature=GIT,tag=v20110711-1000,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.demo.search.example.feature
+feature@org.eclipse.platform.discovery.feature=GIT,tag=v20110711-1000,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.feature
+feature@org.eclipse.platform.discovery.compatibility.feature=GIT,tag=v20110711-1000,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.compatibility.feature
+feature@org.eclipse.platform.discovery.master=GIT,tag=v20110711-1000,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.master
+feature@org.eclipse.platform.discovery.source.master=GIT,tag=v20110711-1000,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.source.master
 

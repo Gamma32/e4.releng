@@ -147,10 +147,19 @@
    <feature url="features/org.eclipse.platform.discovery.feature_0.11.0.qualifier.jar" id="org.eclipse.platform.discovery.feature" version="0.11.0.qualifier">
       <category name="org.eclipse.e4.search.category"/>
    </feature>
+   <feature url="features/org.eclipse.platform.discovery.source.feature_0.11.0.qualifier.jar" id="org.eclipse.platform.discovery.source.feature" version="0.11.0.qualifier">
+      <category name="org.eclipse.e4.search.category"/>
+   </feature>
    <feature url="features/org.eclipse.platform.discovery.compatibility.feature_0.11.0.qualifier.jar" id="org.eclipse.platform.discovery.compatibility.feature" version="0.11.0.qualifier">
       <category name="org.eclipse.e4.search.category"/>
    </feature>
-      <feature url="features/org.eclipse.demo.search.example.feature_0.11.0.qualifier.jar" id="org.eclipse.demo.search.example.feature" version="0.11.0.qualifier">
+   <feature url="features/org.eclipse.platform.discovery.compatibility.source.feature_0.11.0.qualifier.jar" id="org.eclipse.platform.discovery.compatibility.source.feature" version="0.11.0.qualifier">
+      <category name="org.eclipse.e4.search.category"/>
+   </feature>
+   <feature url="features/org.eclipse.demo.search.example.feature_0.11.0.qualifier.jar" id="org.eclipse.demo.search.example.feature" version="0.11.0.qualifier">
+      <category name="org.eclipse.e4.search.category"/>
+   </feature>
+   <feature url="features/org.eclipse.demo.search.example.source.feature_0.11.0.qualifier.jar" id="org.eclipse.demo.search.example.source.feature" version="0.11.0.qualifier">
       <category name="org.eclipse.e4.search.category"/>
    </feature>
    <category-def name="org.eclipse.e4.swt.category" label="E4 SWT"/>
