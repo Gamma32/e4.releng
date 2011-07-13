@@ -56,7 +56,7 @@ testBuildProperties () {
 }
 
 commonProperties () {
-    javaHome=/opt/public/common/jdk-1.6.x86_64
+    javaHome=/opt/public/common/sun-jdk1.6.0_21_x64
     buildTimestamp=${builddate}-${buildtime}
     buildDir=$writableBuildRoot/build/e4/downloads/drops/4.0.0
     targetDir=${buildDir}/targets
