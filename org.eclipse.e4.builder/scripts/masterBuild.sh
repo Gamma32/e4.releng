@@ -136,7 +136,7 @@ updateSDKBuilder () {
         $cmd
     fi
     
-    rm org.eclipse.e4.builder
+    rm org.eclipse.e4.sdk 
     ln -s ${supportDir}/org.eclipse.e4.sdk_${projRelengBranch} org.eclipse.e4.sdk  
 }
 
