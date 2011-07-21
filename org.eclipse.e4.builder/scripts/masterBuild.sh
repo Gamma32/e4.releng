@@ -203,7 +203,7 @@ runSDKBuild () {
 			compileMsg="Compile errors occurred in the following bundles:"
 		fi
 		if [[ -e $buildDirectory/prereqErrors.log ]]; then
-			prereqMsg=`cat $buildDirectory/prereqErrors.log` 
+			prereqMsg=`cat $sdkBuildDirectory/prereqErrors.log` 
 		fi
 		
 		mailx -s "4.1 SDK Maintenance Build: $buildId failed" e4-dev@eclipse.org <<EOF
@@ -398,6 +398,32 @@ buildMasterFeature () {
     echo $cmd
     $cmd
 
+   #stop now if the build failed
+	failure=$(sed -n '/BUILD FAILED/,/Total time/p' $writableBuildRoot/logs/current.log)
+	if [[ ! -z $failure ]]; then
+		compileMsg=""
+		prereqMsg=""
+		pushd $buildDirectory/plugins
+		compileProblems=$( find . -name compilation.problem | cut -d/ -f2 )
+		popd
+		
+		if [[ ! -z $compileProblems ]]; then
+			compileMsg="Compile errors occurred in the following bundles:"
+		fi
+		if [[ -e $buildDirectory/prereqErrors.log ]]; then
+			prereqMsg=`cat $buildDirectory/prereqErrors.log` 
+		fi
+		
+		mailx -s "0.11 Maintenance Build: $buildId failed" e4-dev@eclipse.org <<EOF
+$compileMsg
+$compileProblems
+
+$prereqMsg
+
+$failure
+EOF
+		exit
+	fi 
 }
 
 swtExport () {
