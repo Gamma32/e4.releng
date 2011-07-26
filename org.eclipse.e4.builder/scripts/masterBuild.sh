@@ -143,7 +143,7 @@ updateSDKBuilder () {
 updateEclipseBuilder() {
 	echo "[`date +%H\:%M\:%S`] get org.eclipse.releng.eclipsebuilder"
     if [[ ! -d org.eclipse.releng.eclipsebuilder_R4_1_maintenance ]]; then
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r R4_1_maintenance -d org.eclipse.releng.eclipsebuilder_R4_1_maintenance org.eclipse.relen.eclipsebuilder"
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r R4_1_maintenance -d org.eclipse.releng.eclipsebuilder_R4_1_maintenance org.eclipse.releng.eclipsebuilder"
         echo $cmd
         $cmd
     else
@@ -152,7 +152,7 @@ updateEclipseBuilder() {
         $cmd
     fi
     
-    echo "[`date +%H\:%M\:%S`] setting org.eclipse.e4.builder_${projRelengBranch}"
+    echo "[`date +%H\:%M\:%S`] setting org.eclipse.e4.builder_R4_1_maintenance"
     rm org.eclipse.releng.eclipsebuilder
     ln -s ${supportDir}/org.eclipse.releng.eclipsebuilder_R4_1_maintenance org.eclipse.releng.eclipsebuilder
 }
