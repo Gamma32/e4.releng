@@ -140,29 +140,21 @@ updateSDKBuilder () {
     ln -s ${supportDir}/org.eclipse.e4.sdk_${projRelengBranch} org.eclipse.e4.sdk  
 }
 
-update40Workspace () {
-cd $WORKSPACE
-    echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.releng"
-    if [[ ! -d org.eclipse.releng ]]; then
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r R4_HEAD org.eclipse.releng"
+updateEclipseBuilder() {
+	echo "[`date +%H\:%M\:%S`] get org.eclipse.releng.eclipsebuilder"
+    if [[ ! -d org.eclipse.releng.eclipsebuilder_R4_1_maintenance ]]; then
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r R4_1_maintenance -d org.eclipse.releng.eclipsebuilder_R4_1_maintenance org.eclipse.relen.eclipsebuilder"
         echo $cmd
         $cmd
     else
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.releng "
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.releng.eclipsebuilder_R4_1_maintenance "
         echo $cmd
         $cmd
     fi
-    echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.releng.eclipsebuilder"
-    if [[ ! -d org.eclipse.releng.eclipsebuilder ]]; then
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r R4_HEAD org.eclipse.releng.eclipsebuilder"
-        echo $cmd
-        $cmd
-    else
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.releng.eclipsebuilder "
-        echo $cmd
-        $cmd
-    fi
-
+    
+    echo "[`date +%H\:%M\:%S`] setting org.eclipse.e4.builder_${projRelengBranch}"
+    rm org.eclipse.releng.eclipsebuilder
+    ln -s ${supportDir}/org.eclipse.releng.eclipsebuilder_R4_1_maintenance org.eclipse.releng.eclipsebuilder
 }
 
 runSDKBuild () {
@@ -467,7 +459,7 @@ updateBaseBuilder
 updateBaseBuilderInfo
 updateSDKBuilder
 updateE4Builder
-
+updateEclipseBuilder
 
 cd ${builderDir}/scripts
 
