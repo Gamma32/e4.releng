@@ -125,16 +125,19 @@ updateE4Builder () {
 
 updateSDKBuilder () {
     cd $supportDir
-    echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.e4.sdk"
-    if [[ ! -d org.eclipse.e4.sdk ]]; then
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co  -d org.eclipse.e4.sdk e4/releng/org.eclipse.e4.sdk"
+    echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.e4.sdk_${projRelengBranch}"
+    if [[ ! -d org.eclipse.e4.sdk_${projRelengBranch} ]]; then
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r $projRelengBranch -d org.eclipse.e4.sdk_${projRelengBranch} e4/releng/org.eclipse.e4.sdk"
         echo $cmd
         $cmd
     else
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.e4.sdk "
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.e4.sdk_${projRelengBranch} "
         echo $cmd
         $cmd
     fi
+    
+    rm org.eclipse.e4.sdk 
+    ln -s ${supportDir}/org.eclipse.e4.sdk_${projRelengBranch} org.eclipse.e4.sdk  
 }
 
 updateEclipseBuilder() {
