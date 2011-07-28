@@ -205,9 +205,9 @@
 				<config os="linux" ws="gtk" arch="x86_64" />
 				<!-- <config os="linux" ws="gtk" arch="ppc" /> -->
 				<config os="linux" ws="gtk" arch="ppc64" />
-				<!--<config os="linux" ws="motif" arch="x86" /> 
+				<!--<config os="linux" ws="motif" arch="x86" /> -->
 				<config os="linux" ws="gtk" arch="s390x" />
-				<config os="linux" ws="gtk" arch="s390" /> -->
+				<config os="linux" ws="gtk" arch="s390" />
 				<config os="solaris" ws="gtk" arch="sparc" />
 				<config os="solaris" ws="gtk" arch="x86" />
 				<config os="macosx" ws="cocoa" arch="x86" />
