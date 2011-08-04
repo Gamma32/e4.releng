@@ -254,8 +254,7 @@
 	</macrodef>
 
 	<target name="junit" unless="skip.test">
-		<antcall target="setup">
-		</antcall>
+		<antcall target="setup"/>
 		<!--library.xml is now in dropins folder -->
 		<property name="library-file" value="${eclipse-home}/plugins/${org.eclipse.test}/library.xml" />
 		<property name="junit-stylesheet" value="${eclipse-home}/plugins/${org.eclipse.test}/JUNIT.XSL" />
@@ -264,11 +263,19 @@
 			<filename name="${testPlugin}_*/test.xml"/>
 		</fileset>
 		<property name="testPluginX" refid="test.plugin.file"/>
+		
+		<condition property="${testPlugin}_exists">
+			<length string="${testPluginX}" trim="true" length="0" when="greater" />
+		</condition>
+		<antcall target="launchJUnit" />		
+	</target>
+
+	<target name="launchJUnit" if="${testPlugin}_exists" >
 		<echo>trying to find ${testPluginX}</echo>
 		<ant antfile="${eclipse-home}/plugins/${testPluginX}" dir="${eclipse-home}" />
 		<antcall target="genResults" />
 	</target>
-
+	
 	<target name="performance" if="performance.target.present" unless="skip.test">
 		<antcall target="setup" />
 		<ant antfile="${eclipse-home}/dropins/eclipse/plugins/${testPlugin}/test.xml" dir="${eclipse-home}" target="performance" />
