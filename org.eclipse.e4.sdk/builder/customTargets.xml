@@ -345,6 +345,7 @@
 		</exec>
 		<gzip zipfile="${fileName}.gz" src="${fileName}" />
 		<delete file="${fileName}" />
+		<delete dir="${inputFolder}" failonerror="false" />
 	</target>
 
 	<target name="p2.zip">
@@ -352,6 +353,7 @@
 		<exec dir="${inputFolder}" executable="zip">
 			<arg line="-q ${fileName} -r ." />
 		</exec>
+		<delete dir="${inputFolder}" failonerror="false" />
 	</target>
 
 	<!-- ===================================================================== -->
