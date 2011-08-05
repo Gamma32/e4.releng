@@ -302,8 +302,8 @@ EOF
 
 
 runTheTests () {
-    mkdir -p $sdkTestDir
-    cd $sdkTestDir
+    mkdir -p $e4TestDir
+    cd $e4TestDir
 
 	echo "Copying eclipse SDK archive to tests." 
     cp $sdkResults/eclipse-SDK-*-linux-gtk${archProp}.tar.gz  .
@@ -324,7 +324,7 @@ runTheTests () {
     cp -r results/* $buildResults/results
 
 	cd $buildDirectory
-	mv $sdkTestDir $buildDirectory/eclipse-testing
+	mv $e4TestDir $buildDirectory/eclipse-testing
 	
     cp ${builderDir}/templates/build.testResults.html \
         $buildResults/testResults.html
