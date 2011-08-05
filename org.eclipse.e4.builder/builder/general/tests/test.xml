@@ -41,6 +41,12 @@
 		<antcall target="configureDeltaPack" />
 	</target>
 
+	<target name="cleanup" >
+		<delete failonerror="false" >
+			<fileset dir="${eclipse-home}" includes="**/*" excludes="${eclipse-home}/eclipse/configuration" />
+		</delete>
+	</target>
+	
 	<!--setup for zip archives-->
 	<target name="setup-zip" description="Reinstall the test Eclipse installation if specified by user">
 		<delete dir="${install}" />
@@ -681,6 +687,8 @@
 		<antcall target="e4bindings" />
 		<antcall target="semanticResources" />
 		<antcall target="semanticUi" />
+		
+		<antcall target="cleanup" />
 	</target>
 	
 	<target name="sdk">
@@ -708,5 +716,7 @@
 		<antcall target="e4menu" />
 		<antcall target="coreServices" />
 		<antcall target="coreTests" />
+		
+		<antcall target="cleanup"/>
 	</target>
 </project>
