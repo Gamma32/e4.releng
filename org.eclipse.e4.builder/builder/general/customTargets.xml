@@ -104,10 +104,17 @@
 		<echo message="eclipseRepoURL-latest=${eclipseRepoURL}/${eclipseBuildId}${line.separator}" file="${buildDirectory}/eclipseRepoURL.properties" />
 	</target>
 	
+	<target name="freeze41Bundles" >
+		<replaceregexp file="${buildDirectory}/directory.txt" 
+			match="plugin@org.eclipse.e4.tools=GIT,tag=[-v0-9]*," 
+			replace="plugin@org.eclipse.e4.tools=GIT,tag=v20110613-2030," />
+	</target>
+	
 	<!-- ===================================================================== -->
 	<!-- Steps to do after setup but before starting the build proper -->
 	<!-- ===================================================================== -->
 	<target name="postSetup" depends="initLocations">
+		<antcall target="freeze41Bundles" />
 		<antcall target="getBaseComponents" />
 		
 		<echo message="Mirror from ${eclipseRepoURL-latest} to ${repoBaseLocation}/eclipseSDK" />
