@@ -251,6 +251,7 @@
 		<publishProduct product="${eclipse.build.configs}/platform/platform.product" />
 		<publishProduct product="${eclipse.build.configs}/platform.sdk/platform.product" />
 		<publishProduct product="${eclipse.build.configs}/rcp/rcp.product" />
+		<publishProduct product="${eclipse.build.configs}/rcp.sdk/rcp.product" />
 		
 		<echo message="Mirroring org.eclipse.rcp.configuration.feature.group to file:${p2.repo}" />
 		<p2.mirror destination="file:${p2.repo}">
