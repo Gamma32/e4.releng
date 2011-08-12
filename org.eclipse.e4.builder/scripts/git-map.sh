@@ -57,6 +57,11 @@ update_map () {
 		PROJ_PATH=$( echo $LINE | sed 's/^.*path=//g' )
 		CURRENT_TAG=$( echo $LINE | sed 's/.*tag=\([^,]*\),.*$/\1/g' )
 		LAST_COMMIT=$( git rev-list -1 HEAD -- "$PROJ_PATH" )
+        if [ -z "$LAST_COMMIT" ]; then
+            echo "#SKIPPING $LINE_START, no commits for $PROJ_PATH"
+            continue
+        fi
+		
 		if ! ( git tag --contains $LAST_COMMIT | grep $CURRENT_TAG >/dev/null ); then
 			NEW_DATE=$( git log -1 --format="%ci" "$LAST_COMMIT" )
 			NEW_TAG=v$( date -u --date="$NEW_DATE"  "+%Y%m%d-%H%M" )
