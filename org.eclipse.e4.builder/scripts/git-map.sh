@@ -18,13 +18,19 @@
 # /bin/bash run.txt
 #
 
+PLATFORM=$( uname -s )
+
 get_repo_tag () {
 	REPO=$1
 	REPO_DIR=$( basename $REPO .git )
 	cd $ROOT/$REPO_DIR
 	REPO_COMMIT=$( git rev-list -1 HEAD  )
-	NEW_DATE=$( git log -1 --format="%ci" "$REPO_COMMIT" )
-	echo v$( date -u --date="$NEW_DATE"  "+%Y%m%d-%H%M" )
+	NEW_DATE=$( git log -1 --format="%ct" "$REPO_COMMIT" )
+	if [ "$PLATFORM" == "Darwin" ]; then
+		echo v$( date -u -j -f "%s" "$NEW_DATE" "+%Y%m%d-%H%M" )
+	else
+		echo v$( date -u --date="@$NEW_DATE"  "+%Y%m%d-%H%M" )
+	fi
 }
 
 tag_repo_commit () {
@@ -63,8 +69,13 @@ update_map () {
         fi
 		
 		if ! ( git tag --contains $LAST_COMMIT | grep $CURRENT_TAG >/dev/null ); then
-			NEW_DATE=$( git log -1 --format="%ci" "$LAST_COMMIT" )
-			NEW_TAG=v$( date -u --date="$NEW_DATE"  "+%Y%m%d-%H%M" )
+			NEW_DATE=$( git log -1 --format="%ct" "$LAST_COMMIT" )		
+			if [ "$PLATFORM" == "Darwin" ]; then
+				NEW_TAG=v$( date -u -j -f "%s" "$NEW_DATE" "+%Y%m%d-%H%M" )
+			else
+				NEW_TAG=v$( date -u --date="@$NEW_DATE"  "+%Y%m%d-%H%M" )
+			fi
+			
 			if ! ( git log -1  --format="%d" "$LAST_COMMIT" | grep "[ (]$NEW_TAG[,)]" >/dev/null); then
 				echo Executed: cd $ROOT/$REPO_DIR \; git tag \"$NEW_TAG\" "$LAST_COMMIT"
 				cd $ROOT/$REPO_DIR ; git tag "$NEW_TAG" "$LAST_COMMIT"
