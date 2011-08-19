@@ -18,14 +18,19 @@ java=/shared/common/jdk-1.5.0-22.x86_64/jre/bin/java
 remoteBase=/home/data/httpd/download.eclipse.org
 
 e4Builds=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0
-e4Repo=$e4Builds/targets/updates/0.12-I-builds
 e4Drops=$remoteBase/e4/downloads/drops
 
 sdkBuilds=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/40builds
-sdkRepo=$e4Builds/targets/updates/4.2-I-builds
 sdkDrops=$remoteBase/e4/sdk/drops
 
+orionBuilds=/shared/eclipse/e4/orion
+
 generateCleanupXML() {
+	dash=""
+	if [ ! -z "$1" ]; then
+		dash=$1
+	fi
+
         cat > cleanupScript.xml << "EOF"
 <project>
         <target name="cleanup">
@@ -33,7 +38,9 @@ generateCleanupXML() {
 			<remove>
 EOF
         for f in $builds; do 
-		echo "				<repository location=\"$f\" />" >> cleanupScript.xml
+		d=${f:0:9}
+                t=${f:9}
+		echo "				<repository location=\"$d$dash$t\" />" >> cleanupScript.xml
         done
 cat >> cleanupScript.xml << "EOF"
 			</remove>
@@ -44,56 +51,66 @@ EOF
 
 }
 
-clean-e4() {
-        pushd $e4Builds
+clean() {
+	project=$1
+	prefix=$2
+	compositeRepo=$3
 
-        builds=$( ls --format=single-column -d I* | sort | head -n-5 )
+	user=pwebster
+	case "$project" in
+		"e4")
+			buildDir=$e4Builds
+			p2RepoRoot=e4/updates
+			urlFragment=e4/downloads;;
+		"sdk") 
+			buildDir=$sdkBuilds
+			p2RepoRoot=eclipse/updates
+			urlFragment=e4/sdk;;
+		"orion")
+			buildDir=$orionBuilds
+			user=aniefer
+			p2RepoRoot=orion/updates
+			urlFragment=orion;;
+	esac
+
+        pushd $buildDir
+
+        builds=$( ls --format=single-column -d $prefix* | sort | head -n-3 )
 
 	if [[ ! -z $builds ]]; then
 		#remove from p2 composite repository
 		generateCleanupXML
-		$java -jar $baseBuilder/$launcherJar -application org.eclipse.ant.core.antRunner -f cleanupScript.xml -DcompositeRepo=$e4Repo
+		$java -jar $launcherJar -application org.eclipse.ant.core.antRunner -f cleanupScript.xml cleanup -DcompositeRepo=$compositeRepo
 
 		for f in $builds; do
 			rm -rf $f						#delete from build directory
-			ssh pwebster@dev.eclipse.org rm -rf $e4Drops/$f		#delete from dev.eclipse.org drops
-			rm -rf $e4Repo/$f					#delete from composite repo
+			ssh $user@dev.eclipse.org rm -rf $remoteBase/$urlFragment/drops/$f		#delete from dev.eclipse.org drops
+			rm -rf $compositeRepo/$f				#delete from composite repo
+
+			case "$project" in
+			"e4")
+				rm -rf targets/$f targets/$f-p2;;
+			"sdk")
+				rm -rf /shared/eclipse/e4/sdk/$f $sdkBuilds/targets/helios-repo-$f;;
+			"orion")
+				d=${f:0:9}
+				t=${f:9}
+				rm -rf tests/$d-$t $compositeRepo/$d-$t;;
+			esac
 		done
 
 		#update website index and rsync the repo
-		wget -O index.txt http://download.eclipse.org/e4/downloads/createIndex.php
-		scp index.txt pwebster@dev.eclipse.org:$remoteBase/e4/downloads/index.html
+		wget -O index.txt http://download.eclipse.org/$urlFragment/createIndex.php
+		scp index.txt $user@dev.eclipse.org:$remoteBase/$urlFragment/index.html
 		rm index.txt
-		rsync --delete --recursive $e4Repo pwebster@dev.eclipse.org:$remoteBase/e4/updates
+		rsync --delete --recursive $compositeRepo $user@dev.eclipse.org:$remoteBase/$p2RepoRoot
 	fi
 	popd
 }
 
-clean-sdk() {
-	pushd $sdkBuilds
-	
-	builds=$( ls --format=single-column -d I* | sort | head -n-5 )
-	
-	if [[ ! -z $builds ]]; then
-		generateCleanupXML
-		$java -jar $baseBuilder/$launcherJar -application org.eclipse.ant.core.antRunner -f cleanupScript.xml -DcompositeRepo=$sdkRepo
-
-		for f in $builds; do
-			rm -rf $f						#delete from build directory
-			ssh pwebster@dev.eclipse.org rm -rf $sdkDrops/$f	#delete from dev.eclipse.org drops
-			rm -rf $sdkRepo/$f  					#delete from composite repo
-			rm -rf /shared/eclipse/e4/sdk/$f			#delete from staging
-		done
-
-		#update website index and rsync the repo
-		wget -O index.txt http://download.eclipse.org/e4/sdk/createIndex.php
-		scp index.txt pwebster@dev.eclipse.org:$remoteBase/e4/sdk/index.html
-		rm index.txt
-		rsync --delete --recursive $sdkRepo pwebster@dev.eclipse.org:$remoteBase/eclipse/updates
-	fi
-	popd
-}
-
-clean-e4
-clean-sdk
+clean e4    I $e4Builds/targets/updates/0.12-I-builds
+clean e4    M $e4Builds/targets/updates/0.11-I-builds
+clean sdk   I $e4Builds/targets/updates/4.2-I-builds
+clean sdk   M $e4Builds/targets/updates/4.1-I-builds
+clean orion I $orionBuilds/target/0.3-I-builds
 
