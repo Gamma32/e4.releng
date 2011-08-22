@@ -27,7 +27,7 @@ realBuildProperties () {
 
 #publish
     publishIndex="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads"
-    publishSDKIndex="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/sdk"
+    publishSDKIndex="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads"
     publishUpdates="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/updates"
     publishDir="${publishIndex}/drops"
 

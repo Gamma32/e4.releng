@@ -21,7 +21,7 @@ e4Builds=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0
 e4Drops=$remoteBase/e4/downloads/drops
 
 sdkBuilds=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/40builds
-sdkDrops=$remoteBase/e4/sdk/drops
+sdkDrops=$remoteBase/eclipse/downloads/drops4
 
 orionBuilds=/shared/eclipse/e4/orion
 
