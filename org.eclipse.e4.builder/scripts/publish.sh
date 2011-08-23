@@ -60,7 +60,7 @@ process_build () {
 	cp $f  $BASE_DIR/$buildId
 	done
 	
-	cp -fr repository buildlogs checksum compilelogs $BASE_DIR/$buildId
+	cp -fr *repository.zip buildlogs checksum compilelogs $BASE_DIR/$buildId
 	#cp -r $HUDSON_REPO/$buildId  $BASE_DIR/$buildId/repository
 	
 	cp  $TMPL_DIR/download.php  $BASE_DIR/$buildId

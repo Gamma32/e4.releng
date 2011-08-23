@@ -276,6 +276,15 @@
         <p2.composite.metadata.repository.add location="file://${updateSite}" child="${buildLabel}" />
 
 		<antcall target="provision.e4" />
+		
+		<!-- zip using p2.zip because it will also create md5 and sha1 sums for us -->
+		<property name="repoArchive" value="${buildDirectory}/${buildLabel}/eclipse-4.2-${buildLabel}-repository.zip"/>
+		<zip file="${repoArchive}" >
+			<fileset dir="${updateSite}/${buildLabel}" includes="**"/>
+		</zip>
+		<checksum file="${repoArchive}" algorithm="md5" pattern="{0} *{1}" todir="${buildDirectory}/${buildLabel}/checksum" />
+		<checksum file="${repoArchive}" algorithm="sha" pattern="{0} *{1}" todir="${buildDirectory}/${buildLabel}/checksum" />
+		<delete dir="${buildDirectory}/${buildLabel}/repository" failonerror="false" />
 	</target>
 
 	<macrodef name="callDirector">
@@ -305,14 +314,15 @@
 				<arg line="-installIU @{id}" />
 				<arg line="-p2.os @{os} -p2.ws @{ws} -p2.arch @{arch}" />
 				<arg line="-profileProperties org.eclipse.update.install.features=true" />
-				<arg line="-repository file:${p2.repo}" />
+				<arg line="-repository file:${updateSite}/${buildLabel}" />
 				<arg line="-destination ${p2.sdk.install}.@{os}.@{ws}.@{arch}/eclipse" />
 				<arg line="-bundlepool ${p2.sdk.install}.@{os}.@{ws}.@{arch}/eclipse" />
 				<arg line="-shared  ${p2.sdk.install}.@{os}.@{ws}.@{arch}/eclipse/p2" />
 			</java>
 			<delete file="${buildDirectory}/${buildLabel}/eclipse-SDK-${buildLabel}-@{archiveSuffix}.@{archiveFormat}" failonerror="false" />
 			<antcall target="p2.@{archiveFormat}">
-				<param name="fileName" value="${buildDirectory}/${buildLabel}/eclipse-SDK-${buildLabel}-@{archiveSuffix}.@{archiveFormat}" />
+				<param name="outputFolder" value="${buildDirectory}/${buildLabel}" />
+				<param name="archiveName" value="eclipse-SDK-${buildLabel}-@{archiveSuffix}.@{archiveFormat}" />
 				<param name="inputFolder" value="${p2.sdk.install}.@{os}.@{ws}.@{arch}" />
 			</antcall>
 		</sequential>
@@ -340,6 +350,7 @@
 	</target>
 
 	<target name="p2.tar">
+		<property name="fileName" value="${outputFolder}/${archiveName}"/>
 		<echo message="Building tar ${fileName}.gz from ${inputFolder}/*" />
 		<exec dir="${inputFolder}" executable="sh">
 			<arg line='-c "tar -cvf ${fileName} *"' />
@@ -347,14 +358,21 @@
 		<gzip zipfile="${fileName}.gz" src="${fileName}" />
 		<delete file="${fileName}" />
 		<delete dir="${inputFolder}" failonerror="false" />
+		
+		<checksum file="${fileName}" algorithm="md5" pattern="{0} *{1}" todir="${outputFolder}/checksum" />
+		<checksum file="${fileName}" algorithm="sha" pattern="{0} *{1}" todir="${outputFolder}/checksum" />
 	</target>
 
 	<target name="p2.zip">
+		<property name="fileName" value="${outputFolder}/${archiveName}"/>
 		<chmod dir="${inputFolder}" perm="755" includes="**/*.so" />
 		<exec dir="${inputFolder}" executable="zip">
 			<arg line="-q ${fileName} -r ." />
 		</exec>
 		<delete dir="${inputFolder}" failonerror="false" />
+		
+		<checksum file="${fileName}" algorithm="md5" pattern="{0} *{1}" todir="${outputFolder}/checksum" />
+		<checksum file="${fileName}" algorithm="sha" pattern="{0} *{1}" todir="${outputFolder}/checksum" />
 	</target>
 
 	<!-- ===================================================================== -->
