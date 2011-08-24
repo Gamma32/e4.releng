@@ -101,6 +101,11 @@
 			<iu id="org.junit" version="0.0.0" />
 			<iu id="org.junit.source" version="0.0.0" />
 		</p2.mirror>
+		
+		<p2.repo2runnable destination="${transformedRepoLocation}">
+			<source location="file:${localRepoLocation}"/>
+		</p2.repo2runnable>
+	
 	</target>
 
 	<!-- ===================================================================== -->
