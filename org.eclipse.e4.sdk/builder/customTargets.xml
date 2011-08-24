@@ -359,8 +359,8 @@
 		<delete file="${fileName}" />
 		<delete dir="${inputFolder}" failonerror="false" />
 		
-		<checksum file="${fileName}" algorithm="md5" pattern="{0} *{1}" todir="${outputFolder}/checksum" />
-		<checksum file="${fileName}" algorithm="sha" pattern="{0} *{1}" todir="${outputFolder}/checksum" />
+		<checksum file="${fileName}.gz" algorithm="md5" pattern="{0} *{1}" todir="${outputFolder}/checksum" />
+		<checksum file="${fileName}.gz" algorithm="sha" pattern="{0} *{1}" todir="${outputFolder}/checksum" />
 	</target>
 
 	<target name="p2.zip">
