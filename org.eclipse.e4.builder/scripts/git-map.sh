@@ -43,7 +43,7 @@ tag_repo_commit () {
 		OLD_TAG=$( git log --pretty=oneline --decorate | grep "[ (][vI][0-9]" \
 			| head -1 | sed 's/^[^(]* (.*\([vI][0-9][0-9][0-9][0-9]\)/\1/g'   | sed 's/[,)].*$//g' ) 
 		SUBMISSION_ARGS="$SUBMISSION_ARGS $REPO $OLD_TAG $NEW_TAG"
-		echo Executed: cd $ROOT/$REPO_DIR \; git tag "$NEW_TAG" "$REPO_COMMIT"
+		echo "#OK Executed: cd $ROOT/$REPO_DIR \; git tag \"$NEW_TAG\" \"$REPO_COMMIT\""
 		cd $ROOT/$REPO_DIR ; git tag "$NEW_TAG" "$REPO_COMMIT"
 	fi
 }
@@ -77,7 +77,7 @@ update_map () {
 			fi
 			
 			if ! ( git log -1  --format="%d" "$LAST_COMMIT" | grep "[ (]$NEW_TAG[,)]" >/dev/null); then
-				echo Executed: cd $ROOT/$REPO_DIR \; git tag \"$NEW_TAG\" "$LAST_COMMIT"
+				echo "#OK Executed: cd $ROOT/$REPO_DIR \; git tag \"$NEW_TAG\" \"$LAST_COMMIT\""
 				cd $ROOT/$REPO_DIR ; git tag "$NEW_TAG" "$LAST_COMMIT"
 			fi
 			echo sed "'s/$LINE_START=GIT,tag=$CURRENT_TAG/$LINE_START=GIT,tag=$NEW_TAG/g'" $MAP \>/tmp/t1_$$.txt \; mv /tmp/t1_$$.txt $MAP
