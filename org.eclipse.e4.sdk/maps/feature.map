@@ -19,5 +19,8 @@ feature@org.eclipse.help.source=p2IU,id=org.eclipse.help.source.feature.jar,repo
 feature@org.eclipse.equinox.p2.user.ui=p2IU,id=org.eclipse.equinox.p2.user.ui.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.equinox.p2.user.ui.source=p2IU,id=org.eclipse.equinox.p2.user.ui.source.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.equinox.p2.core.feature=p2IU,id=org.eclipse.equinox.p2.core.feature.feature.jar,repository=ECLIPSE_PLATFORM_REPO
+feature@org.eclipse.equinox.p2.core.feature.source=p2IU,id=org.eclipse.equinox.p2.core.feature.source.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.equinox.p2.extras.feature=p2IU,id=org.eclipse.equinox.p2.extras.feature.feature.jar,repository=ECLIPSE_PLATFORM_REPO
+feature@org.eclipse.equinox.p2.extras.feature.source=p2IU,id=org.eclipse.equinox.p2.extras.feature.source.feature.jar,repository=ECLIPSE_PLATFORM_REPO
 feature@org.eclipse.equinox.p2.rcp.feature=p2IU,id=org.eclipse.equinox.p2.rcp.feature.feature.jar,repository=ECLIPSE_PLATFORM_REPO
+feature@org.eclipse.equinox.p2.rcp.feature.source=p2IU,id=org.eclipse.equinox.p2.rcp.feature.source.feature.jar,repository=ECLIPSE_PLATFORM_REPO

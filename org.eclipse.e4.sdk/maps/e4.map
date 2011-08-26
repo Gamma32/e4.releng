@@ -2,17 +2,17 @@
 
 !**** Binary e4 plug-ins
 
-feature@org.eclipse.e4.rcp=v20110603-1130,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/features/org.eclipse.e4.rcp
+feature@org.eclipse.e4.rcp=GIT,tag=v20110712-1859,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=features/org.eclipse.e4.rcp
 
 !**** Workbench Compatibility
 
-plugin@org.eclipse.e4.ui.workbench.addons.swt=v20110613-2030,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.eclipse.e4.ui.workbench.addons.swt
-plugin@org.eclipse.ui.workbench=v20110614-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.compatibility/bundles/org.eclipse.ui.workbench
-plugin@org.eclipse.ui=v20110614-1530,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.e4.ui.workbench.addons.swt=GIT,tag=v20110705-1300,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.addons.swt
+plugin@org.eclipse.ui.workbench=GIT,tag=v20110822-1919,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui.workbench
+plugin@org.eclipse.ui=GIT,tag=v20110727-1832,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui
 
 !**** 4.x Platform Doc
 
-plugin@org.eclipse.platform.doc.user=v20110620-1330,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
+plugin@org.eclipse.platform.doc.user=v20110629-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 plugin@org.eclipse.platform.doc.isv=v20110612-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 !**** EMF
