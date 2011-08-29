@@ -1,7 +1,7 @@
 !**** e4 core
 
 plugin@org.eclipse.e4.core.services=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.services
-plugin@org.eclipse.e4.core.commands=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.core.commands
+plugin@org.eclipse.e4.core.commands=GIT,tag=v20110829-1311,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.core.commands
 plugin@org.eclipse.e4.core.di=GIT,tag=v20110629-1700,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.di
 plugin@org.eclipse.e4.core.contexts=GIT,tag=v20110629-1700,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.contexts
 plugin@org.eclipse.e4.core.contexts.debug=GIT,tag=v20110517-2030,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.core.contexts.debug
