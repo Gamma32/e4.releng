@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-# /home/data/httpd/download.eclipse.org/e4/sdk/drops/ReplaceMe
+# /home/data/httpd/download.eclipse.org/eclipse/downloads/drops4/ReplaceMe
 
 BASE_DIR=/shared/eclipse/e4/sdk
 TMPL_DIR=$BASE_DIR/template41x
@@ -69,14 +69,13 @@ process_build () {
 	cat $TMPL_DIR/$f | sed "s/ReplaceMe/$buildId/g" >$BASE_DIR/$buildId/$f
 	done
 	
-	scp -r $BASE_DIR/$buildId pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/sdk/drops
-	
+	scp -r $BASE_DIR/$buildId pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads/drops4
 
 	echo Done $buildId
 
 	failed=""
 	testsMsg=$(sed -n '/<!--START-TESTS-->/,/<!--END-TESTS-->/p' $HUDSON_DROPS/$buildId/$buildId/results/testResults.html > mail.txt)
-	testsMsg=$(cat mail.txt | sed s_href=\"_href=\"http://download.eclipse.org/e4/sdk/drops/$buildId/results/_)
+	testsMsg=$(cat mail.txt | sed s_href=\"_href=\"http://download.eclipse.org/eclipse/downloads/drops4/$buildId/results/_)
 	rm mail.txt
 	
 	red=$(echo $testsMsg | grep "color:red")
@@ -92,7 +91,7 @@ echo "Content-Type: text/html; charset=us-ascii"
 echo "Subject: 4.1 SDK Maintenance Build: $buildId $failed"
 echo ""
 echo "<html><head><title>4.1 SDK Build $buildId</title></head>" 
-echo "<body>Check here for the build results: <a href="http://download.eclipse.org/e4/sdk/drops/$buildId">$buildId</a><br>" 
+echo "<body>Check here for the build results: <a href="http://download.eclipse.org/eclipse/downloads/drops4/$buildId">$buildId</a><br>" 
 echo "$testsMsg</body></html>" 
 ) | /usr/lib/sendmail -t
    
@@ -112,7 +111,7 @@ done
 
 cd $TMPL_DIR
 
-wget -O index.txt http://download.eclipse.org/e4/sdk/createIndex.php
-scp index.txt pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/sdk/index.html
+wget -O index.txt http://download.eclipse.org/eclipse/downloads/create4xIndex.php
+scp index.txt pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads/index.html
 
 
