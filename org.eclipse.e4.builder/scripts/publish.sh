@@ -111,7 +111,7 @@ done
 
 cd $TMPL_DIR
 
-wget -O index.txt http://download.eclipse.org/eclipse/downloads/create4xIndex.php
+wget -O index.txt http://download.eclipse.org/eclipse/downloads/createIndex4x.php
 scp index.txt pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads/index.html
 
 
