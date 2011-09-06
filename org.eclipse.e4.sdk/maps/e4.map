@@ -2,13 +2,13 @@
 
 !**** Binary e4 plug-ins
 
-feature@org.eclipse.e4.rcp=GIT,tag=v20110825-1421,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=features/org.eclipse.e4.rcp
+feature@org.eclipse.e4.rcp=GIT,tag=v20110906-1038,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=features/org.eclipse.e4.rcp
 
 !**** Workbench Compatibility
 
 plugin@org.eclipse.e4.ui.workbench.addons.swt=GIT,tag=v20110705-1300,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.addons.swt
 plugin@org.eclipse.ui.workbench=GIT,tag=v20110825-1422,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui.workbench
-plugin@org.eclipse.ui=GIT,tag=v20110825-1421,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui
+plugin@org.eclipse.ui=GIT,tag=v20110906-1038,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui
 
 !**** 4.x Platform Doc
 
