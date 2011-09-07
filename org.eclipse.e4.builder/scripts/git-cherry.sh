@@ -12,7 +12,7 @@
 
 
 #This is the list of projects that should not be cherrypicked over to the R3_development branch
-EXCLUDED="bundles/org.eclipse.ui.workbench bundles/org.eclipse.ui bundles/org.eclipse.e4*"
+EXCLUDED="bundles/org.eclipse.ui.workbench bundles/org.eclipse.ui bundles/org.eclipse.e4* tests/org.eclipse.ui.tests.performance"
 
 EXCLUDED_COMMITS=$(git rev-list cherry_marker..R4_development -- $EXCLUDED)
 
