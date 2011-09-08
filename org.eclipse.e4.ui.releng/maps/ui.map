@@ -1,9 +1,9 @@
 !**** e4 UI
 plugin@org.eclipse.e4.ui.di=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.di
 plugin@org.eclipse.e4.ui.services=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.services
-plugin@org.eclipse.e4.ui.model.workbench=GIT,tag=v20110831-1312,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.model.workbench
-plugin@org.eclipse.e4.ui.model.workbench.edit=GIT,tag=v20110831-1311,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.model.workbench.edit
-plugin@org.eclipse.e4.ui.workbench=GIT,tag=v20110822-1517,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench
+plugin@org.eclipse.e4.ui.model.workbench=GIT,tag=v20110902-1754,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.model.workbench
+plugin@org.eclipse.e4.ui.model.workbench.edit=GIT,tag=v20110902-1754,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.model.workbench.edit
+plugin@org.eclipse.e4.ui.workbench=GIT,tag=v20110907-1242,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench
 plugin@org.eclipse.e4.ui.workbench3=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench3
 plugin@org.eclipse.e4.ui.workbench.renderers.swt=GIT,tag=v20110829-1333,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.renderers.swt
 plugin@org.eclipse.e4.ui.workbench.swt=GIT,tag=v20110712-1854,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.swt
@@ -52,7 +52,7 @@ plugin@org.eclipse.e4.examples.services=GIT,tag=v20110603-1130,repo=git://git.ec
 !*** e4 UI tests
 plugin@org.eclipse.e4.ui.tests.css.swt=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.tests.css.swt
 plugin@org.eclipse.e4.ui.tests.css.core=GIT,tag=v20100720-1930,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.tests.css.core
-plugin@org.eclipse.e4.ui.tests=GIT,tag=v20110719-1434,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.tests
+plugin@org.eclipse.e4.ui.tests=GIT,tag=v20110902-2007,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.tests
 plugin@org.eclipse.e4.ui.bindings.tests=GIT,tag=v20110428-1500,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.bindings.tests
 
 

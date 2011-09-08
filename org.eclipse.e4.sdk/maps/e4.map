@@ -7,7 +7,7 @@ feature@org.eclipse.e4.rcp=GIT,tag=v20110712-1859,repo=git://git.eclipse.org/git
 !**** Workbench Compatibility
 
 plugin@org.eclipse.e4.ui.workbench.addons.swt=GIT,tag=v20110705-1300,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.addons.swt
-plugin@org.eclipse.ui.workbench=GIT,tag=v20110830-1330,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui.workbench
+plugin@org.eclipse.ui.workbench=GIT,tag=v20110907-1902,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui.workbench
 plugin@org.eclipse.ui=GIT,tag=v20110727-1832,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui
 
 !**** 4.x Platform Doc
