@@ -64,7 +64,7 @@ for f in $( echo $FILES_TO_UPDATE ); do
 cat $TMPL_DIR/$f | sed "s/ReplaceMe/$buildId/g" >$BASE_DIR/$buildId/$f
 done
 
-scp -r $BASE_DIR/$buildId pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/sdk/drops
+scp -r $BASE_DIR/$buildId pwebster@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/sdk/drops
 
 echo Done $buildId
 
@@ -92,6 +92,6 @@ done
 cd $TMPL_DIR
 
 wget -O index.txt http://download.eclipse.org/e4/sdk/createIndex.php
-scp index.txt pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/sdk/index.html
+scp index.txt pwebster@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/sdk/index.html
 
 

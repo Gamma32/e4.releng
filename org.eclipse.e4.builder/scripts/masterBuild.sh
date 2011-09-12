@@ -1,6 +1,7 @@
 #!/bin/bash +x
 
 quietCVS=-Q
+publishingUser=pwebster
 writableBuildRoot=/shared/eclipse/e4
 projRelengBranch="HEAD"; # default set below
 arch="x86_64"
@@ -26,9 +27,9 @@ realBuildProperties () {
     tagMaps=-tagMaps
 
 #publish
-    publishIndex="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads"
-    publishSDKIndex="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads"
-    publishUpdates="pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/e4/updates"
+    publishIndex="$publishingUser@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads"
+    publishSDKIndex="$publishingUser@build.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads"
+    publishUpdates="$publishingUser@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/updates"
     publishDir="${publishIndex}/drops"
 
 # available builds
