@@ -228,6 +228,9 @@ runSDKTests() {
 
 	echo "sdkResults=$sdkResults" >> label.properties
 	echo "e4Results=$buildResults" >> label.properties
+	echo "buildType=I" >> label.properties
+	echo "sdkRepositoryRoot=$targetDir/updates/4.2-I-builds" >> label.properties
+	echo "e4RepositoryRoot=$targetDir/updates/0.12-I-builds" >> label.properties
 
 	echo "Copying test framework."
     cp -r ${builderDir}/builder/general/tests/* .
@@ -314,6 +317,9 @@ runTheTests () {
 
 	echo "sdkResults=$sdkResults" >> label.properties
 	echo "e4Results=$buildResults" >> label.properties
+	echo "buildType=I" >> label.properties
+	echo "sdkRepositoryRoot=$targetDir/updates/4.2-I-builds" >> label.properties
+	echo "e4RepositoryRoot=$targetDir/updates/0.12-I-builds" >> label.properties
 
 	echo "Copying test framework."
     cp -r ${builderDir}/builder/general/tests/* .

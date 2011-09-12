@@ -99,17 +99,23 @@
 
 
 	<target name="init" depends="setRuntimeArchive">
-
 		<mkdir dir="${results}/xml" />
 		<mkdir dir="${results}/html" />
 		<mkdir dir="${junit-report-output}" />
 
 		<property file="${sdkResults}/../eclipseRepoURL.properties"/>
 		
+		<pathconvert property="sdkRepo" >
+			<last><sort><dirset dir="${sdkRepositoryRoot}" includes="${buildType}*" /></sort></last>
+		</pathconvert>
+		<pathconvert property="e4Repo" >
+			<last><sort><dirset dir="${e4RepositoryRoot}" includes="${buildType}*" /></sort></last>
+		</pathconvert>
+		
 		<mkdir dir="${repoLocation}"/>
 		<p2.composite.repository destination="file:${repoLocation}" >
-			<add location="file:${sdkResults}/repository" />
-			<add location="file:${e4Results}/repository" />
+			<add location="file:${sdkRepo}" />
+			<add location="file:${e4Repo}" />
 			<add location="file:${e4.targetDir}/emf" />
 			<add location="file:${e4.targetDir}/gef" />
 			<add location="file:${e4.targetDir}/wtp" />
