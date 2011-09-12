@@ -69,7 +69,7 @@ process_build () {
 	cat $TMPL_DIR/$f | sed "s/ReplaceMe/$buildId/g" >$BASE_DIR/$buildId/$f
 	done
 	
-	scp -r $BASE_DIR/$buildId pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads/drops4
+	scp -r $BASE_DIR/$buildId pwebster@build.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads/drops4
 
 	echo Done $buildId
 
@@ -112,6 +112,6 @@ done
 cd $TMPL_DIR
 
 wget -O index.txt http://download.eclipse.org/eclipse/downloads/createIndex4x.php
-scp index.txt pwebster@dev.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads/index.html
+scp index.txt pwebster@build.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads/index.html
 
 
