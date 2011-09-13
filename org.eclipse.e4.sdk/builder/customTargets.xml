@@ -102,6 +102,13 @@
 			<iu id="org.junit.source" version="0.0.0" />
 		</p2.mirror>
 		
+		<p2.mirror destination="file:${localRepoLocation}" ignoreerrors="true">
+			<source location="${emfRepoURL}" />
+			<slicingOptions includeOptional="false" includeNonGreedy="false" />
+			<iu id="org.eclipse.emf.ecore.feature.group" version="0.0.0" />
+			<iu id="org.eclipse.emf.common.feature.group" version="0.0.0" />
+		</p2.mirror>
+		
 		<p2.repo2runnable destination="${transformedRepoLocation}">
 			<source location="file:${localRepoLocation}"/>
 		</p2.repo2runnable>
