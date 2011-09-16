@@ -16,13 +16,13 @@ plugin@org.eclipse.platform.doc.user=v20110629-1700,:pserver:anonymous@dev.eclip
 plugin@org.eclipse.platform.doc.isv=v20110612-2000,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
 
 !**** EMF
-feature@org.eclipse.emf.ecore=p2IU,id=org.eclipse.emf.ecore.feature.jar,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.7milestones/base/
-plugin@org.eclipse.emf.ecore.change=p2IU,id=org.eclipse.emf.ecore.change,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.7milestones/base/
-plugin@org.eclipse.emf.ecore=p2IU,id=org.eclipse.emf.ecore,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.7milestones/base/
-plugin@org.eclipse.emf.ecore.xmi=p2IU,id=org.eclipse.emf.ecore.xmi,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.7milestones/base/
-feature@org.eclipse.emf.common=p2IU,id=org.eclipse.emf.common.feature.jar,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.7milestones/base/
-plugin@org.eclipse.emf.common=p2IU,id=org.eclipse.emf.common,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.7milestones/base/
-plugin@org.eclipse.emf.databinding=p2IU,id=org.eclipse.emf.databinding,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.7milestones/base/
+feature@org.eclipse.emf.ecore=p2IU,id=org.eclipse.emf.ecore.feature.jar,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.8milestones/base/
+plugin@org.eclipse.emf.ecore.change=p2IU,id=org.eclipse.emf.ecore.change,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.8milestones/base/
+plugin@org.eclipse.emf.ecore=p2IU,id=org.eclipse.emf.ecore,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.8milestones/base/
+plugin@org.eclipse.emf.ecore.xmi=p2IU,id=org.eclipse.emf.ecore.xmi,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.8milestones/base/
+feature@org.eclipse.emf.common=p2IU,id=org.eclipse.emf.common.feature.jar,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.8milestones/base/
+plugin@org.eclipse.emf.common=p2IU,id=org.eclipse.emf.common,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.8milestones/base/
+plugin@org.eclipse.emf.databinding=p2IU,id=org.eclipse.emf.databinding,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.8milestones/base/
 
 !**** Nebula
 
