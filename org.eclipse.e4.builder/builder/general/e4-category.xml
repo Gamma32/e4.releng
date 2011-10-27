@@ -84,6 +84,9 @@
    <feature url="features/org.eclipse.e4.resources.source.feature_0.10.0.qualifier.jar" id="org.eclipse.e4.resources.source.feature" version="0.10.0.qualifier">
       <category name="org.eclipse.e4.resources.category"/>
    </feature>
+   <feature url="features/org.eclipse.e4.core.tools.css.editor.feature_0.10.0.qualifier.jar" id="org.eclipse.e4.core.tools.css.editor.feature" version="0.10.0.qualifier">
+      <category name="org.eclipse.e4.tools.category"/>
+   </feature>
    <feature url="features/org.eclipse.e4.core.tools.feature_0.10.0.qualifier.jar" id="org.eclipse.e4.core.tools.feature" version="0.10.0.qualifier">
       <category name="org.eclipse.e4.tools.category"/>
    </feature>
