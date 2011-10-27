@@ -152,10 +152,10 @@
 			<iu id="org.eclipse.wst.web_core.feature.feature.group" />
 		</p2.mirror>
 		
-		<echo message="Mirror from ${xtextRepoURL} to ${repoBaseLocation}/wtp" />
+		<echo message="Mirror from ${xtextRepoURL} to ${repoBaseLocation}/xtext" />
 		<p2.mirror destination="file:${repoBaseLocation}/xtext" ignoreerrors="true">
 			<source location="${xtextRepoURL}" />
-			<slicingOptions includeOptional="false" includeNonGreedy="false" />
+			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true" />
 			<iu id="org.eclipse.xtext.sdk.feature.group" />
 		</p2.mirror>
 		
