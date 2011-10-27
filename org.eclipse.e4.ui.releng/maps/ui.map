@@ -34,8 +34,8 @@ plugin@org.eclipse.e4.tools.services=GIT,tag=v20110613-2030,repo=git://git.eclip
 plugin@org.eclipse.e4.tools.emf.liveeditor=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.liveeditor
 plugin@org.eclipse.e4.tools=GIT,tag=v20110918-1121,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools
 plugin@org.eclipse.e4.tools.emf.ui.script.js=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui.script.js
-plugin@org.eclipse.e4.tools.css.editor=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor
-plugin@org.eclipse.e4.tools.css.editor.ui=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor.ui
+plugin@org.eclipse.e4.tools.css.editor=GIT,tag=v20111027-1445,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor
+plugin@org.eclipse.e4.tools.css.editor.ui=GIT,tag=v20111027-1510,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor.ui
 
 
 !*** e4 UI examples
@@ -68,7 +68,7 @@ feature@org.eclipse.e4.ui.examples.feature=GIT,tag=v20101215-1120,repo=git://git
 
 feature@org.eclipse.e4.core.tools.feature=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=features/org.eclipse.e4.core.tools.feature
 feature@org.eclipse.e4.tools.e3x.bridge.feature=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=features/org.eclipse.e4.tools.e3x.bridge.feature
-feature@org.eclipse.e4.tools.css.editor.feature=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=features/org.eclipse.e4.tools.css.editor.feature
+feature@org.eclipse.e4.tools.css.editor.feature=GIT,tag=v20111027-1541,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=features/org.eclipse.e4.tools.css.editor.feature
 
 feature@org.eclipse.e4.sdk.runtime.feature=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.sdk.runtime.feature
 feature@org.eclipse.e4.sdk.source.feature=GIT,tag=v20110808-1944,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.sdk.source.feature
