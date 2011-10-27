@@ -152,6 +152,13 @@
 			<iu id="org.eclipse.wst.web_core.feature.feature.group" />
 		</p2.mirror>
 		
+		<echo message="Mirror from ${xtextRepoURL} to ${repoBaseLocation}/wtp" />
+		<p2.mirror destination="file:${repoBaseLocation}/xtext" ignoreerrors="true">
+			<source location="${xtextRepoURL}" />
+			<slicingOptions includeOptional="false" includeNonGreedy="false" />
+			<iu id="org.eclipse.xtext.sdk.feature.group" />
+		</p2.mirror>
+		
 		<!--<p2.remove.iu>
 			<repository location="file:${targetDir}/${targetDownloadId}-p2" />
 			<iu id="org.eclipse.rap.jface" />
