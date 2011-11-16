@@ -3,7 +3,7 @@
 quietCVS=-Q
 publishingUser=pwebster
 writableBuildRoot=/shared/eclipse/e4
-projRelengBranch="HEAD"; # default set below
+projRelengBranch="master"; # default set below
 arch="x86_64"
 archProp="-x86_64"
 processor=$( uname -p )
@@ -18,13 +18,11 @@ fi
 #
 realBuildProperties () {
 	supportDir=$writableBuildRoot/build/e4
-	builderDir=${supportDir}/org.eclipse.e4.builder
+	GIT_CLONES=$supportDir/gitClones
+	builderDir=${GIT_CLONES}/org.eclipse.e4.releng/org.eclipse.e4.builder
     builddate=$( date +%Y%m%d )
     buildtime=$( date +%H%M )
 
-#tag maps
-    projRoot='pwebster@dev.eclipse.org:/cvsroot/eclipse'
-    tagMaps=-tagMaps
 
 #publish
     publishIndex="$publishingUser@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads"
@@ -44,7 +42,9 @@ realBuildProperties () {
 #
 testBuildProperties () {
 	supportDir=$writableBuildRoot/build/e4
-	builderDir=${supportDir}/org.eclipse.e4.builder
+	GIT_CLONES=$supportDir/gitClones
+	builderDir=${GIT_CLONES}/org.eclipse.e4.releng/org.eclipse.e4.builder
+	noTag=true
 
 #	builderDir=/opt/pwebster/workspaces/e4/releng/org.eclipse.e4.builder
 #builddate=20090624
@@ -107,38 +107,19 @@ updateBaseBuilderInfo() {
 
 updateE4Builder () {
     cd $supportDir
-    if [[ ! -d org.eclipse.e4.builder_${projRelengBranch} ]]; then
-        echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.e4.builder_${projRelengBranch}"
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r $projRelengBranch -d org.eclipse.e4.builder_${projRelengBranch} e4/releng/org.eclipse.e4.builder"
-        echo $cmd
-        $cmd
-    else
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -d org.eclipse.e4.builder_${projRelengBranch} "
-        echo $cmd
-        $cmd
-    fi
 
     echo "[start] [`date +%H\:%M\:%S`] setting org.eclipse.e4.builder_${projRelengBranch}"
     rm org.eclipse.e4.builder
-    ln -s ${supportDir}/org.eclipse.e4.builder_${projRelengBranch} org.eclipse.e4.builder
+    ln -s ${GIT_CLONES}/org.eclipse.e4.releng/org.eclipse.e4.builder org.eclipse.e4.builder
 
 }
 
 updateSDKBuilder () {
     cd $supportDir
-    echo "[start] [`date +%H\:%M\:%S`] get org.eclipse.e4.sdk_${projRelengBranch}"
-    if [[ ! -d org.eclipse.e4.sdk_${projRelengBranch} ]]; then
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r $projRelengBranch -d org.eclipse.e4.sdk_${projRelengBranch} e4/releng/org.eclipse.e4.sdk"
-        echo $cmd
-        $cmd
-    else
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.e4.sdk_${projRelengBranch} "
-        echo $cmd
-        $cmd
-    fi
     
+    echo "[start] [`date +%H\:%M\:%S`] setting org.eclipse.e4.sdk_${projRelengBranch}"
     rm org.eclipse.e4.sdk 
-    ln -s ${supportDir}/org.eclipse.e4.sdk_${projRelengBranch} org.eclipse.e4.sdk  
+    ln -s ${GIT_CLONES}/org.eclipse.e4.releng/org.eclipse.e4.sdk org.eclipse.e4.sdk  
 }
 
 updateEclipseBuilder() {

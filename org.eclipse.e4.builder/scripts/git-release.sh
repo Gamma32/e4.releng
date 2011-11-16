@@ -12,12 +12,15 @@
 #*******************************************************************************
 
 #default values, overridden by command line
-user=johna
-writableBuildRoot=/home/data/users/$user/test
+user=pwebster
+writableBuildRoot=/shared/eclipse/e4
+supportDir=$writableBuildRoot/build/e4
+GIT_CLONES=$supportDir/gitClones
 buildType=I
 date=$(date +%Y%m%d)
 time=$(date +%H%M)
 timestamp=$date$time
+relengBranch=master
 
 while [ $# -gt 0 ]
 do
@@ -55,14 +58,14 @@ done
 #Pull or clone a branch from a repository
 #Usage: pull repositoryURL  branch
 pull() {
-        pushd $writableBuildRoot/gitClones
+        pushd $GIT_CLONES
         directory=$(basename $1 .git)
         if [ ! -f $directory ]; then
                 echo git clone $1
                 git clone $1
         fi
         popd
-        pushd $writableBuildRoot/gitClones/$directory
+        pushd $GIT_CLONES/$directory
         echo git pull
         git pull
         echo git checkout $2
@@ -76,7 +79,7 @@ if [ "$buildType" == "N" -o "$noTag" ]; then
 fi
 
 pushd $writableBuildRoot
-relengRepo=$writableBuildRoot/gitClones/eclipse.platform.releng.maps
+relengRepo=$GIT_CLONES/org.eclipse.e4.releng
 
 if [ ! -f git-map.sh ]; then
     wget -O git-map.sh http://dev.eclipse.org/viewcvs/viewvc.cgi/e4/releng/org.eclipse.e4.builder/scripts/git-map.sh?view=co&content-type=text/plain
@@ -88,11 +91,11 @@ fi
 chmod 744 git-submission.sh
 
 #pull the releng project to get the list of repositories to tag
-pull "ssh://$user@git.eclipse.org/gitroot/platform/eclipse.platform.releng.maps.git" master
+pull "ssh://$user@git.eclipse.org/gitroot/e4/org.eclipse.e4.releng.git" $relengBranch
 
 #remove comments
 rm -f repos-clean.txt clones.txt
-cat "$relengRepo/org.eclipse.releng/tagging/repositories.txt" | grep -v "^#" > repos-clean.txt
+cat "$relengRepo/tagging/repositories.txt" | grep -v "^#" > repos-clean.txt
 #clone or pull each repository and checkout the appropriate branch
 while read line; do
         #each line is of the form <repository> <branch>
@@ -101,8 +104,8 @@ while read line; do
         echo $1 >> clones.txt
 done < repos-clean.txt
 
-cat clones.txt| xargs ./git-map.sh $writableBuildRoot/gitClones \
-        $relengRepo/org.eclipse.releng > maps.txt
+cat clones.txt| xargs ./git-map.sh $GIT_CLONES \
+        $relengRepo > maps.txt
 
 #Trim out lines that don't require execution
 grep -v ^OK maps.txt | grep -v ^Executed >run.txt
@@ -112,7 +115,7 @@ mkdir $writableBuildRoot/$buildType$timestamp
 cp report.txt $writableBuildRoot/$buildType$timestamp
 
 cd $relengRepo
-git add org.eclipse.releng/maps/*.map
+git add $( find . -name "*.map" )
 git commit -m "Releng build tagging for $buildType$timestamp"
 git tag -f $buildType$timestamp   #tag the map file change
 
