@@ -13,6 +13,8 @@
 
 #default values, overridden by command line
 user=pwebster
+email=pwebster@ca.ibm.com
+name="E4 Build"
 writableBuildRoot=/shared/eclipse/e4
 supportDir=$writableBuildRoot/build/e4
 GIT_CLONES=$supportDir/gitClones
@@ -63,6 +65,9 @@ pull() {
         if [ ! -f $directory ]; then
                 echo git clone $1
                 git clone $1
+                cd $directory
+                git config --add user.email "$email"
+                git config --add user.name "$name"
         fi
         popd
         pushd $GIT_CLONES/$directory
@@ -80,18 +85,18 @@ fi
 
 pushd $writableBuildRoot
 relengRepo=$GIT_CLONES/org.eclipse.e4.releng
+#pull the releng project to get the list of repositories to tag
+pull "ssh://$user@git.eclipse.org/gitroot/e4/org.eclipse.e4.releng.git" $relengBranch
 
 if [ ! -f git-map.sh ]; then
-    wget -O git-map.sh http://dev.eclipse.org/viewcvs/viewvc.cgi/e4/releng/org.eclipse.e4.builder/scripts/git-map.sh?view=co&content-type=text/plain
+    cp $relengRepo/org.eclipse.e4.builder/scripts/git-map.sh .
 fi
 chmod 744 git-map.sh
 if [ ! -f git-submission.sh ]; then
-    wget -O git-submission.sh http://dev.eclipse.org/viewcvs/viewvc.cgi/e4/releng/org.eclipse.e4.builder/scripts/git-submission.sh?view=co&content-type=text/plain
+    cp $relengRepo/org.eclipse.e4.builder/scripts/git-submission.sh .
 fi
 chmod 744 git-submission.sh
 
-#pull the releng project to get the list of repositories to tag
-pull "ssh://$user@git.eclipse.org/gitroot/e4/org.eclipse.e4.releng.git" $relengBranch
 
 #remove comments
 rm -f repos-clean.txt clones.txt
