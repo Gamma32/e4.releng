@@ -1,55 +1,121 @@
-#!/bin/bash
-#
-# example usage from within the local org.eclipse.e4.deeplink repo
-# USAGE: git-map.sh v20101018-1500 \
-#   ../releng/org.eclipse.e4.deeplink.releng/maps/deeplink.map \
-#   bundles
+#!/bin/bash 
 #
 #
+# example usage - you must have your repos checked out on the branch you
+# expect to tag.
+#
+# USAGE: repoRoot relengRoot repoURL [repoURL]*
+#    repoRoot   - absolute path to a folder containing cloned git repositories
+#    relengRoot - asolute path to releng project containing map files
+#    repoURL    - git repository urls to tag, must match entries in the map files
+# EXAMPLE: git-map.sh  \
+#   /opt/pwebster/git/eclipse \
+#   /opt/pwebster/workspaces/gitMigration/org.eclipse.releng \
+#   git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git \
+#   git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git >maps.txt
+# examine the file
+# grep -v ^OK maps.txt >run.txt
+# /bin/bash run.txt
+#
 
-BUG=/tmp/bugnumbers.txt
-CHPROJ=/tmp/changed_projects.txt
+PLATFORM=$( uname -s )
 
-BUILD_TAG=$1 ; shift
-MAPFILE=$1 ; shift
-BASEDIR=$1; shift
+get_repo_tag () {
+	REPO=$1
+	REPO_DIR=$( basename $REPO .git )
+	cd $ROOT/$REPO_DIR
+	REPO_COMMIT=$( git rev-list -1 HEAD  )
+	NEW_DATE=$( git log -1 --format="%ct" "$REPO_COMMIT" )
+	if [ "$PLATFORM" == "Darwin" ]; then
+		echo v$( date -u -j -f "%s" "$NEW_DATE" "+%Y%m%d-%H%M" )
+	else
+		echo v$( date -u --date="@$NEW_DATE"  "+%Y%m%d-%H%M" )
+	fi
+}
 
-PROJECTS=$( ls $BASEDIR )
+tag_repo_commit () {
+	REPO=$1
+	REPO_DIR=$( basename $REPO .git )
+	NEW_TAG=$( get_repo_tag $REPO )
+	cd $ROOT/$REPO_DIR
+	REPO_COMMIT=$( git rev-list -1 HEAD  )
+	if ! ( git log -1  --format="%d" "$REPO_COMMIT" | grep "[ (]$NEW_TAG[,)]" >/dev/null); then
+		OLD_TAG=$( git log --pretty=oneline --decorate | grep "[ (][vI][0-9]" \
+			| head -1 | sed 's/^[^(]* (.*\([vI][0-9][0-9][0-9][0-9]\)/\1/g'   | sed 's/[,)].*$//g' ) 
+		SUBMISSION_ARGS="$SUBMISSION_ARGS $REPO $OLD_TAG $NEW_TAG"
+		echo "#OK Executed: cd $ROOT/$REPO_DIR \; git tag \"$NEW_TAG\" \"$REPO_COMMIT\""
+		cd $ROOT/$REPO_DIR ; git tag "$NEW_TAG" "$REPO_COMMIT"
+	fi
+}
+
+update_map () {
+	#echo update_map "$@"
+	REPO=$1
+	REPO_DIR=$( basename $REPO .git )
+	MAP=$2
+	cd $ROOT/$REPO_DIR
+	grep "repo=${REPO}," "$MAP" >/tmp/maplines_$$.txt
+	if [ ! -s /tmp/maplines_$$.txt ]; then
+		return
+	fi
+	while read LINE; do
+		LINE_START=$( echo $LINE | sed 's/^\([^=]*\)=.*$/\1/g' )
+		PROJ_PATH=$( echo $LINE | sed 's/^.*path=//g' )
+		CURRENT_TAG=$( echo $LINE | sed 's/.*tag=\([^,]*\),.*$/\1/g' )
+		LAST_COMMIT=$( git rev-list -1 HEAD -- "$PROJ_PATH" )
+        if [ -z "$LAST_COMMIT" ]; then
+            echo "#SKIPPING $LINE_START, no commits for $PROJ_PATH"
+            continue
+        fi
+		
+		if ! ( git tag --contains $LAST_COMMIT | grep $CURRENT_TAG >/dev/null ); then
+			NEW_DATE=$( git log -1 --format="%ct" "$LAST_COMMIT" )		
+			if [ "$PLATFORM" == "Darwin" ]; then
+				NEW_TAG=v$( date -u -j -f "%s" "$NEW_DATE" "+%Y%m%d-%H%M" )
+			else
+				NEW_TAG=v$( date -u --date="@$NEW_DATE"  "+%Y%m%d-%H%M" )
+			fi
+			
+			if ! ( git log -1  --format="%d" "$LAST_COMMIT" | grep "[ (]$NEW_TAG[,)]" >/dev/null); then
+				echo "#OK Executed: cd $ROOT/$REPO_DIR \; git tag \"$NEW_TAG\" \"$LAST_COMMIT\""
+				cd $ROOT/$REPO_DIR ; git tag "$NEW_TAG" "$LAST_COMMIT"
+			fi
+			echo sed "'s/$LINE_START=GIT,tag=$CURRENT_TAG/$LINE_START=GIT,tag=$NEW_TAG/g'" $MAP \>/tmp/t1_$$.txt \; mv /tmp/t1_$$.txt $MAP
+		else
+			echo OK $LINE_START $CURRENT_TAG 
+		fi
+	done </tmp/maplines_$$.txt
+	rm -f /tmp/maplines_$$.txt
+	echo \( cd $ROOT/$REPO_DIR \; git push --tags \)
+}
+
+
+STATUS=OK
+STATUS_MSG=""
 LATEST_SUBMISSION=""
+SUBMISSION_ARGS=""
 
-for proj in $PROJECTS; do
-    echo Processing $proj
-    PROJ_LINE=$( grep "@${proj}=" ${MAPFILE} )
-    projId=$proj
-    
-    if [ -z "$PROJ_LINE" ]; then
-    	PROJ_LINE=$( grep "path=${BASEDIR}/${proj}" ${MAPFILE} )
-    	projId=$( echo $PROJ_LINE | sed -e 's:^\(plugin\|feature\|fragment\|bundle\)@\([-._A-Za-z0-9]*\)=.*$:\2:' )
-    fi
-    
-    if [ ! -z "$PROJ_LINE" ]; then
-	LAST_COMMIT=$( git rev-list HEAD -- $BASEDIR/$proj | head -1 )
-	LAST_SUBMISSION=$( echo $PROJ_LINE | sed -e 's/^.*tag=//' | sed -e 's/,.*$//')
-	if [ "$LATEST_SUBMISSION" \< "$LAST_SUBMISSION" ]; then
-	    LATEST_SUBMISSION=$LAST_SUBMISSION
-	fi
-	
-	LAST_COMMIT_DATE=$( git log --pretty=format:"%H %ad" --date=iso | grep $LAST_COMMIT | sed -e 's:[a-f0-9]* \(.*\)$:\1:' )
-	echo Last commit was at $LAST_COMMIT_DATE
-	echo Map file entry is $LAST_SUBMISSION
-	
-	if ! ( git tag --contains $LAST_COMMIT | grep $LAST_SUBMISSION >/dev/null ); then
-	    echo Needs to move from $LAST_SUBMISSION to $BUILD_TAG
-	    echo ${proj} >>$CHPROJ
-	    sed "s/@${projId}=GIT,tag=$LAST_SUBMISSION/@${projId}=GIT,tag=$BUILD_TAG/g" $MAPFILE >/tmp/t1.txt
-	    mv /tmp/t1.txt $MAPFILE
-	fi
-    fi
+if [ $# -lt 3 ]; then
+  echo "USAGE: $0 repoRoot relengRoot repoURL [repoURL]*"
+  exit 1
+fi
 
-    echo ""
+
+ROOT=$1; shift
+RELENG=$1; shift
+REPOS="$@"
+
+
+
+for REPO in $REPOS; do
+	cd $ROOT
+	tag_repo_commit $REPO
+	MAPS=$( find $RELENG -name "*.map" -exec grep -l "repo=${REPO}," {} \; )
+	if [ ! -z "$MAPS" ]; then
+		for MAP in $MAPS; do
+			update_map $REPO $MAP
+		done
+	fi
 done
 
-git log  ${LATEST_SUBMISSION}..${BUILD_TAG} "$BASEDIR" \
- | grep '[Bb]ug '  \
- | sed 's/.*[Bb]ug[^0-9]*\([0-9][0-9][0-9][0-9][0-9]*\)[^0-9].*$/\1/g' >>$BUG
-
+echo "/bin/bash git-submission.sh $ROOT $SUBMISSION_ARGS > report.txt"

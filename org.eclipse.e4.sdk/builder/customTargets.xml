@@ -18,9 +18,11 @@
 	<!-- Replace values for mapsCheckoutTag as desired. -->
 	<!-- ===================================================================== -->
 	<target name="getMapFiles" depends="checkLocalMaps,initLocations" unless="skipMaps">
-		<property name="mapsCheckoutTag" value="HEAD" />
-		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot_sdk}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
-		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot_e4}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
+		<mkdir dir="${buildDirectory}/maps" />
+		<copy todir="${buildDirectory}/maps">
+			<fileset dir="${builder}/../maps" />
+			<fileset dir="${builder}/../../org.eclipse.e4.ui.releng/maps" />
+		</copy>
 		<replace dir="${buildDirectory}/maps/" value="${eclipseRepoURL-latest}" token="ECLIPSE_PLATFORM_REPO" />
 	</target>
 
@@ -29,8 +31,8 @@
 	</target>
 
 	<target name="tagMapFiles" if="tagMaps">
-		<cvs dest="${buildDirectory}/maps/${mapsRoot_sdk}" command="tag ${mapsTagTag}" />
-		<cvs dest="${buildDirectory}/maps/${mapsRoot_e4}" command="tag ${mapsTagTag}" />
+		<!--cvs dest="${buildDirectory}/maps/${mapsRoot_sdk}" command="tag ${mapsTagTag}" />
+		<cvs dest="${buildDirectory}/maps/${mapsRoot_e4}" command="tag ${mapsTagTag}" /-->
 	</target>
 
 	<!-- ===================================================================== -->

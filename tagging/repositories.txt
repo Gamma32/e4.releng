@@ -1,0 +1,6 @@
+#repositories to be tagged, and corresponding branch name
+#format is <repository URL> <branch name>
+ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.ui.git R4_1_maintenance
+ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git R4_1_maintenance
+ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git R4_1_maintenance
+ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git R4_1_maintenance
