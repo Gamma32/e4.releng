@@ -27,5 +27,5 @@ cp $GIT_CLONES/org.eclipse.e4.releng/org.eclipse.e4.builder/scripts/masterBuild.
   $writableBuildRoot
 
 cd $writableBuildRoot
-/bin/bash -l $writableBuildRoot/masterBuild.sh >$writableBuildRoot/logs/current.log 2>&1
+/bin/bash -l $writableBuildRoot/masterBuild.sh -branch $relengBranch >$writableBuildRoot/logs/current.log 2>&1
 

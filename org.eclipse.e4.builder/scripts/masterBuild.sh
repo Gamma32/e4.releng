@@ -1,9 +1,17 @@
 #!/bin/bash +x
 
+#default values, overridden by command line
+user=pwebster
+email=pwebster@ca.ibm.com
+name="E4 Build"
+writableBuildRoot=/shared/eclipse/e4
+supportDir=$writableBuildRoot/build/e4
+GIT_CLONES=$supportDir/gitClones
+
 quietCVS=-Q
 publishingUser=pwebster
 writableBuildRoot=/shared/eclipse/e4
-projRelengBranch="master"; # default set below
+relengBranch="master"; # default set below
 arch="x86_64"
 archProp="-x86_64"
 processor=$( uname -p )
@@ -12,6 +20,19 @@ if [ $processor = ppc -o $processor = ppc64 ]; then
     archJavaProp="-DarchProp=-ppc"
     arch="ppc"
 fi
+
+
+while [ $# -gt 0 ]
+do
+        case "$1" in
+                "-branch")
+                        relengBranch="$2"; shift;;
+                 *) break;;      # terminate while loop
+        esac
+        shift
+done
+
+
 
 #
 # Real Build on build.eclipse.org
@@ -108,7 +129,7 @@ updateBaseBuilderInfo() {
 updateE4Builder () {
     cd $supportDir
 
-    echo "[start] [`date +%H\:%M\:%S`] setting org.eclipse.e4.builder_${projRelengBranch}"
+    echo "[start] [`date +%H\:%M\:%S`] setting org.eclipse.e4.builder_${relengBranch}"
     rm org.eclipse.e4.builder
     ln -s ${GIT_CLONES}/org.eclipse.e4.releng/org.eclipse.e4.builder org.eclipse.e4.builder
 
@@ -117,7 +138,7 @@ updateE4Builder () {
 updateSDKBuilder () {
     cd $supportDir
     
-    echo "[start] [`date +%H\:%M\:%S`] setting org.eclipse.e4.sdk_${projRelengBranch}"
+    echo "[start] [`date +%H\:%M\:%S`] setting org.eclipse.e4.sdk_${relengBranch}"
     rm org.eclipse.e4.sdk 
     ln -s ${GIT_CLONES}/org.eclipse.e4.releng/org.eclipse.e4.sdk org.eclipse.e4.sdk  
 }
@@ -413,7 +434,11 @@ generateSwtZip () {
     zip -r ../I$buildTimestamp/org.eclipse.swt.e4.flex-incubation-I$buildTimestamp.zip org.eclipse.swt org.eclipse.swt.e4.jcl
 }
 
-
+tagRepo () {
+	pushd $writableBuildRoot
+	/bin/bash git-release.sh -branch $relengBranch -timestamp $builddate$buildtime
+	popd
+}
 
 realBuildProperties
 #testBuildProperties
@@ -423,6 +448,8 @@ updateBaseBuilderInfo
 updateSDKBuilder
 updateE4Builder
 updateEclipseBuilder
+
+tagRepo
 
 cd ${builderDir}/scripts
 

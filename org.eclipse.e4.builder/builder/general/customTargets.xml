@@ -32,9 +32,10 @@
 	<!-- Replace values for mapsCheckoutTag as desired. -->
 	<!-- ===================================================================== -->
 	<target name="getMapFiles" depends="checkLocalMaps" unless="skipMaps">
-		<property name="mapsCheckoutTag" value="HEAD" />
-		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
-		<antcall target="tagMapFiles" />
+		<mkdir dir="${buildDirectory}/maps" />
+		<copy todir="${buildDirectory}/maps">
+			<fileset dir="${builder}/../../.." />
+		</copy>
 	</target>
 
 	<target name="checkLocalMaps">
@@ -42,7 +43,7 @@
 	</target>
 
 	<target name="tagMapFiles" if="tagMaps">
-		<cvs dest="${buildDirectory}/maps/${mapsRoot}" command="tag ${mapsTagTag}" />
+		<!--cvs dest="${buildDirectory}/maps/${mapsRoot}" command="tag ${mapsTagTag}" /-->
 	</target>
 
 	<!-- ===================================================================== -->

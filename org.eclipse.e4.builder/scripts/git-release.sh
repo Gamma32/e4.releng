@@ -27,6 +27,9 @@ relengBranch=master
 while [ $# -gt 0 ]
 do
         case "$1" in
+                "-branch")
+                        relengBranch="$2"; shift;;
+
                 "-I")
                         buildType=I;
                         tagMaps="-DtagMaps=true";
@@ -124,7 +127,7 @@ git add $( find . -name "*.map" )
 git commit -m "Releng build tagging for $buildType$timestamp"
 git tag -f $buildType$timestamp   #tag the map file change
 
-#git push
-#git push --tags
+git push
+git push --tags
 
 popd
