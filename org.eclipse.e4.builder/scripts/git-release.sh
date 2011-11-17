@@ -62,7 +62,7 @@ done
 pull() {
         pushd $GIT_CLONES
         directory=$(basename $1 .git)
-        if [ ! -f $directory ]; then
+        if [ ! -d $directory ]; then
                 echo git clone $1
                 git clone $1
                 cd $directory
@@ -71,10 +71,10 @@ pull() {
         fi
         popd
         pushd $GIT_CLONES/$directory
-        echo git pull
-        git pull
         echo git checkout $2
         git checkout $2
+        echo git pull
+        git pull
         popd
 }
 #Nothing to do for nightly builds, or if $noTag is specified
@@ -106,10 +106,10 @@ while read line; do
         #each line is of the form <repository> <branch>
         set -- $line
         pull $1 $2
-        echo $1 >> clones.txt
+        echo $1 | sed 's/ssh:.*@git.eclipse.org/git:\/\/git.eclipse.org/g' >> clones.txt
 done < repos-clean.txt
 
-cat clones.txt| xargs ./git-map.sh $GIT_CLONES \
+cat clones.txt| xargs /bin/bash git-map.sh $GIT_CLONES \
         $relengRepo > maps.txt
 
 #Trim out lines that don't require execution
