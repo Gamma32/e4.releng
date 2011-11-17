@@ -91,13 +91,9 @@ relengRepo=$GIT_CLONES/org.eclipse.e4.releng
 #pull the releng project to get the list of repositories to tag
 pull "ssh://$user@git.eclipse.org/gitroot/e4/org.eclipse.e4.releng.git" $relengBranch
 
-if [ ! -f git-map.sh ]; then
-    cp $relengRepo/org.eclipse.e4.builder/scripts/git-map.sh .
-fi
+cp $relengRepo/org.eclipse.e4.builder/scripts/git-map.sh .
 chmod 744 git-map.sh
-if [ ! -f git-submission.sh ]; then
-    cp $relengRepo/org.eclipse.e4.builder/scripts/git-submission.sh .
-fi
+cp $relengRepo/org.eclipse.e4.builder/scripts/git-submission.sh .
 chmod 744 git-submission.sh
 
 
