@@ -174,8 +174,8 @@ runSDKBuild () {
       -cp $cpAndMain \
       -application org.eclipse.ant.core.antRunner  \
       -buildfile $buildfile \
-	  -Dbuilder=$supportDir/org.eclipse.e4.sdk/builder \
-	  -Dorg.eclipse.e4.builder=$supportDir/org.eclipse.e4.builder \
+	  -Dbuilder=$GIT_CLONES/org.eclipse.e4.releng/org.eclipse.e4.sdk/builder \
+	  -Dorg.eclipse.e4.builder=$GIT_CLONES/org.eclipse.e4.releng/org.eclipse.e4.builder \
 	  -Declipse.build.configs=$supportDir/org.eclipse.releng.eclipsebuilder/eclipse/buildConfigs \
 	  -DbuildType=I \
 	  -Dbuilddate=$builddate \
