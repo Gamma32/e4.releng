@@ -456,6 +456,7 @@ generateSwtZip () {
 
 tagRepo () {
 	pushd $writableBuildRoot
+	echo git-release.sh -branch $relengBranch -timestamp $builddate$buildtime
 	/bin/bash git-release.sh -branch $relengBranch -timestamp $builddate$buildtime
 	popd
 }
