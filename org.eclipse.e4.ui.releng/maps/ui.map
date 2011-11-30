@@ -18,7 +18,7 @@ plugin@org.eclipse.e4.ui.css.swt=GIT,tag=v20111129-0439,repo=git://git.eclipse.o
 plugin@org.eclipse.e4.ui.css.nebula=GIT,tag=v20100630-1000,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=bundles/org.eclipse.e4.ui.css.nebula
 
 fragment@org.eclipse.e4.ui.workbench.fragment=GIT,tag=v20091203-1000,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=bundles/org.eclipse.e4.ui.workbench.fragment
-fragment@org.eclipse.e4.ui.workbench.renderers.swt.cocoa=GIT,tag=v20111012-1223,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.renderers.swt.cocoa
+fragment@org.eclipse.e4.ui.workbench.renderers.swt.cocoa=GIT,tag=v20111130-0144,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.renderers.swt.cocoa
 
 plugin@org.eclipse.e4.ui.web=GIT,tag=v20110427-1700,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=bundles/org.eclipse.e4.ui.web
 plugin@org.eclipse.e4.pde.ui=GIT,tag=v20090714-1930,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=bundles/org.eclipse.e4.pde.ui
