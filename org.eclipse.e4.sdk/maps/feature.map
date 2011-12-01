@@ -1,9 +1,9 @@
 !***************  FEATURE CONTRIBUTION  ******************************************************
 feature@org.eclipse.sdk=r41x_v20111129,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.sdk
-plugin@org.eclipse.sdk=GIT,tag=v20110127-2200,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.git,path=platform/org.eclipse.sdk
+plugin@org.eclipse.sdk=GIT,tag=v20111129-2011,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.git,path=platform/org.eclipse.sdk
 
 feature@org.eclipse.platform=r41x_v20111129,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.platform-feature
-plugin@org.eclipse.platform=GIT,tag=v20110609-2000,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.git,path=platform/org.eclipse.platform
+plugin@org.eclipse.platform=GIT,tag=v20111129-2008,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.git,path=platform/org.eclipse.platform
 
 feature@org.eclipse.license=v20110208,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.license
 
