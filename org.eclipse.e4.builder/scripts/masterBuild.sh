@@ -91,9 +91,6 @@ publishSDKIndex="${committerId}@build.eclipse.org:/home/data/httpd/download.ecli
 publishUpdates="${committerId}@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/updates"
 publishDir="${publishIndex}/drops"
 
-oldBuildTag=$( cat $writableBuildRoot/${buildType}build.properties )
-echo "Last build: $oldBuildTag"
-echo $buildTag >$writableBuildRoot/${buildType}build.properties
 
 
 
@@ -104,6 +101,10 @@ echo $buildTag >$writableBuildRoot/${buildType}build.properties
 javaHome=/opt/public/common/sun-jdk1.6.0_21_x64
 buildTimestamp=${date}-${time}
 buildTag=$buildType$buildTimestamp
+
+oldBuildTag=$( cat $writableBuildRoot/${buildType}build.properties )
+echo "Last build: $oldBuildTag"
+echo $buildTag >$writableBuildRoot/${buildType}build.properties
 
 buildDir=$writableBuildRoot/build/e4/downloads/drops/4.0.0
 targetDir=${buildDir}/targets
