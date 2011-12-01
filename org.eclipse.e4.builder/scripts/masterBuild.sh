@@ -212,8 +212,8 @@ runSDKBuild () {
 	  -Dorg.eclipse.e4.builder=$gitCache/${relengProject}/org.eclipse.e4.builder \
 	  -Declipse.build.configs=$supportDir/org.eclipse.releng.eclipsebuilder/eclipse/buildConfigs \
 	  -DbuildType=$buildType \
-	  -Dbuilddate=$builddate \
-	  -Dbuildtime=$buildtime \
+	  -Dbuilddate=$date \
+	  -Dbuildtime=$time \
 	  -Dbase=$buildDir/40builds \
 	  -DupdateSite=$targetDir/updates/${eclipseStream}-I-builds
 	"   
@@ -520,8 +520,8 @@ buildMasterFeature () {
       -application org.eclipse.ant.core.antRunner  \
       -buildfile $buildfile \
       -Dbuilder=${builderDir}/builder/general \
-      -Dbuilddate=$builddate \
-      -Dbuildtime=$buildtime \
+      -Dbuilddate=$date \
+      -Dbuildtime=$time \
       -Dtransformed.dir=${transformedRepo} \
       ${archJavaProp} \
       -DbuildArea=$buildDir \
