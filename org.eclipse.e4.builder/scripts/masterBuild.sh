@@ -1,17 +1,23 @@
 #!/bin/bash +x
 
 #default values, overridden by command line
-user=pwebster
-email=pwebster@ca.ibm.com
-name="E4 Build"
 writableBuildRoot=/shared/eclipse/e4
-supportDir=$writableBuildRoot/build/e4
-GIT_CLONES=$supportDir/gitClones
+relengProject=org.eclipse.e4.releng
+relengBranch=master
+buildType=I
+date=$(date +%Y%m%d)
+time=$(date +%H%M)
+timestamp=$date$time
+committerId=pwebster
+gitEmail=pwebster@ca.ibm.com
+gitName="E4 Build"
+
+eclipseStream=4.2
+e4Stream=0.12
+basebuilderBranch=R3_7
+eclipsebuilderBranch=R4_HEAD
 
 quietCVS=-Q
-publishingUser=pwebster
-writableBuildRoot=/shared/eclipse/e4
-relengBranch="master"; # default set below
 arch="x86_64"
 archProp="-x86_64"
 processor=$( uname -p )
@@ -21,84 +27,103 @@ if [ $processor = ppc -o $processor = ppc64 ]; then
     arch="ppc"
 fi
 
+#
+#  control various aspects of the build
+#
+
+publish=true
+tag=true
+
+
 
 while [ $# -gt 0 ]
 do
         case "$1" in
                 "-branch")
                         relengBranch="$2"; shift;;
+                "-eclipseStream")
+                        eclipseStream="$2"; shift;;
+                "-e4Stream")
+                        e4Stream="$2"; shift;;
+                "-buildType")
+                        buildType="$2"; shift;;
+                "-gitCache")
+                        gitCache="$2"; shift;;
+                "-relengProject")
+                        relengProject="$2"; shift;;
+                "-root")
+                        writableBuildRoot="$2"; shift;;
+                "-committerId")
+                        committerId="$2"; shift;;
+                "-gitEmail")
+                        gitEmail="$2"; shift;;
+                "-gitName")
+                        gitName="$2"; shift;;
+                "-basebuilderBranch")
+                        basebuilderBranch="$2"; shift;;
+                "-eclipsebuilderBranch")
+                        eclipsebuilderBranch="$2"; shift;;
+                "-timestamp")
+                        timestamp="$2";
+                        date=${timestamp:0:8}
+                        time=${timestamp:8};
+                        shift;;
                  *) break;;      # terminate while loop
         esac
         shift
 done
 
+supportDir=$writableBuildRoot/build/e4
+if [ -z "$gitCache" ]; then
+	gitCache=$supportDir/gitClones
+fi
 
 
-#
-# Real Build on build.eclipse.org
-#
-realBuildProperties () {
-	supportDir=$writableBuildRoot/build/e4
-	GIT_CLONES=$supportDir/gitClones
-	builderDir=${GIT_CLONES}/org.eclipse.e4.releng/org.eclipse.e4.builder
-    builddate=$( date +%Y%m%d )
-    buildtime=$( date +%H%M )
+builderDir=${gitCache}/${relengProject}/org.eclipse.e4.builder
 
+if [ "$buildType" = N ]; then
+	tag=false
+fi
 
 #publish
-    publishIndex="$publishingUser@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads"
-    publishSDKIndex="$publishingUser@build.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads"
-    publishUpdates="$publishingUser@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/updates"
-    publishDir="${publishIndex}/drops"
+publishIndex="${committerId}@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads"
+publishSDKIndex="${committerId}@build.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads"
+publishUpdates="${committerId}@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/updates"
+publishDir="${publishIndex}/drops"
 
-# available builds
-    #basebuilderBranch=$( grep v2009 /cvsroot/eclipse/org.eclipse.releng.basebuilder/about.html,v | head -1 | cut -f1 -d: | tr -d "[:blank:]" )
-    #eclipseIBuild=$( ls -d /home/data/httpd/download.eclipse.org/eclipse/downloads/drops/I*/eclipse-SDK-I*-linux-gtk${archProp}.tar.gz | tail -1 | cut -d/ -f9 )
-    basebuilderBranch=R3_7
-}
+oldBuildTag=$( cat $writableBuildRoot/${buildType}build.properties )
+echo "Last build: $oldBuildTag"
+echo $buildTag >$writableBuildRoot/${buildType}build.properties
 
 
-#
-# test Build
-#
-testBuildProperties () {
-	supportDir=$writableBuildRoot/build/e4
-	GIT_CLONES=$supportDir/gitClones
-	builderDir=${GIT_CLONES}/org.eclipse.e4.releng/org.eclipse.e4.builder
-	noTag=true
 
-#	builderDir=/opt/pwebster/workspaces/e4/releng/org.eclipse.e4.builder
-#builddate=20090624
-#buildtime=1012
-    builddate=$( date +%Y%m%d )
-    buildtime=$( date +%H%M )
 
-    projRoot=':pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse'
-    basebuilderBranch=R3_7
-}
 
-commonProperties () {
-    javaHome=/opt/public/common/sun-jdk1.6.0_21_x64
-    buildTimestamp=${builddate}-${buildtime}
-    buildDir=$writableBuildRoot/build/e4/downloads/drops/4.0.0
-    targetDir=${buildDir}/targets
-    targetZips=$targetDir/downloads
-    transformedRepo=${targetDir}/helios-p2
-    buildDirectory=$buildDir/I$buildTimestamp
+# common properties
+
+javaHome=/opt/public/common/sun-jdk1.6.0_21_x64
+buildTimestamp=${date}-${time}
+buildTag=$buildType$buildTimestamp
+
+buildDir=$writableBuildRoot/build/e4/downloads/drops/4.0.0
+targetDir=${buildDir}/targets
+targetZips=$targetDir/downloads
+transformedRepo=${targetDir}/helios-p2
+buildDirectory=$buildDir/$buildTag
     
-    e4TestDir=/opt/buildhomes/e4Build/e4Tests/I$buildTimestamp
-    sdkTestDir=/opt/buildhomes/e4Build/sdkTests/I$buildTimestamp
+e4TestDir=/opt/buildhomes/e4Build/e4Tests/$buildTag
+sdkTestDir=/opt/buildhomes/e4Build/sdkTests/$buildTag
     
-    buildResults=$buildDirectory/I$buildTimestamp
+buildResults=$buildDirectory/$buildTag
     
-    sdkResults=$buildDir/40builds/I$buildTimestamp/I$buildTimestamp
-    sdkBuildDirectory=$buildDir/40builds/I$buildTimestamp
+sdkResults=$buildDir/40builds/$buildTag/$buildTag
+sdkBuildDirectory=$buildDir/40builds/$buildTag
 		
-    relengBaseBuilderDir=$supportDir/org.eclipse.releng.basebuilder
-    buildDirEclipse="$buildDir/eclipse"
-    WORKSPACE="$buildDir/workspace"
-    export WORKSPACE
-}
+relengBaseBuilderDir=$supportDir/org.eclipse.releng.basebuilder
+buildDirEclipse="$buildDir/eclipse"
+WORKSPACE="$buildDir/workspace"
+export WORKSPACE
+
 
 # first, let's check out all of those pesky projects
 updateBaseBuilder () {
@@ -127,38 +152,47 @@ updateBaseBuilderInfo() {
 }
 
 updateE4Builder () {
+    echo "[updateE4Builder]" cd ${gitCache}/${relengProject}
+    echo "[updateE4Builder]" git checkout ${relengBranch}
+    cd ${gitCache}/${relengProject}
+    git checkout ${relengBranch}
+    git pull
+    
     cd $supportDir
 
     echo "[start] [`date +%H\:%M\:%S`] setting org.eclipse.e4.builder_${relengBranch}"
     rm org.eclipse.e4.builder
-    ln -s ${GIT_CLONES}/org.eclipse.e4.releng/org.eclipse.e4.builder org.eclipse.e4.builder
+    ln -s ${gitCache}/${relengProject}/org.eclipse.e4.builder org.eclipse.e4.builder
 
-}
-
-updateSDKBuilder () {
-    cd $supportDir
-    
     echo "[start] [`date +%H\:%M\:%S`] setting org.eclipse.e4.sdk_${relengBranch}"
     rm org.eclipse.e4.sdk 
-    ln -s ${GIT_CLONES}/org.eclipse.e4.releng/org.eclipse.e4.sdk org.eclipse.e4.sdk  
+    ln -s ${gitCache}/${relengProject}/org.eclipse.e4.sdk org.eclipse.e4.sdk  
 }
+
 
 updateEclipseBuilder() {
 	cd $supportDir
 	echo "[`date +%H\:%M\:%S`] get org.eclipse.releng.eclipsebuilder"
-    if [[ ! -d org.eclipse.releng.eclipsebuilder_R4_HEAD ]]; then
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r R4_HEAD -d org.eclipse.releng.eclipsebuilder_R4_HEAD org.eclipse.releng.eclipsebuilder"
+    if [[ ! -d org.eclipse.releng.eclipsebuilder_${eclipsebuilderBranch} ]]; then
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS co -r $eclipsebuilderBranch -d org.eclipse.releng.eclipsebuilder_${eclipsebuilderBranch} org.eclipse.releng.eclipsebuilder"
         echo $cmd
         $cmd
     else
-        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.releng.eclipsebuilder_R4_HEAD "
+        cmd="cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse $quietCVS update -C -d org.eclipse.releng.eclipsebuilder_${eclipsebuilderBranch} "
         echo $cmd
         $cmd
     fi
     
-    echo "[`date +%H\:%M\:%S`] setting org.eclipse.e4.builder_R4_HEAD"
+    echo "[`date +%H\:%M\:%S`] setting org.eclipse.e4.builder_${eclipsebuilderBranch}"
     rm org.eclipse.releng.eclipsebuilder
-    ln -s ${supportDir}/org.eclipse.releng.eclipsebuilder_R4_HEAD org.eclipse.releng.eclipsebuilder
+    ln -s ${supportDir}/org.eclipse.releng.eclipsebuilder_${eclipsebuilderBranch} org.eclipse.releng.eclipsebuilder
+}
+
+sync_sdk_updates () {
+	fromDir=$targetDir/updates/${eclipseStream}-I-builds
+	toDir="pwebster@build.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/updates"
+
+	rsync --recursive --delete "${fromDir}" "${toDir}"
 }
 
 runSDKBuild () {
@@ -174,14 +208,14 @@ runSDKBuild () {
       -cp $cpAndMain \
       -application org.eclipse.ant.core.antRunner  \
       -buildfile $buildfile \
-	  -Dbuilder=$GIT_CLONES/org.eclipse.e4.releng/org.eclipse.e4.sdk/builder \
-	  -Dorg.eclipse.e4.builder=$GIT_CLONES/org.eclipse.e4.releng/org.eclipse.e4.builder \
+	  -Dbuilder=$gitCache/${relengProject}/org.eclipse.e4.sdk/builder \
+	  -Dorg.eclipse.e4.builder=$gitCache/${relengProject}/org.eclipse.e4.builder \
 	  -Declipse.build.configs=$supportDir/org.eclipse.releng.eclipsebuilder/eclipse/buildConfigs \
-	  -DbuildType=I \
+	  -DbuildType=$buildType \
 	  -Dbuilddate=$builddate \
 	  -Dbuildtime=$buildtime \
 	  -Dbase=$buildDir/40builds \
-	  -DupdateSite=$targetDir/updates/4.2-I-builds
+	  -DupdateSite=$targetDir/updates/${eclipseStream}-I-builds
 	"   
     echo $cmd
     $cmd  
@@ -202,7 +236,7 @@ runSDKBuild () {
 			prereqMsg=`cat $buildDirectory/prereqErrors.log` 
 		fi
 		
-		mailx -s "4.2 SDK Build: $buildId failed" e4-dev@eclipse.org <<EOF
+		mailx -s "$eclipseStream SDK Build: $buildTag failed" e4-dev@eclipse.org <<EOF
 $compileMsg
 $compileProblems
 
@@ -213,10 +247,121 @@ EOF
 		exit
 	fi 
       
-	/bin/bash ${builderDir}/scripts/sync.sh
+	sync_sdk_updates
+}
+
+process_build () {
+	buildId=$1 ; shift
+	echo Processing $BASE_DIR/$buildId/$buildId
 	
-	#Done at the end of runSDKTests()
-	#/bin/bash ${builderDir}/scripts/publish.sh
+	if [ -e $BASE_DIR/$buildId ]; then
+	return;
+	fi
+	
+	mkdir -p $BASE_DIR/$buildId
+	
+	cd $TMPL_DIR
+	cp *.php *.htm*  *.gif *.jpg  $BASE_DIR/$buildId
+	
+	cd $HUDSON_DROPS/$buildId/$buildId
+	
+	cp *.htm*  $BASE_DIR/$buildId
+	cp -r results $BASE_DIR/$buildId
+	
+	ZIPS=$( echo $ORIG_ZIPS | sed "s/ReplaceMe/$buildId/g" )
+	for f in $ZIPS; do
+	echo $f
+	cp $f  $BASE_DIR/$buildId
+	done
+	
+	cp -fr *repository.zip buildlogs checksum compilelogs $BASE_DIR/$buildId
+	#cp -r $HUDSON_REPO/$buildId  $BASE_DIR/$buildId/repository
+	
+	cp  $TMPL_DIR/download.php  $BASE_DIR/$buildId
+	
+	for f in $( echo $FILES_TO_UPDATE ); do
+	cat $TMPL_DIR/$f | sed "s/ReplaceMe/$buildId/g" >$BASE_DIR/$buildId/$f
+	done
+	
+	scp -r $BASE_DIR/$buildId pwebster@build.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads/drops4
+	
+
+	echo Done $buildId
+
+	failed=""
+	testsMsg=$(sed -n '/<!--START-TESTS-->/,/<!--END-TESTS-->/p' $HUDSON_DROPS/$buildId/$buildId/results/testResults.html > mail.txt)
+	testsMsg=$(cat mail.txt | sed s_href=\"_href=\"http://download.eclipse.org/eclipse/downloads/drops4/$buildId/results/_)
+	rm mail.txt
+	
+	red=$(echo $testsMsg | grep "color:red")
+    if [[ ! -z $red ]]; then
+		failed="tests failed"
+    fi
+ 
+(
+echo "From: e4Build@build.eclipse.org "
+echo "To: e4-dev@eclipse.org "
+echo "MIME-Version: 1.0 "
+echo "Content-Type: text/html; charset=us-ascii"
+echo "Subject: $eclipseStream SDK Build: $buildId $failed"
+echo ""
+echo "<html><head><title>$eclipseStream SDK Build $buildId</title></head>" 
+echo "<body>Check here for the build results: <a href="http://download.eclipse.org/eclipse/downloads/drops4/$buildId">$buildId</a><br>" 
+echo "$testsMsg</body></html>" 
+) | /usr/lib/sendmail -t
+   
+}
+
+publish_sdk () {
+
+BASE_DIR=/shared/eclipse/e4/sdk
+TMPL_DIR=$BASE_DIR/template
+
+ORIG_ZIPS="
+eclipse-SDK-ReplaceMe-linux-gtk-ppc64.tar.gz
+eclipse-SDK-ReplaceMe-linux-gtk.tar.gz
+eclipse-SDK-ReplaceMe-linux-gtk-x86_64.tar.gz
+eclipse-SDK-ReplaceMe-macosx-cocoa.tar.gz
+eclipse-SDK-ReplaceMe-macosx-cocoa-x86_64.tar.gz
+eclipse-SDK-ReplaceMe-win32-x86_64.zip
+eclipse-SDK-ReplaceMe-win32.zip
+eclipse-SDK-ReplaceMe-aix-gtk-ppc.zip
+eclipse-SDK-ReplaceMe-aix-gtk-ppc64.zip
+eclipse-SDK-ReplaceMe-hpux-gtk-ia64_32.zip
+eclipse-SDK-ReplaceMe-solaris-gtk.zip
+eclipse-SDK-ReplaceMe-solaris-gtk-x86.zip
+"
+
+FILES_TO_UPDATE="
+linPlatform.php
+macPlatform.php
+sourceBuilds.php
+winPlatform.php
+index.php
+"
+
+HUDSON_COMMON=/shared/eclipse/e4/build/e4/downloads/drops/4.0.0/40builds
+HUDSON_DROPS=$HUDSON_COMMON
+HUDSON_REPO=$targetDir/updates/${eclipseStream}-I-builds
+
+
+
+# find the builds to process
+
+BUILDS=$( ls -d $HUDSON_DROPS/I* | cut -d/ -f11 )
+
+if [ -z "$BUILDS" -o  "$BUILDS" = "I*" ]; then
+	return
+fi
+
+for f in $BUILDS; do
+process_build $f
+done
+
+cd $TMPL_DIR
+
+wget -O index.txt http://download.eclipse.org/eclipse/downloads/createIndex4x.php
+scp index.txt pwebster@build.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads/index.html
 }
 
 runSDKTests() {
@@ -231,9 +376,9 @@ runSDKTests() {
 
 	echo "sdkResults=$sdkResults" >> label.properties
 	echo "e4Results=$buildResults" >> label.properties
-	echo "buildType=I" >> label.properties
-	echo "sdkRepositoryRoot=$targetDir/updates/4.2-I-builds" >> label.properties
-	echo "e4RepositoryRoot=$targetDir/updates/0.12-I-builds" >> label.properties
+	echo "buildType=$buildType" >> label.properties
+	echo "sdkRepositoryRoot=$targetDir/updates/${eclipseStream}-I-builds" >> label.properties
+	echo "e4RepositoryRoot=$targetDir/updates/${e4Stream}-I-builds" >> label.properties
 
 	echo "Copying test framework."
     cp -r ${builderDir}/builder/general/tests/* .
@@ -246,7 +391,7 @@ runSDKTests() {
 	cd $sdkBuildDirectory
 	mv $sdkTestDir $sdkBuildDirectory/eclipse-testing
     
-    /bin/bash ${builderDir}/scripts/publish.sh
+    publish_sdk
 }
 
 copyCompileLogs () {
@@ -320,9 +465,9 @@ runTheTests () {
 
 	echo "sdkResults=$sdkResults" >> label.properties
 	echo "e4Results=$buildResults" >> label.properties
-	echo "buildType=I" >> label.properties
-	echo "sdkRepositoryRoot=$targetDir/updates/4.2-I-builds" >> label.properties
-	echo "e4RepositoryRoot=$targetDir/updates/0.12-I-builds" >> label.properties
+	echo "buildType=$buildType" >> label.properties
+	echo "sdkRepositoryRoot=$targetDir/updates/${eclipseStream}-I-builds" >> label.properties
+	echo "e4RepositoryRoot=$targetDir/updates/${e4Stream}-I-builds" >> label.properties
 
 	echo "Copying test framework."
     cp -r ${builderDir}/builder/general/tests/* .
@@ -344,7 +489,7 @@ runTheTests () {
 sendMail () {
 	failed=""
 	testsMsg=$(sed -n '/<!--START-TESTS-->/,/<!--END-TESTS-->/p' $buildResults/results/testResults.html > mail.txt)
-	testsMsg=$(cat mail.txt | sed s_href=\"_href=\"http://download.eclipse.org/e4/downloads/drops/I$buildTimestamp/results/_)
+	testsMsg=$(cat mail.txt | sed s_href=\"_href=\"http://download.eclipse.org/e4/downloads/drops/$buildTag/results/_)
 	rm mail.txt
 	
 	red=$(echo $testsMsg | grep "color:red")
@@ -357,10 +502,10 @@ echo "From: e4Build@build.eclipse.org "
 echo "To: e4-dev@eclipse.org "
 echo "MIME-Version: 1.0 "
 echo "Content-Type: text/html; charset=us-ascii"
-echo "Subject: 0.12 Integration Build: I$buildTimestamp $failed"
+echo "Subject: $e4Stream Integration Build: $buildTag $failed"
 echo ""
-echo "<html><head><title>0.12 Integration Build: I$buildTimestamp $failed</title></head>" 
-echo "<body>Check here for the build results: <a href="http://download.eclipse.org/e4/downloads/drops/I$buildTimestamp">I$buildTimestamp</a><br><br>" 
+echo "<html><head><title>$e4Stream Integration Build: $buildTag $failed</title></head>" 
+echo "<body>Check here for the build results: <a href="http://download.eclipse.org/e4/downloads/drops/$buildTag">$buildTag</a><br><br>" 
 echo "$testsMsg</body></html>" 
 ) | /usr/lib/sendmail -t
 
@@ -383,20 +528,12 @@ buildMasterFeature () {
       -DbuildDirectory=$buildDirectory \
       -Dbase.builder=$relengBaseBuilderDir \
       -Dbase.builder.launcher=$cpLaunch \
-      -DmapsRepo=$projRoot \
       -DlogExtension=.xml \
       -Djava15-home=$javaHome \
       -DrunPackager=true -Dgenerate.p2.metadata=true -Dp2.publish.artifacts=true \
       -DtopLevelElementId=org.eclipse.e4.master \
       -Dflex.sdk=$writableBuildRoot/flex_sdk_3.2.0.3794_mpl "
   
-    if [ ! -z "$tagMaps" ]; then
-        cmd="$cmd -DtagMaps=true "
-    fi
-    #if [ ! -z "$genRepo" ]; then
-    #    cmd="$cmd -DrunPackager=true -Dgenerate.p2.metadata=true -Dp2.publish.artifacts=true "
-    #fi
-
     echo $cmd
     $cmd
 
@@ -431,21 +568,23 @@ generateSwtZip () {
     cp tmp.txt org.eclipse.swt/META-INF/MANIFEST.MF
     swtExport org.eclipse.swt.e4.jcl
     cp org.eclipse.swt.e4.jcl/.classpath_flex org.eclipse.swt.e4.jcl/.classpath
-    zip -r ../I$buildTimestamp/org.eclipse.swt.e4.flex-incubation-I$buildTimestamp.zip org.eclipse.swt org.eclipse.swt.e4.jcl
+    zip -r ../$buildTag/org.eclipse.swt.e4.flex-incubation-$buildTag.zip org.eclipse.swt org.eclipse.swt.e4.jcl
 }
 
 tagRepo () {
 	pushd $writableBuildRoot
-	/bin/bash git-release.sh -branch $relengBranch -timestamp $builddate$buildtime
+	/bin/bash git-release.sh -branch "$relengBranch" \
+   -relengProject "$relengProject" \
+   -buildType "$buildType" -gitCache "$gitCache" -root "$writableBuildRoot" \
+   -committerId "$committerId" -gitEmail "$gitEmail" -gitName "$gitName" \
+   -timestamp "$timestamp" -oldBuildTag $oldBuildTag -buildTag $buildTag \
+   -tag $tag
 	popd
+	mailx -s "$eclipseStream SDK Build: $buildTag submission" e4-dev@eclipse.org <$writableBuildRoot/$buildTag/report.txt
 }
 
-realBuildProperties
-#testBuildProperties
-commonProperties
 updateBaseBuilder
 updateBaseBuilderInfo
-updateSDKBuilder
 updateE4Builder
 updateEclipseBuilder
 
@@ -471,14 +610,15 @@ generateRepoHtml
 runSDKTests
 runTheTests e4less
 
-cp /shared/eclipse/e4/logs/current.log \
+cp $writableBuildRoot/logs/current.log \
+	$writableBuildRoot/$buildTag/report.txt \
     $buildResults/buildlog.txt
 
 
-if [ ! -z "$publishDir" ]; then
+if $publish && [ ! -z "$publishDir"  ]; then
     echo Publishing  $buildResults to "$publishDir"
     scp -r $buildResults "$publishDir"
-    rsync --recursive --delete ${targetDir}/updates/0.12-I-builds \
+    rsync --recursive --delete ${targetDir}/updates/${e4Stream}-I-builds \
       "${publishUpdates}"
     sendMail
     sleep 60

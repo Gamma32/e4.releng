@@ -12,95 +12,122 @@
 #*******************************************************************************
 
 #default values, overridden by command line
-user=pwebster
-email=pwebster@ca.ibm.com
-name="E4 Build"
 writableBuildRoot=/shared/eclipse/e4
-supportDir=$writableBuildRoot/build/e4
-GIT_CLONES=$supportDir/gitClones
+relengProject=org.eclipse.e4.releng
+relengBranch=master
 buildType=I
 date=$(date +%Y%m%d)
 time=$(date +%H%M)
 timestamp=$date$time
-relengBranch=master
+committerId=pwebster
+gitEmail=pwebster@ca.ibm.com
+gitName="E4 Build"
+tag=true
+noTag=false
+
+ARGS="$@"
 
 while [ $# -gt 0 ]
 do
         case "$1" in
                 "-branch")
                         relengBranch="$2"; shift;;
-
-                "-I")
-                        buildType=I;
-                        tagMaps="-DtagMaps=true";
-                        compareMaps="-DcompareMaps=true";;
-                "-N")
-                        buildType=N;
-                        tagMaps="";
-                        compareMaps="";
-                        fetchTag="-DfetchTag=CVS=HEAD,GIT=origin/master";;
-
+                "-buildType")
+                        buildType="$2"; shift;;
+                "-gitCache")
+                        gitCache="$2"; shift;;
+                "-relengProject")
+                        relengProject="$2"; shift;;
                 "-root")
                         writableBuildRoot="$2"; shift;;
-
+                "-committerId")
+                        committerId="$2"; shift;;
+                "-gitEmail")
+                        gitEmail="$2"; shift;;
+                "-gitName")
+                        gitName="$2"; shift;;
+                "-oldBuildTag")
+                        oldBuildTag="$2"; shift;;
+                "-buildTag")
+                        buildTag="$2"; shift;;
+                "-basebuilderBranch")
+                        basebuilderBranch="$2"; shift;;
+                "-eclipsebuilderBranch")
+                        eclipsebuilderBranch="$2"; shift;;
+                "-tag")
+                        tag="$2"; shift;;
                 "-timestamp")
                         timestamp="$2";
                         date=${timestamp:0:8}
                         time=${timestamp:8};
                         shift;;
-
-                "-noTag")
-                        noTag=true;;
-
-                -*)
-                        echo >&2 usage: $0 [-I | -N]
-                        exit 1;;
                  *) break;;      # terminate while loop
         esac
         shift
 done
 
+if [ -z "$oldBuildTag"  ]; then
+  echo You must provide -oldBuildTag
+  echo args: "$ARGS"
+  exit
+fi
+
+if ! $tag; then
+	noTag=true
+fi
+
+supportDir=$writableBuildRoot/build/e4
+if [ -z "$gitCache" ]; then
+	gitCache=$supportDir/gitClones
+fi
+
+if [ -z "$buildTag" ]; then
+	buildTag=$buildType${date}-${time}
+fi
+
 #Pull or clone a branch from a repository
 #Usage: pull repositoryURL  branch
 pull() {
-        pushd $GIT_CLONES
+        pushd $gitCache
         directory=$(basename $1 .git)
         if [ ! -d $directory ]; then
                 echo git clone $1
                 git clone $1
                 cd $directory
-                git config --add user.email "$email"
-                git config --add user.name "$name"
+                git config --add user.email "$gitEmail"
+                git config --add user.name "$gitName"
         fi
         popd
-        pushd $GIT_CLONES/$directory
+        pushd $gitCache/$directory
         echo git checkout $2
         git checkout $2
         echo git pull
         git pull
         popd
 }
+
 #Nothing to do for nightly builds, or if $noTag is specified
-if [ "$buildType" == "N" -o "$noTag" ]; then
-        echo Skipping build tagging for nightly build or -noTag build
+if $noTag || [ "$buildType" == "N" ]; then
+        echo Skipping build tagging for nightly build or -tag false build
         exit
 fi
 
 pushd $writableBuildRoot
-relengRepo=$GIT_CLONES/org.eclipse.e4.releng
-#pull the releng project to get the list of repositories to tag
-pull "ssh://$user@git.eclipse.org/gitroot/e4/org.eclipse.e4.releng.git" $relengBranch
+relengRepo=$gitCache/${relengProject}
+# pull the releng project to get the list of repositories to tag
+pull "ssh://$committerId@git.eclipse.org/gitroot/e4/org.eclipse.e4.releng.git" $relengBranch
 
-cp $relengRepo/org.eclipse.e4.builder/scripts/git-map.sh .
-chmod 744 git-map.sh
-cp $relengRepo/org.eclipse.e4.builder/scripts/git-submission.sh .
-chmod 744 git-submission.sh
+wget -O git-map.sh http://git.eclipse.org/c/e4/org.eclipse.e4.releng.git/plain/org.eclipse.e4.builder/scripts/git-map.sh
+wget -O git-submission.sh http://git.eclipse.org/c/e4/org.eclipse.e4.releng.git/plain/org.eclipse.e4.builder/scripts/git-submission.sh
+#cp /opt/pwebster/git/R42/org.eclipse.e4.releng/org.eclipse.e4.builder/scripts/git-map.sh .
+#cp /opt/pwebster/git/R42/org.eclipse.e4.releng/org.eclipse.e4.builder/scripts/git-submission.sh .
 
 
 #remove comments
-rm -f repos-clean.txt clones.txt
+rm -f repos-clean.txt clones.txt repos-report.txt
+
 cat "$relengRepo/tagging/repositories.txt" | grep -v "^#" > repos-clean.txt
-#clone or pull each repository and checkout the appropriate branch
+# clone or pull each repository and checkout the appropriate branch
 while read line; do
         #each line is of the form <repository> <branch>
         set -- $line
@@ -108,20 +135,26 @@ while read line; do
         echo $1 | sed 's/ssh:.*@git.eclipse.org/git:\/\/git.eclipse.org/g' >> clones.txt
 done < repos-clean.txt
 
-cat clones.txt| xargs /bin/bash git-map.sh $GIT_CLONES \
+cat repos-clean.txt | sed "s/ / $oldBuildTag /" >repos-report.txt
+
+# generate the change report
+mkdir $writableBuildRoot/$buildTag
+echo "[git-release]" git-submission.sh $gitCache $( cat repos-report.txt )
+/bin/bash git-submission.sh $gitCache $( cat repos-report.txt ) > $writableBuildRoot/$buildTag/report.txt
+
+
+cat clones.txt| xargs /bin/bash git-map.sh $gitCache $buildTag \
         $relengRepo > maps.txt
 
 #Trim out lines that don't require execution
 grep -v ^OK maps.txt | grep -v ^Executed >run.txt
 /bin/bash run.txt
 
-mkdir $writableBuildRoot/$buildType$timestamp
-cp report.txt $writableBuildRoot/$buildType$timestamp
 
 cd $relengRepo
 git add $( find . -name "*.map" )
-git commit -m "Releng build tagging for $buildType$timestamp"
-git tag -f $buildType$timestamp   #tag the map file change
+git commit -m "Releng build tagging for $buildTag"
+git tag -f $buildTag   #tag the map file change
 
 git push
 git push --tags

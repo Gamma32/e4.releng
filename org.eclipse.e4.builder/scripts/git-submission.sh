@@ -7,7 +7,7 @@
 
 
 ROOT=$1; shift
-rm -f /tmp/proj_changed_$$.txt /tmp/bug_list_$$.txt
+rm -f /tmp/proj_changed_$$.txt /tmp/bug_list_$$.txt /tmp/bug_info_$$.txt
 
 while [ $# -gt 0 ]; do
 	REPO="$1"; shift
@@ -23,7 +23,7 @@ while [ $# -gt 0 ]; do
 		| sed 's/.*[Bb]ug[^0-9]*\([0-9][0-9][0-9][0-9][0-9]*\)[^0-9].*$/\1/g' >>/tmp/bug_list_$$.txt
 done
 
-rm -f /tmp/bug_info_$$.txt
+touch /tmp/bug_info_$$.txt
 
 for BUG in $( cat /tmp/bug_list_$$.txt | sort -n -u ); do
 	BUGT2=/tmp/buginfo_${BUG}_$$.txt
