@@ -349,9 +349,9 @@ HUDSON_REPO=$targetDir/updates/${eclipseStream}-I-builds
 
 # find the builds to process
 
-BUILDS=$( ls -d $HUDSON_DROPS/I* | cut -d/ -f11 )
+BUILDS=$( ls -d $HUDSON_DROPS/${buildType}* | cut -d/ -f11 )
 
-if [ -z "$BUILDS" -o  "$BUILDS" = "I*" ]; then
+if [ -z "$BUILDS" -o  "$BUILDS" = "${buildType}*" ]; then
 	return
 fi
 
