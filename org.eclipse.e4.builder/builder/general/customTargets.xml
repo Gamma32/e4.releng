@@ -160,6 +160,11 @@
 			<iu id="org.eclipse.xtext.sdk.feature.group" />
 		</p2.mirror>
 		
+		<p2.remove.iu>
+			<repository location="file:${repoBaseLocation}/xtext" />
+			<iu id="osgi.enterprise" />
+		</p2.remove.iu>
+		
 		<!--<p2.remove.iu>
 			<repository location="file:${targetDir}/${targetDownloadId}-p2" />
 			<iu id="org.eclipse.rap.jface" />
