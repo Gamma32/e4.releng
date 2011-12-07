@@ -36,7 +36,7 @@ plugin@org.eclipse.e4.tools=GIT,tag=v20110918-1121,repo=git://git.eclipse.org/gi
 plugin@org.eclipse.e4.tools.emf.ui.script.js=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui.script.js
 plugin@org.eclipse.e4.tools.css.editor=GIT,tag=v20111202-2135,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor
 plugin@org.eclipse.e4.tools.css.editor.ui=GIT,tag=v20111202-2135,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor.ui
-plugin@org.eclipse.e4.tools.css.spy=GIT,tag=v20111205-2035,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.spy
+plugin@org.eclipse.e4.tools.css.spy=GIT,tag=v20111206-2146,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.spy
 
 
 !*** e4 UI examples
