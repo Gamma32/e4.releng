@@ -237,7 +237,7 @@ runSDKBuild () {
 			prereqMsg=`cat $buildDirectory/prereqErrors.log` 
 		fi
 		
-		mailx -s "$eclipseStream SDK Build: $buildTag failed" e4-dev@eclipse.org <<EOF
+		mailx -s "$eclipseStream SDK Build: $buildTag failed" platform-releng-dev@eclipse.org e4-dev@eclipse.org <<EOF
 $compileMsg
 $compileProblems
 
@@ -301,7 +301,7 @@ process_build () {
  
 (
 echo "From: e4Build@build.eclipse.org "
-echo "To: e4-dev@eclipse.org "
+echo "To: platform-releng-dev@eclipse.org, e4-dev@eclipse.org "
 echo "MIME-Version: 1.0 "
 echo "Content-Type: text/html; charset=us-ascii"
 echo "Subject: $eclipseStream SDK Build: $buildId $failed"
@@ -500,7 +500,7 @@ sendMail () {
  
 (
 echo "From: e4Build@build.eclipse.org "
-echo "To: e4-dev@eclipse.org "
+echo "To: platform-releng-dev@eclipse.org, e4-dev@eclipse.org "
 echo "MIME-Version: 1.0 "
 echo "Content-Type: text/html; charset=us-ascii"
 echo "Subject: $e4Stream Build: $buildTag $failed"
@@ -581,7 +581,7 @@ tagRepo () {
    -timestamp "$timestamp" -oldBuildTag $oldBuildTag -buildTag $buildTag \
    -tag $tag
 	popd
-	mailx -s "$eclipseStream SDK Build: $buildTag submission" e4-dev@eclipse.org <$writableBuildRoot/$buildTag/report.txt
+	mailx -s "$eclipseStream SDK Build: $buildTag submission" platform-releng-dev@eclipse.org e4-dev@eclipse.org <$writableBuildRoot/$buildTag/report.txt
 }
 
 updateBaseBuilder
