@@ -1,7 +1,7 @@
 !**** e4 XWT tools
 plugin@org.eclipse.e4.xwt=GIT,tag=v20110603,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.xwt.git,path=bundles/org.eclipse.e4.xwt
 plugin@org.eclipse.e4.xwt.css=GIT,tag=v20100617-2100,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.xwt.git,path=bundles/org.eclipse.e4.xwt.css
-plugin@org.eclipse.e4.tools.ui.designer=GIT,tag=v20110218-0800,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.xwt.git,path=bundles/org.eclipse.e4.tools.ui.designer
+plugin@org.eclipse.e4.tools.ui.designer=GIT,tag=v20110614-1424,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.xwt.git,path=bundles/org.eclipse.e4.tools.ui.designer
 plugin@org.eclipse.e4.xwt.tools.ui=GIT,tag=v20101021,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.xwt.git,path=bundles/org.eclipse.e4.xwt.tools.ui
 plugin@org.eclipse.e4.xwt.tools.ui.editor=GIT,tag=v20101021,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.xwt.git,path=bundles/org.eclipse.e4.xwt.tools.ui.editor
 plugin@org.eclipse.e4.xwt.tools.categorynode=GIT,tag=v20100617-2100,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.xwt.git,path=bundles/org.eclipse.e4.xwt.tools.categorynode
