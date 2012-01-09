@@ -29,20 +29,30 @@ if grep "^$DIR$" $EXCLUDE_DIRS >/dev/null; then
 	return
 fi
 
-git log --format="%s" ${BRANCH_POINT}..${STREAM_42} \
-  -- "$DIR" | grep -v -f  $EXCLUDE_COMMITS | sort -u >/tmp/${STREAM_42}.txt
-git log --format="%s" ${BRANCH_POINT}..${STREAM_38} \
-  -- "$DIR" | grep -v -f  $EXCLUDE_COMMITS | sort -u >/tmp/${STREAM_38}.txt
+git log --format="%s::%H::" ${BRANCH_POINT}..${STREAM_42} \
+  -- "$DIR" | grep -v -f  $EXCLUDE_COMMITS  >/tmp/${STREAM_42}.txt
+git log --format="%s::%H::" ${BRANCH_POINT}..${STREAM_38} \
+  -- "$DIR" | grep -v -f  $EXCLUDE_COMMITS  >/tmp/${STREAM_38}.txt
 
-DIR_SED=$( echo "$DIR" | sed 's/\//\\\//g' )
-diff /tmp/${STREAM_38}.txt /tmp/${STREAM_42}.txt \
-  | grep ^\> | sed "s/$/: $DIR_SED/g" >>$MISSING_COMMITS
+
+OLD_IFS="$IFS"
+IFS=$'\n'
+
+for line in $( cat /tmp/${STREAM_42}.txt ); do
+	SUBJECT=$( echo "$line" | sed 's/::[a-z0-9]*::$//g' | tr "\[\]" ".." )
+	COMMIT=$( echo "$line" | sed 's/^.*::\([a-z0-9]*\)::$/\1/g' )
+	if ! grep "^${SUBJECT}::" /tmp/${STREAM_38}.txt >/dev/null; then
+		echo "${line}${DIR}" >>${MISSING_COMMITS}
+	fi
+done
+
+IFS="$OLD_IFS"
 
 }
 
 rm -f ${MISSING_COMMITS}
 
-#DIR=bundles/org.eclipse.jface
+#DIR=bundles/org.eclipse.ui.ide
 for DIR in $ORIGINAL_DIRS; do
 	compare_proj "$DIR"
 done
@@ -51,6 +61,8 @@ while read DIR; do
 	compare_proj "$DIR"
 done < $INCLUDE_DIRS
 
-sed 's/^> //g' ${MISSING_COMMITS} | sort -u
+#touch ${MISSING_COMMITS}
+cat ${MISSING_COMMITS}
+
 
 
