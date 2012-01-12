@@ -3,8 +3,9 @@
 
 REPO=$(pwd)
 STREAM_42=origin/master
+STREAM_42_FROM=pre_R4_HEAD_merge
 STREAM_38=origin/R3_development
-BRANCH_POINT=pre_R4_HEAD_merge
+STREAM_38_FROM=pre_R4_HEAD_merge
 EXCLUDE_DIRS=$REPO/git_report/git_stream_exclude_dirs.txt
 INCLUDE_DIRS=$REPO/git_report/git_stream_include_dirs.txt
 EXCLUDE_COMMITS=$REPO/git_report/git_stream_exclude_commits.txt
@@ -30,20 +31,34 @@ if grep "^$DIR$" $EXCLUDE_DIRS >/dev/null; then
 	return
 fi
 
-git log --format="%s::%H::" ${BRANCH_POINT}..${STREAM_42} \
+git log --format="%s::%H::" ${STREAM_42_FROM}..${STREAM_42} \
   -- "$DIR" | grep -v -f  $EXCLUDE_COMMITS  >$TMP_DIR/${STREAM_42}.txt
-git log --format="%s::%H::" ${BRANCH_POINT}..${STREAM_38} \
+git log --format="%s::%H::" ${STREAM_38_FROM}..${STREAM_38} \
   -- "$DIR" | grep -v -f  $EXCLUDE_COMMITS  >$TMP_DIR/${STREAM_38}.txt
+
+list_delta "$TMP_DIR/${STREAM_42}.txt" \
+  "$TMP_DIR/${STREAM_38}.txt" >>${MISSING_COMMITS}.1
+
+
+list_delta  "$TMP_DIR/${STREAM_38}.txt" \
+   "$TMP_DIR/${STREAM_42}.txt" >>${MISSING_COMMITS}.2
+
+}
+
+list_delta () {
+IN="$1" ; shift
+FROM="$1" ; shift
+
 
 
 OLD_IFS="$IFS"
 IFS=$'\n'
 
-for line in $( cat $TMP_DIR/${STREAM_42}.txt ); do
+for line in $( cat "$IN" ); do
 	SUBJECT=$( echo "$line" | sed 's/::[a-z0-9]*::$//g' | tr "\[\]" ".." )
 	COMMIT=$( echo "$line" | sed 's/^.*::\([a-z0-9]*\)::$/\1/g' )
-	if ! grep "^${SUBJECT}::" $TMP_DIR/${STREAM_38}.txt >/dev/null; then
-		echo "${line}${DIR}" >>${MISSING_COMMITS}
+	if ! grep "^${SUBJECT}::" "$FROM" >/dev/null; then
+		echo "${line}${DIR}" 
 	fi
 done
 
@@ -51,9 +66,8 @@ IFS="$OLD_IFS"
 
 }
 
-rm -f ${MISSING_COMMITS}
-echo "Cherry-pick: $STREAM_42 commits missing from $STREAM_38" >>${MISSING_COMMITS}
-echo >>${MISSING_COMMITS}
+
+rm -f ${MISSING_COMMITS} ${MISSING_COMMITS}.1 ${MISSING_COMMITS}.2
 
 
 #DIR=bundles/org.eclipse.ui.ide
@@ -66,6 +80,15 @@ while read DIR; do
 done < $INCLUDE_DIRS
 
 #touch ${MISSING_COMMITS}
+
+echo "Commits in $STREAM_42 missing from $STREAM_38" >>${MISSING_COMMITS}
+echo >>${MISSING_COMMITS}
+cat ${MISSING_COMMITS}.1 >>${MISSING_COMMITS}
+echo >>${MISSING_COMMITS}
+echo "Commits in $STREAM_38 missing from $STREAM_42" >>${MISSING_COMMITS}
+echo >>${MISSING_COMMITS}
+cat ${MISSING_COMMITS}.2 >>${MISSING_COMMITS}
+
 cat ${MISSING_COMMITS}
 
 
