@@ -5,7 +5,7 @@ plugin@org.eclipse.e4.ui.model.workbench=GIT,tag=v20111116-1853,repo=git://git.e
 plugin@org.eclipse.e4.ui.model.workbench.edit=GIT,tag=v20111007-1320,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.model.workbench.edit
 plugin@org.eclipse.e4.ui.workbench=GIT,tag=v20120109-1955,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench
 plugin@org.eclipse.e4.ui.workbench3=GIT,tag=v20111012-1223,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench3
-plugin@org.eclipse.e4.ui.workbench.renderers.swt=GIT,tag=v20120110-1739,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.renderers.swt
+plugin@org.eclipse.e4.ui.workbench.renderers.swt=GIT,tag=v20120117-1847,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.renderers.swt
 plugin@org.eclipse.e4.ui.workbench.swt=GIT,tag=v20120109-1955,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.swt
 plugin@org.eclipse.e4.ui.widgets=GIT,tag=v20120110-2131,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.widgets
 plugin@org.eclipse.e4.ui.bindings=GIT,tag=v20111012-1223,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.bindings

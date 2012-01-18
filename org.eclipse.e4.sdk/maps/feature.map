@@ -3,7 +3,7 @@ feature@org.eclipse.sdk=v20111129,:pserver:anonymous@dev.eclipse.org:/cvsroot/ec
 plugin@org.eclipse.sdk=GIT,tag=v20111129-1855,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.git,path=platform/org.eclipse.sdk
 
 feature@org.eclipse.platform=v20111212,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.platform-feature
-plugin@org.eclipse.platform=GIT,tag=v20111129-1855,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.git,path=platform/org.eclipse.platform
+plugin@org.eclipse.platform=GIT,tag=v20120111-1424,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.git,path=platform/org.eclipse.platform
 
 feature@org.eclipse.license=v20110208,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,org.eclipse.sdk-feature/features/org.eclipse.license
 
