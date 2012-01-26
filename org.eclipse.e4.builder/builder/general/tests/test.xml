@@ -691,7 +691,7 @@
 		<antcall target="e4tmJavascript" />
 		<antcall target="e4Commands" />
 		<antcall target="e4bindings" />
-		<antcall target="semanticResources" />
+		<!--antcall target="semanticResources" /-->
 		<antcall target="semanticUi" />
 		
 		<antcall target="cleanup" />
