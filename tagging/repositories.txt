@@ -9,4 +9,3 @@ ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.git R4_HEAD
 ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.releng.git R4_HEAD
 ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.common.git R4_HEAD
 ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git integration
-
