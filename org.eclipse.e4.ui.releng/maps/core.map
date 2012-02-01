@@ -2,8 +2,8 @@
 
 plugin@org.eclipse.e4.core.services=GIT,tag=v20120118-2149,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.services
 plugin@org.eclipse.e4.core.commands=GIT,tag=v20111012-1223,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.core.commands
-plugin@org.eclipse.e4.core.di=GIT,tag=v20111221-1333,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.di
-plugin@org.eclipse.e4.core.contexts=GIT,tag=v20111118-2127,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.contexts
+plugin@org.eclipse.e4.core.di=GIT,tag=v20120130-1955,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.di
+plugin@org.eclipse.e4.core.contexts=GIT,tag=v20120131-1449,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.contexts
 plugin@org.eclipse.e4.core.contexts.debug=GIT,tag=v20120118-1914,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.core.contexts.debug
 plugin@org.eclipse.e4.core.di.extensions=GIT,tag=v20111026-1857,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.di.extensions
 
