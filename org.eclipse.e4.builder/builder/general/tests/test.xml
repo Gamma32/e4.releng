@@ -667,6 +667,35 @@
 	<target name="coreTests">
 		<runTests testPlugin="org.eclipse.e4.core.tests" />
 	</target>
+	
+	<target name="discoveryCompatibility">
+		<runTests testPlugin="org.eclipse.platform.discovery.compatibility.tests" />
+	</target>
+	
+	<target name="discoveryCore">
+		<runTests testPlugin="org.eclipse.platform.discovery.core.test.unit" />
+	</target>
+	
+	<target name="discoveryIntegration">
+		<runTests testPlugin="org.eclipse.platform.discovery.integration.test.unit" />
+	</target>
+	
+	<target name="discoveryRuntime">
+		<runTests testPlugin="org.eclipse.platform.discovery.runtime.test.unit" />
+	</target>
+		
+		
+	<target name="discoveryUIComp">
+		<runTests testPlugin="org.eclipse.platform.discovery.ui.test.comp" />
+	</target>
+	
+	<target name="discoveryUIUnit">
+		<runTests testPlugin="org.eclipse.platform.discovery.ui.test.unit" />
+	</target>
+			
+	<target name="discoveryUtilUnit">
+		<runTests testPlugin="org.eclipse.platform.discovery.util.test.unit" />
+	</target>
 
 	<target name="e4">
 		<antcall target="coreresources" />
@@ -693,7 +722,13 @@
 		<antcall target="e4bindings" />
 		<!--antcall target="semanticResources" /-->
 		<antcall target="semanticUi" />
-		
+		<antcall target="discoveryCompatibility"/>
+		<antcall target="discoveryCore"/>
+		<antcall target="discoveryIntegration"/>
+		<antcall target="discoveryRuntime"/>
+		<antcall target="discoveryUIComp"/>
+		<antcall target="discoveryUIUnit"/>
+		<antcall target="discoveryUtilUnit"/>
 		<antcall target="cleanup" />
 	</target>
 	

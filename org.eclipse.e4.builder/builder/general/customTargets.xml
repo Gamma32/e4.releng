@@ -127,6 +127,9 @@
 			<iu id="org.apache.commons.lang" />
 			<iu id="org.junit" version="0.0.0" />
 			<iu id="org.junit.source" version="0.0.0" />
+			<iu id="org.easymock" />
+			<iu id="org.jmock" />
+			<iu id="org.mockito" />
 			<iu id="javax.el" />
 		</p2.mirror>
 		
@@ -158,6 +161,16 @@
 			<source location="${xtextRepoURL}" />
 			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true" />
 			<iu id="org.eclipse.xtext.sdk.feature.group" />
+		</p2.mirror>
+		
+		<echo message="Mirror from ${swtbotRepoURL} to ${repoBaseLocation}/swtbot" />
+		<p2.mirror destination="file:${repoBaseLocation}/swtbot" ignoreerrors="true">
+			<source location="${swtbotRepoURL}" />
+			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true" />
+			<iu id="org.eclipse.swtbot.eclipse.core" />
+			<iu id="org.eclipse.swtbot.eclipse.finder" />
+			<iu id="org.eclipse.swtbot.junit4_x" />
+			<iu id="org.eclipse.swtbot.swt.finder" />
 		</p2.mirror>
 		
 		<p2.remove.iu>
