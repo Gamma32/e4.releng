@@ -20,6 +20,6 @@ feature@org.eclipse.platform.discovery_tests.feature=GIT,tag=v20120131-0848,repo
 feature@org.eclipse.demo.search.example.feature=GIT,tag=v20120131-0854,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.demo.search.example.feature
 feature@org.eclipse.platform.discovery.feature=GIT,tag=v20120131-0854,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.feature
 feature@org.eclipse.platform.discovery.compatibility.feature=GIT,tag=v20120131-0854,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.compatibility.feature
-feature@org.eclipse.platform.discovery.master=GIT,tag=v20120207-1454,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.master
+feature@org.eclipse.platform.discovery.master=GIT,tag=v20120207-1721,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.master
 feature@org.eclipse.platform.discovery.source.master=GIT,tag=v20110817-1130,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.source.master
 
