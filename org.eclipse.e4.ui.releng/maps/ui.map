@@ -5,7 +5,7 @@ plugin@org.eclipse.e4.ui.model.workbench=GIT,tag=v20120130-1521,repo=git://git.e
 plugin@org.eclipse.e4.ui.model.workbench.edit=GIT,tag=v20120130-1521,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.model.workbench.edit
 plugin@org.eclipse.e4.ui.workbench=GIT,tag=v20120203-1655,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench
 plugin@org.eclipse.e4.ui.workbench3=GIT,tag=v20111012-1223,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench3
-plugin@org.eclipse.e4.ui.workbench.renderers.swt=GIT,tag=v20120203-2049,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.renderers.swt
+plugin@org.eclipse.e4.ui.workbench.renderers.swt=GIT,tag=v20120207-1430,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.renderers.swt
 plugin@org.eclipse.e4.ui.workbench.swt=GIT,tag=v20120206-1608,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.swt
 plugin@org.eclipse.e4.ui.widgets=GIT,tag=v20120130-1904,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.widgets
 plugin@org.eclipse.e4.ui.bindings=GIT,tag=v20111012-1223,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.bindings
@@ -32,7 +32,7 @@ plugin@org.eclipse.e4.tools.emf.editor3x=GIT,tag=v20120126-2014,repo=git://git.e
 plugin@org.eclipse.e4.tools.compat=GIT,tag=v20120126-2104,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.compat
 plugin@org.eclipse.e4.tools.services=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.services
 plugin@org.eclipse.e4.tools.emf.liveeditor=GIT,tag=v20120119-1728,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.liveeditor
-plugin@org.eclipse.e4.tools=GIT,tag=v20120126-2015,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools
+plugin@org.eclipse.e4.tools=GIT,tag=v20120207-1904,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools
 plugin@org.eclipse.e4.tools.emf.ui.script.js=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui.script.js
 plugin@org.eclipse.e4.tools.css.editor=GIT,tag=v20111202-2135,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor
 plugin@org.eclipse.e4.tools.css.editor.ui=GIT,tag=v20111202-2135,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor.ui
