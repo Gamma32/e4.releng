@@ -1,10 +1,10 @@
 #repositories to be tagged, and corresponding branch name
 #format is <repository URL> <branch name>
-ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.ui.git integration
-ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git integration
-ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git integration
-ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git integration
-ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.xwt.git integration
+ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.ui.git master
+ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git master
+ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git master
+ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git master
+ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.xwt.git master
 ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.git R4_HEAD
 ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.releng.git R4_HEAD
 ssh://pwebster@git.eclipse.org/gitroot/platform/eclipse.platform.common.git R4_HEAD
