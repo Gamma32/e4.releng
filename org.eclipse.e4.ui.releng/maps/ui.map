@@ -5,8 +5,8 @@ plugin@org.eclipse.e4.ui.model.workbench=GIT,tag=v20120209-1845,repo=git://git.e
 plugin@org.eclipse.e4.ui.model.workbench.edit=GIT,tag=v20120209-1845,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.model.workbench.edit
 plugin@org.eclipse.e4.ui.workbench=GIT,tag=v20120209-1845,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench
 plugin@org.eclipse.e4.ui.workbench3=GIT,tag=v20120209-1845,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench3
-plugin@org.eclipse.e4.ui.workbench.renderers.swt=GIT,tag=v20120209-1845,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.renderers.swt
-plugin@org.eclipse.e4.ui.workbench.swt=GIT,tag=v20120209-1847,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.swt
+plugin@org.eclipse.e4.ui.workbench.renderers.swt=GIT,tag=v20120210-2010,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.renderers.swt
+plugin@org.eclipse.e4.ui.workbench.swt=GIT,tag=v20120210-2010,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.swt
 plugin@org.eclipse.e4.ui.widgets=GIT,tag=v20120209-1845,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.widgets
 plugin@org.eclipse.e4.ui.bindings=GIT,tag=v20120209-1845,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.bindings
 plugin@org.pushingpixels.trident=v20110609-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.pushingpixels.trident
@@ -42,7 +42,7 @@ plugin@org.eclipse.e4.tools.css.spy=GIT,tag=v20120119-1728,repo=git://git.eclips
 !*** e4 UI examples
 plugin@org.eclipse.nebula.widgets.gallery=R_0_20090212,:pserver:anonymous@dev.eclipse.org:/cvsroot/technology,,org.eclipse.swt.nebula/org.eclipse.nebula.widgets.gallery
 plugin@org.eclipse.e4.demo.e4photo=GIT,tag=v20120119-1638,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.demo.e4photo
-plugin@org.eclipse.e4.demo.contacts=GIT,tag=v20120127-1607,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.demo.contacts
+plugin@org.eclipse.e4.demo.contacts=GIT,tag=v20120210-2010,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.demo.contacts
 plugin@org.eclipse.e4.ui.examples.css=GIT,tag=v20111007-1320,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.ui.examples.css
 plugin@org.eclipse.e4.ui.examples.css.nebula=GIT,tag=v20090609-1530,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=examples/org.eclipse.e4.ui.examples.css.nebula
 plugin@org.eclipse.e4.ui.examples.css.rcp=GIT,tag=v20111007-1320,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.ui.examples.css.rcp
@@ -55,7 +55,7 @@ plugin@org.eclipse.e4.examples.services=GIT,tag=v20111007-1320,repo=git://git.ec
 !*** e4 UI tests
 plugin@org.eclipse.e4.ui.tests.css.swt=GIT,tag=v20111010-0727,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.tests.css.swt
 plugin@org.eclipse.e4.ui.tests.css.core=GIT,tag=v20111205-0214,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.tests.css.core
-plugin@org.eclipse.e4.ui.tests=GIT,tag=v20120203-1505,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.tests
+plugin@org.eclipse.e4.ui.tests=GIT,tag=v20120210-2010,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.tests
 plugin@org.eclipse.e4.ui.bindings.tests=GIT,tag=v20120126-0008,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.bindings.tests
 
 
