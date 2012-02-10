@@ -119,6 +119,9 @@
 			<add location="file:${e4.targetDir}/emf" />
 			<add location="file:${e4.targetDir}/gef" />
 			<add location="file:${e4.targetDir}/wtp" />
+			<add location="file:${e4.targetDir}/orbit" />
+			<add location="file:${e4.targetDir}/swtbot" />
+			<add location="file:${e4.targetDir}/xtext" />
 			<add location="${eclipseRepoURL-latest}"/>
 		</p2.composite.repository>
 		
