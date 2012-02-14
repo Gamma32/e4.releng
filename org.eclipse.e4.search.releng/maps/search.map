@@ -5,14 +5,14 @@ plugin@org.eclipse.platform.discovery.ui=GIT,tag=v20120209-0920,repo=git://git.e
 plugin@org.eclipse.platform.discovery.util=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=bundles/org.eclipse.platform.discovery.util
 plugin@org.eclipse.platform.discovery.compatibility=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=bundles/org.eclipse.platform.discovery.compatibility
 
-plugin@org.eclipse.platform.discovery.core.test.unit=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.core.test.unit
-plugin@org.eclipse.platform.discovery.integration.test.unit=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.integration.test.unit
-plugin@org.eclipse.platform.discovery.runtime.test.unit=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.runtime.test.unit
+plugin@org.eclipse.platform.discovery.core.test.unit=GIT,tag=v20120214-1748,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.core.test.unit
+plugin@org.eclipse.platform.discovery.integration.test.unit=GIT,tag=v20120214-1748,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.integration.test.unit
+plugin@org.eclipse.platform.discovery.runtime.test.unit=GIT,tag=v20120214-1748,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.runtime.test.unit
 plugin@org.eclipse.platform.discovery.test.testutils=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.test.testutils
-plugin@org.eclipse.platform.discovery.ui.test.comp=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.ui.test.comp
-plugin@org.eclipse.platform.discovery.ui.test.unit=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.ui.test.unit
-plugin@org.eclipse.platform.discovery.util.test.unit=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.util.test.unit
-plugin@org.eclipse.platform.discovery.compatibility.tests=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.compatibility.tests
+plugin@org.eclipse.platform.discovery.ui.test.comp=GIT,tag=v20120214-1748,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.ui.test.comp
+plugin@org.eclipse.platform.discovery.ui.test.unit=GIT,tag=v20120214-1748,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.ui.test.unit
+plugin@org.eclipse.platform.discovery.util.test.unit=GIT,tag=v20120214-1748,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.util.test.unit
+plugin@org.eclipse.platform.discovery.compatibility.tests=GIT,tag=v20120214-1748,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=tests/org.eclipse.platform.discovery.compatibility.tests
 
 plugin@org.eclipse.demo.cheatsheets.search=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=examples/org.eclipse.demo.cheatsheets.search
 
