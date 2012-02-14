@@ -16,7 +16,7 @@ plugin@org.eclipse.platform.discovery.compatibility.tests=GIT,tag=v20120209-0920
 
 plugin@org.eclipse.demo.cheatsheets.search=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=examples/org.eclipse.demo.cheatsheets.search
 
-feature@org.eclipse.platform.discovery_tests.feature=GIT,tag=v20120209-0920,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery_tests.feature
+feature@org.eclipse.platform.discovery_tests.feature=GIT,tag=v20120214-0754,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery_tests.feature
 feature@org.eclipse.demo.search.example.feature=GIT,tag=v20120131-0854,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.demo.search.example.feature
 feature@org.eclipse.platform.discovery.feature=GIT,tag=v20120131-0854,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.feature
 feature@org.eclipse.platform.discovery.compatibility.feature=GIT,tag=v20120131-0854,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git,path=features/org.eclipse.platform.discovery.compatibility.feature
