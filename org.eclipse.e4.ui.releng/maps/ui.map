@@ -27,8 +27,8 @@ plugin@org.eclipse.e4.ui.gadgets=GIT,tag=v20110613-2030,repo=git://git.eclipse.o
 
 plugin@org.eclipse.e4.emf.xpath=GIT,tag=v20111012-1223,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.emf.xpath
 
-plugin@org.eclipse.e4.tools.emf.ui=GIT,tag=v20120130-1831,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui
-plugin@org.eclipse.e4.tools.emf.editor3x=GIT,tag=v20120126-2014,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.editor3x
+plugin@org.eclipse.e4.tools.emf.ui=GIT,tag=v20120214-2243,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui
+plugin@org.eclipse.e4.tools.emf.editor3x=GIT,tag=v20120214-2252,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.editor3x
 plugin@org.eclipse.e4.tools.compat=GIT,tag=v20120126-2104,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.compat
 plugin@org.eclipse.e4.tools.services=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.services
 plugin@org.eclipse.e4.tools.emf.liveeditor=GIT,tag=v20120119-1728,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.liveeditor
@@ -42,7 +42,7 @@ plugin@org.eclipse.e4.tools.css.spy=GIT,tag=v20120119-1728,repo=git://git.eclips
 !*** e4 UI examples
 plugin@org.eclipse.nebula.widgets.gallery=R_0_20090212,:pserver:anonymous@dev.eclipse.org:/cvsroot/technology,,org.eclipse.swt.nebula/org.eclipse.nebula.widgets.gallery
 plugin@org.eclipse.e4.demo.e4photo=GIT,tag=v20120119-1638,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.demo.e4photo
-plugin@org.eclipse.e4.demo.contacts=GIT,tag=v20120210-2010,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.demo.contacts
+plugin@org.eclipse.e4.demo.contacts=GIT,tag=v20120214-2258,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.demo.contacts
 plugin@org.eclipse.e4.ui.examples.css=GIT,tag=v20111007-1320,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.ui.examples.css
 plugin@org.eclipse.e4.ui.examples.css.nebula=GIT,tag=v20090609-1530,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=examples/org.eclipse.e4.ui.examples.css.nebula
 plugin@org.eclipse.e4.ui.examples.css.rcp=GIT,tag=v20111007-1320,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.ui.examples.css.rcp
