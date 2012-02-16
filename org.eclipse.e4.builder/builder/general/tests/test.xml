@@ -672,32 +672,32 @@
 	</target>
 	
 	<target name="discoveryCompatibility">
-		<runTests testPlugin="org.eclipse.platform.discovery.compatibility.tests" />
+		<runTests testPlugin="org.eclipse.platform.discovery.compatibility.tests" additionalplugins="org.hamcrest"/>
 	</target>
 	
 	<target name="discoveryCore">
-		<runTests testPlugin="org.eclipse.platform.discovery.core.test.unit" />
+		<runTests testPlugin="org.eclipse.platform.discovery.core.test.unit"  additionalplugins="org.hamcrest"/>
 	</target>
 	
 	<target name="discoveryIntegration">
-		<runTests testPlugin="org.eclipse.platform.discovery.integration.test.unit" />
+		<runTests testPlugin="org.eclipse.platform.discovery.integration.test.unit"  additionalplugins="org.hamcrest"/>
 	</target>
 	
 	<target name="discoveryRuntime">
-		<runTests testPlugin="org.eclipse.platform.discovery.runtime.test.unit" />
+		<runTests testPlugin="org.eclipse.platform.discovery.runtime.test.unit" additionalplugins="org.hamcrest"/>
 	</target>
 		
 		
 	<target name="discoveryUIComp">
-		<runTests testPlugin="org.eclipse.platform.discovery.ui.test.comp" />
+		<runTests testPlugin="org.eclipse.platform.discovery.ui.test.comp" additionalplugins="org.hamcrest"/>
 	</target>
 	
 	<target name="discoveryUIUnit">
-		<runTests testPlugin="org.eclipse.platform.discovery.ui.test.unit" />
+		<runTests testPlugin="org.eclipse.platform.discovery.ui.test.unit" additionalplugins="org.hamcrest"/>
 	</target>
 			
 	<target name="discoveryUtilUnit">
-		<runTests testPlugin="org.eclipse.platform.discovery.util.test.unit" />
+		<runTests testPlugin="org.eclipse.platform.discovery.util.test.unit" additionalplugins="org.hamcrest"/>
 	</target>
 
 	<target name="e4">
