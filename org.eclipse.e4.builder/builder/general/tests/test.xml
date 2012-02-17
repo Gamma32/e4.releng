@@ -676,7 +676,7 @@
 	</target>
 	
 	<target name="discoveryCore">
-		<runTests testPlugin="org.eclipse.platform.discovery.core.test.unit"  additionalplugins="org.hamcrest"/>
+		<runTests testPlugin="org.eclipse.platform.discovery.core.test.unit"  additionalplugins="org.hamcrest,org.eclipse.platform.discovery.runtime"/>
 	</target>
 	
 	<target name="discoveryIntegration">
