@@ -2,8 +2,8 @@
 
 plugin@org.eclipse.e4.core.services=GIT,tag=v20120118-2149,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.services
 plugin@org.eclipse.e4.core.commands=GIT,tag=v20120209-1845,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.core.commands
-plugin@org.eclipse.e4.core.di=GIT,tag=v20120130-1955,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.di
-plugin@org.eclipse.e4.core.contexts=GIT,tag=v20120216-1527,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.contexts
+plugin@org.eclipse.e4.core.di=GIT,tag=v20120216-1655,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.di
+plugin@org.eclipse.e4.core.contexts=GIT,tag=v20120216-1655,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.contexts
 plugin@org.eclipse.e4.core.contexts.debug=GIT,tag=v20120209-1845,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.core.contexts.debug
 plugin@org.eclipse.e4.core.di.extensions=GIT,tag=v20120201-1503,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=bundles/org.eclipse.e4.core.di.extensions
 
@@ -12,7 +12,7 @@ plugin@org.eclipse.e4.core.javascript=GIT,tag=v20100614-1830,repo=git://git.ecli
 
 !*** e4 core tests
 plugin@org.eclipse.e4.core.tests.services=GIT,tag=v20110113-1500,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=tests/org.eclipse.e4.core.tests.services
-plugin@org.eclipse.e4.core.tests=GIT,tag=v20120216-1527,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=tests/org.eclipse.e4.core.tests
+plugin@org.eclipse.e4.core.tests=GIT,tag=v20120216-1637,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=tests/org.eclipse.e4.core.tests
 plugin@org.eclipse.e4.core.commands.tests=GIT,tag=v20111010-0727,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.core.commands.tests
 plugin@com.google.code.atinject.tck=GIT,tag=v20110603-1130,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=tests/com.google.code.atinject.tck
 
