@@ -6,14 +6,14 @@ feature@org.eclipse.e4.rcp=GIT,tag=v20120131-1846,repo=git://git.eclipse.org/git
 
 !**** Workbench Compatibility
 
-plugin@org.eclipse.e4.ui.workbench.addons.swt=GIT,tag=v20120214-1905,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.addons.swt
-plugin@org.eclipse.ui.workbench=GIT,tag=v20120215-1921,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui.workbench
-plugin@org.eclipse.ui=GIT,tag=v20120215-1332,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui
+plugin@org.eclipse.e4.ui.workbench.addons.swt=GIT,tag=v20120217-1935,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.addons.swt
+plugin@org.eclipse.ui.workbench=GIT,tag=v20120221-2100,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui.workbench
+plugin@org.eclipse.ui=GIT,tag=v20120221-2100,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.ui
 
 !**** 4.x Platform Doc
 
 plugin@org.eclipse.platform.doc.user=GIT,tag=v20120215-1818,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.common.git,path=bundles/org.eclipse.platform.doc.user
-plugin@org.eclipse.platform.doc.isv=GIT,tag=v20120215-1818,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.common.git,path=bundles/org.eclipse.platform.doc.isv
+plugin@org.eclipse.platform.doc.isv=GIT,tag=v20120221-1923,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.common.git,path=bundles/org.eclipse.platform.doc.isv
 
 !**** EMF
 feature@org.eclipse.emf.ecore=p2IU,id=org.eclipse.emf.ecore.feature.jar,version=,repository=http://download.eclipse.org/modeling/emf/emf/updates/2.8milestones/base/
