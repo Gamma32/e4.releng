@@ -16,7 +16,7 @@ plugin@org.eclipse.e4.core.tests=GIT,tag=v20120216-1637,repo=git://git.eclipse.o
 plugin@org.eclipse.e4.core.commands.tests=GIT,tag=v20111010-0727,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.core.commands.tests
 plugin@com.google.code.atinject.tck=GIT,tag=v20110603-1130,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.runtime.git,path=tests/com.google.code.atinject.tck
 
-plugin@org.eclipse.e4.ui.menu.tests=GIT,tag=v20120126-0008,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.menu.tests
+plugin@org.eclipse.e4.ui.menu.tests=GIT,tag=v20120229-1306,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.menu.tests
 plugin@org.eclipse.e4.ui.menu.tests.p1=GIT,tag=v20111007-1320,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.menu.tests.p1
 plugin@org.eclipse.e4.ui.menu.tests.p2=GIT,tag=v20111007-1320,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.menu.tests.p2
 plugin@org.eclipse.e4.ui.menu.tests.p3=GIT,tag=v20111007-1320,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=tests/org.eclipse.e4.ui.menu.tests.p3
