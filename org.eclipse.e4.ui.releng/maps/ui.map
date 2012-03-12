@@ -11,7 +11,7 @@ plugin@org.eclipse.e4.ui.widgets=GIT,tag=v20120312-0401,repo=git://git.eclipse.o
 plugin@org.eclipse.e4.ui.bindings=GIT,tag=v20120209-1845,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.bindings
 plugin@org.pushingpixels.trident=v20110609-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.pushingpixels.trident
 
-plugin@org.eclipse.e4.ui.css.core=GIT,tag=v20120312-0400,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.css.core
+plugin@org.eclipse.e4.ui.css.core=GIT,tag=v20120312-1146,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.css.core
 plugin@org.eclipse.e4.ui.css.swt.theme=GIT,tag=v20120312-0400,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.css.swt.theme
 plugin@org.eclipse.e4.ui.css.jface=GIT,tag=v20100720-1930,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=bundles/org.eclipse.e4.ui.css.jface
 plugin@org.eclipse.e4.ui.css.swt=GIT,tag=v20120311-2215,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.css.swt
