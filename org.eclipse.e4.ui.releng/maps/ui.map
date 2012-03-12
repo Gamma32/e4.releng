@@ -3,7 +3,7 @@ plugin@org.eclipse.e4.ui.di=GIT,tag=v20120217-1935,repo=git://git.eclipse.org/gi
 plugin@org.eclipse.e4.ui.services=GIT,tag=v20120209-1845,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.services
 plugin@org.eclipse.e4.ui.model.workbench=GIT,tag=v20120221-1958,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.model.workbench
 plugin@org.eclipse.e4.ui.model.workbench.edit=GIT,tag=v20120209-1845,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.model.workbench.edit
-plugin@org.eclipse.e4.ui.workbench=GIT,tag=v20120224-1625,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench
+plugin@org.eclipse.e4.ui.workbench=GIT,tag=v20120312-1520,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench
 plugin@org.eclipse.e4.ui.workbench3=GIT,tag=v20120215-1332,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench3
 plugin@org.eclipse.e4.ui.workbench.renderers.swt=GIT,tag=v20120309-1839,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.renderers.swt
 plugin@org.eclipse.e4.ui.workbench.swt=GIT,tag=v20120224-1612,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.workbench.swt
@@ -42,7 +42,7 @@ plugin@org.eclipse.e4.tools.css.spy=GIT,tag=v20120312-1221,repo=git://git.eclips
 !*** e4 UI examples
 plugin@org.eclipse.nebula.widgets.gallery=R_0_20090212,:pserver:anonymous@dev.eclipse.org:/cvsroot/technology,,org.eclipse.swt.nebula/org.eclipse.nebula.widgets.gallery
 plugin@org.eclipse.e4.demo.e4photo=GIT,tag=v20120119-1638,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.demo.e4photo
-plugin@org.eclipse.e4.demo.contacts=GIT,tag=v20120223-2001,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.demo.contacts
+plugin@org.eclipse.e4.demo.contacts=GIT,tag=v20120312-1416,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.demo.contacts
 plugin@org.eclipse.e4.ui.examples.css=GIT,tag=v20111007-1320,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.ui.examples.css
 plugin@org.eclipse.e4.ui.examples.css.nebula=GIT,tag=v20090609-1530,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=examples/org.eclipse.e4.ui.examples.css.nebula
 plugin@org.eclipse.e4.ui.examples.css.rcp=GIT,tag=v20111007-1320,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.ui.examples.css.rcp
