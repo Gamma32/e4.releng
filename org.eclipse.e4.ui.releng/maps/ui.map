@@ -12,7 +12,7 @@ plugin@org.eclipse.e4.ui.bindings=GIT,tag=v20120313-1928,repo=git://git.eclipse.
 plugin@org.pushingpixels.trident=v20110609-1700,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.ui/bundles/org.pushingpixels.trident
 
 plugin@org.eclipse.e4.ui.css.core=GIT,tag=v20120312-1146,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.css.core
-plugin@org.eclipse.e4.ui.css.swt.theme=GIT,tag=v20120314-0315,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.css.swt.theme
+plugin@org.eclipse.e4.ui.css.swt.theme=GIT,tag=v20120315-1637,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.css.swt.theme
 plugin@org.eclipse.e4.ui.css.jface=GIT,tag=v20100720-1930,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=bundles/org.eclipse.e4.ui.css.jface
 plugin@org.eclipse.e4.ui.css.swt=GIT,tag=v20120314-1644,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.ui.css.swt
 plugin@org.eclipse.e4.ui.css.nebula=GIT,tag=v20100630-1000,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=bundles/org.eclipse.e4.ui.css.nebula
