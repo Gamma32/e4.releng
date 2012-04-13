@@ -500,7 +500,7 @@ sendMail () {
  
 (
 echo "From: e4Build@build.eclipse.org "
-echo "To: platform-releng-dev@eclipse.org, e4-dev@eclipse.org "
+echo "To: e4-dev@eclipse.org "
 echo "MIME-Version: 1.0 "
 echo "Content-Type: text/html; charset=us-ascii"
 echo "Subject: $e4Stream Build: $buildTag $failed"
@@ -581,7 +581,7 @@ tagRepo () {
    -timestamp "$timestamp" -oldBuildTag $oldBuildTag -buildTag $buildTag \
    -tag $tag
 	popd
-	mailx -s "$eclipseStream SDK Build: $buildTag submission" platform-releng-dev@eclipse.org e4-dev@eclipse.org <$writableBuildRoot/$buildTag/report.txt
+	mailx -s "$e4Stream Build: $buildTag submission" e4-dev@eclipse.org <$writableBuildRoot/$buildTag/report.txt
 }
 
 updateBaseBuilder
@@ -596,7 +596,7 @@ cd ${builderDir}/scripts
 
 echo "[start] [`date +%H\:%M\:%S`] setting eclipse $eclipseIBuild"
 
-runSDKBuild
+#runSDKBuild
 
 buildMasterFeature
 
@@ -608,7 +608,7 @@ generateRepoHtml
 #generateSwtZip
 
 # try some tests
-runSDKTests
+#runSDKTests
 runTheTests e4less
 
 cp $writableBuildRoot/logs/current.log \
