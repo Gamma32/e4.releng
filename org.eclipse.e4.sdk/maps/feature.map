@@ -1,9 +1,9 @@
 !***************  FEATURE CONTRIBUTION  ******************************************************
-feature@org.eclipse.sdk=GIT,tag=v20120221-1643,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.releng.git,path=features/org.eclipse.sdk
-plugin@org.eclipse.sdk=GIT,tag=v20120319-2140,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.git,path=platform/org.eclipse.sdk
+feature@org.eclipse.sdk=GIT,tag=v20120403-2031,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.releng.git,path=features/org.eclipse.sdk
+plugin@org.eclipse.sdk=GIT,tag=v20120404-1254,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.git,path=platform/org.eclipse.sdk
 
-feature@org.eclipse.platform=GIT,tag=v20120221-1643,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.releng.git,path=features/org.eclipse.platform-feature
-plugin@org.eclipse.platform=GIT,tag=v20120314-1642,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.git,path=platform/org.eclipse.platform
+feature@org.eclipse.platform=GIT,tag=v20120403-2031,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.releng.git,path=features/org.eclipse.platform-feature
+plugin@org.eclipse.platform=GIT,tag=v20120403-1921,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.git,path=platform/org.eclipse.platform
 
 feature@org.eclipse.license=GIT,tag=v20110208,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.releng.git,path=features/org.eclipse.license
 
