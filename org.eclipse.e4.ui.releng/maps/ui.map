@@ -27,12 +27,12 @@ plugin@org.eclipse.e4.ui.gadgets=GIT,tag=v20110613-2030,repo=git://git.eclipse.o
 
 plugin@org.eclipse.e4.emf.xpath=GIT,tag=v20111012-1223,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.emf.xpath
 
-plugin@org.eclipse.e4.tools.emf.ui=GIT,tag=v20120214-2243,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui
+plugin@org.eclipse.e4.tools.emf.ui=GIT,tag=v20120415-1448,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui
 plugin@org.eclipse.e4.tools.emf.editor3x=GIT,tag=v20120214-2252,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.editor3x
 plugin@org.eclipse.e4.tools.compat=GIT,tag=v20120309-1516,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.compat
 plugin@org.eclipse.e4.tools.services=GIT,tag=v20120224-0022,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.services
 plugin@org.eclipse.e4.tools.emf.liveeditor=GIT,tag=v20120119-1728,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.liveeditor
-plugin@org.eclipse.e4.tools=GIT,tag=v20120207-1904,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools
+plugin@org.eclipse.e4.tools=GIT,tag=v20120415-1452,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools
 plugin@org.eclipse.e4.tools.emf.ui.script.js=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui.script.js
 plugin@org.eclipse.e4.tools.css.editor=GIT,tag=v20120411-1548,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor
 plugin@org.eclipse.e4.tools.css.editor.ui=GIT,tag=v20120312-2340,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor.ui
