@@ -581,7 +581,7 @@ tagRepo () {
    -timestamp "$timestamp" -oldBuildTag $oldBuildTag -buildTag $buildTag \
    -tag $tag
 	popd
-	mailx -s "$e4Stream Build: $buildTag submission" e4-dev@eclipse.org <$writableBuildRoot/$buildTag/report.txt
+	mailx -s "$e4Stream Build: $buildTag submission" e4-dev@eclipse.org <$writableBuildRoot/logs/report.txt
 }
 
 updateBaseBuilder
