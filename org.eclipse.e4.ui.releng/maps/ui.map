@@ -60,10 +60,10 @@ plugin@org.eclipse.e4.ui.bindings.tests=GIT,tag=v20120126-0008,repo=git://git.ec
 
 
 !**** and build it
-feature@org.eclipse.e4.ui.feature=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.ui.feature
+feature@org.eclipse.e4.ui.feature=GIT,tag=v20120417-2115,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.ui.feature
 feature@org.eclipse.e4.ui.web.feature=GIT,tag=v20091022-1230,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.ui.web.feature
 feature@org.eclipse.e4.ui.compatibility.feature=GIT,tag=v20091210-1930,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.ui.compatibility.feature
-feature@org.eclipse.e4.ui.css.feature=GIT,tag=v20100603-1900,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.ui.css.feature
+feature@org.eclipse.e4.ui.css.feature=GIT,tag=v20120417-2115,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.ui.css.feature
 feature@org.eclipse.e4.ui.tests.feature=GIT,tag=v20110420-1700,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.ui.tests.feature
 feature@org.eclipse.e4.ui.examples.feature=GIT,tag=v20101215-1120,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.ui.examples.feature
 
