@@ -40,7 +40,7 @@ plugin@org.eclipse.e4.tools.css.spy=GIT,tag=v20120324-1430,repo=git://git.eclips
 
 
 !*** e4 UI examples
-plugin@org.eclipse.nebula.widgets.gallery=R_0_20090212,:pserver:anonymous@dev.eclipse.org:/cvsroot/technology,,org.eclipse.swt.nebula/org.eclipse.nebula.widgets.gallery
+plugin@org.eclipse.nebula.widgets.gallery=GIT,tag=R_0_20090212,repo=git://git.eclipse.org/gitroot/nebula/org.eclipse.nebula.git,path=widgets/gallery/org.eclipse.nebula.widgets.gallery
 plugin@org.eclipse.e4.demo.e4photo=GIT,tag=v20120119-1638,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.demo.e4photo
 plugin@org.eclipse.e4.demo.contacts=GIT,tag=v20120403-2039,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.demo.contacts
 plugin@org.eclipse.e4.ui.examples.css=GIT,tag=v20111007-1320,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=examples/org.eclipse.e4.ui.examples.css
