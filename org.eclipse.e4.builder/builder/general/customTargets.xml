@@ -117,6 +117,7 @@
 			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true"/>
 			<iu id="org.eclipse.sdk.ide" />
 			<iu id="org.eclipse.equinox.concurrent" />
+			<iu id="org.eclipse.core.runtime.compatibility.auth" />
 			<!--<iu id="org.eclipse.equinox.core.sdk.feature.group" /> -->
 		</p2.mirror>
 		
