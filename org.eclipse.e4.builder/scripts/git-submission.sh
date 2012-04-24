@@ -7,7 +7,7 @@
 
 
 ROOT=$1; shift
-rm -f /tmp/proj_changed_$$.txt /tmp/bug_list_$$.txt /tmp/bug_info_$$.txt
+rm -f /tmp/proj_changed_$$.txt /tmp/bug_list_$$.txt /tmp/bug_info_$$.txt /tmp/project_dirs_$$.txt
 
 while [ $# -gt 0 ]; do
 	REPO="$1"; shift
@@ -15,7 +15,10 @@ while [ $# -gt 0 ]; do
 	LAST_TAG="$1"; shift
 	BUILD_TAG="$1"; shift
 	cd $ROOT/$REPO_DIR
-	git diff --name-only ${LAST_TAG} ${BUILD_TAG} | cut -f2 -d/ | sort -u >>/tmp/proj_changed_$$.txt
+	find * -name .project | sed 's!/.project!!g' >/tmp/project_dirs_$$.txt
+	git diff --name-only ${LAST_TAG} ${BUILD_TAG} \
+		| grep -F -o -f /tmp/project_dirs_$$.txt  \
+		| sort -u >>/tmp/proj_changed_$$.txt
 	 
 	
 	git log --first-parent ${LAST_TAG}..${BUILD_TAG} \
@@ -36,8 +39,9 @@ for BUG in $( cat /tmp/bug_list_$$.txt | sort -n -u ); do
     echo + Bug $BUG - $TITLE \(${STATUS}\) >>/tmp/bug_info_$$.txt
 done
 
-echo The build contains the following changes:
-cat /tmp/bug_info_$$.txt
-echo ""
 echo The following projects have changed:
 cat /tmp/proj_changed_$$.txt | sort -u
+echo ""
+echo The build contains commits that mentioned these bugs:
+cat /tmp/bug_info_$$.txt
+
