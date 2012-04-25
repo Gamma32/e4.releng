@@ -40,7 +40,7 @@ feature@org.eclipse.e4.core.metaconfig.feature=GIT,tag=v20100722-1700,repo=git:/
 
 feature@org.eclipse.e4.deeplink.master=GIT,tag=v20101018-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.deeplink.master
 feature@org.eclipse.e4.core.deeplink.feature=GIT,tag=v20101018-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.core.deeplink.feature
-feature@org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature=GIT,tag=v20101018-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature
+feature@org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature=GIT,tag=v20120424-2133,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.core.deeplink.launchproxy.dependencies.feature
 feature@org.eclipse.e4.core.deeplink.launchproxy.feature=GIT,tag=v20101018-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.core.deeplink.launchproxy.feature
 feature@org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature=GIT,tag=v20101018-1500,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git,path=features/org.eclipse.e4.core.deeplink.typehandler.extensionpt.feature
 
