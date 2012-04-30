@@ -35,8 +35,8 @@ plugin@org.eclipse.e4.tools.emf.liveeditor=GIT,tag=v20120119-1728,repo=git://git
 plugin@org.eclipse.e4.tools=GIT,tag=v20120426-2250,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools
 plugin@org.eclipse.e4.tools.emf.ui.script.js=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui.script.js
 plugin@org.eclipse.e4.tools.css.editor=GIT,tag=v20120411-1548,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor
-plugin@org.eclipse.e4.tools.css.editor.ui=GIT,tag=v20120312-2340,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor.ui
-plugin@org.eclipse.e4.tools.css.spy=GIT,tag=v20120428-0129,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.spy
+plugin@org.eclipse.e4.tools.css.editor.ui=GIT,tag=v20120430-1503,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor.ui
+plugin@org.eclipse.e4.tools.css.spy=GIT,tag=v20120430-1525,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.spy
 
 
 !*** e4 UI examples
