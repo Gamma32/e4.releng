@@ -1,7 +1,7 @@
 !***************  RESOURCES CONTRIBUTION  ******************************************************** 
 
 !**** Semantic Resources EFS
-plugin@org.eclipse.core.resources.semantic=v20120412-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.semantic
+plugin@org.eclipse.core.resources.semantic=v20120502-1742,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.core.resources.semantic
 plugin@org.eclipse.ui.resources.semantic=v20120412-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/bundles/org.eclipse.ui.resources.semantic
 plugin@org.eclipse.core.resources.semantic.examples=v20120412-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/examples/org.eclipse.core.resources.semantic.examples
 plugin@org.eclipse.core.resources.semantic.test=v20120412-1200,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,,e4/org.eclipse.e4.resources/tests/org.eclipse.core.resources.semantic.test
