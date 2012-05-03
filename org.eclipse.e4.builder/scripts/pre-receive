@@ -1,0 +1,107 @@
+#!/bin/sh
+
+#
+#	For each ref, validate the commit.
+#
+validate_ref()
+{
+	# --- Arguments
+	oldrev=$(git rev-parse $1)
+	newrev=$(git rev-parse $2)
+	refname="$3"
+
+	allownonffpush=$( git config --bool hooks.allownonffpush )
+	allowdeletebranch=$( git config --bool hooks.allowdeletebranch )
+	allowdeletetag=$( git config --bool hooks.allowdeletetag )
+	allowcreatenottopicbranch=$( git config --bool hooks.allowcreatenottopicbranch )
+	# oldrev could be 0s which means creating refname
+	# newrev could be 0s which means deleting refname
+
+	case "$refname" in
+		refs/heads/*)
+			branch=$(expr "$refname" : "refs/heads/\(.*\)")
+			topicbranch=$(expr "$branch" : "\(.*/.*\)")
+			topicuser=$(expr "$branch" : "\(.*\)/.*")
+			if [ 0 -ne $(expr "$newrev" : "0*$") ]; then # deleting
+				# only topic branches can be deleted
+				if [ "$allowdeletebranch" != "true" -a -z "$topicbranch" ]; then
+					fail=1
+					echo >&2 "*** Deleting the branch $branch is not permitted. ***"
+					return
+				fi
+				if [  "$allowdeletebranch" != "true" -a "$USER" != "$topicuser" ]; then
+					fail=1
+					echo >&2 "*** Deleting the branch $branch is not permitted by $USER. ***"
+					return
+				fi
+				return # Don't need to validate old revision
+			else #updating
+				if [ 0 -ne $(expr "$oldrev" : "0*$") ]; then # pushing a new branch
+					if [ "$allowcreatenottopicbranch" != "true" -a -z "$topicbranch" ]; then
+						fail=1
+						echo >&2 "*** creation of branch $branch is not permitted. ***"
+					fi
+					return # it's not a FF merge
+				fi
+				if [ $oldrev != $(git merge-base $oldrev $newrev) ]; then # non fast-forward
+					# only topic branches can be non fast-forwarded
+					if [ "$allownonffpush" != "true" -a -z "$topicbranch" ]; then
+						fail=1
+						echo >&2 "*** Non fast-forward of branch $branch is not permitted. ***"
+						return
+					fi
+					if [  "$allownonffpush" != "true" -a "$USER" != "$topicuser" ]; then
+						fail=1
+						echo >&2 "*** Non fast-forward of branch $branch is not permitted by $USER. ***"
+						return
+					fi
+				fi
+			fi
+			;;
+		refs/tags/*)
+		    tag=$(expr "$refname" : "refs/tags/\(.*\)")
+			topictag=$(expr "$tag" : "\(.*/.*\)")
+			topicuser=$(expr "$tag" : "\(.*\)/.*")
+			if [ 0 -ne $(expr "$newrev" : "0*$") ]; then # deleting
+				# only topic tags can be deleted
+				if [ "$allowdeletetag" != "true" -a -z "$topictag" ]; then
+					fail=1
+					echo >&2 "*** Deleting the tag $tag is not permitted. ***"
+					return
+				fi
+				if [  "$allowdeletetag" != "true" -a "$USER" != "$topicuser" ]; then
+					fail=1
+					echo >&2 "*** Deleting the tag $tag is not permitted by $USER. ***"
+					return
+				fi
+				return
+			fi
+			;;
+		*)
+			fail=1
+			echo >&2 "*** pre-receive hook does not understand ref $refname in this repository. ***"
+			echo >&2 "*** Contact the repository administrator. ***"
+			;;
+	esac
+}
+
+fail=""
+
+# Allow dual mode: run from the command line just like the update hook, or
+# if no arguments are given then run as a hook script
+if [ -n "$1" -a -n "$2" -a -n "$3" ]; then
+	# Output to the terminal in command line mode - if someone wanted to
+	# resend an email; they could redirect the output to sendmail
+	# themselves
+	PAGER= validate_ref $2 $3 $1
+else
+	while read oldrev newrev refname
+	do
+		validate_ref $oldrev $newrev $refname
+	done
+fi
+
+if [ -n "$fail" ]; then
+	exit $fail
+fi
+
