@@ -27,13 +27,13 @@ plugin@org.eclipse.e4.ui.gadgets=GIT,tag=v20110613-2030,repo=git://git.eclipse.o
 
 plugin@org.eclipse.e4.emf.xpath=GIT,tag=v20111012-1223,repo=git://git.eclipse.org/gitroot/platform/eclipse.platform.ui.git,path=bundles/org.eclipse.e4.emf.xpath
 
-plugin@org.eclipse.e4.tools.emf.ui=GIT,tag=v20120515-1647,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui
-plugin@org.eclipse.e4.tools.emf.editor3x=GIT,tag=v20120521-1853,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.editor3x
-plugin@org.eclipse.e4.tools.compat=GIT,tag=v20120309-1516,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.compat
-plugin@org.eclipse.e4.tools.services=GIT,tag=v20120224-0022,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.services
-plugin@org.eclipse.e4.tools.emf.liveeditor=GIT,tag=v20120119-1728,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.liveeditor
-plugin@org.eclipse.e4.tools=GIT,tag=v20120515-1601,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools
-plugin@org.eclipse.e4.tools.emf.ui.script.js=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui.script.js
+plugin@org.eclipse.e4.tools.emf.ui=GIT,tag=v20120529-2036,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui
+plugin@org.eclipse.e4.tools.emf.editor3x=GIT,tag=v20120529-2033,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.editor3x
+plugin@org.eclipse.e4.tools.compat=GIT,tag=v20120529-2033,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.compat
+plugin@org.eclipse.e4.tools.services=GIT,tag=v20120529-2033,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.services
+plugin@org.eclipse.e4.tools.emf.liveeditor=GIT,tag=v20120529-2033,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.liveeditor
+plugin@org.eclipse.e4.tools=GIT,tag=v20120529-2033,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools
+plugin@org.eclipse.e4.tools.emf.ui.script.js=GIT,tag=v20120529-2033,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.emf.ui.script.js
 plugin@org.eclipse.e4.tools.css.editor=GIT,tag=v20120411-1548,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor
 plugin@org.eclipse.e4.tools.css.editor.ui=GIT,tag=v20120430-1503,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.editor.ui
 plugin@org.eclipse.e4.tools.css.spy=GIT,tag=v20120502-1641,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=bundles/org.eclipse.e4.tools.css.spy
@@ -67,8 +67,8 @@ feature@org.eclipse.e4.ui.css.feature=GIT,tag=v20120422-1701,repo=git://git.ecli
 feature@org.eclipse.e4.ui.tests.feature=GIT,tag=v20110420-1700,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.ui.tests.feature
 feature@org.eclipse.e4.ui.examples.feature=GIT,tag=v20101215-1120,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.ui.examples.feature
 
-feature@org.eclipse.e4.core.tools.feature=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=features/org.eclipse.e4.core.tools.feature
-feature@org.eclipse.e4.tools.e3x.bridge.feature=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=features/org.eclipse.e4.tools.e3x.bridge.feature
+feature@org.eclipse.e4.core.tools.feature=GIT,tag=v20120529-2033,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=features/org.eclipse.e4.core.tools.feature
+feature@org.eclipse.e4.tools.e3x.bridge.feature=GIT,tag=v20120529-2033,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=features/org.eclipse.e4.tools.e3x.bridge.feature
 feature@org.eclipse.e4.tools.css.editor.feature=GIT,tag=v20120425-2144,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=features/org.eclipse.e4.tools.css.editor.feature
 feature@org.eclipse.e4.tools.css.spy.feature=GIT,tag=v20111206-1509,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git,path=features/org.eclipse.e4.tools.css.spy.feature
 
