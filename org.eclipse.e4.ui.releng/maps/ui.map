@@ -74,7 +74,7 @@ feature@org.eclipse.e4.tools.css.spy.feature=GIT,tag=v20111206-1509,repo=git://g
 
 feature@org.eclipse.e4.sdk.runtime.feature=GIT,tag=v20110613-2030,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.sdk.runtime.feature
 feature@org.eclipse.e4.sdk.source.feature=GIT,tag=v20110808-1944,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.sdk.source.feature
-feature@org.eclipse.e4.master=GIT,tag=v20111205-2035,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.master
+feature@org.eclipse.e4.master=GIT,tag=v20120531-1620,repo=git://git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git,path=features/org.eclipse.e4.master
 
 !**** Test Suites
 #plugin@org.eclipse.core.tests.harness=v20081006,:pserver:anonymous@dev.eclipse.org:/cvsroot/eclipse,
