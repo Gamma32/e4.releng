@@ -177,6 +177,7 @@
 		<p2.remove.iu>
 			<repository location="file:${repoBaseLocation}/xtext" />
 			<iu id="osgi.enterprise" />
+			<iu id="org.eclipse.wb.core.lib" />
 		</p2.remove.iu>
 		
 		<!--<p2.remove.iu>
