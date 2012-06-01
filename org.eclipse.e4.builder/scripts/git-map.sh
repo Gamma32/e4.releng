@@ -73,9 +73,9 @@ update_map () {
 		if ! ( git tag --contains $LAST_COMMIT | grep $CURRENT_TAG >/dev/null ); then
 			NEW_DATE=$( git log -1 --format="%ct" "$LAST_COMMIT" )		
 			if [ "$PLATFORM" == "Darwin" ]; then
-				NEW_TAG=v$( date -u -j -f "%s" "$NEW_DATE" "+%Y%m%d-%H%M" )
+				NEW_TAG=v$( date -u -j -f "%s" "$NEW_DATE" "+%Y%m%d-%H%M%S" )
 			else
-				NEW_TAG=v$( date -u --date="@$NEW_DATE"  "+%Y%m%d-%H%M" )
+				NEW_TAG=v$( date -u --date="@$NEW_DATE"  "+%Y%m%d-%H%M%S" )
 			fi
 			
 			if ! ( git log -1  --format="%d" "$LAST_COMMIT" | grep "[ (]$NEW_TAG[,)]" >/dev/null); then
