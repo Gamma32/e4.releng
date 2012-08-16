@@ -99,6 +99,9 @@ pull() {
         fi
         popd
         pushd $gitCache/$directory
+        # git fetch first, to be sure new branches can be "seen" to be checked out
+        echo "git fetch"
+        git fetch
         echo git checkout $2
         git checkout $2
         echo git pull
