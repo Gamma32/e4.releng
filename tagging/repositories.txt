@@ -2,6 +2,5 @@
 #format is <repository URL> <branch name>
 ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.tools.git master
 ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.ui.git master
-ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.xwt.git master
 ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.search.git master
-ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.deeplink.git master
+ssh://pwebster@git.eclipse.org/gitroot/e4/org.eclipse.e4.languages.git master
