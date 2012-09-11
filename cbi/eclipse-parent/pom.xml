@@ -31,6 +31,7 @@
     <emf-repo.url>http://download.eclipse.org/modeling/emf/emf/updates/2.8milestones/</emf-repo.url>
     <aspectj-repo.url>http://download.eclipse.org/tools/ajdt/aspectj/update</aspectj-repo.url>
     <egit-repo.url>http://download.eclipse.org/egit/updates</egit-repo.url>
+    <swtbot-repo.url>http://download.eclipse.org/technology/swtbot/helios/dev-build/update-site</swtbot-repo.url>
 
     <juno-repo.url>http://download.eclipse.org/releases/juno</juno-repo.url>
     <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
@@ -65,6 +66,11 @@
     <repository>
       <id>egit</id>
       <url>${egit-repo.url}</url>
+      <layout>p2</layout>
+    </repository> 
+    <repository>
+      <id>swtbot</id>
+      <url>${swtbot-repo.url}</url>
       <layout>p2</layout>
     </repository> 
   </repositories>
