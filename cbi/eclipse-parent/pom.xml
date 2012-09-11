@@ -124,6 +124,14 @@
               <arch>x86_64</arch>
             </environment>
           </environments>
+         <!-- example 3: work around Equinox bug 348045 -->
+      <filters>
+         <filter>
+            <type>p2-installable-unit</type>
+            <id>org.eclipse.equinox.servletbridge.extensionbundle</id>
+            <removeAll />
+         </filter>
+      </filters>
         </configuration>
       </plugin>
 
