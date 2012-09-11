@@ -1,5 +1,8 @@
 #!/bin/bash +x
 
+mavenVerbose=-X
+mavenSign=-Peclipse-sign
+
 #default values, overridden by command line
 writableBuildRoot=/shared/eclipse/e4
 relengProject=org.eclipse.e4.releng
@@ -132,4 +135,55 @@ export JAVA_HOME=/opt/public/common/jdk-1.6.x86_64/jre
 mkdir -p $buildDirectory
 
 cd $buildDirectory
+
+localMavenRepo=$buildDirectory/localRepo
+
+git clone file:///gitroot/cbi/org.eclipse.cbi.maven.plugins.git
+git clone file:///gitroot/e4/org.eclipse.e4.releng.git
+git clone file:///gitroot/e4/org.eclipse.e4.tools.git
+git clone file:///gitroot/e4/org.eclipse.e4.search.git
+git clone file:///gitroot/e4/org.eclipse.e4.languages.git
+
+pushd org.eclipse.cbi.maven.plugins
+mvn -f eclipse-jarsigner-plugin/pom.xml \
+clean install \
+-Dmaven.repo.local=$localMavenRepo
+popd
+
+pushd org.eclipse.e4.releng/cbi
+mvn -f eclipse-parent/pom.xml \
+clean install \
+-Dmaven.repo.local=$localMavenRepo
+popd
+
+pushd org.eclipse.e4.tools
+mvn $mavenVerbose \
+clean verify \
+$mavenSign \
+-Dmaven.test.skip=true \
+-Dmaven.repo.local=$localMavenRepo
+popd
+
+pushd org.eclipse.e4.search
+mvn $mavenVerbose \
+clean verify \
+$mavenSign \
+-Dmaven.test.skip=true \
+-Dmaven.repo.local=$localMavenRepo
+popd
+
+pushd org.eclipse.e4.languages
+mvn $mavenVerbose \
+clean verify \
+$mavenSign \
+-Dmaven.test.skip=true \
+-Dmaven.repo.local=$localMavenRepo
+popd
+
+
+ #1136  cp /home/data/httpd/download.eclipse.org/eclipse/downloads/drops4/R-4.2-201206081400/eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz .
+ #1137  ls
+ #1138  gunzip -dc eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz | tar xf -
+ #1139  ls
+ #1140  eclipse/eclipse -noSplash -application org.eclipse.ant.core.antRunner -DbuildDirectory=$buildDirectory -buildfile /shared/eclipse/e4/cbi/mirror-build.xml 
 

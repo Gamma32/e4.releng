@@ -1,0 +1,24 @@
+<project name="Create Build Repo" default="mirrorBuild">
+	<property name="localRepoLocation" value="${buildDirectory}/repository"/>
+	<property name="toolsRepo" value="file://${buildDirectory}/org.eclipse.e4.tools/build/org.eclipse.e4.core.tools.update/target/repository"/>
+	<property name="searchRepo" value="file://${buildDirectory}/org.eclipse.e4.search/build/org.eclipse.e4.search.update/target/repository"/>
+	<property name="langRepo" value="file://${buildDirectory}/org.eclipse.e4.languages/build/org.eclipse.e4.languages.update/target/repository"/>
+
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after setup but before starting the build proper -->
+	<!-- ===================================================================== -->
+	<target name="mirrorBuild" >
+		<echo message="Mirror from ${toolsRepo} to ${localRepoLocation}" />
+		<echo message="Mirror from ${searchRepo} to ${localRepoLocation}" />
+		<echo message="Mirror from ${langRepo} to ${localRepoLocation}" />
+		<p2.mirror destination="file:${localRepoLocation}" ignoreerrors="true">
+			<source location="${toolsRepo}" />
+			<source location="${searchRepo}" />
+			<source location="${langRepo}" />
+			<slicingOptions includeOptional="false" includeNonGreedy="false" latestVersionOnly="true"/>
+		</p2.mirror>
+	</target>
+
+</project>
+
