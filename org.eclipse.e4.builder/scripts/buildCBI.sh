@@ -1,7 +1,7 @@
 #!/bin/bash +x
 
-mavenVerbose=-X
-mavenSign=-Peclipse-sign
+#mavenVerbose=-X
+#mavenSign=-Peclipse-sign
 
 #default values, overridden by command line
 writableBuildRoot=/shared/eclipse/e4
@@ -177,6 +177,13 @@ mvn $mavenVerbose \
 clean verify \
 $mavenSign \
 -Dmaven.test.skip=true \
+-Dmaven.repo.local=$localMavenRepo
+popd
+
+pushd org.eclipse.e4.releng/cbi
+mvn -f org.eclipse.e4.releng.update/pom.xml \
+clean verify \
+-DbuildDirectory=$buildDirectory \
 -Dmaven.repo.local=$localMavenRepo
 popd
 
