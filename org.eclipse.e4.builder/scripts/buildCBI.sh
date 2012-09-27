@@ -2,6 +2,7 @@
 
 mavenVerbose=-X
 mavenSign=-Peclipse-sign
+mavenBREE=-Pbree-libs
 
 #default values, overridden by command line
 writableBuildRoot=/shared/eclipse/e4
@@ -210,6 +211,7 @@ git push origin $buildTag
 mvn $mavenVerbose \
 clean install \
 $mavenSign \
+$mavenBREE \
 -Dmaven.test.skip=true \
 -Dmaven.repo.local=$localMavenRepo
 popd
@@ -220,6 +222,7 @@ git push origin $buildTag
 mvn $mavenVerbose \
 clean install \
 $mavenSign \
+$mavenBREE \
 -Dmaven.test.skip=true \
 -Dmaven.repo.local=$localMavenRepo
 popd
@@ -230,6 +233,7 @@ git push origin $buildTag
 mvn $mavenVerbose \
 clean install \
 $mavenSign \
+$mavenBREE \
 -Dmaven.test.skip=true \
 -Dmaven.repo.local=$localMavenRepo
 popd
