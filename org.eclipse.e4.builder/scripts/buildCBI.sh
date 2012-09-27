@@ -1,7 +1,7 @@
 #!/bin/bash +x
 
-#mavenVerbose=-X
-#mavenSign=-Peclipse-sign
+mavenVerbose=-X
+mavenSign=-Peclipse-sign
 
 #default values, overridden by command line
 writableBuildRoot=/shared/eclipse/e4
