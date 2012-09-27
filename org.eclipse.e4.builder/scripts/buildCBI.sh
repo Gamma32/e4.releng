@@ -198,16 +198,12 @@ popd
 
 
 pushd org.eclipse.e4.releng/cbi
-git tag $buildTag
-git push origin $buildTag
 mvn -f eclipse-parent/pom.xml \
 clean install \
 -Dmaven.repo.local=$localMavenRepo
 popd
 
 pushd org.eclipse.e4.tools
-git tag $buildTag
-git push origin $buildTag
 mvn $mavenVerbose \
 clean install \
 $mavenSign \
@@ -217,8 +213,6 @@ $mavenBREE \
 popd
 
 pushd org.eclipse.e4.search
-git tag $buildTag
-git push origin $buildTag
 mvn $mavenVerbose \
 clean install \
 $mavenSign \
@@ -228,8 +222,6 @@ $mavenBREE \
 popd
 
 pushd org.eclipse.e4.languages
-git tag $buildTag
-git push origin $buildTag
 mvn $mavenVerbose \
 clean install \
 $mavenSign \
