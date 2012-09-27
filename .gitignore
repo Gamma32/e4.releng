@@ -1,4 +1,5 @@
 /bin/
+/cbi/org.eclipse.e4.releng.update/target/
 *~
 *.rej
 *.bak

@@ -16,7 +16,7 @@ gitEmail=pwebster@ca.ibm.com
 gitName="E4 Build"
 
 eclipseStream=4.2
-e4Stream=0.12
+e4Stream=0.13
 basebuilderBranch=R3_7
 eclipsebuilderBranch=R4_HEAD
 
@@ -81,16 +81,12 @@ if [ -z "$gitCache" ]; then
 	gitCache=$supportDir/gitClones
 fi
 
-
-builderDir=${gitCache}/${relengProject}/org.eclipse.e4.builder
-
 if [ "$buildType" = N ]; then
 	tag=false
 fi
 
 #publish
 publishIndex="${committerId}@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/downloads"
-publishSDKIndex="${committerId}@build.eclipse.org:/home/data/httpd/download.eclipse.org/eclipse/downloads"
 publishUpdates="${committerId}@build.eclipse.org:/home/data/httpd/download.eclipse.org/e4/updates"
 publishDir="${publishIndex}/drops"
 
@@ -114,6 +110,7 @@ targetDir=${buildDir}/targets
 targetZips=$targetDir/downloads
 transformedRepo=${targetDir}/helios-p2
 buildDirectory=$buildDir/$buildTag
+updateSite=${targetDir}/updates/${e4Stream}-I-builds
     
 e4TestDir=/opt/buildhomes/e4Build/e4Tests/$buildTag
 sdkTestDir=/opt/buildhomes/e4Build/sdkTests/$buildTag
@@ -122,8 +119,7 @@ buildResults=$buildDirectory/$buildTag
     
 sdkResults=$buildDir/40builds/$buildTag/$buildTag
 sdkBuildDirectory=$buildDir/40builds/$buildTag
-		
-relengBaseBuilderDir=$supportDir/org.eclipse.releng.basebuilder
+
 buildDirEclipse="$buildDir/eclipse"
 WORKSPACE="$buildDir/workspace"
 export WORKSPACE
@@ -136,13 +132,62 @@ mkdir -p $buildDirectory
 
 cd $buildDirectory
 
+gunzip -dc /home/data/httpd/download.eclipse.org/eclipse/downloads/drops4/R-4.2-201206081400/eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz | \
+tar xf -
+
+ECLIPSE=$(pwd)/eclipse/eclipse
+
 localMavenRepo=$buildDirectory/localRepo
 
+e4_releng=file:///gitroot/e4/org.eclipse.e4.releng.git
+e4_tools=file:///gitroot/e4/org.eclipse.e4.tools.git
+e4_search=file:///gitroot/e4/org.eclipse.e4.search.git
+e4_lang=file:///gitroot/e4/org.eclipse.e4.languages.git
+
 git clone file:///gitroot/cbi/org.eclipse.cbi.maven.plugins.git
-git clone file:///gitroot/e4/org.eclipse.e4.releng.git
-git clone file:///gitroot/e4/org.eclipse.e4.tools.git
-git clone file:///gitroot/e4/org.eclipse.e4.search.git
-git clone file:///gitroot/e4/org.eclipse.e4.languages.git
+git clone $e4_releng
+git clone $e4_tools
+git clone $e4_search
+git clone $e4_lang
+
+# tag first
+
+
+pushd org.eclipse.e4.releng
+git tag $buildTag
+git push origin $buildTag
+popd
+
+pushd org.eclipse.e4.tools
+git tag $buildTag
+git push origin $buildTag
+popd
+
+pushd org.eclipse.e4.search
+git tag $buildTag
+git push origin $buildTag
+popd
+
+pushd org.eclipse.e4.languages
+git tag $buildTag
+git push origin $buildTag
+popd
+
+/bin/bash \
+org.eclipse.e4.releng/org.eclipse.e4.builder/scripts/git-submission.sh \
+$(pwd) \
+$( echo $e4_tools | sed 's!file:///!git://git.eclipse.org/!g' ) \
+$oldBuildTag $buildTag \
+$( echo $e4_search | sed 's!file:///!git://git.eclipse.org/!g' ) \
+$oldBuildTag $buildTag \
+$( echo $e4_lang | sed 's!file:///!git://git.eclipse.org/!g' ) \
+$oldBuildTag $buildTag >submission_report.txt 2>&1
+
+mailx -s "$e4Stream Build: $buildTag submission" e4-dev@eclipse.org <submission_report.txt
+
+
+# build everything
+
 
 pushd org.eclipse.cbi.maven.plugins
 mvn -f eclipse-jarsigner-plugin/pom.xml \
@@ -150,31 +195,40 @@ clean install \
 -Dmaven.repo.local=$localMavenRepo
 popd
 
+
 pushd org.eclipse.e4.releng/cbi
+git tag $buildTag
+git push origin $buildTag
 mvn -f eclipse-parent/pom.xml \
 clean install \
 -Dmaven.repo.local=$localMavenRepo
 popd
 
 pushd org.eclipse.e4.tools
+git tag $buildTag
+git push origin $buildTag
 mvn $mavenVerbose \
-clean verify \
+clean install \
 $mavenSign \
 -Dmaven.test.skip=true \
 -Dmaven.repo.local=$localMavenRepo
 popd
 
 pushd org.eclipse.e4.search
+git tag $buildTag
+git push origin $buildTag
 mvn $mavenVerbose \
-clean verify \
+clean install \
 $mavenSign \
 -Dmaven.test.skip=true \
 -Dmaven.repo.local=$localMavenRepo
 popd
 
 pushd org.eclipse.e4.languages
+git tag $buildTag
+git push origin $buildTag
 mvn $mavenVerbose \
-clean verify \
+clean install \
 $mavenSign \
 -Dmaven.test.skip=true \
 -Dmaven.repo.local=$localMavenRepo
@@ -187,10 +241,53 @@ clean verify \
 -Dmaven.repo.local=$localMavenRepo
 popd
 
+# update the common repo
 
- #1136  cp /home/data/httpd/download.eclipse.org/eclipse/downloads/drops4/R-4.2-201206081400/eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz .
- #1137  ls
- #1138  gunzip -dc eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz | tar xf -
- #1139  ls
- #1140  eclipse/eclipse -noSplash -application org.eclipse.ant.core.antRunner -DbuildDirectory=$buildDirectory -buildfile /shared/eclipse/e4/cbi/mirror-build.xml 
+$ECLIPSE \
+-noSplash \
+-application org.eclipse.equinox.p2.artifact.repository.mirrorApplication \
+-source file://$(pwd)/repository \
+-destination file://$updateSite \
+-destinationName $e4Stream-I-builds
+
+
+$ECLIPSE \
+-noSplash \
+-application org.eclipse.equinox.p2.metadata.repository.mirrorApplication \
+-source file://$(pwd)/repository \
+-destination file://$updateSite \
+-destinationName $e4Stream-I-builds
+
+# get ready to publish
+
+mkdir -p $buildResults
+cp -r repository $buildResults
+cp submission_report.txt $buildResults
+
+pushd repository
+zip -r $buildResults/eclipse-e4-repo-incubation-${buildTag}.zip *
+popd
+
+
+cp org.eclipse.e4.releng/org.eclipse.e4.builder/templates/build.index.html t1
+sed "s/@repbuildid@/$buildTag/g" t1 >t2
+sed "s/@repmaindate@/$timestamp/g" t2 >t1
+sed "s/@repbuilddate@/$buildTag/g" t1 >t2
+repoSize=$( ls -l $buildResults/eclipse-e4-repo-incubation-${buildTag}.zip | awk ' {print $5 }' )
+sed "s/@repobuildsize@/${repoSize}/g" t2 >$buildResults/index.html
+rm -f t1 t2
+
+cp /shared/eclipse/e4/cbi/log.txt $buildResults/buildlog.txt
+
+
+echo Publishing  $buildResults to "$publishDir"
+scp -r $buildResults "$publishDir"
+rsync --recursive --delete ${updateSite} \
+"${publishUpdates}"
+#sendMail
+sleep 60
+wget -O index.txt http://download.eclipse.org/e4/downloads/createIndex.php
+scp index.txt "$publishIndex"/index.html
+
+
 
