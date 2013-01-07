@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# https://bugs.eclipse.org/362363 : Better policy ... provide hooks to allow a committer to delete <userid>/branchname branches
+# Latest version is at http://git.eclipse.org/c/e4/org.eclipse.e4.releng.git/tree/org.eclipse.e4.builder/scripts/pre-receive
+
 #
 #	For each ref, validate the commit.
 #
@@ -21,7 +24,7 @@ validate_ref()
 		refs/heads/*)
 			branch=$(expr "$refname" : "refs/heads/\(.*\)")
 			topicbranch=$(expr "$branch" : "\(.*/.*\)")
-			topicuser=$(expr "$branch" : "\(.*\)/.*")
+			topicuser=$(expr "$branch" : "\([^/]*\)/.*")
 			if [ 0 -ne $(expr "$newrev" : "0*$") ]; then # deleting
 				# only topic branches can be deleted
 				if [ "$allowdeletebranch" != "true" -a -z "$topicbranch" ]; then
@@ -39,7 +42,7 @@ validate_ref()
 				if [ 0 -ne $(expr "$oldrev" : "0*$") ]; then # pushing a new branch
 					if [ "$allowcreatenottopicbranch" != "true" -a -z "$topicbranch" ]; then
 						fail=1
-						echo >&2 "*** creation of branch $branch is not permitted. ***"
+						echo >&2 "*** creation of branch $branch is not permitted. Use <committerId>/<branchname> for topic branches, or ask your project lead or PMC to temporarily set hooks.allowcreatenottopicbranch to true. ***"
 					fi
 					return # it's not a FF merge
 				fi
@@ -47,7 +50,7 @@ validate_ref()
 					# only topic branches can be non fast-forwarded
 					if [ "$allownonffpush" != "true" -a -z "$topicbranch" ]; then
 						fail=1
-						echo >&2 "*** Non fast-forward of branch $branch is not permitted. ***"
+						echo >&2 "*** Non fast-forward of branch $branch is not permitted. Use <committerId>/<branchname> for topic branches, or ask your project lead or PMC to temporarily set hooks.allownonffpush to true. ***"
 						return
 					fi
 					if [  "$allownonffpush" != "true" -a "$USER" != "$topicuser" ]; then
