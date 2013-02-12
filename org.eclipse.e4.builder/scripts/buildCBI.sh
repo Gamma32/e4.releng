@@ -144,12 +144,14 @@ e4_releng=file:///gitroot/e4/org.eclipse.e4.releng.git
 e4_tools=file:///gitroot/e4/org.eclipse.e4.tools.git
 e4_search=file:///gitroot/e4/org.eclipse.e4.search.git
 e4_lang=file:///gitroot/e4/org.eclipse.e4.languages.git
+e4_resources=file:///gitroot/e4/org.eclipse.e4.resources.git
 
 git clone file:///gitroot/cbi/org.eclipse.cbi.maven.plugins.git
 git clone $e4_releng
 git clone $e4_tools
 git clone $e4_search
 git clone $e4_lang
+git clone $e4_resources
 
 # tag first
 
@@ -174,6 +176,11 @@ git tag $buildTag
 git push origin $buildTag
 popd
 
+pushd org.eclipse.e4.resources
+git tag $buildTag
+git push origin $buildTag
+popd
+
 /bin/bash \
 org.eclipse.e4.releng/org.eclipse.e4.builder/scripts/git-submission.sh \
 $(pwd) \
@@ -182,6 +189,8 @@ $oldBuildTag $buildTag \
 $( echo $e4_search | sed 's!file:///!git://git.eclipse.org/!g' ) \
 $oldBuildTag $buildTag \
 $( echo $e4_lang | sed 's!file:///!git://git.eclipse.org/!g' ) \
+$oldBuildTag $buildTag \
+$( echo $e4_resources | sed 's!file:///!git://git.eclipse.org/!g' ) \
 $oldBuildTag $buildTag >submission_report.txt 2>&1
 
 mailx -s "$e4Stream Build: $buildTag submission" e4-dev@eclipse.org <submission_report.txt
@@ -222,6 +231,15 @@ $mavenBREE \
 popd
 
 pushd org.eclipse.e4.languages
+mvn $mavenVerbose \
+clean install \
+$mavenSign \
+$mavenBREE \
+-Dmaven.test.skip=true \
+-Dmaven.repo.local=$localMavenRepo
+popd
+
+pushd org.eclipse.e4.resources
 mvn $mavenVerbose \
 clean install \
 $mavenSign \
