@@ -255,6 +255,14 @@ clean verify \
 -Dmaven.repo.local=$localMavenRepo
 popd
 
+if [ ! -e repository ]; then
+	mailx -s "$e4Stream Build: $buildTag Failed" e4-dev@eclipse.org <<EOF
+Build log: http://build.eclipse.org/eclipse/e4/cbi/log.txt
+
+EOF
+exit 0
+fi
+
 # update the common repo
 
 $ECLIPSE \
