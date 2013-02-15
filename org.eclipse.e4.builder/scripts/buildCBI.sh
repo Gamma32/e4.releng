@@ -200,7 +200,7 @@ mailx -s "$e4Stream Build: $buildTag submission" e4-dev@eclipse.org <submission_
 
 
 pushd org.eclipse.cbi.maven.plugins
-mvn -f eclipse-jarsigner-plugin/pom.xml \
+mvn -X \
 clean install \
 -Dmaven.repo.local=$localMavenRepo
 popd
