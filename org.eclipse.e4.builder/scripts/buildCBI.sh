@@ -146,7 +146,7 @@ e4_search=file:///gitroot/e4/org.eclipse.e4.search.git
 e4_lang=file:///gitroot/e4/org.eclipse.e4.languages.git
 e4_resources=file:///gitroot/e4/org.eclipse.e4.resources.git
 
-git clone file:///gitroot/cbi/org.eclipse.cbi.maven.plugins.git
+#git clone file:///gitroot/cbi/org.eclipse.cbi.maven.plugins.git
 git clone $e4_releng
 git clone $e4_tools
 git clone $e4_search
@@ -199,11 +199,12 @@ mailx -s "$e4Stream Build: $buildTag submission" e4-dev@eclipse.org <submission_
 # build everything
 
 
-pushd org.eclipse.cbi.maven.plugins
-mvn -X \
-clean install \
--Dmaven.repo.local=$localMavenRepo
-popd
+# In theory, this comes from repo.eclipse.org
+#pushd org.eclipse.cbi.maven.plugins
+#mvn -X \
+#clean install \
+#-Dmaven.repo.local=$localMavenRepo
+#popd
 
 
 pushd org.eclipse.e4.releng/cbi
