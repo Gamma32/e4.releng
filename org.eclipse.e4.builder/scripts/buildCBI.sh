@@ -16,8 +16,8 @@ committerId=pwebster
 gitEmail=pwebster@ca.ibm.com
 gitName="E4 Build"
 
-eclipseStream=4.2
-e4Stream=0.13
+eclipseStream=4.3
+e4Stream=0.14
 basebuilderBranch=R3_7
 eclipsebuilderBranch=R4_HEAD
 
