@@ -25,23 +25,23 @@
     <tycho.version>0.17.0-SNAPSHOT</tycho.version>
     <tycho-extras.version>0.17.0-SNAPSHOT</tycho-extras.version>
 
-    <orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/</orbit-repo.url>
+    <orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/R20130118183705/repository</orbit-repo.url>
     <jetty-repo.url>http://www.eclipse.org/external/jetty/updates/jetty-bundles-8.x/8.1.3.v20120522/</jetty-repo.url>
     <ecf-repo.url>http://download.eclipse.org/rt/ecf/3.5.6/site.p2</ecf-repo.url>
-    <emf-repo.url>http://download.eclipse.org/modeling/emf/emf/updates/2.8milestones/</emf-repo.url>
+    <emf-repo.url>http://download.eclipse.org/modeling/emf/emf/updates/2.9milestones/</emf-repo.url>
     <aspectj-repo.url>http://download.eclipse.org/tools/ajdt/aspectj/update</aspectj-repo.url>
     <egit-repo.url>http://download.eclipse.org/egit/updates</egit-repo.url>
     <swtbot-repo.url>http://download.eclipse.org/technology/swtbot/helios/dev-build/update-site</swtbot-repo.url>
 
-    <juno-repo.url>http://download.eclipse.org/releases/juno</juno-repo.url>
+    <kepler-repo.url>http://download.eclipse.org/releases/juno</kepler-repo.url>
     <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
     <cbi-repo.url>https://repo.eclipse.org/content/groups/cbi/</cbi-repo.url>
   </properties>
 
   <repositories>
     <repository>
-      <id>juno</id>
-      <url>${juno-repo.url}</url>
+      <id>kepler</id>
+      <url>${kepler-repo.url}</url>
       <layout>p2</layout>
     </repository>
     <repository>
