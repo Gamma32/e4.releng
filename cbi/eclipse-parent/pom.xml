@@ -33,7 +33,7 @@
     <egit-repo.url>http://download.eclipse.org/egit/updates</egit-repo.url>
     <swtbot-repo.url>http://download.eclipse.org/technology/swtbot/helios/dev-build/update-site</swtbot-repo.url>
 
-    <kepler-repo.url>http://download.eclipse.org/releases/juno</kepler-repo.url>
+    <kepler-repo.url>http://download.eclipse.org/releases/kepler</kepler-repo.url>
     <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
     <cbi-repo.url>https://repo.eclipse.org/content/groups/cbi/</cbi-repo.url>
   </properties>
