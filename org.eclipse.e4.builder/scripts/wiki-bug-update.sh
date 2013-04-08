@@ -20,7 +20,7 @@ for BUG in $( cat $SFILE ); do
 	curl -k https://bugs.eclipse.org/bugs/show_bug.cgi?id=${BUG}\&ctype=xml >$BUGT2 2>/dev/null
 	TITLE=$( grep short_desc $BUGT2 | sed 's/^.*<short_desc.//g' | sed 's/<\/short_desc.*$//g' )
 	STATUS=$( grep bug_status $BUGT2 | sed 's/^.*<bug_status.//g' | sed 's/<\/bug_status.*$//g' )
-	if [ RESOLVED = "$STATUS" -o VERIFIED = "$STATUS" ]; then
+	if [ RESOLVED = "$STATUS" -o VERIFIED = "$STATUS" -o CLOSED = "$STATUS" ]; then
         	STATUS=$( grep '<resolution>' $BUGT2 | sed 's/^.*<resolution.//g' | sed 's/<\/resolution.*$//g' )
 		PRE="<strike>"
 		POST="</strike>"
