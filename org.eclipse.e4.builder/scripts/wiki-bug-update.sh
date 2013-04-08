@@ -11,7 +11,7 @@
 INFILE=$1; shift
 SFILE=/tmp/t1_$$.txt
 
-sed 's/^.*bug|\([0-9]*\).*/\1/g' $INFILE >$SFILE
+sed 's/^.*bug|\([0-9]*\).*$/\1/g' $INFILE >$SFILE
 
 for BUG in $( cat $SFILE ); do
 	PRE=""
