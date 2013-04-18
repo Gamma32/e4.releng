@@ -132,11 +132,11 @@ export JAVA_HOME=/opt/public/common/jdk1.7.0_11
 export PATH=$JAVA_HOME/bin:${MAVEN_PATH}:$PATH
 
 
-mkdir -p $buildDirectory
+mkdir -p $TMP_DIR
 
 cd $buildDirectory
 
-gunzip -dc /home/data/httpd/download.eclipse.org/eclipse/downloads/drops4/R-4.2-201206081400/eclipse-SDK-4.2-linux-gtk-x86_64.tar.gz | \
+gunzip -dc /home/data/httpd/download.eclipse.org/eclipse/downloads/drops4/R-4.2.2-201302041200/eclipse-SDK-4.2.2-linux-gtk-x86_64.tar.gz  | \
 tar xf -
 
 ECLIPSE=$(pwd)/eclipse/eclipse
