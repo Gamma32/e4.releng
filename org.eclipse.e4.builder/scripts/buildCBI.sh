@@ -125,9 +125,12 @@ buildDirEclipse="$buildDir/eclipse"
 WORKSPACE="$buildDir/workspace"
 export WORKSPACE
 
-export PATH=/opt/public/common/apache-maven-3.0.4/bin:$PATH
-export MAVEN_OPTS=-Xmx1024m
-export JAVA_HOME=/opt/public/common/jdk-1.6.x86_64/jre
+TMP_DIR=$buildDirectory/tmp
+export MAVEN_PATH=/opt/public/common/apache-maven-3.0.4/bin
+export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=256M -Djava.io.tmpdir=${TMP_DIR}"
+export JAVA_HOME=/opt/public/common/jdk1.7.0_11
+export PATH=$JAVA_HOME/bin:${MAVEN_PATH}:$PATH
+
 
 mkdir -p $buildDirectory
 
