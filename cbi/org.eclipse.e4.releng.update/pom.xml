@@ -45,11 +45,10 @@
                         <layout>p2</layout>
                         <!-- supported layouts are "p2-metadata", "p2-artifacts", and "p2" (for joint repositories; default) -->
                     </repository>
-                    <repository>
+                    <!--repository>
                         <url>file://${buildDirectory}/org.eclipse.e4.resources/build/org.eclipse.e4.resources.update/target/repository</url>
                         <layout>p2</layout>
-                        <!-- supported layouts are "p2-metadata", "p2-artifacts", and "p2" (for joint repositories; default) -->
-                    </repository>
+                    </repository-->
                     <repository>
                         <url>file://${buildDirectory}/org.eclipse.e4.databinding/build/org.eclipse.e4.databinding.update/target/repository</url>
                         <layout>p2</layout>
