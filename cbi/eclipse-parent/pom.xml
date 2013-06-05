@@ -34,7 +34,7 @@
     <kepler-repo.url>http://download.eclipse.org/releases/kepler</kepler-repo.url>
     <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
     <cbi-repo.url>https://repo.eclipse.org/content/groups/cbi/</cbi-repo.url>
-    <eclipse-repo.url>https://repo.eclipse.org/content/repositories/releases/</eclipse-repo.url>
+    <eclipse-maven-repo.url>https://repo.eclipse.org/content/repositories/releases/</eclipse-maven-repo.url>
   </properties>
 
   <repositories>
@@ -80,7 +80,7 @@
     </repository>
     <repository>
       <id>eclipse-maven</id>
-      <url>${eclipse-repo.url}</url>
+      <url>${eclipse-maven-repo.url}</url>
     </repository>
   </repositories>
   <distributionManagement>
@@ -115,7 +115,7 @@
     </pluginRepository>
     <pluginRepository>
       <id>eclipse</id>
-      <url>${eclipse-repo.url}</url>
+      <url>${eclipse-maven-repo.url}</url>
       <releases>
         <enabled>true</enabled>
       </releases>
