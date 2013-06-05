@@ -34,6 +34,7 @@
     <kepler-repo.url>http://download.eclipse.org/releases/kepler</kepler-repo.url>
     <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
     <cbi-repo.url>https://repo.eclipse.org/content/groups/cbi/</cbi-repo.url>
+    <eclipse-repo.url>https://repo.eclipse.org/content/repositories/releases/</eclipse-repo.url>
   </properties>
 
   <repositories>
@@ -76,8 +77,24 @@
       <id>swtbot</id>
       <url>${swtbot-repo.url}</url>
       <layout>p2</layout>
-    </repository> 
+    </repository>
+    <repository>
+      <id>eclipse-maven</id>
+      <url>${eclipse-repo.url}</url>
+    </repository>
   </repositories>
+  <distributionManagement>
+    <repository>
+      <id>repo.eclipse.org</id>
+      <name>Eclipse Repository - Releases</name>
+      <url>https://repo.eclipse.org/content/repositories/eclipse-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>repo.eclipse.org</id>
+      <name>Eclipse Repository - Snapshots</name>
+      <url>https://repo.eclipse.org/content/repositories/eclipse-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <pluginRepositories>
     <pluginRepository>
@@ -89,6 +106,16 @@
     <pluginRepository>
       <id>cbi-plugins</id>
       <url>${cbi-repo.url}</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>eclipse</id>
+      <url>${eclipse-repo.url}</url>
       <releases>
         <enabled>true</enabled>
       </releases>
